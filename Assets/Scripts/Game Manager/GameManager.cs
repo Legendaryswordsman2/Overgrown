@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     [field: SerializeField] public GameObject pauseMenu { get; private set; }
     [field: SerializeField] public GameObject inventoryCanvas { get; private set; }
-    [field: SerializeField] public GameObject playerMoney { get; private set; } 
     [field: SerializeField] public GameObject inventoryAndMapButtons { get; private set; }
     [field: SerializeField] public GameObject playerLevel { get; private set; }
 
@@ -116,7 +115,6 @@ public class GameManager : MonoBehaviour
             if (inventoryCanvas.activeSelf == false && selectLevelMap.activeSelf == false)
             {
                 inventoryCanvas.SetActive(true);
-                playerMoney.SetActive(true);
                 playerLevel.SetActive(true);
                 inventoryAndMapButtons.SetActive(true);
                 StopTime();
@@ -126,7 +124,6 @@ public class GameManager : MonoBehaviour
                 inventoryCanvas.SetActive(false);
                 inventoryAndMapButtons.SetActive(false);
                 playerLevel.SetActive(false);
-                playerMoney.SetActive(false);
                 selectLevelMap.SetActive(false);
                 StartTime();
             }
