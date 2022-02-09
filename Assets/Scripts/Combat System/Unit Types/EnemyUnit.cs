@@ -59,7 +59,6 @@ public class EnemyUnit : BaseUnit
 				isReturnigToBasePOS = false;
 				GetComponent<SpriteRenderer>().flipX = false;
 				anim.Play("Idle Animation");
-				BattleSystem battleSystem = BattleSystem.instance;
 				StartCoroutine(NextTurn(0));
 			}
 		}
@@ -84,6 +83,7 @@ public class EnemyUnit : BaseUnit
 	}
 	public override void ChooseAction()
 	{
+		Debug.Log("Enemy Choosing action");
 		base.ChooseAction();
 
 		int halfOfHealth = maxHealth / 2;

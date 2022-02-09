@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ArrowLerp : MonoBehaviour
 {
-	static float elapsedTime;
+	float elapsedTime;
 	float duration = 0.5f;
 	Vector3 startPosition;
-	[SerializeField] Transform endPosition;
+	[HideInInspector]
+	public Transform endPosition;
+	[HideInInspector]
+	public int damage;
 
 	private void Start()
 	{
@@ -15,6 +18,8 @@ public class ArrowLerp : MonoBehaviour
 	}
 	private void Update()
 	{
+		if (endPosition == null) return;
+
 		elapsedTime += Time.deltaTime;
 		float percentageComplete = elapsedTime / duration;
 
@@ -22,8 +27,19 @@ public class ArrowLerp : MonoBehaviour
 
 		if (transform.position == endPosition.position)
 		{
-			Debug.Log("Reached Position");
+			BattleSystem.instance.enemiesAlive[BattleSystem.instance.enemySelectionIndex].TakeDamage(damage);
+			StartCoroutine(BattleSystem.instance.EnemyTurn());
+			//Debug.Log("Reached Position");
+			GetComponent<SpriteRenderer>().enabled = false;
+			endPosition = null;
+			StartCoroutine(DestroyTimer());
 		}
+	}
+
+	IEnumerator DestroyTimer()
+	{
+		yield return new WaitForSeconds(2);
+		Destroy(gameObject);
 	}
 
 	private void OnDrawGizmosSelected()

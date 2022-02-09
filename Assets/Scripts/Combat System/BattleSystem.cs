@@ -76,6 +76,7 @@ public class BattleSystem : MonoBehaviour
 		{
 			enemiesAlive[i].ResetForNewRound();
 		}
+		Debug.Log("Enemy Turn");
 		yield return new WaitForSeconds(2);
 		enemiesAlive[0].ChooseAction();
 	}

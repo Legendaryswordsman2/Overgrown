@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum AttackType { Basic, Ranged}
 public class PlayerUnit : BaseUnit
 {
 	[Header("References")]
 	[SerializeField] BattleHUD playerHud;
+	[SerializeField] GameObject arrowPrefab;
 	[HideInInspector] public bool awaitingTargetToAttack = false;
 
 	BattleSystem battleSystem;
 
-	bool isAttacking;
+	bool isMeleeAttacking;
 	bool isReturningToBasePOS;
+
+	AttackType attackType;
 
 	// Lerping
 	[Min(0)]
@@ -34,7 +38,10 @@ public class PlayerUnit : BaseUnit
 
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
-				Attack();
+				if (attackType == AttackType.Basic)
+			    Attack();
+				else
+			    RangedAttack();
 			}
 
 			if (Input.GetKeyDown(KeyCode.W))
@@ -66,7 +73,7 @@ public class PlayerUnit : BaseUnit
 			}
 		}
 
-		if (isAttacking)
+		if (isMeleeAttacking)
 		{
 			elapsedTime += Time.deltaTime;
 			float percentageComplete = elapsedTime / walkSpeed;
@@ -75,7 +82,7 @@ public class PlayerUnit : BaseUnit
 
 			if (transform.position == locationToAttackEnemy.position)
 			{
-				isAttacking = false;
+				isMeleeAttacking = false;
 				anim.Play("Attack Animation");
 				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].TakeDamage(damage);
 				StartCoroutine(ReturnToBasePOS());
@@ -111,13 +118,24 @@ public class PlayerUnit : BaseUnit
 		locationToAttackEnemy = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(2);
 		elapsedTime = 0;
 		anim.Play("Walk Animation");
-		isAttacking = true;
+		isMeleeAttacking = true;
 		//enemiesAlive[tempSelectionIndex].TakeDamage(playerUnit.damage);
 		//StartCoroutine(EnemyTurn());
 	}
 
 	void RangedAttack()
 	{
+		awaitingTargetToAttack = false;
+
+		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		{
+			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+		}
+
+		locationToAttackEnemy = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform;
+		ArrowLerp arrow = Instantiate(arrowPrefab, this.transform.position, Quaternion.identity).GetComponent<ArrowLerp>();
+		arrow.damage = damage;
+		arrow.endPosition = locationToAttackEnemy;
 
 	}
 
@@ -152,14 +170,16 @@ public class PlayerUnit : BaseUnit
 		BattleSystem.instance.playerChoices.SetActive(true);
 	}
 
-	public void SelectEnemyToAttack()
+	public void SelectEnemyToAttack(bool isBasicAttack)
 	{
+		if (isBasicAttack)
+			attackType = AttackType.Basic;
+		else
+			attackType = AttackType.Ranged;
+
 		BattleSystem.instance.playerChoices.SetActive(false);
 
 		if (battleSystem.enemySelectionIndex < 0) battleSystem.enemySelectionIndex = 0;
-
-		Debug.Log(battleSystem.enemySelectionIndex);
-		Debug.Log(battleSystem.enemiesAlive.Count - 1);
 
 		if (battleSystem.enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) battleSystem.enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
 
