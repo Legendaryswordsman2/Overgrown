@@ -116,6 +116,11 @@ public class PlayerUnit : BaseUnit
 		//StartCoroutine(EnemyTurn());
 	}
 
+	void RangedAttack()
+	{
+
+	}
+
 	IEnumerator ReturnToBasePOS()
 	{
 		elapsedTime = 0;
@@ -150,6 +155,14 @@ public class PlayerUnit : BaseUnit
 	public void SelectEnemyToAttack()
 	{
 		BattleSystem.instance.playerChoices.SetActive(false);
+
+		if (battleSystem.enemySelectionIndex < 0) battleSystem.enemySelectionIndex = 0;
+
+		Debug.Log(battleSystem.enemySelectionIndex);
+		Debug.Log(battleSystem.enemiesAlive.Count - 1);
+
+		if (battleSystem.enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) battleSystem.enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
+
 		awaitingTargetToAttack = true;
 		BattleSystem.instance.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 	}

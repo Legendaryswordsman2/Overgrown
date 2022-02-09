@@ -35117,10 +35117,10 @@ MonoBehaviour:
   unitName: Player
   unitLevel: 1
   defaultSprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
-  maxHealth: 116
+  maxHealth: 940
   currentHealth: 0
   defence: 100
-  damage: 40
+  damage: 135
   critChance: 0
   isBlocking: 0
   playerHud: {fileID: 1867131979}
