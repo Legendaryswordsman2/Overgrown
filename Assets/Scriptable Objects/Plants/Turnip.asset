@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ce5da55303b24fb796aa80c321a44, type: 3}
+  m_Name: Turnip
+  m_EditorClassIdentifier: 
+  plantGrowthStages:
+  - {fileID: -4832571376610259945, guid: 2a54bc4f0e4042349a2d97b5a6798e49, type: 3}
+  - {fileID: -8890486001880264371, guid: 2a54bc4f0e4042349a2d97b5a6798e49, type: 3}
+  - {fileID: 1215901161520242133, guid: 2a54bc4f0e4042349a2d97b5a6798e49, type: 3}
+  - {fileID: 4302298583479691686, guid: 2a54bc4f0e4042349a2d97b5a6798e49, type: 3}
+  - {fileID: 1786851682426998090, guid: 2a54bc4f0e4042349a2d97b5a6798e49, type: 3}
+  - {fileID: 3052806394412414338, guid: 2a54bc4f0e4042349a2d97b5a6798e49, type: 3}
+  plantMinGrowTime: 6
+  plantMaxGrowTime: 15
+  minMonsterWaitTimeAfterGrowth: 2
+  maxMonsterWaitTimeAfterGrowth: 10
+  enemy: {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}

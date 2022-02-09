@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2341a142c840e8a438df568f66e02641
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hoverOverImage: {fileID: -120477006037234506, guid: 819afbc25e79523419f1a0e17dd97b32, type: 3}
+  - normalImage: {fileID: -5043527516332972810, guid: 819afbc25e79523419f1a0e17dd97b32, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

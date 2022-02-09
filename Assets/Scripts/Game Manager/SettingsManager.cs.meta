@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 3ced47af3ec9ccd47b1498dc199b48ee
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioMixer: {fileID: 24100000, guid: d7ba264db5be622479002c5cca2dff64, type: 2}
+  - resolutionDropdown: {instanceID: 0}
+  - volumeSlider: {instanceID: 0}
+  - fullscreenToggle: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - defaultButtonClickSound: {fileID: 8300000, guid: 7bfa45530acccbb409779a742784ee17, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

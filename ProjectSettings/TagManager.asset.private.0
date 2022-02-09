@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Heart
+  - Pot
+  - Plant UI
+  - Game Manager
+  - Player Canvas
+  - Inventory Slot
+  - Change Walk Sound
+  - Inventory
+  - Vault
+  - Health Bar Background
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Can't Click In Editor
+  - Water
+  - UI
+  - Player
+  - Obstacle
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2670601061
+    locked: 0
+  - name: Background Ground
+    uniqueID: 3415374159
+    locked: 0
+  - name: Decal
+    uniqueID: 1242128725
+    locked: 0
+  - name: Ground (Under Player)
+    uniqueID: 111602277
+    locked: 0
+  - name: Decoration (Under Player)
+    uniqueID: 4255293851
+    locked: 0
+  - name: Character
+    uniqueID: 2968830533
+    locked: 0
+  - name: Decoration
+    uniqueID: 1607905131
+    locked: 0
+  - name: Dropped item
+    uniqueID: 2445964515
+    locked: 0
+  - name: Ground
+    uniqueID: 4028484865
+    locked: 0
+  - name: UI
+    uniqueID: 1694980755
+    locked: 0

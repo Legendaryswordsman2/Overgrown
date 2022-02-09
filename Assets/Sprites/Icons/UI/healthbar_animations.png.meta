@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 4023a71089f4e3141ba8b2d4fa7bb92a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3663043897603814140
+    second: UI_tileset_0
+  - first:
+      213: 7039110919924763519
+    second: UI_tileset_1
+  - first:
+      213: 7332116193382895497
+    second: UI_tileset_2
+  - first:
+      213: 7449379804387822918
+    second: UI_tileset_3
+  - first:
+      213: -4701107235486558597
+    second: UI_tileset_4
+  - first:
+      213: -1276807052441230923
+    second: UI_tileset_5
+  - first:
+      213: -3058597080373865965
+    second: UI_tileset_6
+  - first:
+      213: -5983397586477106747
+    second: UI_tileset_7
+  - first:
+      213: 3208972109426197617
+    second: UI_tileset_8
+  - first:
+      213: -8003411124984395398
+    second: UI_tileset_9
+  - first:
+      213: -6601529199378236353
+    second: UI_tileset_10
+  - first:
+      213: -7122423962472358361
+    second: UI_tileset_11
+  - first:
+      213: -5793740678478196628
+    second: UI_tileset_12
+  - first:
+      213: -7988688440026953252
+    second: UI_tileset_13
+  - first:
+      213: 2849404930159813070
+    second: UI_tileset_14
+  - first:
+      213: -3659742571923571381
+    second: ui_spritesheet_3
+  - first:
+      213: 8398142356191176701
+    second: ui_spritesheet_4
+  - first:
+      213: 2316322214688093249
+    second: ui_spritesheet_0
+  - first:
+      213: 5231596108735959365
+    second: ui_spritesheet_1
+  - first:
+      213: 1812028519992204318
+    second: ui_spritesheet_2
+  - first:
+      213: 3081267808218999487
+    second: ui_spritesheet_5
+  - first:
+      213: -4181908491085299125
+    second: ui_spritesheet_6
+  - first:
+      213: -2734361108751353635
+    second: ui_spritesheet_7
+  - first:
+      213: -6343488685449822516
+    second: ui_spritesheet_8
+  - first:
+      213: 488917856916408205
+    second: ui_spritesheet_9
+  - first:
+      213: 7698027159405267626
+    second: ui_spritesheet_10
+  - first:
+      213: -5830390356577851862
+    second: healthbar_animations_0
+  - first:
+      213: -8669897476403753053
+    second: healthbar_animations_1
+  - first:
+      213: -3250867390238201737
+    second: healthbar_animations_2
+  - first:
+      213: 5498316851322214912
+    second: healthbar_animations_3
+  - first:
+      213: -6103504172500609131
+    second: healthbar_animations_4
+  - first:
+      213: 1690652942120588079
+    second: healthbar_animations_5
+  - first:
+      213: 3839082631125710440
+    second: healthbar_animations_6
+  - first:
+      213: -5483329468470493898
+    second: healthbar_animations_7
+  - first:
+      213: 7521943661373118018
+    second: healthbar_animations_8
+  - first:
+      213: -8491036901353981892
+    second: healthbar_animations_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: healthbar_animations_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 284
+        width: 46
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d726d76ec47e3b0800000000000000
+      internalID: -5483329468470493898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthbar_animations_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 268
+        width: 46
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24655a438ef436860800000000000000
+      internalID: 7521943661373118018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthbar_animations_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 276
+        width: 110
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38ff08fce6c92a80800000000000000
+      internalID: -8491036901353981892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthbar_animations_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 293
+        width: 60
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2660568cda461fa0800000000000000
+      internalID: -5830390356577851862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

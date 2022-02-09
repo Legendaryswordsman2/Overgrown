@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a29d35c1e3cdf43926d039ab061401, type: 3}
+  m_Name: Turnip
+  m_EditorClassIdentifier: 
+  id: c8320990068f75b47a0db36c0e3cc3c1
+  health: 100
+  enemyName: Turnip
+  sprite: {fileID: -5079474656933047900, guid: 5d92c80f97acd6c48b4c9a6938b6f541, type: 3}
+  animatorController: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}
+  minXPOnDeath: 1
+  maxXPOnDeath: 2
+  knockbackX: 10
+  knockbackY: 0
+  attackRange: 0.5
+  attackDelay: 3
+  attackDamage: 20
+  attackWalkSpeed: 5
+  wanderSpeed: 3
+  minWanderWaitTime: 2
+  maxWanderWaitTime: 10
+  healthOnLevelUp: 10
+  damageOnLevelUp: 2

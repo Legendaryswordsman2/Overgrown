@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ce5da55303b24fb796aa80c321a44, type: 3}
+  m_Name: Potato
+  m_EditorClassIdentifier: 
+  plantGrowthStages:
+  - {fileID: -5442058538944839945, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
+  - {fileID: 2200300883934704177, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
+  - {fileID: 1487943367133937888, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
+  - {fileID: -2678459504661149852, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
+  - {fileID: 6971003129705878298, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
+  - {fileID: -3130013708998481206, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
+  plantMinGrowTime: 1
+  plantMaxGrowTime: 10
+  minMonsterWaitTimeAfterGrowth: 2
+  maxMonsterWaitTimeAfterGrowth: 10
+  enemy: {fileID: 11400000, guid: 376d15727c0850f4ca499ff118e1d730, type: 2}

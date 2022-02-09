@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a29d35c1e3cdf43926d039ab061401, type: 3}
+  m_Name: Carrot
+  m_EditorClassIdentifier: 
+  id: dad21c419e3b3ef4985e84d985d623bd
+  defaultHealth: 100
+  enemyName: Carrot
+  sprite: {fileID: 6366112045480231035, guid: 504208fba75efd54497e379710df5fcc, type: 3}
+  animatorController: {fileID: 9100000, guid: 66b70546d5f07c74f8d64a73fae57105, type: 2}
+  minXPOnDeath: 2
+  maxXPOnDeath: 10
+  attackRange: 0.5
+  attackDamage: 20
+  enemiesToFight:
+  - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  attackWalkSpeed: 5
+  wanderSpeed: 3
+  minWanderWaitTime: 2
+  maxWanderWaitTime: 10
+  healthIncreasePerLevelUp: 10
+  damageIncreasePerLevelUp: 2

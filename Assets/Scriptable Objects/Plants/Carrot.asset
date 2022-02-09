@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ce5da55303b24fb796aa80c321a44, type: 3}
+  m_Name: Carrot
+  m_EditorClassIdentifier: 
+  plantGrowthStages:
+  - {fileID: -5442058538944839945, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
+  - {fileID: 2200300883934704177, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
+  - {fileID: 1487943367133937888, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
+  - {fileID: -2678459504661149852, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
+  - {fileID: 6971003129705878298, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
+  - {fileID: -3130013708998481206, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
+  plantMinGrowTime: 1
+  plantMaxGrowTime: 1
+  minMonsterWaitTimeAfterGrowth: 1
+  maxMonsterWaitTimeAfterGrowth: 1
+  enemy: {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}

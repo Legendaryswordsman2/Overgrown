@@ -1,0 +1,945 @@
+fileFormatVersion: 2
+guid: a7a799dba7f978942b78a864c6916b88
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -498070280176686343
+    second: green_grassy_ground_tileset_0
+  - first:
+      213: 2033624795325985553
+    second: green_grassy_ground_tileset_1
+  - first:
+      213: -4763701995249059610
+    second: green_grassy_ground_tileset_2
+  - first:
+      213: -7369998742951508979
+    second: green_grassy_ground_tileset_3
+  - first:
+      213: -3447010706499809648
+    second: green_grassy_ground_tileset_4
+  - first:
+      213: 3862458983351104998
+    second: green_grassy_ground_tileset_5
+  - first:
+      213: -4063514476524681077
+    second: green_grassy_ground_tileset_6
+  - first:
+      213: -3372700502756910272
+    second: green_grassy_ground_tileset_7
+  - first:
+      213: -1159802772785189380
+    second: green_grassy_ground_tileset_8
+  - first:
+      213: 3147295316475788985
+    second: green_grassy_ground_tileset_9
+  - first:
+      213: 6913072017753221097
+    second: green_grassy_ground_tileset_10
+  - first:
+      213: -1619906142107015401
+    second: green_grassy_ground_tileset_11
+  - first:
+      213: 5432327133646639847
+    second: green_grassy_ground_tileset_12
+  - first:
+      213: 8382308674110265412
+    second: green_grassy_ground_tileset_13
+  - first:
+      213: 3531269891510291755
+    second: green_grassy_ground_tileset_14
+  - first:
+      213: -3533297384859676427
+    second: green_grassy_ground_tileset_15
+  - first:
+      213: -4827299909844995734
+    second: green_grassy_ground_tileset_16
+  - first:
+      213: 2067266461992988612
+    second: green_grassy_ground_tileset_17
+  - first:
+      213: 1781832113114385187
+    second: green_grassy_ground_tileset_18
+  - first:
+      213: -4595713929681989280
+    second: green_grassy_ground_tileset_19
+  - first:
+      213: -4405741364885391090
+    second: green_grassy_ground_tileset_20
+  - first:
+      213: -7420790975612984823
+    second: green_grassy_ground_tileset_21
+  - first:
+      213: -3735213245960335887
+    second: green_grassy_ground_tileset_22
+  - first:
+      213: 6404444596077510901
+    second: green_grassy_ground_tileset_23
+  - first:
+      213: -4289451354173985977
+    second: green_grassy_ground_tileset_24
+  - first:
+      213: 810741038870963321
+    second: green_grassy_ground_tileset_25
+  - first:
+      213: -4034352613225904952
+    second: green_grassy_ground_tileset_26
+  - first:
+      213: 7843024808827197168
+    second: green_grassy_ground_tileset_27
+  - first:
+      213: 4811761096626266832
+    second: green_grassy_ground_tileset_28
+  - first:
+      213: 3188293263382655141
+    second: green_grassy_ground_tileset_29
+  - first:
+      213: 2201324360847633756
+    second: green_grassy_ground_tileset_30
+  - first:
+      213: -4631713121409363587
+    second: green_grassy_ground_tileset_31
+  - first:
+      213: 3235814756195518039
+    second: green_grassy_ground_tileset_32
+  - first:
+      213: 8177682719668227789
+    second: green_grassy_ground_tileset_33
+  - first:
+      213: 5522678767391046248
+    second: green_grassy_ground_tileset_34
+  - first:
+      213: 6498843178562311527
+    second: green_grassy_ground_tileset_35
+  - first:
+      213: 4304844111781969308
+    second: green_grassy_ground_tileset_36
+  - first:
+      213: -3870781632930335040
+    second: green_grassy_ground_tileset_37
+  - first:
+      213: -4249357790670489178
+    second: green_grassy_ground_tileset_38
+  - first:
+      213: -9061345321644257157
+    second: green_grassy_ground_tileset_39
+  - first:
+      213: -4858973186927540151
+    second: green_grassy_ground_tileset_40
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_0
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9faa3e418bf7619f0800000000000000
+      internalID: -498070280176686343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113f4db0af2e83c10800000000000000
+      internalID: 2033624795325985553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_2
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e83c55464ee3edb0800000000000000
+      internalID: -4763701995249059610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_3
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04cc43f03188b990800000000000000
+      internalID: -7369998742951508979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_4
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e4c168602c920d0800000000000000
+      internalID: -3447010706499809648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_6
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88c61fec1f7b97c0800000000000000
+      internalID: -4063514476524681077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b946713c2c131d0800000000000000
+      internalID: -3372700502756910272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd20a6e58d87efe0800000000000000
+      internalID: -1159802772785189380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_22
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 443
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd4332c75bd92cc0800000000000000
+      internalID: -3735213245960335887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_24
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 443
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b242948bec874c0800000000000000
+      internalID: -4289451354173985977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_25
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 443
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9742cbaeda4504b00800000000000000
+      internalID: 810741038870963321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_9
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be3acd4a607dab20800000000000000
+      internalID: 3147295316475788985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_10
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7afd48f5a20ff50800000000000000
+      internalID: 6913072017753221097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_11
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717ec3642ffe489e0800000000000000
+      internalID: -1619906142107015401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_12
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e259b01fb0836b40800000000000000
+      internalID: 5432327133646639847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_13
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4489406e351f35470800000000000000
+      internalID: 8382308674110265412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_14
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2dc081c147910130800000000000000
+      internalID: 3531269891510291755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61f961ee4cf10db0800000000000000
+      internalID: -4827299909844995734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_17
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfab23f4e760bc10800000000000000
+      internalID: 2067266461992988612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_18
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b0197cdd65ab810800000000000000
+      internalID: 1781832113114385187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_19
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0619df3b78eb830c0800000000000000
+      internalID: -4595713929681989280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_20
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09f2cd3299abd2c0800000000000000
+      internalID: -4405741364885391090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_21
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 902e92abced040990800000000000000
+      internalID: -7420790975612984823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_29
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0b1bba4d71f3c20800000000000000
+      internalID: 3188293263382655141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_30
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5dacb3d7dcac8e10800000000000000
+      internalID: 2201324360847633756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_31
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 291
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7111e8b479d8bfb0800000000000000
+      internalID: -4631713121409363587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_32
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756400e606ce7ec20800000000000000
+      internalID: 3235814756195518039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_33
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcecca73b17fc7170800000000000000
+      internalID: 8177682719668227789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_34
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 273
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a7fea141f74ac40800000000000000
+      internalID: 5522678767391046248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_40
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 309
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948490461a5719cb0800000000000000
+      internalID: -4858973186927540151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_39
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 255
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b701f346072af3280800000000000000
+      internalID: -9061345321644257157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_5
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 255
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5b82e2bf53a9530800000000000000
+      internalID: 3862458983351104998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_15
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 255
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f05f99afb437fec0800000000000000
+      internalID: -3533297384859676427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_grassy_ground_tileset_23
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 255
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0cedc8d6821e850800000000000000
+      internalID: 6404444596077510901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
