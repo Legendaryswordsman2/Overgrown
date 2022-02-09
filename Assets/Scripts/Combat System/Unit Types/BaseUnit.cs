@@ -48,6 +48,7 @@ public class BaseUnit : MonoBehaviour
 		if (isBlocking)
 		{
 			damage = damage / 2;
+			StartCoroutine(HurtWhileBlocking());
 		}
 		else
 		{
@@ -62,6 +63,13 @@ public class BaseUnit : MonoBehaviour
 		{
 			Die();
 		}
+	}
+
+	IEnumerator HurtWhileBlocking()
+	{
+		anim.Play("Hurt Animation");
+		yield return new WaitForSeconds(1);
+		anim.Play("Block Animation");
 	}
 	protected virtual void Die()
 	{
