@@ -21,6 +21,13 @@ public class Inventory : MonoBehaviour
 		SetItemSlots();
 	}
 
+	public void GoToStartOfList()
+	{
+		junkItemSlotParent.transform.position = new Vector3(junkItemSlotParent.transform.position.x, 0);
+		consumableItemSlotParent.transform.position = new Vector3(consumableItemSlotParent.transform.position.x, 0);
+		questItemSlotParent.transform.position = new Vector3(questItemSlotParent.transform.position.x, 0);
+	}
+
 	void SetItemSlots()
 	{
 		#region Clear Items
