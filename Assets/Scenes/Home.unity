@@ -30989,8 +30989,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0078125, y: -390.12988}
-  m_SizeDelta: {x: -3103.7, y: -780.24}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &630541782
 GameObject:
@@ -42013,7 +42013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 420.98}
+  m_AnchoredPosition: {x: 0, y: 420.97998}
   m_SizeDelta: {x: 708.99, y: 841.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294151471
@@ -51067,12 +51067,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8202397823428521481, guid: bd83d9af9ff53ca4988dc16ce96e9f80, type: 3}
       propertyPath: m_text
-      value: 
+      value: Junk Item
       objectReference: {fileID: 0}
     - target: {fileID: 8202397823750314226, guid: bd83d9af9ff53ca4988dc16ce96e9f80, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1918309106959383672, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+      objectReference: {fileID: 5548789938343600767, guid: 143694918aff8f443ab8204d820ec605, type: 3}
     - target: {fileID: 8202397823750314226, guid: bd83d9af9ff53ca4988dc16ce96e9f80, type: 3}
       propertyPath: m_Enabled
       value: 1
