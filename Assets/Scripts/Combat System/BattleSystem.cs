@@ -6,10 +6,14 @@ public enum battleState { Start, PlayerTurn, EnemyTurn, Won, Lost}
 
 public class BattleSystem : MonoBehaviour
 {
+	[field: Header("References")]
+	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
 	public static BattleSystem instance;
 	public GameObject playerChoices;
+	public GameObject playerPlantChoices;
 
 	public PlayerUnit playerUnit;
+	public PlayerPlantUnit playerPlantUnit;
 
 	[SerializeField] GameObject enemiesParent;
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] _enemies;
@@ -71,6 +75,7 @@ public class BattleSystem : MonoBehaviour
 		}
 		state = battleState.EnemyTurn;
 		playerChoices.SetActive(false);
+		playerPlantChoices.SetActive(false);
 
 		for (int i = 0; i < enemiesAlive.Count; i++)
 		{
