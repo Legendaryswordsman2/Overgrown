@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+	[Header("Items")]
 	public List<JunkItem> junkItems;
 	public List<ConsumableItem> consumableItems;
 	public List<QuestItem> questItems;
 
+	[Header("Gear")]
 	public List<GearItem> gear;
 
 	[SerializeField] GameObject junkItemSlotParent;

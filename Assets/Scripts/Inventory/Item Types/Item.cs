@@ -17,10 +17,10 @@ public class Item : ScriptableObject
 	[Space]
 
 	public Sprite Icon;
-	[Range(1, 999)]
-	public int MaximumStacks = 1;
 
-	protected static readonly StringBuilder sb = new StringBuilder();
+	bool canStack;
+	[Range(1, 99)]
+	public int MaximumStacks = 1;
 
 #if UNITY_EDITOR
 	protected virtual void OnValidate()
@@ -29,4 +29,24 @@ public class Item : ScriptableObject
 		id = AssetDatabase.AssetPathToGUID(path);
 	}
 #endif
+
+
+//	#region Editor
+
+//#if UNITY_EDITOR
+//	[CustomEditor(typeof(Item))]
+//	public class ItemEditor : Editor
+//	{
+//		public override void OnInspectorGUI()
+//		{
+//			base.OnInspectorGUI();
+
+//			Item item = (Item)target;
+
+//			EditorGUILayout.Space();
+//			EditorGUILayout.LabelField("Details");
+//		}
+//	}
+//#endif
+//	#endregion
 }
