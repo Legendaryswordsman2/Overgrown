@@ -115,21 +115,4 @@ public class BattleSystem : MonoBehaviour
 			_enemies = enemiesParent.GetComponentsInChildren<EnemyUnit>(true);
 		}
 	}
-
-
-	private void Update()
-	{
-		//elapsedTime += Time.deltaTime;
-		//float percentageComplete = elapsedTime / walkSpeed;
-
-		//transform.position = Vector3.Lerp(basePosition, locationToAttackEnemy.position, percentageComplete);
-
-		//if (transform.position == locationToAttackEnemy.position)
-		//{
-		//	isAttacking = false;
-		//	anim.Play("Attack Animation");
-		//	battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].TakeDamage(damage);
-		//	StartCoroutine(ReturnToBasePOS());
-		//}
-	}
 }
