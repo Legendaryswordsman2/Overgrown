@@ -1018,8 +1018,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1694980755
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -8503093942092619827, guid: b3b0cc3f1eca4b14695d84bbc2762f02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -36231,8 +36231,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1694980755
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 8782908068019608245, guid: 055bdbe92275d494987a912763bf0ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -40896,30 +40896,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 413230309, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -9187331840638116727, guid: fd86469948840de43af925c6ead2de3d, type: 3}
-    - target: {fileID: 878021764, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1313808236, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1435554294, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1435554295, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6646385
-      objectReference: {fileID: 0}
-    - target: {fileID: 6958376746442400096, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6958376746442400099, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -40967,6 +40943,10 @@ PrefabInstance:
     - target: {fileID: 6958376746442400103, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
       propertyPath: m_Name
       value: Outdoor Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958376746922604333, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d5cb9f1c17f99145ae8823fb393e49b, type: 3}
@@ -45344,7 +45324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 17.739557, y: 867.57904}
+  m_AnchoredPosition: {x: 17.739557, y: 867.5791}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1308637475
@@ -54200,8 +54180,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1694980755
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -6833671280704167928, guid: 055bdbe92275d494987a912763bf0ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
