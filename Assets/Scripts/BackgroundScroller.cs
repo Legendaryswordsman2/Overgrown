@@ -17,10 +17,7 @@ public class BackgroundScroller : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (!player.isWalking)
-		{
 		textureOffset.x += speed * Time.deltaTime;
 		backgroundMeshRenderer.material.mainTextureOffset = textureOffset;
-		}
 	}
 }
