@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd61a70f921c2e947a4aac66cbf72c6b, type: 3}
-  m_Name: Consumable Item
+  m_Name: Health Plant
   m_EditorClassIdentifier: 
-  id: 82dfd211131c4254ab98f551ad247e8c
-  ItemName: Consumable Item
+  id: 6c6a24b517e874446a0342dfe732565d
+  ItemName: Health Plant
   ItemDescription: Some Random Item
-  Icon: {fileID: 1675148805721279267, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+  Icon: {fileID: 5548789938343600767, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   MaximumStacks: 1
