@@ -36163,6 +36163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot (Enemy)
       objectReference: {fileID: 0}
+    - target: {fileID: 4669908542637058254, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4818004676138234475, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
       propertyPath: m_Size.y
       value: 3.0853665
@@ -56500,7 +56504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2406020429181688482, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -155.99994
+      value: -156
       objectReference: {fileID: 0}
     - target: {fileID: 2406020429186786924, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: <inventoryCanvas>k__BackingField

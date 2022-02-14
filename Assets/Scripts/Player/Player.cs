@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     GameManager gameManager;
     Transform playerTexture;
 
+    public bool isWalking { get; private set; }
+
     private void Awake()
     {
         //if (GameManager.spawnPosition != null)
@@ -93,12 +95,14 @@ public class Player : MonoBehaviour
         if(horizontalMove != 0)
         {
             anim.SetBool("Walk", true);
+            isWalking = true;
             if (walkSounds != null)
             StartCoroutine(PlayWalkingSound());
         }
         else
         {
             anim.SetBool("Walk", false);
+            isWalking = false;
         }
     }
 
