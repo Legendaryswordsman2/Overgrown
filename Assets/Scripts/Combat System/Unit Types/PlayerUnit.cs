@@ -7,7 +7,6 @@ public class PlayerUnit : BaseUnit
 {
 	[Header("References")]
 	[SerializeField] BattleHUD playerHud;
-	[SerializeField] GameObject arrowPrefab;
 	[HideInInspector] public bool awaitingTargetToAttack = false;
 
 	BattleSystem battleSystem;
@@ -101,7 +100,8 @@ public class PlayerUnit : BaseUnit
 				isReturningToBasePOS = false;
 				GetComponent<SpriteRenderer>().flipX = true;
 				anim.Play("Idle Animation");
-				StartCoroutine(battleSystem.EnemyTurn());
+				BattleSystem.instance.playerPlantUnit.ChooseAction();
+				//StartCoroutine(battleSystem.EnemyTurn());
 			}
 		}
 	}
@@ -133,10 +133,9 @@ public class PlayerUnit : BaseUnit
 		}
 
 		locationToAttackEnemy = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform;
-		ArrowLerp arrow = Instantiate(arrowPrefab, this.transform.position, Quaternion.identity).GetComponent<ArrowLerp>();
+		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform.position, Quaternion.identity).GetComponent<ArrowLerp>();
 		arrow.damage = damage;
 		arrow.endPosition = locationToAttackEnemy;
-
 	}
 
 	IEnumerator ReturnToBasePOS()
@@ -191,7 +190,8 @@ public class PlayerUnit : BaseUnit
 	{
 		BattleSystem.instance.playerChoices.SetActive(false);
 		base.Block();
-		StartCoroutine(BattleSystem.instance.EnemyTurn());
+		BattleSystem.instance.playerPlantUnit.ChooseAction();
+		//StartCoroutine(BattleSystem.instance.EnemyTurn());
 	}
 
 	public override void TakeDamage(int damage)

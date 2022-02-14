@@ -6,10 +6,14 @@ public enum battleState { Start, PlayerTurn, EnemyTurn, Won, Lost}
 
 public class BattleSystem : MonoBehaviour
 {
+	[field: Header("References")]
+	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
 	public static BattleSystem instance;
 	public GameObject playerChoices;
+	public GameObject playerPlantChoices;
 
 	public PlayerUnit playerUnit;
+	public PlayerPlantUnit playerPlantUnit;
 
 	[SerializeField] GameObject enemiesParent;
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] _enemies;
@@ -71,6 +75,7 @@ public class BattleSystem : MonoBehaviour
 		}
 		state = battleState.EnemyTurn;
 		playerChoices.SetActive(false);
+		playerPlantChoices.SetActive(false);
 
 		for (int i = 0; i < enemiesAlive.Count; i++)
 		{
@@ -109,22 +114,5 @@ public class BattleSystem : MonoBehaviour
 		{
 			_enemies = enemiesParent.GetComponentsInChildren<EnemyUnit>(true);
 		}
-	}
-
-
-	private void Update()
-	{
-		//elapsedTime += Time.deltaTime;
-		//float percentageComplete = elapsedTime / walkSpeed;
-
-		//transform.position = Vector3.Lerp(basePosition, locationToAttackEnemy.position, percentageComplete);
-
-		//if (transform.position == locationToAttackEnemy.position)
-		//{
-		//	isAttacking = false;
-		//	anim.Play("Attack Animation");
-		//	battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].TakeDamage(damage);
-		//	StartCoroutine(ReturnToBasePOS());
-		//}
 	}
 }

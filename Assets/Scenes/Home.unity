@@ -36163,6 +36163,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot (Enemy)
       objectReference: {fileID: 0}
+    - target: {fileID: 4818004676138234475, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0853665
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818004676138234475, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.30408287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818004676138234475, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.8789724
+      objectReference: {fileID: 0}
     - target: {fileID: 7502183570964787802, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -51062,7 +51074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738286071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09624672, y: 0.44675994, z: 0}
+  m_LocalPosition: {x: 0.09624672, y: -1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1533355262}
