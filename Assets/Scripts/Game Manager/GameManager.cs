@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-
     }
 
     private void Update()

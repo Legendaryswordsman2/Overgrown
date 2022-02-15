@@ -11,6 +11,7 @@ public class BattleSystem : MonoBehaviour
 	public static BattleSystem instance;
 	public GameObject playerChoices;
 	public GameObject playerPlantChoices;
+	public CombatInventory inventory;
 
 	public PlayerUnit playerUnit;
 	public PlayerPlantUnit playerPlantUnit;
