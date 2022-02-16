@@ -11,9 +11,31 @@ public class CombatInventory : MonoBehaviour
 
 	[SerializeField] GameObject itemSlotPrefab;
 
+	[SerializeField] List<GameObject> consumableItemSlots;
+
+	//int previousIndex = 0;
+	//int index = 0;
+
 	private void Awake()
 	{
 		SetItemSlots();
+	}
+
+	private void Update()
+	{
+		//previousIndex = index;
+		//consumableItemSlotParent.transform.GetChild(index).GetChild(0).gameObject.SetActive(true);
+
+		//// Scroll Up
+		//if (Input.GetKeyDown(KeyCode.W))
+		//{
+		//	if (index <= 0) return;
+		//}
+
+		//if (Input.GetKeyDown(KeyCode.S)) // Scroll Down
+		//{
+		//	//if(index >= )
+		//}
 	}
 
 	public void GoToStartOfList()
@@ -25,6 +47,8 @@ public class CombatInventory : MonoBehaviour
 	{
 		#region Clear Items
 
+		consumableItemSlots.Clear();
+
 		foreach (Transform child in consumableItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -34,7 +58,8 @@ public class CombatInventory : MonoBehaviour
 
 		for (int i = 0; i < consumableItems.Count; i++)
 		{
-			Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(consumableItems[i]);
+			consumableItemSlots.Add(Instantiate(itemSlotPrefab, consumableItemSlotParent.transform));
+			consumableItemSlots[i].GetComponent<ItemSlot>().SetSlot(consumableItems[i]);
 		}
 		#endregion
 	}

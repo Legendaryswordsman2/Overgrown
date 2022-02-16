@@ -19,6 +19,11 @@ public class ItemSlot : MonoBehaviour
 		
 	}
 
+	private void OnMouseDown()
+	{
+		Debug.Log("Clicked");
+	}
+
 	private void OnValidate()
 	{
 		if (item == null)
