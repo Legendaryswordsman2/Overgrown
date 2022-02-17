@@ -19,9 +19,23 @@ public class ItemSlot : MonoBehaviour
 		
 	}
 
-	private void OnMouseDown()
+	public void UseItemInCombat()
 	{
-		Debug.Log("Clicked");
+		BattleSystem battleSystem = BattleSystem.instance;
+
+		Debug.Log("Clicked " + name);
+
+		if(item is ConsumableItem)
+		{
+			item.UseItem(battleSystem.playerUnit);
+		}
+		battleSystem.inventory.gameObject.SetActive(false);
+		Destroy(gameObject);
+
+	}
+	void DestroyItem()
+	{
+		Destroy(gameObject);
 	}
 
 	private void OnValidate()

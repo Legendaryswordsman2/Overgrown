@@ -5,7 +5,7 @@ using UnityEditor;
 #endif
 
 //[CreateAssetMenu(menuName = "Items/Item")]
-public class Item : ScriptableObject
+public abstract class Item : ScriptableObject
 {
 	[SerializeField, ReadOnlyInspector] string id;
 	public string ID { get { return id; } }
@@ -21,6 +21,8 @@ public class Item : ScriptableObject
 	bool canStack;
 	[Range(1, 99)]
 	public int MaximumStacks = 1;
+
+	public abstract void UseItem(BaseUnit unit);
 
 #if UNITY_EDITOR
 	protected virtual void OnValidate()
