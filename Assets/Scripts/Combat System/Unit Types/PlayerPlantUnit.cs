@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum AttackType { Basic, Ranged}
-public class PlayerUnit : BaseUnit
+public class PlayerPlantUnit : BaseUnit
 {
+	public int Mana = 100;
+
 	[Header("References")]
-	[SerializeField] BattleHUD playerHud;
+	[SerializeField] BattleHUD playerPlantHud;
 	[HideInInspector] public bool awaitingTargetToAttack = false;
 
 	BattleSystem battleSystem;
@@ -38,9 +39,9 @@ public class PlayerUnit : BaseUnit
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				if (attackType == AttackType.Basic)
-			    Attack();
+					Attack();
 				else
-			    RangedAttack();
+					RangedAttack();
 			}
 
 			if (Input.GetKeyDown(KeyCode.W))
@@ -100,8 +101,7 @@ public class PlayerUnit : BaseUnit
 				isReturningToBasePOS = false;
 				GetComponent<SpriteRenderer>().flipX = true;
 				anim.Play("Idle Animation");
-				BattleSystem.instance.playerPlantUnit.ChooseAction();
-				//StartCoroutine(battleSystem.EnemyTurn());
+				StartCoroutine(battleSystem.EnemyTurn());
 			}
 		}
 	}
@@ -155,18 +155,18 @@ public class PlayerUnit : BaseUnit
 	}
 	void SetupBattleStepTwo()
 	{
-		playerHud.SetHUD(this);
+		playerPlantHud.SetHUD(this);
 	}
 	public override void ChooseAction()
 	{
 		base.ChooseAction();
 
 		// When the battle first starts if the player starts the turn then the anim won't be set since battle system is called before base unit
-		if(anim != null)
-		anim.Play("Idle Animation");
+		if (anim != null)
+			anim.Play("Idle Animation");
 
-		BattleSystem.instance.state = battleState.PlayerTurn;
-		BattleSystem.instance.playerChoices.SetActive(true);
+		//BattleSystem.instance.state = battleState.PlayerTurn;
+		BattleSystem.instance.playerPlantChoices.SetActive(true);
 	}
 
 	public void SelectEnemyToAttack(bool isBasicAttack)
@@ -176,7 +176,7 @@ public class PlayerUnit : BaseUnit
 		else
 			attackType = AttackType.Ranged;
 
-		BattleSystem.instance.playerChoices.SetActive(false);
+		BattleSystem.instance.playerPlantChoices.SetActive(false);
 
 		if (battleSystem.enemySelectionIndex < 0) battleSystem.enemySelectionIndex = 0;
 
@@ -188,38 +188,21 @@ public class PlayerUnit : BaseUnit
 
 	public override void Block()
 	{
-		BattleSystem.instance.playerChoices.SetActive(false);
+		BattleSystem.instance.playerPlantChoices.SetActive(false);
 		base.Block();
-		BattleSystem.instance.playerPlantUnit.ChooseAction();
-		//StartCoroutine(BattleSystem.instance.EnemyTurn());
+		StartCoroutine(BattleSystem.instance.EnemyTurn());
 	}
 
 	public override void TakeDamage(int damage)
 	{
 		base.TakeDamage(damage);
-		if(currentHealth >= 0)
+		if (currentHealth >= 0)
 		{
-		playerHud.SetHealth(currentHealth);
+			playerPlantHud.SetHealth(currentHealth);
 		}
 		else
 		{
-			playerHud.SetHealth(0);
+			playerPlantHud.SetHealth(0);
 		}
-	}
-	protected override void Die()
-	{
-		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Title"));
-	}
-
-	public override void heal(int healAmount)
-	{
-		base.heal(healAmount);
-		playerHud.SetHealth(currentHealth);
-		Debug.Log($"Healed player: {healAmount}");
-	}
-
-	public void EscapeBattle()
-	{
-		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleData.sceneIndex, BattleData.playerPosition));
 	}
 }

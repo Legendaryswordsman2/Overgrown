@@ -27,9 +27,12 @@ public class ItemSlot : MonoBehaviour
 
 		if(item is ConsumableItem c)
 		{
+			item.UseItem(battleSystem.playerUnit);
 			c.ExecuteEffect();
+			
 		}
-		//battleSystem.inventory.gameObject.SetActive(false);
+		battleSystem.inventory.gameObject.SetActive(false);
+		//battleSystem.playerUnit;
 		Destroy(gameObject);
 
 	}
