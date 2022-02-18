@@ -7,8 +7,6 @@ public abstract class BaseUnit : MonoBehaviour
 {
 	[SerializeField] string unitName = "Unit";
 
-	[Space]
-
 	[Header("Stats")]
 	public int maxHealth;
 	[ReadOnlyInspector] public int currentHealth;
@@ -68,6 +66,7 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 
 	public abstract void ChooseAction();
+	protected abstract void Setup();
 
 	#region Actions
 	public virtual void Block()
