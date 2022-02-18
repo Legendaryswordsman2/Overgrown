@@ -6,9 +6,4 @@ using UnityEngine;
 public class HealthItemEffect : ConsumableItemEffect
 {
 	public int healAmount;
-
-	public override void ExecuteEffect(BaseUnit unit)
-	{
-		unit.heal(healAmount);
-	}
 }

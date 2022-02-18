@@ -56,7 +56,7 @@ public class PlayerCombat : MonoBehaviour
                 GameManager.StopTime();
 
                 SOEnemy[] _enemies = hitEnemy.transform.GetComponentInParent<Enemy>().enemyData.enemiesToFight;
-                BattleData.AssignVariables(_enemies, SceneManager.GetActiveScene().buildIndex, transform.position);
+                BattleSetupData.AssignVariables(_enemies, SceneManager.GetActiveScene().buildIndex, transform.position);
 
                 StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
 			}

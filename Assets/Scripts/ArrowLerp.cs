@@ -27,8 +27,8 @@ public class ArrowLerp : MonoBehaviour
 
 		if (transform.position == endPosition.position)
 		{
-			BattleSystem.instance.enemiesAlive[BattleSystem.instance.enemySelectionIndex].TakeDamage(damage);
-			StartCoroutine(BattleSystem.instance.EnemyTurn());
+			//BattleSystem.instance.enemiesAlive[BattleSystem.instance.enemySelectionIndex].TakeDamage(damage);
+			//StartCoroutine(BattleSystem.instance.EnemyTurn());
 			//Debug.Log("Reached Position");
 			GetComponent<SpriteRenderer>().enabled = false;
 			endPosition = null;
