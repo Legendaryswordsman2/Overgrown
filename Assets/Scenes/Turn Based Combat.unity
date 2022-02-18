@@ -690,7 +690,7 @@ RectTransform:
   - {fileID: 1006589391}
   - {fileID: 1330514160}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3123,7 +3123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5802724845584922045, guid: bb199e0ea04c9c2448947e7a8a7373e4, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5802724845584922045, guid: bb199e0ea04c9c2448947e7a8a7373e4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -24552,7 +24552,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665215280
 GameObject:
@@ -24786,7 +24786,7 @@ Transform:
   m_Children:
   - {fileID: 1966565588}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705111453
 GameObject:
@@ -28429,7 +28429,7 @@ Transform:
   - {fileID: 493688422}
   - {fileID: 1308637476}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1169692899
 GameObject:
@@ -34751,7 +34751,7 @@ Transform:
   - {fileID: 144325176}
   - {fileID: 6958376747790713232}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1700340375
 PrefabInstance:
@@ -36958,11 +36958,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <arrowPrefab>k__BackingField: {fileID: 9212809993732800865, guid: c92dd7e951ca17a41939eb3e92b288cb, type: 3}
-  playerChoices: {fileID: 1006589390}
-  playerPlantChoices: {fileID: 1330514159}
-  inventory: {fileID: 7407994948452090474}
-  playerUnit: {fileID: 2135679976}
-  playerPlantUnit: {fileID: 1748733749}
+  <playerChoices>k__BackingField: {fileID: 1006589390}
+  <playerPlantChoices>k__BackingField: {fileID: 1330514159}
+  <inventory>k__BackingField: {fileID: 7407994948452090474}
+  <playerUnit>k__BackingField: {fileID: 2135679976}
+  <playerPlantUnit>k__BackingField: {fileID: 1748733749}
   enemiesParent: {fileID: 1346035435}
   _enemies:
   - {fileID: 1274578031}
@@ -36987,7 +36987,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1990234817
 MonoBehaviour:
@@ -37231,7 +37231,7 @@ Transform:
   - {fileID: 1728575947}
   - {fileID: 944120918}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2078794263
 GameObject:
