@@ -6,14 +6,16 @@ public enum battleState { Start, PlayerTurn, EnemyTurn, Won, Lost}
 
 public class BattleSystem : MonoBehaviour
 {
+	public static BattleSystem instance;
+
 	[field: Header("References")]
 	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
-	public static BattleSystem instance;
-	public GameObject playerChoices;
-	public GameObject playerPlantChoices;
+	[field: SerializeField] public GameObject playerChoices { get; private set; }
+	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }
+	[field: SerializeField] public CombatInventory inventory { get; private set; }
 
-	public PlayerUnit playerUnit;
-	public PlayerPlantUnit playerPlantUnit;
+	[field: SerializeField] public PlayerUnit playerUnit { get; private set; }
+	[field: SerializeField] public PlayerPlantUnit playerPlantUnit { get; private set; }
 
 	[SerializeField] GameObject enemiesParent;
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] _enemies;

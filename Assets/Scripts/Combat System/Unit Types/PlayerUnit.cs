@@ -211,6 +211,13 @@ public class PlayerUnit : BaseUnit
 		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Title"));
 	}
 
+	public override void heal(int healAmount)
+	{
+		base.heal(healAmount);
+		playerHud.SetHealth(currentHealth);
+		Debug.Log($"Healed player: {healAmount}");
+	}
+
 	public void EscapeBattle()
 	{
 		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleData.sceneIndex, BattleData.playerPosition));

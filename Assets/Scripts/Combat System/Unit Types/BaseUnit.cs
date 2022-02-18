@@ -64,6 +64,10 @@ public class BaseUnit : MonoBehaviour
 			Die();
 		}
 	}
+	public virtual void heal(int healAmount)
+	{
+		currentHealth += healAmount;
+	}
 
 	IEnumerator HurtWhileBlocking()
 	{
