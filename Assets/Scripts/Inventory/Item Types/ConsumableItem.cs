@@ -14,4 +14,9 @@ public class ConsumableItem : Item
 		//	effect.ExecuteEffect(unit);
 		//}
 	}
+
+	public override void UseItem(BaseUnit unit)
+	{
+		throw new System.NotImplementedException();
+	}
 }
