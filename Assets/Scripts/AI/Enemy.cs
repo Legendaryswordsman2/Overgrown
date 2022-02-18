@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
             if (hitEnemy != null)
             {
                 SOEnemy[] _enemies = enemyData.enemiesToFight;
-                BattleSetupData.AssignVariables(_enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, false);
+                BattleData.AssignVariables(_enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, false);
 
                 StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
             }

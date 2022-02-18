@@ -3,82 +3,96 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public abstract class BaseUnit : MonoBehaviour
+public class BaseUnit : MonoBehaviour
 {
-	[SerializeField] string unitName = "Unit";
+	public string unitName = "Unit";
+	public int unitLevel = 1;
+	public Sprite defaultSprite;
+	[Header("base Stats")]
+	public int maxHealth = 100;
+	[ReadOnlyInspector] public int currentHealth;
+	public int defence = 100;
+	public int damage = 10;
+	public int critChance;
 
-	[Space]
-
-	[Header("Stats")]
-	[SerializeField] int maxHealth;
-	[SerializeField, ReadOnlyInspector] int currentHealth;
-	[SerializeField] int damage;
-
-	// Private
-	BattleSystem battleSystem;
 	[HideInInspector] public bool isBlocking = false;
 
 	protected Animator anim;
 	TMP_Text damageText;
 
-	// To be implemented
 
-	//int defence;
-	// int critChance
-
-	private void Awake()
+     protected virtual void Awake()
 	{
-		// Set Refernces
-		battleSystem = BattleSystem.instance;
 		damageText = GetComponentInChildren<TMP_Text>(true);
-		anim = GetComponent<Animator>();
-
-		// Set current health
 		currentHealth = maxHealth;
+		anim = GetComponent<Animator>();
 	}
-	public virtual void TakeDamage(int _damage)
+
+	public virtual void ChooseAction()
 	{
+		isBlocking = false;
+	}
+	public virtual void Block()
+	{
+		isBlocking = true;
+		anim.Play("Block Animation");
+	}
+	public virtual void TakeDamage(int damage)
+	{
+		int tempNum = Random.Range(0, 101);
+		if(tempNum <= 25)
+		{
+			Debug.Log("Critical");
+		}
+
 		if (isBlocking)
 		{
-			_damage /= 2;
+			damage = damage / 2;
 			StartCoroutine(HurtWhileBlocking());
 		}
 		else
 		{
 			anim.Play("Hurt Animation");
 		}
-
 		damageText.text = damage.ToString();
 		damageText.gameObject.SetActive(true);
-
 		currentHealth -= damage;
 
-		if (currentHealth <= 0) Die();
+		//Debug.Log(unitName + " took " + damage);
+		if(currentHealth <= 0)
+		{
+			Die();
+		}
+	}
+	public virtual void heal(int healAmount)
+	{
+		currentHealth += healAmount;
+	}
+
+	IEnumerator HurtWhileBlocking()
+	{
+		anim.Play("Hurt Animation");
+		yield return new WaitForSeconds(1);
+		anim.Play("Block Animation");
 	}
 	protected virtual void Die()
 	{
 		gameObject.SetActive(false);
 		Debug.Log(unitName + " has died");
 	}
-	IEnumerator HurtWhileBlocking()
-	{
-		anim.Play("Hurt Animation");
-		yield return new WaitForSeconds(battleSystem.backToBlockAnimationDelay);
-		anim.Play("Block Animation");
-	}
 
-	public abstract void ChooseAction();
-
-	#region Actions
-	public virtual void Block()
+	protected virtual void OnValidate()
 	{
-		isBlocking = true;
-		anim.Play("Block Animation");
-	}
-	#endregion
+		gameObject.name = unitName + " Unit";
+		if (defaultSprite != null)
+		{
+			GetComponent<SpriteRenderer>().enabled = true;
+			GetComponent<SpriteRenderer>().sprite = defaultSprite;
 
-	private void OnValidate()
-	{
-		gameObject.name = unitName.Trim() + " Unit";
+		}
+		else
+		{
+			GetComponent<SpriteRenderer>().enabled = false;
+		}
 	}
 }
