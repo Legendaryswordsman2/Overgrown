@@ -10,8 +10,8 @@ public abstract class BaseUnit : MonoBehaviour
 	[Space]
 
 	[Header("Stats")]
-	[SerializeField] int maxHealth;
-	[SerializeField, ReadOnlyInspector] int currentHealth;
+	public int maxHealth;
+	[ReadOnlyInspector] public int currentHealth;
 	[SerializeField] int damage;
 
 	// Private
@@ -26,7 +26,7 @@ public abstract class BaseUnit : MonoBehaviour
 	//int defence;
 	// int critChance
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		// Set Refernces
 		battleSystem = BattleSystem.instance;

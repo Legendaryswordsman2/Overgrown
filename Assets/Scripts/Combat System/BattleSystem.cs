@@ -6,9 +6,15 @@ public class BattleSystem : MonoBehaviour
 {
 	public static BattleSystem instance;
 
+	[Header("Units")]
+	[SerializeField, ReadOnlyInspector] GameObject[] enemies;
+
 	[Header("Refernces")]
 	[SerializeField] GameObject enemyParent;
-	[SerializeField, ReadOnlyInspector] GameObject[] enemies;
+
+	[field: Space]
+
+	[field: SerializeField] public GameObject playerChoices { get; private set; }
 
 	[field: Space]
 
