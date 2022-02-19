@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2565244481164499035}
   - component: {fileID: 2565244481164499014}
-  - component: {fileID: 2565244481164499033}
+  - component: {fileID: 1687312762}
   - component: {fileID: 2565244481164499032}
   m_Layer: 0
   m_Name: Enemy Unit
@@ -235,7 +235,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2565244481164499033
+--- !u!114 &1687312762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,17 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Test Enemy
-  unitLevel: 1
-  defaultSprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
-  maxHealth: 174
+  unitName: Enemy
+  maxHealth: 100
   currentHealth: 0
-  defence: 100
-  damage: 20
-  critChance: 0
+  damage: 10
   isBlocking: 0
-  enemySO: {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
-  locationToAttackPlayer: {fileID: 0}
 --- !u!95 &2565244481164499032
 Animator:
   serializedVersion: 3

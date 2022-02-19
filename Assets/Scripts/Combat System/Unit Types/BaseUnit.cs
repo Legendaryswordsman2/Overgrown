@@ -8,9 +8,9 @@ public abstract class BaseUnit : MonoBehaviour
 	[SerializeField] string unitName = "Unit";
 
 	[Header("Stats")]
-	public int maxHealth;
+	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
-	[SerializeField] int damage;
+	[SerializeField] int damage = 10;
 
 	// Private
 	BattleSystem battleSystem;
@@ -33,6 +33,8 @@ public abstract class BaseUnit : MonoBehaviour
 
 		// Set current health
 		currentHealth = maxHealth;
+
+		Setup();
 	}
 	public virtual void TakeDamage(int _damage)
 	{
@@ -46,10 +48,10 @@ public abstract class BaseUnit : MonoBehaviour
 			anim.Play("Hurt Animation");
 		}
 
-		damageText.text = damage.ToString();
+		damageText.text = _damage.ToString();
 		damageText.gameObject.SetActive(true);
 
-		currentHealth -= damage;
+		currentHealth -= _damage;
 
 		if (currentHealth <= 0) Die();
 	}

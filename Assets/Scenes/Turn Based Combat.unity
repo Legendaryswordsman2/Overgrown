@@ -1243,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Test Enemy Unit
+      value: Enemy Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -1293,7 +1293,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
 --- !u!4 &185098801 stripped
 Transform:
@@ -2707,7 +2708,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: Enemy Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -2757,7 +2758,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
 --- !u!4 &378717219 stripped
 Transform:
@@ -24956,7 +24958,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: Enemy Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -25006,7 +25008,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
 --- !u!4 &771597799 stripped
 Transform:
@@ -26174,7 +26177,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: Enemy Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -26224,7 +26227,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
 --- !u!4 &1015818356 stripped
 Transform:
@@ -36892,7 +36896,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Test Enemy Unit
+      value: Enemy Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -36942,7 +36946,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
 --- !u!4 &2092694204 stripped
 Transform:
@@ -37079,9 +37084,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Player
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
-  damage: 0
+  damage: 10
   isBlocking: 0
   playerHUD: {fileID: 1867131979}
 --- !u!212 &2135679977
@@ -37263,13 +37268,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
-    - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
-      propertyPath: locationToAttackPlayer
-      value: 
-      objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Test Enemy Unit
+      value: Enemy Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499035, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_RootOrder
