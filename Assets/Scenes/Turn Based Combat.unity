@@ -225,6 +225,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8202397822862838811, guid: bd83d9af9ff53ca4988dc16ce96e9f80, type: 3}
   m_PrefabInstance: {fileID: 20290349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &55299430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+  m_PrefabInstance: {fileID: 378717218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61101881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1224,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: unitName
+      value: Turnip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: <enemySO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1224,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+      objectReference: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}
     - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: enemySO
       value: 
@@ -1243,7 +1266,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Enemy Unit
+      value: Turnip Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -1795,6 +1818,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &245793693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+  m_PrefabInstance: {fileID: 2092694203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &267132639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,7 +2742,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Enemy Unit
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -24958,7 +24992,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Enemy Unit
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -26177,7 +26211,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Enemy Unit
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -26725,6 +26759,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1048622415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+  m_PrefabInstance: {fileID: 1015818355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050851604
 GameObject:
   m_ObjectHideFlags: 0
@@ -27957,6 +28002,17 @@ Transform:
   m_Father: {fileID: 1556271739}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142317742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+  m_PrefabInstance: {fileID: 771597798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142464155
 GameObject:
   m_ObjectHideFlags: 0
@@ -34203,6 +34259,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1675258987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+  m_PrefabInstance: {fileID: 2565244482109824054}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680301384
 GameObject:
   m_ObjectHideFlags: 0
@@ -36565,7 +36632,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0ff895a72b4a24bb62b29c23f19eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - {fileID: 1675258987}
+  - {fileID: 2031539703}
+  - {fileID: 245793693}
+  - {fileID: 55299430}
+  - {fileID: 1142317742}
+  - {fileID: 1048622415}
+  enemiesAlive: []
   enemyParent: {fileID: 1346035435}
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <backToBlockAnimationDelay>k__BackingField: 1
@@ -36783,6 +36857,17 @@ RectTransform:
   m_AnchoredPosition: {x: 47.468643, y: -50.7299}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2031539703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+  m_PrefabInstance: {fileID: 185098800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c49e04b42df264087a87716cccaf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078729849
 GameObject:
   m_ObjectHideFlags: 0
@@ -36896,11 +36981,11 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Enemy Unit
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499035, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_RootOrder
@@ -37268,9 +37353,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: unitName
+      value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: <enemySO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
+    - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Enemy Unit
+      value: Tomato Unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499035, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_RootOrder

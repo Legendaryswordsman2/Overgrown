@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyUnit : BaseUnit
 {
-	[field: Header("Refernces")]
+	 [field: Header("Refernces")]
 	 [field: SerializeField] public SOEnemy enemySO { get; set; }
 
 	ProgressBar healthBar;
@@ -20,16 +20,16 @@ public class EnemyUnit : BaseUnit
 
 		healthBar.maximum = maxHealth;
 		healthBar.current = maxHealth;
-
-		gameObject.SetActive(true);
 	}
 
-	void SetupEnemy()
+	public void SetupEnemy()
 	{
 		unitName = enemySO.enemyName;
 		maxHealth = enemySO.defaultHealth;
 		damage = enemySO.attackDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = enemySO.animatorController;
+
+		gameObject.SetActive(true);
 	}
 
 	public override void ChooseAction()

@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2565244481164499035
 Transform:
   m_ObjectHideFlags: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
   currentHealth: 0
   damage: 10
   isBlocking: 0
+  <enemySO>k__BackingField: {fileID: 0}
 --- !u!95 &2565244481164499032
 Animator:
   serializedVersion: 3
