@@ -31,7 +31,36 @@ public class EnemyUnit : BaseUnit
 
 	void BasicAttack()
 	{
+		locationToAttackTarget = battleSystem.playerUnit.transform.GetChild(1).position;
+		anim.Play("Walk Animation");
+		currentMode = CurrentMode.Attacking;
+	}
+	protected override void OnReturnedToBasePosition()
+	{
+		base.OnReturnedToBasePosition();
+		StartCoroutine(NextTurn());
+	}
 
+	IEnumerator NextTurn()
+	{
+		print("Next Turn");
+		yield return new WaitForSeconds(battleSystem.DelayBetweenEachTurn);
+
+		// If this unit is the last enemy to choose an action then go to player turn
+		if (battleSystem.enemiesAlive[battleSystem.enemiesAlive.Count - 1] == this)
+		{
+			battleSystem.SwitchTurn();
+		}
+		else // If not then go to the next enemy
+		{
+			for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+			{
+				if (battleSystem.enemiesAlive[i] == this)
+				{
+					battleSystem.enemiesAlive[i + 1].ChooseAction();
+				}
+			}
+		}
 	}
 
 	protected override void OnValidate()

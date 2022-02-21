@@ -36952,7 +36952,10 @@ MonoBehaviour:
   enemyParent: {fileID: 1346035435}
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <playerPlantChoices>k__BackingField: {fileID: 1330514159}
+  <DelayBetweenEachTurn>k__BackingField: 1
+  <WalkDuration>k__BackingField: 1
   <backToBlockAnimationDelay>k__BackingField: 1
+  <AttackDuration>k__BackingField: 0.5
 --- !u!4 &1990234816
 Transform:
   m_ObjectHideFlags: 0

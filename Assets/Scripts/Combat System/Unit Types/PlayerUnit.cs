@@ -12,31 +12,6 @@ public class PlayerUnit : BaseUnit
 		base.Setup();
 		playerHUD.SetHUD(this);
 	}
-	private void Update()
-	{
-		if (currentMode == CurrentMode.Attacking)
-		{
-			bool finished = LerpToTarget(basePosition, locationToAttackTarget);
-
-			if(finished)
-			{
-				currentMode = CurrentMode.ReturningHome;
-				FlipSprite();
-			}
-		}
-
-		if (currentMode == CurrentMode.ReturningHome)
-		{
-			bool finished = LerpToTarget(locationToAttackTarget, basePosition);
-
-			if (finished)
-			{
-				currentMode = CurrentMode.Null;
-				FlipSprite();
-				anim.Play("Idle Animation");
-			}
-		}
-	}
 	public override void TakeDamage(int _damage)
 	{
 		base.TakeDamage(_damage);

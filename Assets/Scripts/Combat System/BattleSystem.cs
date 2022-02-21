@@ -13,7 +13,7 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] enemies;
 	[ReadOnlyInspector] public List<EnemyUnit> enemiesAlive;
 	[Space]
-	[SerializeField] PlayerUnit playerUnit;
+	public PlayerUnit playerUnit;
 
 	[Header("Refernces")]
 	[SerializeField] GameObject enemyParent;
@@ -22,7 +22,10 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }
 
 	[field: Header("Adjustements")]
-    [field: SerializeField]	public float backToBlockAnimationDelay { get; private set; } = 1;
+	[field: SerializeField] public float DelayBetweenEachTurn { get; private set; } = 1;
+	[field: SerializeField] public float WalkDuration { get; private set; } = 1;
+	[field: SerializeField]	public float backToBlockAnimationDelay { get; private set; } = 1;
+	[field: SerializeField] public float AttackDuration { get; private set; } = 1;
 
 	private void Awake()
 	{

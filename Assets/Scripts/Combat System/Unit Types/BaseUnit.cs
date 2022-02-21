@@ -39,6 +39,31 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		Setup();
 	}
+
+	private void Update()
+	{
+		if (currentMode == CurrentMode.Attacking)
+		{
+			bool finished = LerpToTarget(basePosition, locationToAttackTarget);
+
+			if (finished)
+			{
+				currentMode = CurrentMode.Null;
+				anim.Play("Attack Animation");
+				StartCoroutine(ReturnToBasePOS());
+			}
+		}
+
+		if (currentMode == CurrentMode.ReturningHome)
+		{
+			bool finished = LerpToTarget(locationToAttackTarget, basePosition);
+
+			if (finished)
+			{
+				OnReturnedToBasePosition();
+			}
+		}
+	}
 	protected virtual void Setup()
 	{
 		// Set References
@@ -85,7 +110,7 @@ public abstract class BaseUnit : MonoBehaviour
 	protected bool LerpToTarget(Vector3 startPosition, Vector3 endPosition)
 	{
 		elapsedTime += Time.deltaTime;
-		float percentageCompleted = elapsedTime / 1;
+		float percentageCompleted = elapsedTime / battleSystem.WalkDuration;
 
 		transform.position = Vector3.Lerp(startPosition, endPosition, percentageCompleted);
 
@@ -100,6 +125,21 @@ public abstract class BaseUnit : MonoBehaviour
 	protected void FlipSprite()
 	{
 		sr.flipX = !sr.flipX;
+	}
+
+	IEnumerator ReturnToBasePOS()
+	{
+		yield return new WaitForSeconds(battleSystem.AttackDuration);
+		FlipSprite();
+		currentMode = CurrentMode.ReturningHome;
+		anim.Play("Walk Animation");
+	}
+
+	protected virtual void OnReturnedToBasePosition()
+	{
+		currentMode = CurrentMode.Null;
+		FlipSprite();
+		anim.Play("Idle Animation");
 	}
 
 	public abstract void ChooseAction();
