@@ -14,6 +14,7 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField] GameObject enemyParent;
 
 	[field: SerializeField] public GameObject playerChoices { get; private set; }
+	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }
 
 	[field: Header("Adjustements")]
     [field: SerializeField]	public float backToBlockAnimationDelay { get; private set; } = 1;

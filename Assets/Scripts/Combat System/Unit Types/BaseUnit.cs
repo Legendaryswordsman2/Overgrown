@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum CurrentMode { Null, Attacking, ReturningHome}
 public abstract class BaseUnit : MonoBehaviour
 {
 	[SerializeField] protected string unitName = "Unit";
@@ -13,13 +14,20 @@ public abstract class BaseUnit : MonoBehaviour
 	[SerializeField] protected int damage = 10;
 
 	// Private
-	BattleSystem battleSystem;
-	protected Transform locationtoAttackTarget;
+	protected BattleSystem battleSystem;
+	TMP_Text damageText;
 
 	[HideInInspector] public bool isBlocking = false;
 
+	[SerializeField] protected Vector3 locationToAttackTarget;
 	protected Animator anim;
-	TMP_Text damageText;
+	protected Vector3 basePosition;
+
+
+	// Lerp
+	protected float elapsedTime;
+
+	protected CurrentMode currentMode = CurrentMode.Attacking;
 
 	// To be implemented
 
@@ -32,10 +40,11 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 	protected virtual void Setup()
 	{
-		// Set Refernces
+		// Set References
 		battleSystem = BattleSystem.instance;
 		damageText = GetComponentInChildren<TMP_Text>(true);
 		anim = GetComponent<Animator>();
+		basePosition = transform.position;
 
 		// Set current health
 		currentHealth = maxHealth;
@@ -69,6 +78,21 @@ public abstract class BaseUnit : MonoBehaviour
 		anim.Play("Hurt Animation");
 		yield return new WaitForSeconds(battleSystem.backToBlockAnimationDelay);
 		anim.Play("Block Animation");
+	}
+
+	protected bool LerpToTarget(Vector3 startPosition, Vector3 endPosition)
+	{
+		elapsedTime += Time.deltaTime;
+		float percentageCompleted = elapsedTime / 1;
+
+		transform.position = Vector3.Lerp(startPosition, endPosition, percentageCompleted);
+
+		if(transform.position == endPosition)
+		{
+			elapsedTime = 0;
+			return true;
+	    }
+		return false;
 	}
 
 	public abstract void ChooseAction();

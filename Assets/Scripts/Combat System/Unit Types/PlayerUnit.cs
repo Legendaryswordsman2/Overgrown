@@ -12,6 +12,29 @@ public class PlayerUnit : BaseUnit
 		base.Setup();
 		playerHUD.SetHUD(this);
 	}
+	private void Update()
+	{
+		if (currentMode == CurrentMode.Attacking)
+		{
+			locationToAttackTarget = battleSystem.enemiesAlive[0].transform.GetChild(2).position;
+			bool finished = LerpToTarget(basePosition, locationToAttackTarget);
+
+			if(finished)
+			{
+				currentMode = CurrentMode.ReturningHome;
+			}
+		}
+
+		if (currentMode == CurrentMode.ReturningHome)
+		{
+			bool finished = LerpToTarget(locationToAttackTarget, basePosition);
+
+			if (finished)
+			{
+				currentMode = CurrentMode.Null;
+			}
+		}
+	}
 	public override void TakeDamage(int _damage)
 	{
 		base.TakeDamage(_damage);
@@ -28,7 +51,7 @@ public class PlayerUnit : BaseUnit
 	{
 		if (anim != null)
 			anim.Play("Idle Animation");
-		BattleSystem.instance.playerChoices.SetActive(true);
+		battleSystem.playerChoices.SetActive(true);
 	}
 
 	public void EscapeBattle()
