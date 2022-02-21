@@ -24,10 +24,6 @@ public class BattleSystem : MonoBehaviour
 
 		SetupCombat();
 	}
-	private void Start()
-	{
-		SetupCombatStepTwo();
-	}
 
 	void SetupCombat()
 	{
@@ -47,16 +43,6 @@ public class BattleSystem : MonoBehaviour
 		{
 			enemiesAlive.Add(tempActiveEnemies[i]);
 		}
-	}
-	void SetupCombatStepTwo()
-	{
-		// Put New Enemies In A List
-		//EnemyUnit[] tempActiveEnemies = enemyParent.GetComponentsInChildren<EnemyUnit>();
-
-		//for (int i = 0; i < tempActiveEnemies.Length; i++)
-		//{
-		//	enemiesAlive.Add(tempActiveEnemies[i]);
-		//}
 	}
 	void ClearEnemies()
 	{
