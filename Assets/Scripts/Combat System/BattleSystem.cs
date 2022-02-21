@@ -21,14 +21,13 @@ public class BattleSystem : MonoBehaviour
 	private void Awake()
 	{
 		instance = this;
-
 		SetupCombat();
 	}
 
 	void SetupCombat()
 	{
 		// Clear Enemies
-		//ClearEnemies();
+		ClearEnemies();
 
 		// Assign New Enemies
 		for (int i = 0; i < BattleSetupData._enemies.Length; i++)

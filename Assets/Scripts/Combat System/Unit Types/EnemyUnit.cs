@@ -9,25 +9,17 @@ public class EnemyUnit : BaseUnit
 
 	ProgressBar healthBar;
 
-	Vector3 basePosition;
-	protected override void Setup()
-	{
-		base.Setup();
-
-		basePosition = transform.position;
-
-		healthBar = transform.GetChild(0).GetChild(0).GetComponent<ProgressBar>();
-
-		healthBar.maximum = maxHealth;
-		healthBar.current = maxHealth;
-	}
-
 	public void SetupEnemy()
 	{
 		unitName = enemySO.enemyName;
 		maxHealth = enemySO.defaultHealth;
 		damage = enemySO.attackDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = enemySO.animatorController;
+
+		healthBar = transform.GetChild(0).GetChild(0).GetComponent<ProgressBar>();
+
+		healthBar.maximum = maxHealth;
+		healthBar.current = maxHealth;
 
 		gameObject.SetActive(true);
 	}
