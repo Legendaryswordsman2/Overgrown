@@ -11,7 +11,6 @@ public class PlayerUnit : BaseUnit
 	{
 		base.Setup();
 		playerHUD.SetHUD(this);
-		Attack();
 	}
 	private void Update()
 	{
@@ -58,7 +57,7 @@ public class PlayerUnit : BaseUnit
 	}
 
 	#region Actions
-	void Attack()
+	void BasicAttack()
 	{
 		locationToAttackTarget = battleSystem.enemiesAlive[0].transform.GetChild(2).position;
 		anim.Play("Walk Animation");

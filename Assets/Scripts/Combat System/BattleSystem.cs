@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BattleState { PlayerTurn, EnemyTurn}
 public class BattleSystem : MonoBehaviour
 {
 	public static BattleSystem instance;
 
+	BattleState state;
+
 	[Header("Units")]
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] enemies;
 	[ReadOnlyInspector] public List<EnemyUnit> enemiesAlive;
+	[Space]
+	[SerializeField] PlayerUnit playerUnit;
 
 	[Header("Refernces")]
 	[SerializeField] GameObject enemyParent;
@@ -42,6 +47,35 @@ public class BattleSystem : MonoBehaviour
 		for (int i = 0; i < tempActiveEnemies.Length; i++)
 		{
 			enemiesAlive.Add(tempActiveEnemies[i]);
+		}
+
+		// Start First Turn
+
+		if (BattleSetupData.playerStartsTurn)
+		{
+			state = BattleState.PlayerTurn;
+			playerUnit.ChooseAction();
+		}
+		else
+		{
+			playerChoices.SetActive(false);
+			state = BattleState.EnemyTurn;
+			enemiesAlive[0].ChooseAction();
+		}
+	}
+
+	public void SwitchTurn()
+	{
+		if(state == BattleState.PlayerTurn)
+		{
+			playerChoices.SetActive(false);
+			state = BattleState.EnemyTurn;
+			enemiesAlive[0].ChooseAction();
+		} 
+		else if(state == BattleState.EnemyTurn)
+		{
+			state = BattleState.PlayerTurn;
+			playerUnit.ChooseAction();
 		}
 	}
 	void ClearEnemies()

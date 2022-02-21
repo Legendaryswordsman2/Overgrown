@@ -36948,6 +36948,7 @@ MonoBehaviour:
   - {fileID: 1142317742}
   - {fileID: 1048622415}
   enemiesAlive: []
+  playerUnit: {fileID: 2135679976}
   enemyParent: {fileID: 1346035435}
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <playerPlantChoices>k__BackingField: {fileID: 1330514159}

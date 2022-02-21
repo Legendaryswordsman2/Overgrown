@@ -26,7 +26,12 @@ public class EnemyUnit : BaseUnit
 
 	public override void ChooseAction()
 	{
-		throw new System.NotImplementedException();
+		BasicAttack();
+	}
+
+	void BasicAttack()
+	{
+
 	}
 
 	protected override void OnValidate()
