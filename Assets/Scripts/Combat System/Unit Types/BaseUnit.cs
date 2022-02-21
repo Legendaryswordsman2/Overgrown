@@ -14,11 +14,12 @@ public abstract class BaseUnit : MonoBehaviour
 	[SerializeField] protected int damage = 10;
 
 	// Private
-	protected BattleSystem battleSystem;
 	TMP_Text damageText;
+	SpriteRenderer sr;
 
 	[HideInInspector] public bool isBlocking = false;
 
+	protected BattleSystem battleSystem;
 	[SerializeField] protected Vector3 locationToAttackTarget;
 	protected Animator anim;
 	protected Vector3 basePosition;
@@ -45,6 +46,7 @@ public abstract class BaseUnit : MonoBehaviour
 		damageText = GetComponentInChildren<TMP_Text>(true);
 		anim = GetComponent<Animator>();
 		basePosition = transform.position;
+		sr = GetComponent<SpriteRenderer>();
 
 		// Set current health
 		currentHealth = maxHealth;
@@ -93,6 +95,11 @@ public abstract class BaseUnit : MonoBehaviour
 			return true;
 	    }
 		return false;
+	}
+
+	protected void FlipSprite()
+	{
+		sr.flipX = !sr.flipX;
 	}
 
 	public abstract void ChooseAction();

@@ -22,6 +22,7 @@ public class PlayerUnit : BaseUnit
 			if(finished)
 			{
 				currentMode = CurrentMode.ReturningHome;
+				FlipSprite();
 			}
 		}
 
@@ -32,6 +33,7 @@ public class PlayerUnit : BaseUnit
 			if (finished)
 			{
 				currentMode = CurrentMode.Null;
+				FlipSprite();
 			}
 		}
 	}
