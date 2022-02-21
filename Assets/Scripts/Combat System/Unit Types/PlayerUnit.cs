@@ -11,12 +11,12 @@ public class PlayerUnit : BaseUnit
 	{
 		base.Setup();
 		playerHUD.SetHUD(this);
+		Attack();
 	}
 	private void Update()
 	{
 		if (currentMode == CurrentMode.Attacking)
 		{
-			locationToAttackTarget = battleSystem.enemiesAlive[0].transform.GetChild(2).position;
 			bool finished = LerpToTarget(basePosition, locationToAttackTarget);
 
 			if(finished)
@@ -34,6 +34,7 @@ public class PlayerUnit : BaseUnit
 			{
 				currentMode = CurrentMode.Null;
 				FlipSprite();
+				anim.Play("Idle Animation");
 			}
 		}
 	}
@@ -56,8 +57,16 @@ public class PlayerUnit : BaseUnit
 		battleSystem.playerChoices.SetActive(true);
 	}
 
+	#region Actions
+	void Attack()
+	{
+		locationToAttackTarget = battleSystem.enemiesAlive[0].transform.GetChild(2).position;
+		anim.Play("Walk Animation");
+		currentMode = CurrentMode.Attacking;
+	}
 	public void EscapeBattle()
 	{
 		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex, BattleSetupData.playerPosition));
 	}
+	#endregion
 }

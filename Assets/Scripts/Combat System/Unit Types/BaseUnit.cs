@@ -28,7 +28,7 @@ public abstract class BaseUnit : MonoBehaviour
 	// Lerp
 	protected float elapsedTime;
 
-	protected CurrentMode currentMode = CurrentMode.Attacking;
+	protected CurrentMode currentMode = CurrentMode.Null;
 
 	// To be implemented
 
