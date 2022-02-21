@@ -5,15 +5,17 @@ using TMPro;
 
 public abstract class BaseUnit : MonoBehaviour
 {
-	[SerializeField] string unitName = "Unit";
+	[SerializeField] protected string unitName = "Unit";
 
 	[Header("Stats")]
 	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
-	[SerializeField] int damage = 10;
+	[SerializeField] protected int damage = 10;
 
 	// Private
 	BattleSystem battleSystem;
+	protected Transform locationtoAttackTarget;
+
 	[HideInInspector] public bool isBlocking = false;
 
 	protected Animator anim;
@@ -24,7 +26,11 @@ public abstract class BaseUnit : MonoBehaviour
 	//int defence;
 	// int critChance
 
-	protected virtual void Awake()
+	private void Awake()
+	{
+		Setup();
+	}
+	protected virtual void Setup()
 	{
 		// Set Refernces
 		battleSystem = BattleSystem.instance;
@@ -33,8 +39,6 @@ public abstract class BaseUnit : MonoBehaviour
 
 		// Set current health
 		currentHealth = maxHealth;
-
-		Setup();
 	}
 	public virtual void TakeDamage(int _damage)
 	{
@@ -68,7 +72,6 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 
 	public abstract void ChooseAction();
-	protected abstract void Setup();
 
 	#region Actions
 	public virtual void Block()
@@ -78,7 +81,7 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 	#endregion
 
-	private void OnValidate()
+	protected virtual void OnValidate()
 	{
 		gameObject.name = unitName.Trim() + " Unit";
 	}

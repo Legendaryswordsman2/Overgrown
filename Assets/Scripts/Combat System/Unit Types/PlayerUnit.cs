@@ -9,6 +9,7 @@ public class PlayerUnit : BaseUnit
 	[SerializeField] CombatInfoHUD playerHUD;
 	protected override void Setup()
 	{
+		base.Setup();
 		playerHUD.SetHUD(this);
 	}
 	public override void TakeDamage(int _damage)

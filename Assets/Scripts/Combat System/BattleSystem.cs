@@ -7,16 +7,12 @@ public class BattleSystem : MonoBehaviour
 	public static BattleSystem instance;
 
 	[Header("Units")]
-	[SerializeField, ReadOnlyInspector] GameObject[] enemies;
+	[SerializeField, ReadOnlyInspector] EnemyUnit[] enemies;
 
 	[Header("Refernces")]
 	[SerializeField] GameObject enemyParent;
 
-	[field: Space]
-
 	[field: SerializeField] public GameObject playerChoices { get; private set; }
-
-	[field: Space]
 
 	[field: Header("Adjustements")]
     [field: SerializeField]	public float backToBlockAnimationDelay { get; private set; } = 1;
