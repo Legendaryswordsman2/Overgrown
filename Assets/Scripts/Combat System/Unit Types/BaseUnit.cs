@@ -20,7 +20,7 @@ public abstract class BaseUnit : MonoBehaviour
 	[HideInInspector] public bool isBlocking = false;
 
 	protected BattleSystem battleSystem;
-	[SerializeField] protected Vector3 locationToAttackTarget;
+	protected Vector3 locationToAttackTarget;
 	protected Animator anim;
 	protected Vector3 basePosition;
 
@@ -48,9 +48,7 @@ public abstract class BaseUnit : MonoBehaviour
 
 			if (finished)
 			{
-				currentMode = CurrentMode.Null;
-				anim.Play("Attack Animation");
-				StartCoroutine(ReturnToBasePOS());
+				OnAttack();
 			}
 		}
 
@@ -140,6 +138,13 @@ public abstract class BaseUnit : MonoBehaviour
 		currentMode = CurrentMode.Null;
 		FlipSprite();
 		anim.Play("Idle Animation");
+	}
+
+	protected virtual void OnAttack()
+	{
+		currentMode = CurrentMode.Null;
+		anim.Play("Attack Animation");
+		StartCoroutine(ReturnToBasePOS());
 	}
 
 	public abstract void ChooseAction();

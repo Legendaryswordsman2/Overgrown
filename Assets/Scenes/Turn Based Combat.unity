@@ -25439,7 +25439,6 @@ MonoBehaviour:
   currentHealth: 0
   damage: 10
   isBlocking: 0
-  locationToAttackTarget: {x: 0, y: 0, z: 0}
   playerPlantHUD: {fileID: 1107256910}
 --- !u!212 &815465836
 SpriteRenderer:
@@ -37690,9 +37689,8 @@ MonoBehaviour:
   unitName: Player
   maxHealth: 110
   currentHealth: 0
-  damage: 10
+  damage: 90
   isBlocking: 0
-  locationToAttackTarget: {x: -1.8667, y: 0, z: 0}
   playerHUD: {fileID: 1867131979}
 --- !u!212 &2135679977
 SpriteRenderer:

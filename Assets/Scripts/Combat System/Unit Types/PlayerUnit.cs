@@ -72,6 +72,11 @@ public class PlayerUnit : BaseUnit
 			playerHUD.SetHealth(0);
 		}
 	}
+	protected override void Die()
+	{
+		base.Die();
+		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex));
+	}
 	public override void ChooseAction()
 	{
 		if (anim != null)
@@ -107,6 +112,30 @@ public class PlayerUnit : BaseUnit
 		locationToAttackTarget = battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(2).position;
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
+	}
+	protected override void OnAttack()
+	{
+		base.OnAttack();
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage(damage);
+	}
+	protected override void OnReturnedToBasePosition()
+	{
+		base.OnReturnedToBasePosition();
+		StartCoroutine(NextTurn());
+	}
+
+	IEnumerator NextTurn()
+	{
+		yield return new WaitForSeconds(battleSystem.DelayBetweenEachTurn);
+		if (battleSystem.playerHasPlant)
+		{
+			battleSystem.playerChoices.SetActive(false);
+			battleSystem.playerPlantUnit.ChooseAction();
+		}
+		else
+		{
+			battleSystem.SwitchTurn();
+		}
 	}
 	public void EscapeBattle()
 	{

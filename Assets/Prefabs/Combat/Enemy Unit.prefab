@@ -252,7 +252,6 @@ MonoBehaviour:
   currentHealth: 0
   damage: 10
   isBlocking: 0
-  locationToAttackTarget: {x: 0, y: 0, z: 0}
   <enemySO>k__BackingField: {fileID: 0}
 --- !u!95 &2565244481164499032
 Animator:

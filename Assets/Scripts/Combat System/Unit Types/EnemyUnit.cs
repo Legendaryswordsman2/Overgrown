@@ -63,6 +63,24 @@ public class EnemyUnit : BaseUnit
 		}
 	}
 
+	public override void TakeDamage(int _damage)
+	{
+		base.TakeDamage(_damage);
+		healthBar.current = currentHealth;
+	}
+
+	protected override void Die()
+	{
+		base.Die();
+		battleSystem.enemiesAlive.Remove(this);
+	}
+
+	protected override void OnAttack()
+	{
+		base.OnAttack();
+		battleSystem.playerUnit.TakeDamage(damage);
+	}
+
 	protected override void OnValidate()
 	{
 		if (enemySO == null)
