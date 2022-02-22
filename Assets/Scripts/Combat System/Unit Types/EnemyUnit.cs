@@ -31,7 +31,7 @@ public class EnemyUnit : BaseUnit
 
 	void BasicAttack()
 	{
-		locationToAttackTarget = battleSystem.playerUnit.transform.GetChild(1).position;
+		locationToAttackTarget = battleSystem.playerUnit.transform.GetChild(2).position;
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}

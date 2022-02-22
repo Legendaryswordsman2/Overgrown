@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum CurrentMode { Null, Attacking, ReturningHome}
+public enum CurrentMode { Null, Attacking, ReturningHome, AwaitingTargetToAttack}
 public abstract class BaseUnit : MonoBehaviour
 {
 	[SerializeField] protected string unitName = "Unit";
@@ -40,7 +40,7 @@ public abstract class BaseUnit : MonoBehaviour
 		Setup();
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
 		if (currentMode == CurrentMode.Attacking)
 		{

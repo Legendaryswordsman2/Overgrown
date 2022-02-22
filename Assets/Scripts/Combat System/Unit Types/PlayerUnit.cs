@@ -7,10 +7,58 @@ public class PlayerUnit : BaseUnit
 {
 	[Header("References")]
 	[SerializeField] CombatInfoHUD playerHUD;
+
+	AttackType attackType;
+
+	int enemySelectionIndex = 0;
 	protected override void Setup()
 	{
 		base.Setup();
 		playerHUD.SetHUD(this);
+	}
+
+	protected override void Update()
+	{
+		base.Update();
+
+		if(currentMode == CurrentMode.AwaitingTargetToAttack)
+		{
+			if (Input.GetKeyDown(KeyCode.Return))
+			{
+				if (attackType == AttackType.Basic)
+					BasicAttack();
+				//else
+					//RangedAttack();
+			}
+
+			if (Input.GetKeyDown(KeyCode.W))
+			{
+				if (enemySelectionIndex <= 0) return;
+				enemySelectionIndex--;
+
+				for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+				{
+					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+				}
+				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+
+				Debug.Log(enemySelectionIndex);
+			}
+
+			if (Input.GetKeyDown(KeyCode.S))
+			{
+				if (enemySelectionIndex >= battleSystem.enemiesAlive.Count - 1) return;
+			    enemySelectionIndex++;
+
+				for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+				{
+					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+				}
+				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+
+				Debug.Log(enemySelectionIndex);
+			}
+		}
 	}
 	public override void TakeDamage(int _damage)
 	{
@@ -32,9 +80,31 @@ public class PlayerUnit : BaseUnit
 	}
 
 	#region Actions
+	public void SelectTargetToAttack(bool isBasicAttack)
+	{
+		if (isBasicAttack)
+			attackType = AttackType.Basic;
+		else
+			attackType = AttackType.Ranged;
+
+		battleSystem.playerChoices.SetActive(false);
+
+		if (enemySelectionIndex < 0) enemySelectionIndex = 0;
+
+		if(enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
+
+		battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+
+		currentMode = CurrentMode.AwaitingTargetToAttack;
+	}
 	void BasicAttack()
 	{
-		locationToAttackTarget = battleSystem.enemiesAlive[0].transform.GetChild(2).position;
+		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		{
+			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+		}
+
+		locationToAttackTarget = battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(2).position;
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
