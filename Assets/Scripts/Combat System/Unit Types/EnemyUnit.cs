@@ -26,6 +26,8 @@ public class EnemyUnit : BaseUnit
 
 	public override void ChooseAction()
 	{
+		base.ChooseAction();
+
 		BasicAttack();
 	}
 
@@ -40,10 +42,8 @@ public class EnemyUnit : BaseUnit
 		base.OnReturnedToBasePosition();
 		StartCoroutine(NextTurn());
 	}
-
-	IEnumerator NextTurn()
+	protected override IEnumerator NextTurn()
 	{
-		print("Next Turn");
 		yield return new WaitForSeconds(battleSystem.DelayBetweenEachTurn);
 
 		// If this unit is the last enemy to choose an action then go to player turn

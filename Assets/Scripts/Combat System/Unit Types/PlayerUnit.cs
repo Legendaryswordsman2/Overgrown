@@ -27,8 +27,8 @@ public class PlayerUnit : BaseUnit
 			{
 				if (attackType == AttackType.Basic)
 					BasicAttack();
-				//else
-					//RangedAttack();
+				else
+					RangedAttack();
 			}
 
 			if (Input.GetKeyDown(KeyCode.W))
@@ -79,6 +79,8 @@ public class PlayerUnit : BaseUnit
 	}
 	public override void ChooseAction()
 	{
+		base.ChooseAction();
+
 		if (anim != null)
 			anim.Play("Idle Animation");
 		battleSystem.playerChoices.SetActive(true);
@@ -113,6 +115,24 @@ public class PlayerUnit : BaseUnit
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
+	void RangedAttack()
+	{
+		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		{
+			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+		}
+
+		locationToAttackTarget = battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(2).position;
+		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform).GetComponent<ArrowLerp>();
+		arrow.damage = damage;
+		arrow.selectionIndex = enemySelectionIndex;
+		arrow.endPosition = battleSystem.enemiesAlive[enemySelectionIndex].transform.position;
+	}
+	public override void Block()
+	{
+		battleSystem.playerChoices.SetActive(false);
+		base.Block();
+	}
 	protected override void OnAttack()
 	{
 		base.OnAttack();
@@ -124,7 +144,7 @@ public class PlayerUnit : BaseUnit
 		StartCoroutine(NextTurn());
 	}
 
-	IEnumerator NextTurn()
+	protected override IEnumerator NextTurn()
 	{
 		yield return new WaitForSeconds(battleSystem.DelayBetweenEachTurn);
 		if (battleSystem.playerHasPlant)

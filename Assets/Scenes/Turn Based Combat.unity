@@ -25385,7 +25385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &815465833
 Transform:
   m_ObjectHideFlags: 0
@@ -27163,7 +27163,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2135679976}
         m_TargetAssemblyTypeName: PlayerUnit, Assembly-CSharp
         m_MethodName: Block
         m_Mode: 1
@@ -33734,9 +33734,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2135679976}
         m_TargetAssemblyTypeName: PlayerUnit, Assembly-CSharp
-        m_MethodName: SelectEnemyToAttack
+        m_MethodName: SelectTargetToAttack
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37153,13 +37153,16 @@ MonoBehaviour:
   - {fileID: 1048622415}
   enemiesAlive: []
   playerUnit: {fileID: 2135679976}
+  playerPlantUnit: {fileID: 815465835}
   enemyParent: {fileID: 1346035435}
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <playerPlantChoices>k__BackingField: {fileID: 1330514159}
-  <DelayBetweenEachTurn>k__BackingField: 1
+  <arrowPrefab>k__BackingField: {fileID: 9212809993732800865, guid: c92dd7e951ca17a41939eb3e92b288cb, type: 3}
+  <DelayBetweenEachTurn>k__BackingField: 0.5
   <WalkDuration>k__BackingField: 1
   <backToBlockAnimationDelay>k__BackingField: 1
   <AttackDuration>k__BackingField: 0.5
+  playerHasPlant: 0
 --- !u!4 &1990234816
 Transform:
   m_ObjectHideFlags: 0
@@ -37687,7 +37690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Player
-  maxHealth: 110
+  maxHealth: 393
   currentHealth: 0
   damage: 90
   isBlocking: 0

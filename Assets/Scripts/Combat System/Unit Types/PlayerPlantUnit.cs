@@ -17,4 +17,9 @@ public class PlayerPlantUnit : BaseUnit
 			anim.Play("Idle Animation");
 		battleSystem.playerPlantChoices.SetActive(true);
 	}
+	protected override IEnumerator NextTurn()
+	{
+		yield return new WaitForSeconds(battleSystem.DelayBetweenEachTurn);
+		battleSystem.SwitchTurn();
+	}
 }

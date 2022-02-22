@@ -147,13 +147,18 @@ public abstract class BaseUnit : MonoBehaviour
 		StartCoroutine(ReturnToBasePOS());
 	}
 
-	public abstract void ChooseAction();
+	public virtual void ChooseAction()
+	{
+		isBlocking = false;
+	}
+	protected abstract IEnumerator NextTurn();
 
 	#region Actions
 	public virtual void Block()
 	{
 		isBlocking = true;
 		anim.Play("Block Animation");
+		StartCoroutine(NextTurn());
 	}
 	#endregion
 
