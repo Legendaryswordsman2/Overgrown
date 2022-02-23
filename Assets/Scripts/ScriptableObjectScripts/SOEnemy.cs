@@ -20,7 +20,7 @@ public class SOEnemy : ScriptableObject
 	[Header("Comabat")]
 	public float attackRange = 0.5f;
 	public int attackDamage = 20;
-	public SOEnemy[] enemiesToFight;
+	public EnemiesToFight[] enemiesToFight;
 
 	[Header("Walk Speeds")]
 	public float attackWalkSpeed = 5;
@@ -41,7 +41,7 @@ public class SOEnemy : ScriptableObject
 		id = AssetDatabase.AssetPathToGUID(path);
 	}
 #endif
-
+	[System.Serializable]
 	public class EnemiesToFight
 	{
 		public SOEnemy[] enemies;
