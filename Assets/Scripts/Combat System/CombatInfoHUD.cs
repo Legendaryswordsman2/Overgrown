@@ -10,7 +10,7 @@ public class CombatInfoHUD : MonoBehaviour
 
 	public void SetHUD(BaseUnit unit)
 	{
-		nameText.text = unit.name;
+		nameText.text = unit.unitName.ToUpper();
 		healthSlider.maximum = unit.maxHealth;
 		healthSlider.current = unit.currentHealth;
 	}

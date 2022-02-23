@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Steamworks;
 enum AttackType { Basic, Ranged}
 public class PlayerUnit : BaseUnit
 {
-	[Header("References")]
-	[SerializeField] CombatInfoHUD playerHUD;
+	[field: Header("References")]
+	[field: SerializeField] public CombatInfoHUD playerHUD { get; private set; }
 
 	AttackType attackType;
 
 	int enemySelectionIndex = 0;
 	protected override void Setup()
 	{
+		unitName = SteamFriends.GetPersonaName();
 		base.Setup();
 		playerHUD.SetHUD(this);
 	}

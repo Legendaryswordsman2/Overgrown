@@ -41,4 +41,9 @@ public class SOEnemy : ScriptableObject
 		id = AssetDatabase.AssetPathToGUID(path);
 	}
 #endif
+
+	public class EnemiesToFight
+	{
+		public SOEnemy[] enemies;
+	}
 }

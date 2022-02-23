@@ -6,7 +6,7 @@ using TMPro;
 public enum CurrentMode { Null, Attacking, ReturningHome, AwaitingTargetToAttack}
 public abstract class BaseUnit : MonoBehaviour
 {
-	[SerializeField] protected string unitName = "Unit";
+	public string unitName = "Unit";
 
 	[Header("Stats")]
 	public int maxHealth = 100;

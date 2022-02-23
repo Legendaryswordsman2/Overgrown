@@ -32,6 +32,7 @@ public class BattleSystem : MonoBehaviour
 	// Private
 	[HideInInspector] public bool playerHasPlant = false;
 
+
 	private void Awake()
 	{
 		instance = this;
