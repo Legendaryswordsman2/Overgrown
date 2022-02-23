@@ -44,6 +44,11 @@ MonoBehaviour:
   - enemies:
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
   attackWalkSpeed: 5
   wanderSpeed: 3
   minWanderWaitTime: 2
