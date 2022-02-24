@@ -24,10 +24,12 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
 
 	[field: Header("Adjustements")]
-	[field: SerializeField] public float DelayBetweenEachTurn { get; private set; } = 1;
+	[field: Tooltip("The delay before switching from the player team to the enemy team and vise versa")]
+	[field: SerializeField] public float DelayBeforeSwitchingTurn { get; private set; } = 2;
 	[field: SerializeField] public float WalkDuration { get; private set; } = 1;
 	[field: SerializeField]	public float backToBlockAnimationDelay { get; private set; } = 1;
 	[field: SerializeField] public float AttackDuration { get; private set; } = 1;
+	[field: SerializeField] public float delayBeforeNextEnemyActionAfterBlocking { get; private set; } = 1;
 
 	// Private
 	[HideInInspector] public bool playerHasPlant = false;
@@ -73,12 +75,20 @@ public class BattleSystem : MonoBehaviour
 		}
 	}
 
-	public void SwitchTurn()
+	public IEnumerator SwitchTurn()
 	{
 		if(state == BattleState.PlayerTurn)
 		{
 			playerChoices.SetActive(false);
 			state = BattleState.EnemyTurn;
+
+			for (int i = 0; i < enemiesAlive.Count; i++)
+			{
+				enemiesAlive[i].ResetForNewRound();
+			}
+
+			yield return new WaitForSeconds(2);
+
 			enemiesAlive[0].ChooseAction();
 		} 
 		else if(state == BattleState.EnemyTurn)

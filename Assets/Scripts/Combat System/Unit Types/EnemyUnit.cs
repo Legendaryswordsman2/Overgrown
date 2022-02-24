@@ -28,7 +28,12 @@ public class EnemyUnit : BaseUnit
 	{
 		base.ChooseAction();
 
-		BasicAttack();
+		int temp = Random.Range(0, 2);
+
+		if (temp == 0)
+			BasicAttack();
+		else
+			Block();
 	}
 
 	void BasicAttack()
@@ -44,15 +49,18 @@ public class EnemyUnit : BaseUnit
 	}
 	protected override IEnumerator NextTurn()
 	{
-		yield return new WaitForSeconds(battleSystem.DelayBetweenEachTurn);
 
 		// If this unit is the last enemy to choose an action then go to player turn
 		if (battleSystem.enemiesAlive[battleSystem.enemiesAlive.Count - 1] == this)
 		{
-			battleSystem.SwitchTurn();
+		yield return new WaitForSeconds(battleSystem.DelayBeforeSwitchingTurn);
+			StartCoroutine(battleSystem.SwitchTurn());
 		}
 		else // If not then go to the next enemy
 		{
+			if(isBlocking)
+			yield return new WaitForSeconds(battleSystem.delayBeforeNextEnemyActionAfterBlocking);
+
 			for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
 			{
 				if (battleSystem.enemiesAlive[i] == this)

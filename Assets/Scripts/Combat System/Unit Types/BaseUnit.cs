@@ -147,6 +147,12 @@ public abstract class BaseUnit : MonoBehaviour
 		StartCoroutine(ReturnToBasePOS());
 	}
 
+	public virtual void ResetForNewRound()
+	{
+		anim.Play("Idle Animation");
+		isBlocking = false;
+	}
+
 	public virtual void ChooseAction()
 	{
 		isBlocking = false;

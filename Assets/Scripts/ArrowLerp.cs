@@ -38,8 +38,8 @@ public class ArrowLerp : MonoBehaviour
 
 	IEnumerator switchTurn()
 	{
-		yield return new WaitForSeconds(BattleSystem.instance.DelayBetweenEachTurn);
-		BattleSystem.instance.SwitchTurn();
+		yield return new WaitForSeconds(BattleSystem.instance.DelayBeforeSwitchingTurn);
+		StartCoroutine(BattleSystem.instance.SwitchTurn());
 	}
 
 	IEnumerator DestroyTimer()
