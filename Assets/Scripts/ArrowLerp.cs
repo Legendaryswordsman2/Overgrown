@@ -28,18 +28,13 @@ public class ArrowLerp : MonoBehaviour
 		if (transform.position == endPosition)
 		{
 			BattleSystem.instance.enemiesAlive[selectionIndex].TakeDamage(damage);
-			StartCoroutine(switchTurn());
+			Debug.Log("Switching Turn");
+			StartCoroutine(BattleSystem.instance.SwitchTurn());
 
 			GetComponent<SpriteRenderer>().enabled = false;
 			endPosition = new Vector3();
 			StartCoroutine(DestroyTimer());
 		}
-	}
-
-	IEnumerator switchTurn()
-	{
-		yield return new WaitForSeconds(BattleSystem.instance.DelayBeforeSwitchingTurn);
-		StartCoroutine(BattleSystem.instance.SwitchTurn());
 	}
 
 	IEnumerator DestroyTimer()

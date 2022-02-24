@@ -147,7 +147,7 @@ public class PlayerUnit : BaseUnit
 
 	protected override IEnumerator NextTurn()
 	{
-		yield return new WaitForSeconds(battleSystem.DelayBeforeSwitchingTurn);
+		yield return new WaitForSeconds(0);
 		if (battleSystem.playerHasPlant)
 		{
 			battleSystem.playerChoices.SetActive(false);

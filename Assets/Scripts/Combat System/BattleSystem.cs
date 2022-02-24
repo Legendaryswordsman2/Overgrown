@@ -77,7 +77,10 @@ public class BattleSystem : MonoBehaviour
 
 	public IEnumerator SwitchTurn()
 	{
-		if(state == BattleState.PlayerTurn)
+		Debug.Log("Switched Turn");
+		yield return new WaitForSeconds(DelayBeforeSwitchingTurn);
+
+		if (state == BattleState.PlayerTurn)
 		{
 			playerChoices.SetActive(false);
 			state = BattleState.EnemyTurn;
@@ -95,6 +98,12 @@ public class BattleSystem : MonoBehaviour
 		{
 			state = BattleState.PlayerTurn;
 			playerUnit.ChooseAction();
+		}
+
+
+		if(state != BattleState.PlayerTurn && state != BattleState.EnemyTurn)
+		{
+			Debug.LogWarning("Its no ones turn");
 		}
 	}
 	void ClearEnemies()

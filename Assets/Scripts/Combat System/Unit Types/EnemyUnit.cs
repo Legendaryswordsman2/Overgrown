@@ -53,7 +53,6 @@ public class EnemyUnit : BaseUnit
 		// If this unit is the last enemy to choose an action then go to player turn
 		if (battleSystem.enemiesAlive[battleSystem.enemiesAlive.Count - 1] == this)
 		{
-		yield return new WaitForSeconds(battleSystem.DelayBeforeSwitchingTurn);
 			StartCoroutine(battleSystem.SwitchTurn());
 		}
 		else // If not then go to the next enemy

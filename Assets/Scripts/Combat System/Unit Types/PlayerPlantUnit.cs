@@ -19,7 +19,7 @@ public class PlayerPlantUnit : BaseUnit
 	}
 	protected override IEnumerator NextTurn()
 	{
-		yield return new WaitForSeconds(battleSystem.DelayBeforeSwitchingTurn);
+		yield return new WaitForSeconds(0);
 		StartCoroutine(battleSystem.SwitchTurn());
 	}
 }
