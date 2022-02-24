@@ -7,16 +7,16 @@ using UnityEditor;
 
 public static class BattleData
 {
-	public static SOEnemy[] enemies;
+	public static SOEnemy[] _enemies;
 	public static int sceneIndex;
 	public static Vector3 playerPosition;
 	public static bool playerStartsTurn = true;
 
 	public static bool variablesAssigned = false;
 
-	public static void AssignVariables(SOEnemy[] _enemies, int _sceneIndex, Vector3 _playerPosition, bool _playerStartsTurn = true)
+	public static void AssignVariables(SOEnemy[] __enemies, int _sceneIndex, Vector3 _playerPosition, bool _playerStartsTurn = true)
 	{
-		enemies = _enemies;
+		_enemies = __enemies;
 		sceneIndex = _sceneIndex;
 		playerPosition = _playerPosition;
 		playerStartsTurn = _playerStartsTurn;
