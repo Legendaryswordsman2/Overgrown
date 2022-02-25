@@ -9,6 +9,6 @@ public class HealthItemEffect : ConsumableItemEffect
 
 	public override void ExecuteEffect(BaseUnit unit)
 	{
-		//unit.heal(healAmount);
+		unit.Heal(healAmount);
 	}
 }

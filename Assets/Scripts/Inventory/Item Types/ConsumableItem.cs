@@ -7,16 +7,11 @@ public class ConsumableItem : Item
 {
 	public List<ConsumableItemEffect> effects;
 
-	public void ExecuteEffect()
+	public void UseItem(BaseUnit unit)
 	{
-		//foreach (ConsumableItemEffect effect in effects)
-		//{
-		//	effect.ExecuteEffect(unit);
-		//}
-	}
-
-	public override void UseItem(BaseUnit unit)
-	{
-		throw new System.NotImplementedException();
+		foreach (ConsumableItemEffect effect in effects)
+		{
+			effect.ExecuteEffect(unit);
+		}
 	}
 }

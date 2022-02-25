@@ -18,6 +18,7 @@ public class BattleSystem : MonoBehaviour
 
 	[Header("Refernces")]
 	[SerializeField] GameObject enemyParent;
+	[field: SerializeField] public CombatInventory inventory { get; private set; }
 
 	[field: SerializeField] public GameObject playerChoices { get; private set; }
 	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }

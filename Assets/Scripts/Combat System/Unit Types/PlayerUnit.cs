@@ -26,6 +26,7 @@ public class PlayerUnit : BaseUnit
 		{
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
+				currentMode = CurrentMode.Null;
 				if (attackType == AttackType.Basic)
 					BasicAttack();
 				else
@@ -157,6 +158,12 @@ public class PlayerUnit : BaseUnit
 		{
 			StartCoroutine(battleSystem.SwitchTurn());
 		}
+	}
+
+	public override void Heal(int amount)
+	{
+		base.Heal(amount);
+		playerHUD.SetHealth(currentHealth);
 	}
 	public void EscapeBattle()
 	{

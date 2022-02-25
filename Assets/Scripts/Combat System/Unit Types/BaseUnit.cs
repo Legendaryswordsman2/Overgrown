@@ -106,6 +106,17 @@ public abstract class BaseUnit : MonoBehaviour
 		anim.Play("Block Animation");
 	}
 
+	public void UseItem()
+	{
+		anim.Play("Use Item Animation");
+	}
+
+	public virtual void Heal(int amount)
+	{
+		UseItem();
+		currentHealth += amount;
+	}
+
 	protected bool LerpToTarget(Vector3 startPosition, Vector3 endPosition)
 	{
 		elapsedTime += Time.deltaTime;
