@@ -76,7 +76,6 @@ public class PlayerUnit : BaseUnit
 	protected override void Die()
 	{
 		base.Die();
-		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex));
 	}
 	public override void ChooseAction()
 	{
@@ -127,6 +126,7 @@ public class PlayerUnit : BaseUnit
 		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform).GetComponent<ArrowLerp>();
 		arrow.damage = damage;
 		arrow.selectionIndex = enemySelectionIndex;
+		arrow.playerUnit = this;
 		arrow.endPosition = battleSystem.enemiesAlive[enemySelectionIndex].transform.position;
 	}
 	public override void Block()
@@ -145,7 +145,7 @@ public class PlayerUnit : BaseUnit
 		StartCoroutine(NextTurn());
 	}
 
-	protected override IEnumerator NextTurn()
+	public override IEnumerator NextTurn()
 	{
 		yield return new WaitForSeconds(0);
 		if (battleSystem.playerHasPlant)

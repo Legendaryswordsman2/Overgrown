@@ -11,6 +11,7 @@ public class ArrowLerp : MonoBehaviour
 	[HideInInspector] public int damage;
 
 	[HideInInspector] public int selectionIndex = 0;
+	[HideInInspector] public PlayerUnit playerUnit;
 
 	private void Start()
 	{
@@ -29,7 +30,7 @@ public class ArrowLerp : MonoBehaviour
 		{
 			BattleSystem.instance.enemiesAlive[selectionIndex].TakeDamage(damage);
 			Debug.Log("Switching Turn");
-			StartCoroutine(BattleSystem.instance.SwitchTurn());
+			StartCoroutine(playerUnit.NextTurn());
 
 			GetComponent<SpriteRenderer>().enabled = false;
 			endPosition = new Vector3();

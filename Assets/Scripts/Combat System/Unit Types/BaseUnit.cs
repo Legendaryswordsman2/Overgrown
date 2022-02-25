@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum CurrentMode { Null, Attacking, ReturningHome, AwaitingTargetToAttack}
+public enum CurrentMode { Null, Attacking, ReturningHome, AwaitingTargetToAttack, Dead}
 public abstract class BaseUnit : MonoBehaviour
 {
 	public string unitName = "Unit";
@@ -97,6 +97,7 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		gameObject.SetActive(false);
 		Debug.Log(unitName + " has died");
+		currentMode = CurrentMode.Dead;
 	}
 	IEnumerator HurtWhileBlocking()
 	{
@@ -138,6 +139,16 @@ public abstract class BaseUnit : MonoBehaviour
 		currentMode = CurrentMode.Null;
 		FlipSprite();
 		anim.Play("Idle Animation");
+
+		if(battleSystem.playerUnit.currentMode == CurrentMode.Dead)
+		{
+			StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Title"));
+		}
+
+		if(battleSystem.enemiesAlive.Count == 0)
+		{
+			StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex, BattleSetupData.playerPosition));
+		}
 	}
 
 	protected virtual void OnAttack()
@@ -157,7 +168,7 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		isBlocking = false;
 	}
-	protected abstract IEnumerator NextTurn();
+	public abstract IEnumerator NextTurn();
 
 	#region Actions
 	public virtual void Block()

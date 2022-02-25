@@ -17,7 +17,7 @@ public class PlayerPlantUnit : BaseUnit
 			anim.Play("Idle Animation");
 		battleSystem.playerPlantChoices.SetActive(true);
 	}
-	protected override IEnumerator NextTurn()
+	public override IEnumerator NextTurn()
 	{
 		yield return new WaitForSeconds(0);
 		StartCoroutine(battleSystem.SwitchTurn());

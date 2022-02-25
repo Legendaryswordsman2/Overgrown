@@ -37159,10 +37159,11 @@ MonoBehaviour:
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <playerPlantChoices>k__BackingField: {fileID: 1330514159}
   <arrowPrefab>k__BackingField: {fileID: 9212809993732800865, guid: c92dd7e951ca17a41939eb3e92b288cb, type: 3}
-  <DelayBetweenEachTurn>k__BackingField: 0.5
+  <DelayBeforeSwitchingTurn>k__BackingField: 2
   <WalkDuration>k__BackingField: 1
   <backToBlockAnimationDelay>k__BackingField: 1
   <AttackDuration>k__BackingField: 0.5
+  <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 1
   playerHasPlant: 0
 --- !u!4 &1990234816
 Transform:
@@ -37703,7 +37704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Player
-  maxHealth: 393
+  maxHealth: 82
   currentHealth: 0
   damage: 90
   isBlocking: 0

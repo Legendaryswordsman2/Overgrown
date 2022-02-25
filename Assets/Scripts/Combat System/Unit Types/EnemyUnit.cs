@@ -47,7 +47,7 @@ public class EnemyUnit : BaseUnit
 		base.OnReturnedToBasePosition();
 		StartCoroutine(NextTurn());
 	}
-	protected override IEnumerator NextTurn()
+	public override IEnumerator NextTurn()
 	{
 
 		// If this unit is the last enemy to choose an action then go to player turn
