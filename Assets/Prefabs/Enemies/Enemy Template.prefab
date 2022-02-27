@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1738286071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738286072}
+  m_Layer: 0
+  m_Name: Attack Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1738286072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738286071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.319, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4669908542637058243}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822990461
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3325966438255791529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.59, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1822990462}
@@ -185,6 +215,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7985064398546560756}
+  - {fileID: 1738286072}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -200,13 +231,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731137b5235ab1248982acbb0f7bf541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  <minXPOnDeath>k__BackingField: 2
-  <maxXpOnDeath>k__BackingField: 10
-  <healthOnLevelUp>k__BackingField: 10
-  <damageOnLevelUp>k__BackingField: 2
-  EnemyScriptableObject: {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}
+  enemyData: {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}
   animator: {fileID: 1539711770}
+  attackPoint: {fileID: 1738286072}
+  attackRange: 0.25
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &269747265658224389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <attackWalkSpeed>k__BackingField: 5
   <wanderSpeed>k__BackingField: 3
-  <minWanderWaitTime>k__BackingField: 5
+  <minWanderWaitTime>k__BackingField: 2
   <maxWanderWaitTime>k__BackingField: 10
   foundPlayerIconPrefab: {fileID: 313441093782367912, guid: d9f005a1a9dff2e499b3ca5251954600, type: 3}
   IconSpawnPosition: {fileID: 1822990462}
@@ -239,7 +270,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.30408335, y: 4.328471}
+  m_Offset: {x: -0.30408287, y: -0.8789724}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -250,7 +281,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.021633, y: 16.961802}
+  m_Size: {x: 16.021633, y: 3.0853665}
   m_EdgeRadius: 0
 --- !u!50 &1421542991
 Rigidbody2D:

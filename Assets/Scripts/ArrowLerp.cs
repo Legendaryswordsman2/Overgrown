@@ -7,10 +7,11 @@ public class ArrowLerp : MonoBehaviour
 	float elapsedTime;
 	float duration = 0.5f;
 	Vector3 startPosition;
-	[HideInInspector]
-	public Transform endPosition;
-	[HideInInspector]
-	public int damage;
+	[HideInInspector] public Vector3 endPosition;
+	[HideInInspector] public int damage;
+
+	[HideInInspector] public int selectionIndex = 0;
+	[HideInInspector] public PlayerUnit playerUnit;
 
 	private void Start()
 	{
@@ -18,20 +19,21 @@ public class ArrowLerp : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (endPosition == null) return;
+		if (endPosition == null || endPosition == new Vector3()) return;
 
 		elapsedTime += Time.deltaTime;
 		float percentageComplete = elapsedTime / duration;
 
-		transform.position = Vector3.Lerp(startPosition, endPosition.position, percentageComplete);
+		transform.position = Vector3.Lerp(startPosition, endPosition, percentageComplete);
 
-		if (transform.position == endPosition.position)
+		if (transform.position == endPosition)
 		{
-			BattleSystem.instance.enemiesAlive[BattleSystem.instance.enemySelectionIndex].TakeDamage(damage);
-			StartCoroutine(BattleSystem.instance.EnemyTurn());
-			//Debug.Log("Reached Position");
+			BattleSystem.instance.enemiesAlive[selectionIndex].TakeDamage(damage);
+			Debug.Log("Switching Turn");
+			StartCoroutine(playerUnit.NextTurn());
+
 			GetComponent<SpriteRenderer>().enabled = false;
-			endPosition = null;
+			endPosition = new Vector3();
 			StartCoroutine(DestroyTimer());
 		}
 	}
@@ -44,6 +46,6 @@ public class ArrowLerp : MonoBehaviour
 
 	private void OnDrawGizmosSelected()
 	{
-		Gizmos.DrawWireSphere(endPosition.position, 0.1f);
+		Gizmos.DrawWireSphere(endPosition, 0.1f);
 	}
 }

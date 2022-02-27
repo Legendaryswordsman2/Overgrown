@@ -22,8 +22,6 @@ public abstract class Item : ScriptableObject
 	[Range(1, 99)]
 	public int MaximumStacks = 1;
 
-	public abstract void UseItem(BaseUnit unit);
-
 #if UNITY_EDITOR
 	protected virtual void OnValidate()
 	{

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test Enemy
   m_EditorClassIdentifier: 
   id: 778083b234f55554a8ddf299bc5c3bb2
-  defaultHealth: 174
+  defaultHealth: 200
   enemyName: Test Enemy
   sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
   animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
@@ -23,6 +23,8 @@ MonoBehaviour:
   attackDamage: 20
   enemiesToFight:
   - {fileID: 11400000}
+  - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
+  - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
   - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
   attackWalkSpeed: 5
   wanderSpeed: 3

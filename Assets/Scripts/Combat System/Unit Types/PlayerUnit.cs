@@ -1,225 +1,173 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Steamworks;
 enum AttackType { Basic, Ranged}
 public class PlayerUnit : BaseUnit
 {
-	[Header("References")]
-	[SerializeField] BattleHUD playerHud;
-	[HideInInspector] public bool awaitingTargetToAttack = false;
-
-	BattleSystem battleSystem;
-
-	bool isMeleeAttacking;
-	bool isReturningToBasePOS;
+	[field: Header("References")]
+	[field: SerializeField] public CombatInfoHUD playerHUD { get; private set; }
 
 	AttackType attackType;
 
-	// Lerping
-	[Min(0)]
-	public float walkSpeed = 1f;
-	float elapsedTime;
-
-	Vector3 basePosition;
-	Transform locationToAttackEnemy;
-	protected override void Awake()
+	int enemySelectionIndex = 0;
+	protected override void Setup()
 	{
-		basePosition = transform.position;
-		SetupBattleStepOne();
-		base.Awake();
-		SetupBattleStepTwo();
+		unitName = SteamFriends.GetPersonaName();
+		base.Setup();
+		playerHUD.SetHUD(this);
 	}
-	private void Update()
-	{
-		if (awaitingTargetToAttack)
-		{
 
+	protected override void Update()
+	{
+		base.Update();
+
+		if(currentMode == CurrentMode.AwaitingTargetToAttack)
+		{
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
+				currentMode = CurrentMode.Null;
 				if (attackType == AttackType.Basic)
-			    Attack();
+					BasicAttack();
 				else
-			    RangedAttack();
+					RangedAttack();
 			}
 
 			if (Input.GetKeyDown(KeyCode.W))
 			{
-				if (battleSystem.enemySelectionIndex <= 0) return;
-				battleSystem.enemySelectionIndex--;
+				if (enemySelectionIndex <= 0) return;
+				enemySelectionIndex--;
 
 				for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
 				{
 					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 				}
-				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 
-				Debug.Log(battleSystem.enemySelectionIndex);
+				Debug.Log(enemySelectionIndex);
 			}
 
 			if (Input.GetKeyDown(KeyCode.S))
 			{
-				if (battleSystem.enemySelectionIndex >= battleSystem.enemiesAlive.Count - 1) return;
-				battleSystem.enemySelectionIndex++;
+				if (enemySelectionIndex >= battleSystem.enemiesAlive.Count - 1) return;
+			    enemySelectionIndex++;
 
 				for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
 				{
 					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 				}
-				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 
-				Debug.Log(battleSystem.enemySelectionIndex);
-			}
-		}
-
-		if (isMeleeAttacking)
-		{
-			elapsedTime += Time.deltaTime;
-			float percentageComplete = elapsedTime / walkSpeed;
-
-			transform.position = Vector3.Lerp(basePosition, locationToAttackEnemy.position, percentageComplete);
-
-			if (transform.position == locationToAttackEnemy.position)
-			{
-				isMeleeAttacking = false;
-				anim.Play("Attack Animation");
-				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].TakeDamage(damage);
-				StartCoroutine(ReturnToBasePOS());
-			}
-		}
-
-		if (isReturningToBasePOS)
-		{
-			elapsedTime += Time.deltaTime;
-			float percentageComplete = elapsedTime / walkSpeed;
-
-			transform.position = Vector3.Lerp(locationToAttackEnemy.position, basePosition, percentageComplete);
-
-			if (transform.position == basePosition)
-			{
-				isReturningToBasePOS = false;
-				GetComponent<SpriteRenderer>().flipX = true;
-				anim.Play("Idle Animation");
-				BattleSystem.instance.playerPlantUnit.ChooseAction();
-				//StartCoroutine(battleSystem.EnemyTurn());
+				Debug.Log(enemySelectionIndex);
 			}
 		}
 	}
-
-	void Attack()
+	public override void TakeDamage(int _damage)
 	{
-		awaitingTargetToAttack = false;
-
-		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		base.TakeDamage(_damage);
+		if (currentHealth >= 0)
 		{
-			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+			playerHUD.SetHealth(currentHealth);
 		}
-
-		locationToAttackEnemy = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(2);
-		elapsedTime = 0;
-		anim.Play("Walk Animation");
-		isMeleeAttacking = true;
-		//enemiesAlive[tempSelectionIndex].TakeDamage(playerUnit.damage);
-		//StartCoroutine(EnemyTurn());
-	}
-
-	void RangedAttack()
-	{
-		awaitingTargetToAttack = false;
-
-		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		else
 		{
-			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+			playerHUD.SetHealth(0);
 		}
-
-		locationToAttackEnemy = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform;
-		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform.position, Quaternion.identity).GetComponent<ArrowLerp>();
-		arrow.damage = damage;
-		arrow.endPosition = locationToAttackEnemy;
 	}
-
-	IEnumerator ReturnToBasePOS()
+	protected override void Die()
 	{
-		elapsedTime = 0;
-		yield return new WaitForSeconds(1);
-		GetComponent<SpriteRenderer>().flipX = false;
-		isReturningToBasePOS = true;
-		anim.Play("Walk Animation");
-	}
-
-	void SetupBattleStepOne()
-	{
-		battleSystem = BattleSystem.instance;
-		PlayerHealthData health = SaveSystem.LoadFile<PlayerHealthData>("/Player/PlayerHealth.json");
-		//maxHealth = health.playerHealth;
-	}
-	void SetupBattleStepTwo()
-	{
-		playerHud.SetHUD(this);
+		base.Die();
 	}
 	public override void ChooseAction()
 	{
 		base.ChooseAction();
 
-		// When the battle first starts if the player starts the turn then the anim won't be set since battle system is called before base unit
-		if(anim != null)
-		anim.Play("Idle Animation");
-
-		BattleSystem.instance.state = battleState.PlayerTurn;
-		BattleSystem.instance.playerChoices.SetActive(true);
+		if (anim != null)
+			anim.Play("Idle Animation");
+		battleSystem.playerChoices.SetActive(true);
 	}
 
-	public void SelectEnemyToAttack(bool isBasicAttack)
+	#region Actions
+	public void SelectTargetToAttack(bool isBasicAttack)
 	{
 		if (isBasicAttack)
 			attackType = AttackType.Basic;
 		else
 			attackType = AttackType.Ranged;
 
-		BattleSystem.instance.playerChoices.SetActive(false);
+		battleSystem.playerChoices.SetActive(false);
 
-		if (battleSystem.enemySelectionIndex < 0) battleSystem.enemySelectionIndex = 0;
+		if (enemySelectionIndex < 0) enemySelectionIndex = 0;
 
-		if (battleSystem.enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) battleSystem.enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
+		if(enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
 
-		awaitingTargetToAttack = true;
-		BattleSystem.instance.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+		battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+
+		currentMode = CurrentMode.AwaitingTargetToAttack;
 	}
+	void BasicAttack()
+	{
+		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		{
+			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+		}
 
+		locationToAttackTarget = battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(2).position;
+		anim.Play("Walk Animation");
+		currentMode = CurrentMode.Attacking;
+	}
+	void RangedAttack()
+	{
+		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		{
+			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
+		}
+
+		locationToAttackTarget = battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(2).position;
+		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform).GetComponent<ArrowLerp>();
+		arrow.damage = damage;
+		arrow.selectionIndex = enemySelectionIndex;
+		arrow.playerUnit = this;
+		arrow.endPosition = battleSystem.enemiesAlive[enemySelectionIndex].transform.position;
+	}
 	public override void Block()
 	{
-		BattleSystem.instance.playerChoices.SetActive(false);
+		battleSystem.playerChoices.SetActive(false);
 		base.Block();
-		BattleSystem.instance.playerPlantUnit.ChooseAction();
-		//StartCoroutine(BattleSystem.instance.EnemyTurn());
+	}
+	protected override void OnAttack()
+	{
+		base.OnAttack();
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage(damage);
+	}
+	protected override void OnReturnedToBasePosition()
+	{
+		base.OnReturnedToBasePosition();
+		StartCoroutine(NextTurn());
 	}
 
-	public override void TakeDamage(int damage)
+	public override IEnumerator NextTurn()
 	{
-		base.TakeDamage(damage);
-		if(currentHealth >= 0)
+		yield return new WaitForSeconds(0);
+		if (battleSystem.playerHasPlant)
 		{
-		playerHud.SetHealth(currentHealth);
+			battleSystem.playerChoices.SetActive(false);
+			battleSystem.playerPlantUnit.ChooseAction();
 		}
 		else
 		{
-			playerHud.SetHealth(0);
+			StartCoroutine(battleSystem.SwitchTurn());
 		}
 	}
-	protected override void Die()
-	{
-		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Title"));
-	}
 
-	public override void heal(int healAmount)
+	public override void Heal(int amount)
 	{
-		base.heal(healAmount);
-		playerHud.SetHealth(currentHealth);
-		Debug.Log($"Healed player: {healAmount}");
+		base.Heal(amount);
+		playerHUD.SetHealth(currentHealth);
 	}
-
 	public void EscapeBattle()
 	{
-		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleData.sceneIndex, BattleData.playerPosition));
+		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex, BattleSetupData.playerPosition));
 	}
+	#endregion
 }
