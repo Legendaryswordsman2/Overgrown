@@ -159,6 +159,10 @@ public class PlayerUnit : BaseUnit
 			StartCoroutine(battleSystem.SwitchTurn());
 		}
 	}
+	public void CallNextTurn()
+	{
+		StartCoroutine(NextTurn());
+	}
 
 	public override void Heal(int amount)
 	{

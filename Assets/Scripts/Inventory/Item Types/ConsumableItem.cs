@@ -7,11 +7,13 @@ public class ConsumableItem : Item
 {
 	public List<ConsumableItemEffect> effects;
 
-	public void UseItem(BaseUnit unit)
+	public void UseItem(PlayerUnit playerUnit)
 	{
 		foreach (ConsumableItemEffect effect in effects)
 		{
-			effect.ExecuteEffect(unit);
+			effect.ExecuteEffect(playerUnit);
 		}
+		 playerUnit.CallNextTurn();
+		
 	}
 }
