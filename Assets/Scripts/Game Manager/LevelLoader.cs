@@ -46,6 +46,10 @@ public class LevelLoader : MonoBehaviour
 
 		SceneManager.LoadScene(sceneName);
 	}
+	public void LoadLevel(string sceneName)
+	{
+		SceneManager.LoadScene(sceneName);
+	}
 
 	void PlayAnimationOnSceneChange(string animationName, Vector3 _newPlayerPosition)
 	{
