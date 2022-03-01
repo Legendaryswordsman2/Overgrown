@@ -167,7 +167,7 @@ public class PlayerUnit : BaseUnit
 	public override void Heal(int amount)
 	{
 		base.Heal(amount);
-		playerHUD.SetHealth(currentHealth);
+		StartCoroutine(playerHUD.SetHealthFromItem(currentHealth));
 	}
 	public void EscapeBattle()
 	{

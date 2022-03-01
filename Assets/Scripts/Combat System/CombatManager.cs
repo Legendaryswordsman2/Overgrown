@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,5 +22,10 @@ public class CombatManager : MonoBehaviour
 			BattleSystem.instance.playerChoices.SetActive(true);
 			inventory.gameObject.SetActive(false);
 		}
+	}
+
+	public void Do(Action action)
+	{
+		action.Invoke();
 	}
 }

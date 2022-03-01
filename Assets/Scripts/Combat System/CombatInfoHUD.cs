@@ -18,4 +18,10 @@ public class CombatInfoHUD : MonoBehaviour
 	{
 		healthSlider.current = health;
 	}
+
+	public IEnumerator SetHealthFromItem(int health)
+	{
+		yield return new WaitForSeconds(1.5f);
+		healthSlider.current = health;
+	}
 }
