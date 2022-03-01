@@ -2,10 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class EnemySpawnManager : MonoBehaviour
 {
-	[SerializeField] bool showSpawnLocations = true;
-	[SerializeField] float spawnLocationMarkerSize = 0.5f;
+	public static EnemySpawnManager instance { get; private set; }
+	[field: SerializeField] public SOEnemy[] EnemySpawnPool { get; private set; }
+	[field: SerializeField, ReadOnlyInspector] public List<GameObject> enemiesAlive { get; set; }
+	[field:SerializeField] public int MinSpawns { get; private set; } = 2;
+	[field: SerializeField] public int MaxSpawns { get; private set; } = 5;
+
+	public int NumberOfSpawns { get; set; }
+	public bool spawnEnemies { get; private set; } = true;
+
+	GameManager gameManager;
+
+	private void Awake()
+	{
+		gameManager = GameManager.instance;
+		if (BattleSetupData.enemySaveData.Length != 0)
+		{
+			spawnEnemies = false;
+			SpawnEnemiesFromBeforeCombat();
+		}
+	}
+	void SpawnEnemiesFromBeforeCombat()
+	{
+		foreach (var enemy in BattleSetupData.enemySaveData)
+		{
+			gameManager.SpawnEnemy(enemy.enemyType, enemy.spawnPosition);
+		}
+	}
+
+	bool showSpawnLocations = true;
+    float spawnLocationMarkerSize = 0.5f;
 	private void OnDrawGizmos()
 	{
 		if (!showSpawnLocations) return;
@@ -15,31 +47,36 @@ public class EnemySpawnManager : MonoBehaviour
 			Gizmos.DrawWireSphere(child.position, spawnLocationMarkerSize);
 		}
 	}
+	#region Editor
 
-//	#region Editor
+#if UNITY_EDITOR
+	[CustomEditor(typeof(EnemySpawnManager))]
+	public class EnemySpawnManagerEditor : Editor
+	{
+		public override void OnInspectorGUI()
+		{
+			base.OnInspectorGUI();
 
-//#if UNITY_EDITOR
-//	[CustomEditor(typeof(UIAnimator))]
-//	public class UIAnimatorEditor : Editor
-//	{
-//		public override void OnInspectorGUI()
-//		{
-//			base.OnInspectorGUI();
+			EnemySpawnManager enemySpawnManager = (EnemySpawnManager)target;
 
-//			UIAnimator uiAnimator = (UIAnimator)target;
+			EditorGUILayout.Space();
 
-//			EditorGUILayout.Space();
-//			EditorGUILayout.LabelField("Details");
+			EditorGUILayout.BeginHorizontal();
 
-//			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Show Spawn Locations", GUILayout.MaxWidth(280));
+			enemySpawnManager.showSpawnLocations = EditorGUILayout.Toggle(enemySpawnManager.showSpawnLocations);
 
-//			EditorGUILayout.ObjectField(uiAnimator.tests, typeof(GameObject), true);
+			EditorGUILayout.EndHorizontal();
 
-//			uiAnimator.runAllAnimationOnceAtStart = EditorGUILayout.Toggle(uiAnimator.runAllAnimationOnceAtStart);
+			if (!enemySpawnManager.showSpawnLocations) return;
+			EditorGUILayout.BeginHorizontal();
 
-//			EditorGUILayout.EndHorizontal();
-//		}
-//	}
-//#endif
-//	#endregion
+			EditorGUILayout.LabelField("Spawn Location Marker Size", GUILayout.MaxWidth(280));
+			enemySpawnManager.spawnLocationMarkerSize = EditorGUILayout.FloatField(enemySpawnManager.spawnLocationMarkerSize);
+
+			EditorGUILayout.EndHorizontal();
+		}
+	}
+#endif
+	#endregion
 }

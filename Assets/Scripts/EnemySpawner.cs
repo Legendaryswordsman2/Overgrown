@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-	[SerializeField] SOEnemy[] enemySpawnPool;
 
 	GameManager gameManager;
+	EnemySpawnManager enemySpawnManager;
 
 	private void Awake()
 	{
 		gameManager = GameManager.instance;
+		enemySpawnManager = transform.GetComponentInParent<EnemySpawnManager>();
+	}
+
+	private void Start()
+	{
 		SpawnEnemy();
 	}
 
 	void SpawnEnemy()
 	{
-		gameManager.SpawnEnemy(enemySpawnPool[Random.Range(0, enemySpawnPool.Length)], transform.position);
+		if (!enemySpawnManager.spawnEnemies) return;
+
+		if (enemySpawnManager.NumberOfSpawns >= enemySpawnManager.MaxSpawns) return;
+
+		int temp = Random.Range(0, 4);
+
+		if(temp == 0 || enemySpawnManager.NumberOfSpawns < enemySpawnManager.MinSpawns)
+		{
+			enemySpawnManager.enemiesAlive.Add(gameManager.SpawnEnemy(enemySpawnManager.EnemySpawnPool[Random.Range(0, enemySpawnManager.EnemySpawnPool.Length)], transform.position));
+			enemySpawnManager.NumberOfSpawns++;
+		}
+
 	}
 }

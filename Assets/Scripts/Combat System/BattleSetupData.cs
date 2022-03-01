@@ -8,6 +8,7 @@ public static class BattleSetupData
 	public static int sceneIndex;
 	public static Vector3 playerPosition;
 	public static bool playerStartsTurn = true;
+	public static EnemySaveData[] enemySaveData;
 
 	public static bool variablesAssigned = false;
 
