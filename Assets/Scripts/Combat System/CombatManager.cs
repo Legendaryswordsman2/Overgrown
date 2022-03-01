@@ -11,7 +11,7 @@ public class CombatManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-		//inventory = BattleSystem.instance.inventory;
+		inventory = BattleSystem.instance.inventory;
     }
 
 	private void Update()
