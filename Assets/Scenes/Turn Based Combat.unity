@@ -37748,7 +37748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Player
-  maxHealth: 82
+  maxHealth: 200
   currentHealth: 0
   damage: 90
   isBlocking: 0

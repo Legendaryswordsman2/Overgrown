@@ -113,8 +113,8 @@ public abstract class BaseUnit : MonoBehaviour
 
 	public virtual void Heal(int amount)
 	{
-		UseItem();
 		currentHealth += amount;
+		UseItem();
 	}
 
 	protected bool LerpToTarget(Vector3 startPosition, Vector3 endPosition)

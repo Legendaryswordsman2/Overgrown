@@ -11,12 +11,7 @@ public class EnemySpawner : MonoBehaviour
 	private void Awake()
 	{
 		gameManager = GameManager.instance;
-		int temp = Random.Range(0, 11);
-
-			SpawnEnemy();
-		if(temp <= 3)
-		{
-		}
+		SpawnEnemy();
 	}
 
 	void SpawnEnemy()
