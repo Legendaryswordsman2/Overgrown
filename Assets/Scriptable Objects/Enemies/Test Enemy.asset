@@ -22,10 +22,7 @@ MonoBehaviour:
   attackRange: 0.5
   attackDamage: 20
   enemiesToFight:
-  - {fileID: 11400000}
-  - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
-  - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
-  - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
+  - enemies: []
   attackWalkSpeed: 5
   wanderSpeed: 3
   minWanderWaitTime: 2

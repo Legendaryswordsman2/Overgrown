@@ -109,19 +109,12 @@ public class Enemy : MonoBehaviour
         // Detect Enemies in range of attack
         Collider2D hitEnemy = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayers);
         // Damage Enemies
-        try
         {
             if (hitEnemy != null)
             {
                 SOEnemy[] _enemies = enemyData.enemiesToFight[Random.Range(0, enemyData.enemiesToFight.Length)].enemies;
-                BattleSetupData.AssignVariables(_enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, false);
-
-                StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
+                GameManager.instance.StartBattle(_enemies, false);
             }
-        }
-        catch
-        {
-            Debug.LogError("The enemy " + hitEnemy.name + " does not have an enemy script and can not be damaged");
         }
     }
 

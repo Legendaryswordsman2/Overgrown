@@ -85,6 +85,13 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void StartBattle(SOEnemy[] enemies, bool playerStartsTurn = true)
+	{
+        BattleSetupData.AssignVariables(enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, playerStartsTurn);
+
+        StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
+    }
 	#endregion
 
 	#region Random

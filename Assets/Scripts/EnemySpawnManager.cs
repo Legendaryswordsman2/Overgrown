@@ -11,6 +11,7 @@ public class EnemySpawnManager : MonoBehaviour
 	public static EnemySpawnManager instance { get; private set; }
 	[field: SerializeField] public SOEnemy[] EnemySpawnPool { get; private set; }
 	[field: SerializeField, ReadOnlyInspector] public List<GameObject> enemiesAlive { get; set; }
+	[field: SerializeField, ReadOnlyInspector] public List<EnemySaveData> enemiesAliveSaveData { get; set; }
 	[field:SerializeField] public int MinSpawns { get; private set; } = 2;
 	[field: SerializeField] public int MaxSpawns { get; private set; } = 5;
 
@@ -26,6 +27,11 @@ public class EnemySpawnManager : MonoBehaviour
 		{
 			spawnEnemies = false;
 			SpawnEnemiesFromBeforeCombat();
+		}
+
+		for (int i = 0; i < enemiesAlive.Count; i++)
+		{
+			enemiesAliveSaveData.Add(new EnemySaveData(enemiesAlive[i].GetComponent<Enemy>().enemyData, enemiesAlive[i].transform.position));
 		}
 	}
 	void SpawnEnemiesFromBeforeCombat()

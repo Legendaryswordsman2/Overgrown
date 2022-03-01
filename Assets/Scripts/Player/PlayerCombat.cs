@@ -64,9 +64,7 @@ public class PlayerCombat : MonoBehaviour
 				}
                 Debug.Log("Done");
 
-                BattleSetupData.AssignVariables(_enemies, SceneManager.GetActiveScene().buildIndex, transform.position);
-
-                StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
+                gameManger.StartBattle(_enemies);
 			}
 
             StartCoroutine(AttackCooldown());

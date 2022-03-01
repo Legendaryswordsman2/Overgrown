@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Spring Onion
   m_EditorClassIdentifier: 
   id: 6e1323b1accea294586cc15c0ff5a992
-  health: 100
+  defaultHealth: 100
   enemyName: Spring Onion
   sprite: {fileID: -5079474656933047900, guid: 5d92c80f97acd6c48b4c9a6938b6f541, type: 3}
   animatorController: {fileID: 9100000, guid: 934f1cf052d00a44985e149415e373f5, type: 2}
   minXPOnDeath: 5
   maxXPOnDeath: 10
-  knockbackX: 10
-  knockbackY: 0
   attackRange: 0.5
-  attackDelay: 3
   attackDamage: 20
+  enemiesToFight:
+  - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
   attackWalkSpeed: 5
   wanderSpeed: 3
   minWanderWaitTime: 2
   maxWanderWaitTime: 10
-  healthOnLevelUp: 10
-  damageOnLevelUp: 2
+  healthIncreasePerLevelUp: 10
+  damageIncreasePerLevelUp: 2

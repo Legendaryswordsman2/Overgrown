@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   id: 8a98df9a1357cf344ab6f5166960553e
-  health: 100
+  defaultHealth: 100
   enemyName: Tomato
   sprite: {fileID: -5079474656933047900, guid: b9275677c4dd20d46ab970ed581dcc82, type: 3}
   animatorController: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
   minXPOnDeath: 10
   maxXPOnDeath: 50
-  knockbackX: 10
-  knockbackY: 0
   attackRange: 0.5
-  attackDelay: 3
   attackDamage: 20
+  enemiesToFight:
+  - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
   attackWalkSpeed: 5
   wanderSpeed: 3
   minWanderWaitTime: 2
   maxWanderWaitTime: 10
-  healthOnLevelUp: 10
-  damageOnLevelUp: 2
+  healthIncreasePerLevelUp: 10
+  damageIncreasePerLevelUp: 2
