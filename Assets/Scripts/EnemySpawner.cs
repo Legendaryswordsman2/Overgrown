@@ -21,17 +21,17 @@ public class EnemySpawner : MonoBehaviour
 
 	void SpawnEnemy()
 	{
-		if (!enemySpawnManager.spawnEnemies) return;
+		//if (!enemySpawnManager.spawnEnemies) return;
 
-		if (enemySpawnManager.NumberOfSpawns >= enemySpawnManager.MaxSpawns) return;
+		//if (enemySpawnManager.NumberOfSpawns >= enemySpawnManager.MaxSpawns) return;
 
-		int temp = Random.Range(0, 4);
+		//int temp = Random.Range(0, 4);
 
-		if(temp == 0 || enemySpawnManager.NumberOfSpawns < enemySpawnManager.MinSpawns)
-		{
-			enemySpawnManager.enemiesAlive.Add(gameManager.SpawnEnemy(enemySpawnManager.EnemySpawnPool[Random.Range(0, enemySpawnManager.EnemySpawnPool.Length)], transform.position));
-			enemySpawnManager.NumberOfSpawns++;
-		}
+		//if(temp == 0 || enemySpawnManager.NumberOfSpawns < enemySpawnManager.MinSpawns)
+		//{
+		//	enemySpawnManager.enemiesAlive.Add(gameManager.SpawnEnemy(enemySpawnManager.EnemySpawnPool[Random.Range(0, enemySpawnManager.EnemySpawnPool.Length)], transform.position));
+		//	enemySpawnManager.NumberOfSpawns++;
+		//}
 
 	}
 }

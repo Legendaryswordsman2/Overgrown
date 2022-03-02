@@ -15,8 +15,12 @@ public class EnemySpawnManager : MonoBehaviour
 	[field:SerializeField] public int MinSpawns { get; private set; } = 2;
 	[field: SerializeField] public int MaxSpawns { get; private set; } = 5;
 
+	[SerializeField] List<Transform> availableSpawnLocations;
+
 	public int NumberOfSpawns { get; set; }
 	public bool spawnEnemies { get; private set; } = true;
+
+	bool spawningEnemies = true;
 
 	GameManager gameManager;
 
@@ -29,6 +33,33 @@ public class EnemySpawnManager : MonoBehaviour
 			spawnEnemies = false;
 			SpawnEnemiesFromBeforeCombat();
 		}
+
+		foreach (Transform child in transform)
+		{
+			availableSpawnLocations.Add(child);
+		}
+
+		if (spawningEnemies)
+			SpawnEnemies();
+	}
+
+	void SpawnEnemies()
+	{
+		if (!spawnEnemies) return;
+
+		if (NumberOfSpawns >= MaxSpawns) return;
+
+		int temp = Random.Range(0, 4);
+
+		if (temp == 0 || NumberOfSpawns < MinSpawns)
+		{
+			int chosenLocationIndex = Random.Range(0, availableSpawnLocations.Count);
+			enemiesAlive.Add(gameManager.SpawnEnemy(EnemySpawnPool[Random.Range(0, EnemySpawnPool.Length)], availableSpawnLocations[chosenLocationIndex].position));
+			availableSpawnLocations.RemoveAt(chosenLocationIndex);
+			NumberOfSpawns++;
+			SpawnEnemies();
+		}
+
 	}
 	void SpawnEnemiesFromBeforeCombat()
 	{
