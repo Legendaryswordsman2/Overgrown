@@ -31107,12 +31107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemySpawnPool>k__BackingField:
-  - {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
-  - {fileID: 11400000, guid: 6e1323b1accea294586cc15c0ff5a992, type: 2}
   - {fileID: 11400000, guid: 376d15727c0850f4ca499ff118e1d730, type: 2}
-  - {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}
   <enemiesAlive>k__BackingField: []
-  <MinSpawns>k__BackingField: 2
+  <MinSpawns>k__BackingField: 5
   <MaxSpawns>k__BackingField: 5
   availableSpawnLocations: []
 --- !u!1 &1607013133

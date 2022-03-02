@@ -90,10 +90,14 @@ public class GameManager : MonoBehaviour
 	{
         EnemySpawnManager enemySpawnManager = EnemySpawnManager.instance;
 
+        bool hasRemovedEnemyForCombat = false;
+
         for (int i = 0; i < enemySpawnManager.enemiesAlive.Count; i++)
         {
-            if (enemySpawnManager.enemiesAlive[i].GetComponent<Enemy>().enemyData != enemyInCombat)
-            enemySpawnManager.enemiesAliveSaveData.Add(new EnemySaveData(enemySpawnManager.enemiesAlive[i].GetComponent<Enemy>().enemyData, enemySpawnManager.enemiesAlive[i].transform.position));
+            if (enemySpawnManager.enemiesAlive[i].GetComponent<Enemy>().enemyData != enemyInCombat || hasRemovedEnemyForCombat)
+                enemySpawnManager.enemiesAliveSaveData.Add(new EnemySaveData(enemySpawnManager.enemiesAlive[i].GetComponent<Enemy>().enemyData, enemySpawnManager.enemiesAlive[i].transform.position));
+            else
+                hasRemovedEnemyForCombat = true;
         }
 
         EnemySaveData[] _enemiesAliveSaveData = enemySpawnManager.enemiesAliveSaveData.ToArray();
@@ -185,8 +189,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         yield return true;
     }
-	public GameObject SpawnEnemy(SOEnemy enemySO, Vector3 position)
+	public GameObject SpawnEnemy(SOEnemy _enemySO, Vector3 position)
 	{
+        SOEnemy enemySO = Instantiate(_enemySO);
         GameObject enemy = Instantiate(enemyTemplate, position, Quaternion.identity);
         Enemy enemyScript = enemy.GetComponent<Enemy>();
         enemyScript.enemyData = enemySO;

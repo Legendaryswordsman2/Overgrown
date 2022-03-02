@@ -20,7 +20,7 @@ public class EnemySpawnManager : MonoBehaviour
 	public int NumberOfSpawns { get; set; }
 	public bool spawnEnemies { get; private set; } = true;
 
-	bool spawningEnemies = true;
+	int chosenNumberOfSpawns;
 
 	GameManager gameManager;
 
@@ -39,27 +39,23 @@ public class EnemySpawnManager : MonoBehaviour
 			availableSpawnLocations.Add(child);
 		}
 
-		if (spawningEnemies)
+		if (spawnEnemies)
+		{
+			chosenNumberOfSpawns = Random.Range(MinSpawns, MaxSpawns + 1);
 			SpawnEnemies();
+		}
 	}
 
 	void SpawnEnemies()
 	{
-		if (!spawnEnemies) return;
 
-		if (NumberOfSpawns >= MaxSpawns) return;
-
-		int temp = Random.Range(0, 4);
-
-		if (temp == 0 || NumberOfSpawns < MinSpawns)
-		{
 			int chosenLocationIndex = Random.Range(0, availableSpawnLocations.Count);
 			enemiesAlive.Add(gameManager.SpawnEnemy(EnemySpawnPool[Random.Range(0, EnemySpawnPool.Length)], availableSpawnLocations[chosenLocationIndex].position));
 			availableSpawnLocations.RemoveAt(chosenLocationIndex);
 			NumberOfSpawns++;
-			SpawnEnemies();
-		}
 
+		if(NumberOfSpawns < chosenNumberOfSpawns)
+			SpawnEnemies();
 	}
 	void SpawnEnemiesFromBeforeCombat()
 	{

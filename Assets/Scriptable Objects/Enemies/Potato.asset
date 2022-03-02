@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potato
   m_EditorClassIdentifier: 
   id: 376d15727c0850f4ca499ff118e1d730
-  defaultHealth: 100
+  defaultHealth: 127
   enemyName: potato
   sprite: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
   animatorController: {fileID: 9100000, guid: d67cfeeb56324234d83d75b7e66e457d, type: 2}
