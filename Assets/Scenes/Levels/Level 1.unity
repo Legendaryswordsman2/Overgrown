@@ -944,7 +944,7 @@ MonoBehaviour:
   changeSceneKey: 101
   sceneName: Home
   transitionEndAnimation: CrossFade
-  newPlayerPosition: {x: -11.96, y: -1, z: 0}
+  newPlayerPosition: {x: -11.614, y: -0.8900739, z: 0}
   hasStartTransition: 1
 --- !u!212 &428650240
 SpriteRenderer:
@@ -31108,8 +31108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemySpawnPool>k__BackingField:
   - {fileID: 11400000, guid: 376d15727c0850f4ca499ff118e1d730, type: 2}
+  - {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}
   <enemiesAlive>k__BackingField: []
-  <MinSpawns>k__BackingField: 5
+  <MinSpawns>k__BackingField: 2
   <MaxSpawns>k__BackingField: 5
   availableSpawnLocations: []
 --- !u!1 &1607013133
