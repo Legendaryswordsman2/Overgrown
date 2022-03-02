@@ -64,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
 				}
                 Debug.Log("Done");
 
-                gameManger.StartBattle(_enemies);
+                gameManger.StartBattle(_enemies, tempEnemy.enemyData);
 			}
 
             StartCoroutine(AttackCooldown());

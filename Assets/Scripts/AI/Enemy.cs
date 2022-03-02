@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     Player player;
     Statistics gameStats;
 
+    bool canAttack = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(canAttack)
         Attack();
+
         Animate();
     }
     void Animate()
@@ -113,7 +117,8 @@ public class Enemy : MonoBehaviour
             if (hitEnemy != null)
             {
                 SOEnemy[] _enemies = enemyData.enemiesToFight[Random.Range(0, enemyData.enemiesToFight.Length)].enemies;
-                GameManager.instance.StartBattle(_enemies, false);
+                GameManager.instance.StartBattle(_enemies, enemyData, false);
+                canAttack = false;
             }
         }
     }

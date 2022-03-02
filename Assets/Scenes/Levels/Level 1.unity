@@ -1158,7 +1158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464012711}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.48, y: 1.9810901, z: 185.2243}
+  m_LocalPosition: {x: -41.66, y: 1.9810901, z: 185.2243}
   m_LocalScale: {x: 1, y: 18.38009, z: 1}
   m_Children: []
   m_Father: {fileID: 704738555}
@@ -1398,7 +1398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514124424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 179.37, y: 1.4, z: 185.2243}
+  m_LocalPosition: {x: 204.76, y: 1.4, z: 185.2243}
   m_LocalScale: {x: 1, y: 18.38009, z: 1}
   m_Children: []
   m_Father: {fileID: 704738555}
@@ -31179,7 +31179,6 @@ MonoBehaviour:
   <enemiesAlive>k__BackingField: []
   <MinSpawns>k__BackingField: 2
   <MaxSpawns>k__BackingField: 5
-  <NumberOfSpawns>k__BackingField: 0
 --- !u!1 &1607013133
 GameObject:
   m_ObjectHideFlags: 0

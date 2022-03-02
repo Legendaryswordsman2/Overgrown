@@ -86,9 +86,21 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void StartBattle(SOEnemy[] enemies, bool playerStartsTurn = true)
+    public void StartBattle(SOEnemy[] enemies, SOEnemy enemyInCombat, bool playerStartsTurn = true)
 	{
-        BattleSetupData.AssignVariables(enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, playerStartsTurn);
+        EnemySpawnManager enemySpawnManager = EnemySpawnManager.instance;
+
+        for (int i = 0; i < enemySpawnManager.enemiesAlive.Count; i++)
+        {
+            if (enemySpawnManager.enemiesAlive[i].GetComponent<Enemy>().enemyData != enemyInCombat)
+            enemySpawnManager.enemiesAliveSaveData.Add(new EnemySaveData(enemySpawnManager.enemiesAlive[i].GetComponent<Enemy>().enemyData, enemySpawnManager.enemiesAlive[i].transform.position));
+        }
+
+        EnemySaveData[] _enemiesAliveSaveData = enemySpawnManager.enemiesAliveSaveData.ToArray();
+
+        Debug.Log(enemySpawnManager.enemiesAliveSaveData.Count);
+
+        BattleSetupData.AssignVariables(enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, _enemiesAliveSaveData, playerStartsTurn);
 
         StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
     }

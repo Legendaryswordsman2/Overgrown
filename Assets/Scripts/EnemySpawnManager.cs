@@ -11,7 +11,7 @@ public class EnemySpawnManager : MonoBehaviour
 	public static EnemySpawnManager instance { get; private set; }
 	[field: SerializeField] public SOEnemy[] EnemySpawnPool { get; private set; }
 	[field: SerializeField, ReadOnlyInspector] public List<GameObject> enemiesAlive { get; set; }
-	[field: SerializeField, ReadOnlyInspector] public List<EnemySaveData> enemiesAliveSaveData { get; set; }
+	[field: SerializeField, ReadOnlyInspector] public List<EnemySaveData> enemiesAliveSaveData { get; set; } = new List<EnemySaveData>();
 	[field:SerializeField] public int MinSpawns { get; private set; } = 2;
 	[field: SerializeField] public int MaxSpawns { get; private set; } = 5;
 
@@ -22,23 +22,20 @@ public class EnemySpawnManager : MonoBehaviour
 
 	private void Awake()
 	{
+		instance = this;
 		gameManager = GameManager.instance;
 		if (BattleSetupData.enemySaveData.Length != 0)
 		{
 			spawnEnemies = false;
 			SpawnEnemiesFromBeforeCombat();
 		}
-
-		for (int i = 0; i < enemiesAlive.Count; i++)
-		{
-			enemiesAliveSaveData.Add(new EnemySaveData(enemiesAlive[i].GetComponent<Enemy>().enemyData, enemiesAlive[i].transform.position));
-		}
 	}
 	void SpawnEnemiesFromBeforeCombat()
 	{
+		Debug.Log("Spawning enemies from before");
 		foreach (var enemy in BattleSetupData.enemySaveData)
 		{
-			gameManager.SpawnEnemy(enemy.enemyType, enemy.spawnPosition);
+			enemiesAlive.Add(gameManager.SpawnEnemy(enemy.enemyType, enemy.spawnPosition));
 		}
 	}
 
