@@ -28,7 +28,7 @@ public class BattleSystem : MonoBehaviour
 	[field: Tooltip("The delay before switching from the player team to the enemy team and vise versa")]
 	[field: SerializeField] public float DelayBeforeSwitchingTurn { get; private set; } = 2;
 	[field: SerializeField] public float WalkDuration { get; private set; } = 1;
-	[field: SerializeField]	public float backToBlockAnimationDelay { get; private set; } = 1;
+	[field: SerializeField] public float backToBlockAnimationDelay { get; private set; } = 1;
 	[field: SerializeField] public float AttackDuration { get; private set; } = 1;
 	[field: SerializeField] public float delayBeforeNextEnemyActionAfterBlocking { get; private set; } = 1;
 
