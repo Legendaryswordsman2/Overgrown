@@ -25,6 +25,7 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
 
 	[field: Header("Adjustements")]
+	[field: SerializeField] public float walkSpeed { get; private set; } = 4;
 	[field: Tooltip("The delay before switching from the player team to the enemy team and vise versa")]
 	[field: SerializeField] public float DelayBeforeSwitchingTurn { get; private set; } = 2;
 	[field: SerializeField] public float WalkDuration { get; private set; } = 1;

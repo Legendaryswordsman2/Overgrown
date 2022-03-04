@@ -44,7 +44,7 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		if (currentMode == CurrentMode.Attacking)
 		{
-			bool finished = LerpToTarget(basePosition, locationToAttackTarget);
+			bool finished = LerpToTarget(locationToAttackTarget);
 
 			if (finished)
 			{
@@ -54,7 +54,7 @@ public abstract class BaseUnit : MonoBehaviour
 
 		if (currentMode == CurrentMode.ReturningHome)
 		{
-			bool finished = LerpToTarget(locationToAttackTarget, basePosition);
+			bool finished = LerpToTarget(basePosition);
 
 			if (finished)
 			{
@@ -117,12 +117,9 @@ public abstract class BaseUnit : MonoBehaviour
 		UseItem();
 	}
 
-	protected bool LerpToTarget(Vector3 startPosition, Vector3 endPosition)
+	protected bool LerpToTarget(Vector3 endPosition)
 	{
-		elapsedTime += Time.deltaTime;
-		float percentageCompleted = elapsedTime / battleSystem.WalkDuration;
-
-		transform.position = Vector3.Lerp(startPosition, endPosition, percentageCompleted);
+		transform.position = Vector2.MoveTowards(transform.position, endPosition, battleSystem.walkSpeed * Time.deltaTime);
 
 		if(transform.position == endPosition)
 		{
