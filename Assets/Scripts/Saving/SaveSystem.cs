@@ -72,6 +72,17 @@ public static class SaveSystem
             CopyFolder(folder, dest);
         }
     }
+
+    public static void CreateAppID()
+	{
+        var path = "steam_appid.txt";
+        var appID = "480";
+        if (!File.Exists(path))
+            File.Create(path);
+
+        using StreamWriter sw = new StreamWriter(path);
+        sw.Write(appID);
+    }
     public static void CreateSaveSlotSubFolders()
     {
         Directory.CreateDirectory(currentSaveLocation + "MainSave" +"/Player");
