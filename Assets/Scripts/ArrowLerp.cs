@@ -21,10 +21,11 @@ public class ArrowLerp : MonoBehaviour
 	{
 		if (endPosition == null || endPosition == new Vector3()) return;
 
-		elapsedTime += Time.deltaTime;
-		float percentageComplete = elapsedTime / duration;
+		
 
-		transform.position = Vector3.Lerp(startPosition, endPosition, percentageComplete);
+		transform.position = Vector2.MoveTowards(transform.position, endPosition, 15 * Time.deltaTime);
+
+		transform.up = endPosition - transform.position;
 
 		if (transform.position == endPosition)
 		{
