@@ -1153,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.22599974, y: 0.24220005}
+  m_AnchoredPosition: {x: 0.043, y: -0.24}
   m_SizeDelta: {x: 0.4973, y: 0.2047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156967797
@@ -24051,7 +24051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &613104912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24068,8 +24068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.5856, y: 0.2118}
+  m_AnchoredPosition: {x: 0, y: 0.0633}
+  m_SizeDelta: {x: 0.5856, y: 0.3977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613104913
 MonoBehaviour:
@@ -24131,8 +24131,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
-  m_fontSizeBase: 0.2
+  m_fontSize: 0.4
+  m_fontSizeBase: 0.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 50
@@ -25439,6 +25439,7 @@ MonoBehaviour:
   currentHealth: 0
   damage: 10
   isBlocking: 0
+  currentMode: 0
   playerPlantHUD: {fileID: 1107256910}
 --- !u!212 &815465836
 SpriteRenderer:
@@ -37160,6 +37161,7 @@ MonoBehaviour:
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <playerPlantChoices>k__BackingField: {fileID: 1330514159}
   <arrowPrefab>k__BackingField: {fileID: 9212809993732800865, guid: c92dd7e951ca17a41939eb3e92b288cb, type: 3}
+  <walkSpeed>k__BackingField: 4
   <DelayBeforeSwitchingTurn>k__BackingField: 2
   <WalkDuration>k__BackingField: 1
   <backToBlockAnimationDelay>k__BackingField: 1
@@ -37752,6 +37754,7 @@ MonoBehaviour:
   currentHealth: 0
   damage: 90
   isBlocking: 0
+  currentMode: 0
   <playerHUD>k__BackingField: {fileID: 1867131979}
 --- !u!212 &2135679977
 SpriteRenderer:
@@ -37793,9 +37796,9 @@ SpriteRenderer:
   m_SortingLayerID: -1326136763
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
+  m_Sprite: {fileID: 4154667061567573633, guid: eb1625060db904e4f84b3c3f47373c51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.4615386, y: 2.4615386}
@@ -37814,7 +37817,7 @@ Animator:
   m_GameObject: {fileID: 2135679974}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 006e53c1a17253f41b267bf9bb753aa7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
