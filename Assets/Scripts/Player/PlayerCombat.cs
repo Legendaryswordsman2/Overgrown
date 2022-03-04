@@ -35,12 +35,11 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && playerScript.canWalk && GameManager.timeActive)
         {
-            anim.SetTrigger("Attack");
-            //Attack();
+            anim.Play("Attack Animation", 0, 0.05f);
         }
     }
 
-    public void Attack()
+    public void Attack() // Called from attack animation
     {
         // Play Attack Animation
         //anim.SetTrigger("Attack");
