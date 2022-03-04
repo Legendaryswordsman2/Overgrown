@@ -80,7 +80,7 @@ public class PlayerUnit : BaseUnit
 
 		if (anim != null)
 			anim.Play("Idle Animation");
-		battleSystem.playerChoices.SetActive(true);
+		BattleSystem.instance.playerChoices.SetActive(true);
 	}
 
 	#region Actions

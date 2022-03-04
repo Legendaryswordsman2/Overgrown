@@ -10,6 +10,8 @@ public class PlayerPlantUnit : BaseUnit
 	{
 		base.Setup();
 		playerPlantHUD.SetHUD(this);
+		battleSystem.playerHasPlant = true;
+		print("Player has plant");
 	}
 	public override void ChooseAction()
 	{

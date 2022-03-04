@@ -31067,7 +31067,7 @@ GameObject:
   - component: {fileID: 1603916258}
   - component: {fileID: 1603916259}
   m_Layer: 0
-  m_Name: Spawners
+  m_Name: Spawn Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31107,6 +31107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemySpawnPool>k__BackingField:
+  - {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}
+  - {fileID: 11400000, guid: 376d15727c0850f4ca499ff118e1d730, type: 2}
+  - {fileID: 11400000, guid: 6e1323b1accea294586cc15c0ff5a992, type: 2}
   - {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
   - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
   <enemiesAlive>k__BackingField: []
