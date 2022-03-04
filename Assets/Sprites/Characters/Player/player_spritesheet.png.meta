@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1768599190028779529
-    second: Idle_frame_1
+    second: idle_frame_1
   - first:
       213: 307022013455192112
-    second: Idle_frame_2
+    second: idle_frame_2
   - first:
       213: 4154667061567573633
-    second: combat_Idle_frame_1
+    second: combat_idle_frame_1
   - first:
       213: 8303614701356616397
-    second: combat_Idle_frame_2
+    second: combat_idle_frame_2
   - first:
       213: 846995674658977086
-    second: combat_Idle_frame_3
+    second: combat_idle_frame_3
   - first:
       213: 3983628370140805306
-    second: combat_Idle_frame_4
+    second: combat_idle_frame_4
   - first:
       213: 4662575081284223561
     second: walking_frame_1
@@ -34,40 +34,52 @@ TextureImporter:
     second: walking_frame_4
   - first:
       213: 7379056272744279750
-    second: hurt_frame
+    second: blocking_frame_1
   - first:
       213: -4733107876001714546
-    second: use_item_frame_1
+    second: blocking_frame_2
   - first:
       213: 6357987398303972172
-    second: use_item_frame_2
+    second: blocking_frame_3
   - first:
       213: -5744367496703862250
-    second: use_item_frame_3
+    second: blocking_frame_4
   - first:
       213: -5099409022197164988
-    second: use_item_frame_4
+    second: hurt_frame
   - first:
       213: 1732394558219980742
-    second: use_item_frame_5
+    second: use_item_frame_1
   - first:
       213: -618497343692062617
-    second: use_item_frame_6
+    second: use_item_frame_2
   - first:
       213: -7479712701442903340
-    second: attack_frame_1
+    second: use_item_frame_3
   - first:
       213: -552275036297810904
-    second: attack_frame_2
+    second: use_item_frame_4
   - first:
       213: 8513470002250630101
-    second: attack_frame_3
+    second: use_item_frame_5
   - first:
       213: -8527270959738819744
-    second: attack_frame_4
+    second: use_item_frame_6
   - first:
       213: 2302571707625195621
-    second: attack_frame_5
+    second: attacking_frame_1
+  - first:
+      213: -7694685484330206293
+    second: attacking_frame_2
+  - first:
+      213: 5804641417511472054
+    second: attacking_frame_3
+  - first:
+      213: 2526729963560337831
+    second: attacking_frame_4
+  - first:
+      213: 7873330282310464390
+    second: attacking_frame_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,13 +169,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_frame_1
+      name: idle_frame_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 185
+        y: 228
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,13 +190,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_frame_2
+      name: idle_frame_2
       rect:
         serializedVersion: 2
         x: 33
-        y: 185
+        y: 228
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,13 +211,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combat_Idle_frame_1
+      name: combat_idle_frame_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 148
+        y: 190
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,13 +232,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combat_Idle_frame_2
+      name: combat_idle_frame_2
       rect:
         serializedVersion: 2
         x: 33
-        y: 148
+        y: 190
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,13 +253,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combat_Idle_frame_3
+      name: combat_idle_frame_3
       rect:
         serializedVersion: 2
         x: 66
-        y: 148
+        y: 190
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,13 +274,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combat_Idle_frame_4
+      name: combat_idle_frame_4
       rect:
         serializedVersion: 2
         x: 99
-        y: 148
+        y: 190
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,9 +299,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 111
+        y: 152
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,9 +320,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 111
+        y: 152
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,9 +341,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 111
+        y: 152
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,9 +362,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 99
-        y: 111
+        y: 152
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -367,13 +379,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hurt_frame
+      name: blocking_frame_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 74
+        y: 114
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,13 +400,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: use_item_frame_1
+      name: blocking_frame_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 37
+        x: 33
+        y: 114
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,13 +421,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: use_item_frame_2
+      name: blocking_frame_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 37
+        x: 66
+        y: 114
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,13 +442,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: use_item_frame_3
+      name: blocking_frame_4
       rect:
         serializedVersion: 2
-        x: 66
-        y: 37
+        x: 99
+        y: 114
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -451,13 +463,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: use_item_frame_4
+      name: hurt_frame
       rect:
         serializedVersion: 2
-        x: 99
-        y: 37
+        x: 0
+        y: 76
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,13 +484,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: use_item_frame_5
+      name: use_item_frame_1
       rect:
         serializedVersion: 2
-        x: 132
-        y: 37
+        x: 0
+        y: 38
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -493,13 +505,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: use_item_frame_6
+      name: use_item_frame_2
       rect:
         serializedVersion: 2
-        x: 165
-        y: 37
+        x: 33
+        y: 38
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -514,13 +526,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_frame_1
+      name: use_item_frame_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 66
+        y: 38
         width: 33
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -535,15 +547,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_frame_2
+      name: use_item_frame_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 0
+        x: 99
+        y: 38
         width: 33
-        height: 37
-      alignment: 9
-      pivot: {x: 1.6500927, y: 0.40277153}
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -556,15 +568,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_frame_3
+      name: use_item_frame_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 0
+        x: 132
+        y: 38
         width: 33
-        height: 37
-      alignment: 9
-      pivot: {x: 1.6500927, y: 0.40277153}
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,15 +589,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_frame_4
+      name: use_item_frame_6
       rect:
         serializedVersion: 2
-        x: 99
-        y: 0
+        x: 165
+        y: 38
         width: 33
-        height: 37
-      alignment: 9
-      pivot: {x: 1.6500927, y: 0.40277153}
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,15 +610,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_frame_5
+      name: attacking_frame_1
       rect:
         serializedVersion: 2
-        x: 132
+        x: 0
         y: 0
         width: 33
-        height: 37
-      alignment: 9
-      pivot: {x: 1.6500927, y: 0.40277153}
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -614,6 +626,90 @@ TextureImporter:
       bones: []
       spriteID: 5684ddeb4c064ff10800000000000000
       internalID: 2302571707625195621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attacking_frame_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: babb428f15cf63590800000000000000
+      internalID: -7694685484330206293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attacking_frame_3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb8a4b6d9a3e8050800000000000000
+      internalID: 5804641417511472054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attacking_frame_4
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a18951c38fb01320800000000000000
+      internalID: 2526729963560337831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attacking_frame_5
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683f0745d20b34d60800000000000000
+      internalID: 7873330282310464390
       vertices: []
       indices: 
       edges: []
