@@ -7,7 +7,7 @@ public class BattleSystem : MonoBehaviour
 {
 	public static BattleSystem instance;
 
-	BattleState state;
+	public BattleState state { get; private set; }
 
 	[Header("Units")]
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] enemies;

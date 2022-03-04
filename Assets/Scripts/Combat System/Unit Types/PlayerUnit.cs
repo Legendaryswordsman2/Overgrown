@@ -43,8 +43,6 @@ public class PlayerUnit : BaseUnit
 					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 				}
 				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
-
-				Debug.Log(enemySelectionIndex);
 			}
 
 			if (Input.GetKeyDown(KeyCode.S))
@@ -57,8 +55,6 @@ public class PlayerUnit : BaseUnit
 					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 				}
 				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
-
-				Debug.Log(enemySelectionIndex);
 			}
 		}
 	}

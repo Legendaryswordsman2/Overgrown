@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class ArrowLerp : MonoBehaviour
 {
-	float elapsedTime;
-	float duration = 0.5f;
-	Vector3 startPosition;
 	[HideInInspector] public Vector3 endPosition;
 	[HideInInspector] public int damage;
 
 	[HideInInspector] public int selectionIndex = 0;
 	[HideInInspector] public PlayerUnit playerUnit;
-
-	private void Start()
-	{
-		startPosition = transform.position;
-	}
 	private void Update()
 	{
 		if (endPosition == null || endPosition == new Vector3()) return;

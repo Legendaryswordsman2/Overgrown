@@ -25,10 +25,9 @@ public abstract class BaseUnit : MonoBehaviour
 	protected Vector3 basePosition;
 
 
-	// Lerp
-	protected float elapsedTime;
 
-	protected CurrentMode currentMode = CurrentMode.Null;
+
+	public CurrentMode currentMode = CurrentMode.Null;
 
 	// To be implemented
 
@@ -123,7 +122,6 @@ public abstract class BaseUnit : MonoBehaviour
 
 		if(transform.position == endPosition)
 		{
-			elapsedTime = 0;
 			return true;
 	    }
 		return false;

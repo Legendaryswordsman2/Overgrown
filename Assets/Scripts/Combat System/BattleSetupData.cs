@@ -17,19 +17,5 @@ public static class BattleSetupData
 		playerPosition = _playerPosition;
 		playerStartsTurn = _playerStartsTurn;
 		enemySaveData = _enemySaveData;
-
-		//Debug.Log(enemySaveData.Length);
-
-		for (int i = 0; i < enemySaveData.Length; i++)
-		{
-			Debug.Log(enemySaveData[i].enemyType);
-		}
 	}
-
-	//public static void Reset()
-	//{
-	//	enemies = new SOEnemy[0];
-	//	sceneIndex = 0;
-	//	playerPosition = new Vector3();
-	//}
 }
