@@ -33,13 +33,13 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerScript.canWalk && GameManager.timeActive)
-        {
-            anim.Play("Attack Animation", 0, 0.05f);
-        }
+        //if (Input.GetMouseButtonDown(0) && playerScript.canWalk && GameManager.timeActive)
+        //{
+        //    anim.Play("Attack Animation", 0, 0.05f);
+        //}
     }
 
-    public void Attack() // Called from attack animation
+    public void CheckIfEnemyIsNear() // Called from attack animation
     {
         // Play Attack Animation
         //anim.SetTrigger("Attack");
