@@ -21,7 +21,6 @@ public class PlayTransitionOnSceneChange : MonoBehaviour
 		if (newPlayerPosition != null && newPlayerPosition != new Vector3(0, 0, 0))
 		{
 			GameObject.FindGameObjectWithTag("Player").transform.position = newPlayerPosition;
-			Debug.Log("Set player position: " + newPlayerPosition);
 		}
 		SceneManager.sceneLoaded -= NewSceneLoaded;
 		Destroy(this.gameObject);

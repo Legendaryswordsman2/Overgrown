@@ -22,7 +22,6 @@ public class ChangeSceneOnClick : MonoBehaviour
     {
         if (isInRange && GameManager.timeActive && Input.GetKeyDown(changeSceneKey))
         {
-            Debug.Log("Starting transition");
 			if (hasStartTransition)
 			{
                 StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("CrossFade Start", transitionEndAnimation, sceneName, newPlayerPosition));

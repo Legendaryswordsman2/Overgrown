@@ -54,12 +54,6 @@ public class PlayerCombat : MonoBehaviour
                 Enemy tempEnemy = hitEnemy.transform.GetComponentInParent<Enemy>();
                 SOEnemy[] _enemies = tempEnemy.enemyData.enemiesToFight[Random.Range(0, tempEnemy.enemyData.enemiesToFight.Length)].enemies;
 
-				foreach (var enemy in _enemies)
-				{
-                    Debug.Log(enemy);
-				}
-                Debug.Log("Done");
-
                 gameManger.StartBattle(_enemies, tempEnemy.enemyData);
 			}
 

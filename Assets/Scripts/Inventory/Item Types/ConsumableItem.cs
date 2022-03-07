@@ -7,12 +7,17 @@ public class ConsumableItem : Item
 {
 	public List<ConsumableItemEffect> effects;
 
-	public override void ItemSelected()
+	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		throw new System.NotImplementedException();
+		BattleSystem battleSystem = BattleSystem.instance;
+
+		UseItem(battleSystem.playerUnit);
+		battleSystem.inventory.gameObject.SetActive(false);
+
+		Destroy(itemSlot.gameObject);
 	}
 
-	public void UseItem(PlayerUnit playerUnit)
+	void UseItem(PlayerUnit playerUnit)
 	{
 		foreach (ConsumableItemEffect effect in effects)
 		{

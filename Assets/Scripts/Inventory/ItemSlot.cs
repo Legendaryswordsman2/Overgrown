@@ -18,28 +18,9 @@ public class ItemSlot : MonoBehaviour
 		nameText.text = item.ItemName;
 		
 	}
-
-	public void UseItemInCombat()
-	{
-		BattleSystem battleSystem = BattleSystem.instance;
-
-		Debug.Log("Clicked " + name);
-
-		if(item is ConsumableItem c)
-		{
-			c.UseItem(battleSystem.playerUnit);
-		}
-		else
-		{
-			Debug.LogError(item.ItemName + " is not a consumable item");
-		}
-		battleSystem.inventory.gameObject.SetActive(false);
-		Destroy(gameObject);
-
-	}
 	public void ItemSelected()
 	{
-
+		item.ItemSelected(this);
 	}
 
 	private void OnValidate()

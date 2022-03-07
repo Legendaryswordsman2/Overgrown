@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/Equipable Plant Item")]
 public class EquipablePlantItem : Item
 {
-	public override void ItemSelected()
+	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		throw new System.NotImplementedException();
 	}
 }

@@ -8,7 +8,7 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Items/Junk Item")]
 public class JunkItem : Item 
 {
-	public override void ItemSelected()
+	public override void ItemSelected(ItemSlot itemSlot)
 	{
 		throw new System.NotImplementedException();
 	}

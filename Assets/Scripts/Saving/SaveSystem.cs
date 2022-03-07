@@ -25,7 +25,7 @@ public static class SaveSystem
 		if (!Directory.Exists(filePath))
 		{
         Directory.CreateDirectory(filePath);
-        Debug.Log("Creating directory: " + filePath);
+        Debug.Log("File or folder does not exist, Creating directory: " + filePath);
 		}
         using (Stream stream = File.Open(filePath + fileName, FileMode.Create))
         {

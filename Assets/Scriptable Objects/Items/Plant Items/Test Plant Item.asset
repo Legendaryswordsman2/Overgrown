@@ -15,5 +15,5 @@ MonoBehaviour:
   id: ddda0ca78d75a9346a2bddd0f34f7554
   ItemName: Test Plant Item
   ItemDescription: Some Random Plant Item
-  Icon: {fileID: 0}
+  Icon: {fileID: 226490015001944883, guid: 504208fba75efd54497e379710df5fcc, type: 3}
   MaximumStacks: 1

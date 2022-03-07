@@ -79,7 +79,6 @@ public class BattleSystem : MonoBehaviour
 
 	public IEnumerator SwitchTurn()
 	{
-		print(state);
 		yield return new WaitForSeconds(DelayBeforeSwitchingTurn);
 
 		if (state == BattleState.PlayerTurn)
