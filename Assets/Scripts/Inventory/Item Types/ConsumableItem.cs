@@ -7,6 +7,11 @@ public class ConsumableItem : Item
 {
 	public List<ConsumableItemEffect> effects;
 
+	public override void ItemSelected()
+	{
+		throw new System.NotImplementedException();
+	}
+
 	public void UseItem(PlayerUnit playerUnit)
 	{
 		foreach (ConsumableItemEffect effect in effects)

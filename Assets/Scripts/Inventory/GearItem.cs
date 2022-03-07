@@ -10,4 +10,8 @@ public enum EquipmentType
 public class GearItem : Item
 {
 	public EquipmentType EquipmentType;
+	public override void ItemSelected()
+	{
+		throw new System.NotImplementedException();
+	}
 }

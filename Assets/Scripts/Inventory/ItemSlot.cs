@@ -37,6 +37,10 @@ public class ItemSlot : MonoBehaviour
 		Destroy(gameObject);
 
 	}
+	public void ItemSelected()
+	{
+
+	}
 
 	private void OnValidate()
 	{

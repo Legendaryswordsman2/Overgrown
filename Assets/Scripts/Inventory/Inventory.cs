@@ -7,14 +7,18 @@ public class Inventory : MonoBehaviour
 	[Header("Items")]
 	public List<JunkItem> junkItems;
 	public List<ConsumableItem> consumableItems;
-	public List<QuestItem> questItems;
+	[HideInInspector] public List<QuestItem> questItems;
+	public List<EquipablePlantItem> plantItems;
 
 	[Header("Gear")]
-	public List<GearItem> gear;
+	[HideInInspector] public List<GearItem> gear;
+
+	[Space]
 
 	[SerializeField] GameObject junkItemSlotParent;
 	[SerializeField] GameObject consumableItemSlotParent;
 	[SerializeField] GameObject questItemSlotParent;
+	[SerializeField] GameObject EquipablePlantItemSlotParent;
 
 	[SerializeField] GameObject itemSlotPrefab;
 
@@ -32,7 +36,11 @@ public class Inventory : MonoBehaviour
 
 	void SetItemSlots()
 	{
-		#region Clear Items
+		ClearItems();
+		SetItems();
+	}
+	void ClearItems()
+	{
 		foreach (Transform child in junkItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -47,8 +55,14 @@ public class Inventory : MonoBehaviour
 		{
 			Destroy(child.gameObject);
 		}
-		#endregion
-		#region Set Items
+
+		foreach (Transform child in EquipablePlantItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+	}
+	private void SetItems()
+	{
 		for (int i = 0; i < junkItems.Count; i++)
 		{
 			Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(junkItems[i]);
@@ -63,6 +77,11 @@ public class Inventory : MonoBehaviour
 		{
 			Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(questItems[i]);
 		}
-		#endregion
+
+		for (int i = 0; i < plantItems.Count; i++)
+		{
+			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(plantItems[i]);
+		}
 	}
+
 }
