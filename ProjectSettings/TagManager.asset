@@ -14,6 +14,7 @@ TagManager:
   - Inventory
   - Vault
   - Health Bar Background
+  - Back Of Player
   layers:
   - Default
   - TransparentFX

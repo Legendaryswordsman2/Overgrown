@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if(canAttack)
-        Attack();
+        CheckIfPlayerIsNear();
 
         Animate();
     }
@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
 		}
     }
 
-    public void Attack()
+    public void CheckIfPlayerIsNear()
     {
         // Play Attack Animation
         //anim.SetTrigger("Attack");
@@ -114,10 +114,10 @@ public class Enemy : MonoBehaviour
         Collider2D hitEnemy = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayers);
         // Damage Enemies
         {
-            if (hitEnemy != null)
+            if (hitEnemy != null && GameManager.timeActive)
             {
                 SOEnemy[] _enemies = enemyData.enemiesToFight[Random.Range(0, enemyData.enemiesToFight.Length)].enemies;
-                GameManager.instance.StartBattle(_enemies, enemyData, false);
+                GameManager.instance.StartBattle(_enemies, enemyData);
                 canAttack = false;
             }
         }

@@ -33,10 +33,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0) && playerScript.canWalk && GameManager.timeActive)
-        //{
-        //    anim.Play("Attack Animation", 0, 0.05f);
-        //}
+        CheckIfEnemyIsNear();
     }
 
     public void CheckIfEnemyIsNear() // Called from attack animation
@@ -49,7 +46,7 @@ public class PlayerCombat : MonoBehaviour
         // Damage Enemies
         try
         {
-            if (hitEnemy != null)
+            if (hitEnemy != null && GameManager.timeActive)
 			{
 
                 GameManager.StopTime();
