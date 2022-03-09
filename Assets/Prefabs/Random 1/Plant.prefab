@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1694980755
-  m_SortingLayer: 6
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aac6f923c03a2cf4ea6c8f0a80612274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -194,6 +194,8 @@ MonoBehaviour:
   maximum: 100
   current: 0
   mask: {fileID: 2133167956}
+  healthTextCurrent: {fileID: 0}
+  healthTextMax: {fileID: 0}
 --- !u!1 &1265446978
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +247,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -264,7 +266,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1694980755
-  m_SortingLayer: 6
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -2452282686169515637, guid: b6f26e4391cb1984aba849eb9dffd3dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5479,7 +5481,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5498,7 +5500,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1607905131
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5523,12 +5525,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1541de3af26665c4dab8de19473f756b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   plantIcon: {fileID: 357386592}
   discardIcon: {fileID: 1265446978}
   progressBar: {fileID: 522639935}
   enemySpawnParticles: {fileID: 1405936756}
   growTime: 0
   chosenPlant: {fileID: 0}
+  chosenEnemy: {fileID: 0}
   growTimes: 
 --- !u!61 &7713677845601810873
 BoxCollider2D:
