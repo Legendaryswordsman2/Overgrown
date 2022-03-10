@@ -10,6 +10,6 @@ public static class GlobalGameManager
 
 	static void test()
 	{
-
+		//onTesting(, EventArgs.Empty);
 	}
 }
