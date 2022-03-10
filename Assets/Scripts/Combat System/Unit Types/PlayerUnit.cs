@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Steamworks;
-enum AttackType { Basic, Ranged}
+public enum AttackType { Basic, Ranged}
 public class PlayerUnit : BaseUnit
 {
 	[field: Header("References")]
