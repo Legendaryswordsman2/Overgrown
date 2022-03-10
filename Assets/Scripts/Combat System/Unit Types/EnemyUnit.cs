@@ -9,6 +9,8 @@ public class EnemyUnit : BaseUnit
 
 	ProgressBar healthBar;
 
+	BaseUnit target;
+
 	public void SetupEnemy()
 	{
 		unitName = enemySO.enemyName;
@@ -30,15 +32,21 @@ public class EnemyUnit : BaseUnit
 
 		int temp = Random.Range(0, 2);
 
-		if (temp == 0)
 			BasicAttack();
-		else
-			Block();
+		//if (temp == 0)
+		//else
+		//	Block();
 	}
 
 	void BasicAttack()
 	{
-		locationToAttackTarget = battleSystem.playerUnit.transform.GetChild(2).position;
+		int temp = Random.Range(0, 2);
+		if (temp == 0)
+			target = battleSystem.playerUnit;
+		else
+			target = battleSystem.playerPlantUnit;
+
+		locationToAttackTarget = target.transform.GetChild(2).position;
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
@@ -85,7 +93,7 @@ public class EnemyUnit : BaseUnit
 	protected override void OnAttack()
 	{
 		base.OnAttack();
-		battleSystem.playerUnit.TakeDamage(damage);
+		target.TakeDamage(damage);
 	}
 
 	protected override void OnValidate()

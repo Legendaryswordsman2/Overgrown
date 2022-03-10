@@ -92,6 +92,23 @@ public class PlayerPlantUnit : BaseUnit
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
+	public override void TakeDamage(int _damage)
+	{
+		base.TakeDamage(_damage);
+		if (currentHealth >= 0)
+		{
+			playerPlantHUD.SetHealth(currentHealth);
+		}
+		else
+		{
+			playerPlantHUD.SetHealth(0);
+		}
+	}
+	protected override void Die()
+	{
+		base.Die();
+		battleSystem.playerHasPlant = false;
+	}
 	protected override void OnAttack()
 	{
 		base.OnAttack();
