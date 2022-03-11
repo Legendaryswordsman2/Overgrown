@@ -36,27 +36,47 @@ public class Player : MonoBehaviour
     AudioClip[] walkSounds;
     AudioSource audioSource;
     GameManager gameManager;
+    SaveManager saveManager;
     Transform playerTexture;
 
     public bool isWalking { get; private set; }
 
     private void Awake()
     {
-        //if (GameManager.spawnPosition != null)
-        //{
-        //    transform.position = GameManager.spawnPosition;
-        //    GameManager.spawnPosition = new Vector3();
-        //}
+        saveManager = SaveManager.instance;
 
+		saveManager.OnSavingGame += SaveManager_OnSavingGame;
+		saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
+
+        // Initialize values and references
     	playerHealth = GetComponent<PlayerHealth>();
         audioSource = GetComponent<AudioSource>();
-        anim = transform.GetChild(4).GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        stamina = GetComponent<PlayerStamina>();
+        anim = transform.GetChild(4).GetComponent<Animator>();
+        playerTexture = transform.GetChild(4);
+        gameManager = GameManager.instance;
         levelProgressBar.maximum = xpToLevelUp;
         levelProgressBar.current = xp;
-        stamina = GetComponent<PlayerStamina>();
-        gameManager = GameManager.instance;
-        playerTexture = transform.GetChild(4);
+    }
+
+	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
+	{
+        PlayerXPData xpData = new PlayerXPData(this);
+        SaveSystem.SaveFile("/Player", "/PlayerLevel&XP.json", xpData);
+	}
+
+    private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
+    {
+        PlayerXPData xpData = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
+        if (xpData == null) return;
+
+        playerLevel = xpData.playerLevel;
+        xp = xpData.xp;
+        xpToLevelUp = xpData.xpToLevelUp;
+        xpIncreaseOnLevelUp = xpData.xpIncreaseOnLevelUp;
+        xpIncreaseIncreaseOnLevelUp = xpData.xpIncreaseIncreaseOnLevelUp;
+
     }
 
     private void Update()

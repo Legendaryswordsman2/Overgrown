@@ -9,5 +9,6 @@ public class EquipablePlantItem : Item
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
 		isEquipped = !isEquipped;
+		Debug.Log("Plant Item Selected");
 	}
 }

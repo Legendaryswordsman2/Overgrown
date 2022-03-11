@@ -6,10 +6,12 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+	public static SaveManager instance;
 
 	public event EventHandler OnSavingGame;
 	public event EventHandler OnLoadingGame;
+
+	bool quitingGame = false;
 
 	public void MakeTempMainSave()
 	{
@@ -26,14 +28,33 @@ public class SaveManager : MonoBehaviour
 		Debug.Log("Converted Temp to MainSave");
 	}
 
+	public void DeleteTempSave()
+	{
+		if(Directory.Exists(SaveSystem.currentSaveLocation + "/Temp"))
+		Directory.Delete(SaveSystem.currentSaveLocation + "/Temp", true);
+		Debug.Log("Deleted temp save");
+	}
+
+	private void Awake()
+	{
+		if (instance != null)
+			Destroy(this);
+		else
+			instance = this;
+	}
+
 	private void Start() // Load Game
 	{
 		//SaveSystem.CreateSaveSlotSubFolders();
-		LoadGame();
+		if (Directory.Exists(SaveSystem.currentSaveLocation + "MainSave"))
+			LoadGame();
+		else
+			SaveSystem.InitializeSaveSlot();
 	}
 
 	private void OnDestroy() // Save Game
 	{
+		if (quitingGame) return; // If the player is leaving the game
 		SaveGame(false);
 	}
 	#region Base Save and Load
@@ -46,8 +67,8 @@ public class SaveManager : MonoBehaviour
 			SaveSystem.saveSubLocation = SaveSubLocation.Temp;
 		}
 		OnSavingGame?.Invoke(this, EventArgs.Empty);
-		SavePlayerHealth();
-		SavePlayerXpAndLevel();
+		//SavePlayerHealth();
+		//SavePlayerXpAndLevel();
 		Debug.Log("Saved Game in: " + SaveSystem.saveSubLocation);
 
 		SaveSystem.saveSubLocation = SaveSubLocation.Temp;
@@ -63,8 +84,6 @@ public class SaveManager : MonoBehaviour
 			SaveSystem.CopyFolder(SaveSystem.currentSaveLocation + "/MainSave", SaveSystem.currentSaveLocation + "Temp");
 		}
 		OnLoadingGame?.Invoke(this, EventArgs.Empty);
-		LoadPlayerHealth();
-		LoadPlayerXpAndLevel();
 		Debug.Log("Loaded Game in: " + SaveSystem.saveSubLocation);
 
 		SaveSystem.saveSubLocation = SaveSubLocation.Temp;
@@ -72,38 +91,44 @@ public class SaveManager : MonoBehaviour
 	#endregion  
 
 	#region Saving Data
-	void SavePlayerHealth()
-	{
-        PlayerHealthData healthData = new PlayerHealthData(player.GetComponent<PlayerHealth>());
+	//void SavePlayerHealth()
+	//{
+ //       PlayerHealthData healthData = new PlayerHealthData(player.GetComponent<PlayerHealth>());
 
-        SaveSystem.SaveFile("/Player", "/PlayerHealth.json", healthData);
-    }
-	void SavePlayerXpAndLevel()
-	{
-		PlayerXPData xpData = new PlayerXPData(player.GetComponent<Player>());
-		SaveSystem.SaveFile("/Player", "/PlayerLevel&XP.json", xpData);
-	}
+ //       SaveSystem.SaveFile("/Player", "/PlayerHealth.json", healthData);
+ //   }
+	//void SavePlayerXpAndLevel()
+	//{
+	//	PlayerXPData xpData = new PlayerXPData(player.GetComponent<Player>());
+	//	SaveSystem.SaveFile("/Player", "/PlayerLevel&XP.json", xpData);
+	//}
 	#endregion
 
 	#region Loading Data
-	void LoadPlayerHealth()
-	{
-		PlayerHealthData health = SaveSystem.LoadFile<PlayerHealthData>("/Player/PlayerHealth.json");
-		if (health != null)
-		player.GetComponent<PlayerHealth>().maxHealth = health.playerHealth;
-	}
-	void LoadPlayerXpAndLevel()
-	{
-		PlayerXPData xpData = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
-		if(xpData != null)
-		{
-		Player playerScript = player.GetComponent<Player>();
-		playerScript.playerLevel = xpData.playerLevel;
-		playerScript.xp = xpData.xp;
-		playerScript.xpToLevelUp = xpData.xpToLevelUp;
-		playerScript.xpIncreaseOnLevelUp = xpData.xpIncreaseOnLevelUp;
-		playerScript.xpIncreaseIncreaseOnLevelUp = xpData.xpIncreaseIncreaseOnLevelUp;
-		}
-	}
+	//void LoadPlayerHealth()
+	//{
+	//	PlayerHealthData health = SaveSystem.LoadFile<PlayerHealthData>("/Player/PlayerHealth.json");
+	//	if (health != null)
+	//	player.GetComponent<PlayerHealth>().maxHealth = health.playerHealth;
+	//}
+	//void LoadPlayerXpAndLevel()
+	//{
+	//	PlayerXPData xpData = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
+	//	if(xpData != null)
+	//	{
+	//	Player playerScript = player.GetComponent<Player>();
+	//	playerScript.playerLevel = xpData.playerLevel;
+	//	playerScript.xp = xpData.xp;
+	//	playerScript.xpToLevelUp = xpData.xpToLevelUp;
+	//	playerScript.xpIncreaseOnLevelUp = xpData.xpIncreaseOnLevelUp;
+	//	playerScript.xpIncreaseIncreaseOnLevelUp = xpData.xpIncreaseIncreaseOnLevelUp;
+	//	}
+	//}
 	#endregion
+
+	private void OnApplicationQuit()
+	{
+		DeleteTempSave();
+		quitingGame = true;
+	}
 }

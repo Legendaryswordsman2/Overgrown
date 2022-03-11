@@ -19,7 +19,7 @@ public static class SaveSystem
 
     public static SaveSubLocation saveSubLocation = SaveSubLocation.MainSave;
 
-    public static void SaveFile<T>(string filePath, string fileName, T objectToWrite)
+    public static void SaveFile<T>(string filePath, string fileName, T objectToWrite) // FilePath and FileName are two different variables because the filePath is used to test if the folder the file will be in exists
     {
         filePath = currentSaveLocation + saveSubLocation + filePath;
 		if (!Directory.Exists(filePath))
@@ -72,6 +72,11 @@ public static class SaveSystem
             CopyFolder(folder, dest);
         }
     }
+
+    public static void InitializeSaveSlot()
+	{
+        Directory.CreateDirectory(currentSaveLocation + "MainSave");
+	}
 
     public static void CreateAppID()
 	{
