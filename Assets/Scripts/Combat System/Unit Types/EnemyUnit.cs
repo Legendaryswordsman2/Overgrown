@@ -13,6 +13,8 @@ public class EnemyUnit : BaseUnit
 
 	public void SetupEnemy()
 	{
+		if (enemySO == null) return;
+
 		unitName = enemySO.enemyName;
 		maxHealth = enemySO.defaultHealth;
 		damage = enemySO.attackDamage;

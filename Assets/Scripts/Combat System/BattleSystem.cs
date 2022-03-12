@@ -62,6 +62,17 @@ public class BattleSystem : MonoBehaviour
 			enemiesAlive.Add(tempActiveEnemies[i]);
 		}
 
+		if(BattleSetupData.plantSO == null)
+		{
+			playerPlantUnit.gameObject.SetActive(false);
+		}
+		else
+		{
+			playerPlantUnit.plantSO = BattleSetupData.plantSO;
+			playerPlantUnit.SetupPlant();
+			playerHasPlant = true;
+		}
+
 		// Start First Turn
 
 		if (BattleSetupData.playerStartsTurn)

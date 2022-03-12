@@ -10,12 +10,18 @@ public class PlayerPlantUnit : BaseUnit
 
 	int enemySelectionIndex = 0;
 
-	protected override void Setup()
+	public EquipablePlantItem plantSO;
+
+	public void SetupPlant()
 	{
-		base.Setup();
-		playerPlantHUD.SetHUD(this);
-		battleSystem.playerHasPlant = true;
-		print("Player has plant");
+		if (plantSO == null) return;
+
+		unitName = plantSO.unitName;
+		maxHealth = plantSO.defaultHealth;
+		damage = plantSO.attackDamage;
+		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
+
+		gameObject.SetActive(true);
 	}
 
 	protected override void Update()
