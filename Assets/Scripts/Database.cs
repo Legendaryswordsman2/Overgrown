@@ -10,6 +10,29 @@ public class Database : ScriptableObject
 
 	[SerializeField] PlantData[] plants;
 
+	[SerializeField] EquipablePlantItem[] equippablePlantItems;
+
+	public EquipablePlantItem GetEquippablePlantItem(string itemID)
+	{
+		Debug.Log("Got Item id");
+		EquipablePlantItem item = GetEquippablePlantItemRefernce(itemID);
+		return item;
+	}
+
+	EquipablePlantItem GetEquippablePlantItemRefernce(string itemID)
+	{
+		Debug.Log("Searching Database");
+		foreach (EquipablePlantItem item in equippablePlantItems)
+		{
+			Debug.Log("Found Item");
+			if(item.ID == itemID)
+			{
+				return item;
+			}
+		}
+		return null;
+	}
+
 #if UNITY_EDITOR
 	private void OnValidate()
 	{
@@ -31,6 +54,7 @@ public class Database : ScriptableObject
 	{
 		enemies = FindAssetsByType<SOEnemy>("Assets/Scriptable Objects/Enemies");
 		plants = FindAssetsByType<PlantData>("Assets/Scriptable Objects/Plants");
+		equippablePlantItems = FindAssetsByType<EquipablePlantItem>("Assets/Scriptable Objects/Items/Plant Items");
 	}
 
 	// Slightly modified version of this answer: http://answers.unity.com/answers/1216386/view.html

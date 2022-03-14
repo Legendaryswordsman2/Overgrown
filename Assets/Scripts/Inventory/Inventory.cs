@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
 	public List<JunkItem> junkItems;
 	public List<ConsumableItem> consumableItems;
 	[HideInInspector] public List<QuestItem> questItems;
-	public List<EquipablePlantItem> plantItems;
+	public List<EquipablePlantItem> equippablePlantItems;
 
 	[Header("Gear")]
 	[HideInInspector] public List<GearItem> gear;
@@ -27,12 +27,51 @@ public class Inventory : MonoBehaviour
 
 	[SerializeField] GameObject itemSlotPrefab;
 
+	[Space]
+
+	[SerializeField] Database database;
+
 	public event EventHandler OnPlantItemSelected;
+
+	SaveManager saveManager;
 
 	private void Awake()
 	{
 		instance = this;
+		saveManager = SaveManager.instance;
+		saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
+		saveManager.OnSavingGame += SaveManager_OnSavingGame;
+
+	}
+
+	private void Start()
+	{
 		SetItemSlots();
+	}
+
+	private void SaveManager_OnSavingGame(object sender, EventArgs e)
+	{
+		List<string> itemIDs = new List<string>();
+
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			itemIDs.Add(equippablePlantItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/InventoryPlantItemData.json", itemIDs);
+	}
+
+	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
+	{
+		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/InventoryPlantItemData.json");
+		if (itemIDs == null) return;
+
+		Debug.Log("Got stuff from save utens");
+
+		foreach (string itemID in itemIDs)
+		{
+			Debug.Log(itemID);
+			equippablePlantItems.Add(database.GetEquippablePlantItem(itemID));
+		}
 	}
 
 	public void GoToStartOfList()
@@ -104,9 +143,9 @@ public class Inventory : MonoBehaviour
 		}
 
 
-		for (int i = 0; i < plantItems.Count; i++)
+		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
-			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(plantItems[i]);
+			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
 		}
 		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 	}

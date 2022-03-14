@@ -11528,6 +11528,10 @@ PrefabInstance:
       value: Potato
       objectReference: {fileID: 0}
     - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: database
+      value: 
+      objectReference: {fileID: 11400000, guid: 3593be114d2cb0247bfd4c5a0675cdb6, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: plantItems.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 5274a743566658a488fcb6daca42fec6, type: 2}
@@ -11537,6 +11541,22 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
     - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: plantItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: equippablePlantItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: equippablePlantItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5274a743566658a488fcb6daca42fec6, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: equippablePlantItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: equippablePlantItems.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
     - target: {fileID: 7809169510483027909, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
