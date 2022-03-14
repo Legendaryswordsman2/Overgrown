@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8f498caa1067c042981646d4c99e28f, type: 3}
-  m_Name: Test Plant Item
+  m_Name: Test Plant Item 3
   m_EditorClassIdentifier: 
-  id: ddda0ca78d75a9346a2bddd0f34f7554
-  ItemName: Test Plant Item
+  id: 56df51b1accd12543a755858eb73342f
+  ItemName: Turnip
   ItemDescription: Some Random Plant Item
-  Icon: {fileID: 226490015001944883, guid: 504208fba75efd54497e379710df5fcc, type: 3}
+  Icon: {fileID: 6538508900697096278, guid: 248d800c643e72a4ab018c8ba138b497, type: 3}
   MaximumStacks: 1
   unitName: Test
   defaultHealth: 100
-  attackDamage: 10
+  attackDamage: 90
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2
-  animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  animatorController: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}

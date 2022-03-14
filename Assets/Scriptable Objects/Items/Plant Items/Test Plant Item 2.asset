@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f498caa1067c042981646d4c99e28f, type: 3}
+  m_Name: Test Plant Item 2
+  m_EditorClassIdentifier: 
+  id: 5274a743566658a488fcb6daca42fec6
+  ItemName: Potato
+  ItemDescription: Some Random Plant Item
+  Icon: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
+  MaximumStacks: 1
+  unitName: Test
+  defaultHealth: 100
+  attackDamage: 90
+  healthIncreasePerLevelUp: 10
+  damageIncreasePerLevelUp: 2
+  animatorController: {fileID: 9100000, guid: d67cfeeb56324234d83d75b7e66e457d, type: 2}
