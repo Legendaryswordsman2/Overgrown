@@ -13,9 +13,6 @@ public class Grow : MonoBehaviour
     [SerializeField] GameObject discardIcon;
     [SerializeField] ProgressBar progressBar;
 
-    [Header("Particles")]
-    [SerializeField] ParticleSystem enemySpawnParticles;
-
     [SerializeField, ReadOnlyInspector, Header("The total time until the plant finishes growing")]
     int growTime;
 
@@ -111,11 +108,6 @@ public class Grow : MonoBehaviour
     }
     void FinishedGrowing()
     {
-        Vector3 enemySpawnPosition = new Vector3(this.transform.position.x, -0.8326f, this.transform.position.z);
-
-		gameManager.SpawnEnemy(chosenEnemy, enemySpawnPosition);
-
-        enemySpawnParticles.Play();
         ResetValues();
     }
     public void AssignVariables()
