@@ -10,6 +10,8 @@ public class ItemSlot : MonoBehaviour
 	[SerializeField] Image icon;
 	[SerializeField] TMP_Text nameText;
 
+	public Image equippedCheckmark;
+
 	public void SetSlot(Item _item)
 	{
 		item = _item;

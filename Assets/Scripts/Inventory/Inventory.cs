@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Inventory : MonoBehaviour
 {
+	public static Inventory instance;
+
 	[Header("Items")]
 	public List<JunkItem> junkItems;
 	public List<ConsumableItem> consumableItems;
@@ -22,8 +25,11 @@ public class Inventory : MonoBehaviour
 
 	[SerializeField] GameObject itemSlotPrefab;
 
+	public event EventHandler OnPlantItemSelected;
+
 	private void Awake()
 	{
+		instance = this;
 		SetItemSlots();
 	}
 
@@ -82,6 +88,11 @@ public class Inventory : MonoBehaviour
 		{
 			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(plantItems[i]);
 		}
+	}
+
+	public void InvokeOnPlantItemSelected()
+	{
+		OnPlantItemSelected?.Invoke(this, EventArgs.Empty);
 	}
 
 }

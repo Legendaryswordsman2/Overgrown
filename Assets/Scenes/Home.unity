@@ -36084,6 +36084,10 @@ PrefabInstance:
       propertyPath: playerLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 963478375596545267, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1226180917395449215, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -36195,6 +36199,22 @@ PrefabInstance:
     - target: {fileID: 5816156517331388125, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816156517643336151, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_text
+      value: Potato
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816156517732922001, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
+    - target: {fileID: 5816156517846869199, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_text
+      value: Potato
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816156517846869199, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_fontSize
+      value: 81.25
       objectReference: {fileID: 0}
     - target: {fileID: 5816156517930382568, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -36332,6 +36352,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5816156518590059060, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
     - target: {fileID: 5816156518817279842, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -36348,6 +36372,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5816156519007044714, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_text
+      value: Potato
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816156519062032172, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
     - target: {fileID: 5816156519311489365, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -36379,6 +36411,10 @@ PrefabInstance:
     - target: {fileID: 5816156519322236550, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809169510542265964, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7809169510542265966, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_SizeDelta.y

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Items/Equipable Plant Item")]
 public class EquipablePlantItem : Item
@@ -16,13 +17,29 @@ public class EquipablePlantItem : Item
 
 	public RuntimeAnimatorController animatorController;
 
-
+	Image equippedCheckmark;
+	Inventory inventory;
 
 	bool isEquipped = false;
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		isEquipped = !isEquipped;
+		inventory = Inventory.instance;
+		inventory.InvokeOnPlantItemSelected();
+
+		inventory.OnPlantItemSelected += UnequipPlantItem;
+
+		isEquipped = true;
 		Debug.Log("Plant Item Selected");
 		BattleSetupData.plantSO = this;
+		equippedCheckmark = itemSlot.equippedCheckmark;
+		equippedCheckmark.enabled = true;
+	}
+
+	private void UnequipPlantItem(object sender, System.EventArgs e)
+	{
+		isEquipped = false;
+		if(equippedCheckmark != null) equippedCheckmark.enabled = false;
+		Debug.Log("Unequipped Plant");
+		inventory.OnPlantItemSelected -= UnequipPlantItem;
 	}
 }
