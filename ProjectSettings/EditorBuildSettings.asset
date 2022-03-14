@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Indoor/Home (Inside).unity
     guid: 13f7be9ebd15134468e11d7807bb36e3
   - enabled: 1
+    path: Assets/Scenes/Garden.unity
+    guid: d8682f503f6e3a7488ac1d1b9bacf688
+  - enabled: 1
     path: Assets/Scenes/Levels/Level 1.unity
     guid: 93201af471366fc47959eb6aa14b4667
   - enabled: 1
