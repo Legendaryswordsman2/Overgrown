@@ -35864,26 +35864,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: equippablePlantItems.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: equippablePlantItems.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
-    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: equippablePlantItems.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
-    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: equippablePlantItems.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
-    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: equippablePlantItems.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base

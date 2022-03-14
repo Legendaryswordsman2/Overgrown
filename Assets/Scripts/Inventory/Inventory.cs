@@ -42,6 +42,9 @@ public class Inventory : MonoBehaviour
 		saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
 		saveManager.OnSavingGame += SaveManager_OnSavingGame;
 
+		GetComponent<CanvasGroup>().alpha = 1;
+		gameObject.SetActive(false);
+
 		ClearItems();
 	}
 
@@ -63,6 +66,7 @@ public class Inventory : MonoBehaviour
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
 	{
+		Debug.Log("Loading Inventory Plants");
 		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/InventoryPlantItemData.json");
 		if (itemIDs == null) return;
 
