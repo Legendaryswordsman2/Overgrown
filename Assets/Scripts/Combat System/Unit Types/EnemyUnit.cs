@@ -42,15 +42,26 @@ public class EnemyUnit : BaseUnit
 
 	void BasicAttack()
 	{
-		int temp = Random.Range(0, 2);
-		if (temp == 0)
-			target = battleSystem.playerUnit;
-		else
-			target = battleSystem.playerPlantUnit;
+		ChooseTarget();
 
 		locationToAttackTarget = target.transform.GetChild(2).position;
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
+	}
+	void ChooseTarget()
+	{
+		if (battleSystem.playerHasPlant)
+		{
+			int temp = Random.Range(0, 2);
+			if (temp == 0)
+				target = battleSystem.playerUnit;
+			else
+				target = battleSystem.playerPlantUnit;
+		}
+		else
+		{
+			target = battleSystem.playerUnit;
+		}
 	}
 	protected override void OnReturnedToBasePosition()
 	{

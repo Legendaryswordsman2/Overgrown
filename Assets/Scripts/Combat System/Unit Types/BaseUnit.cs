@@ -27,7 +27,7 @@ public abstract class BaseUnit : MonoBehaviour
 
 
 
-	public CurrentMode currentMode = CurrentMode.Null;
+	[HideInInspector] public CurrentMode currentMode = CurrentMode.Null;
 
 	// To be implemented
 
