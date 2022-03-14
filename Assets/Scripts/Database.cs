@@ -14,14 +14,12 @@ public class Database : ScriptableObject
 
 	public EquipablePlantItem GetEquippablePlantItem(string itemID)
 	{
-		Debug.Log("Got Item id");
 		EquipablePlantItem item = GetEquippablePlantItemRefernce(itemID);
 		return item;
 	}
 
 	EquipablePlantItem GetEquippablePlantItemRefernce(string itemID)
 	{
-		Debug.Log("Searching Database");
 		foreach (EquipablePlantItem item in equippablePlantItems)
 		{
 			Debug.Log("Found Item");

@@ -42,6 +42,7 @@ public class Inventory : MonoBehaviour
 		saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
 		saveManager.OnSavingGame += SaveManager_OnSavingGame;
 
+		ClearItems();
 	}
 
 	private void Start()
@@ -65,11 +66,10 @@ public class Inventory : MonoBehaviour
 		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/InventoryPlantItemData.json");
 		if (itemIDs == null) return;
 
-		Debug.Log("Got stuff from save utens");
+		equippablePlantItems.Clear();
 
 		foreach (string itemID in itemIDs)
 		{
-			Debug.Log(itemID);
 			equippablePlantItems.Add(database.GetEquippablePlantItem(itemID));
 		}
 	}
@@ -83,7 +83,6 @@ public class Inventory : MonoBehaviour
 
 	void SetItemSlots()
 	{
-		ClearItems();
 		SetItems();
 
 		if (BattleSetupData.plantSO == null) return;

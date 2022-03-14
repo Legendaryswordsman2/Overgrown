@@ -23,9 +23,9 @@ public class SaveManager : MonoBehaviour
 
 		if (Directory.Exists((SaveSystem.currentSaveLocation + "/Temp")))
 		{
-		Directory.Move(SaveSystem.currentSaveLocation + "Temp", SaveSystem.currentSaveLocation + "/MainSave");
+		SaveSystem.CopyFolder(SaveSystem.currentSaveLocation + "Temp", SaveSystem.currentSaveLocation + "/MainSave");
 		}
-		Debug.Log("Converted Temp to MainSave");
+		Debug.Log("Copyied Temp to MainSave");
 	}
 
 	public void DeleteTempSave()
