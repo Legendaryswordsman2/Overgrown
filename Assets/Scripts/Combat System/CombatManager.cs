@@ -7,7 +7,7 @@ public class CombatManager : MonoBehaviour
 {
 	public static CombatManager instance { get; private set; }
 
-	CombatInventory inventory;
+	Inventory inventory;
 
     private void Awake()
     {
