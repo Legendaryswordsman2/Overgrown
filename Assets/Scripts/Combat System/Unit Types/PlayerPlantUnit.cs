@@ -21,6 +21,8 @@ public class PlayerPlantUnit : BaseUnit
 		damage = plantSO.attackDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
 
+		battleSystem.playerHasPlant = true;
+
 		gameObject.SetActive(true);
 	}
 

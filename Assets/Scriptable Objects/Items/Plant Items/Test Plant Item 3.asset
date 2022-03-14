@@ -19,7 +19,7 @@ MonoBehaviour:
   MaximumStacks: 1
   unitName: Test
   defaultHealth: 100
-  attackDamage: 90
+  attackDamage: 400
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2
   animatorController: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}

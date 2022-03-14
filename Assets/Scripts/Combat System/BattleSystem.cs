@@ -70,7 +70,6 @@ public class BattleSystem : MonoBehaviour
 		{
 			playerPlantUnit.plantSO = BattleSetupData.plantSO;
 			playerPlantUnit.SetupPlant();
-			playerHasPlant = true;
 		}
 
 		// Start First Turn

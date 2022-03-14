@@ -18,7 +18,7 @@ MonoBehaviour:
   Icon: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
   MaximumStacks: 1
   unitName: Test
-  defaultHealth: 100
+  defaultHealth: 500
   attackDamage: 90
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2

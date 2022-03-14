@@ -33,6 +33,17 @@ public class EquipablePlantItem : Item
 		BattleSetupData.plantSO = this;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
+
+		if (BattleSystem.instance == null) return;
+
+		BattleSystem battleSystem = BattleSystem.instance;
+
+		battleSystem.playerPlantUnit.plantSO = BattleSetupData.plantSO;
+		battleSystem.playerPlantUnit.SetupPlant();
+
+		battleSystem.inventory.gameObject.SetActive(false);
+
+		battleSystem.playerUnit.CallNextTurn();
 	}
 
 	private void UnequipPlantItem(object sender, System.EventArgs e)

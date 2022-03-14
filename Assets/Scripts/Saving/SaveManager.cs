@@ -25,7 +25,7 @@ public class SaveManager : MonoBehaviour
 		{
 		SaveSystem.CopyFolder(SaveSystem.currentSaveLocation + "Temp", SaveSystem.currentSaveLocation + "/MainSave");
 		}
-		Debug.Log("Copyied Temp to MainSave");
+		Debug.Log("Copied Temp to MainSave");
 	}
 
 	public void DeleteTempSave()
