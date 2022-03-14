@@ -6,7 +6,7 @@ using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
-	[SerializeField] Item item;
+	[field: SerializeField] public Item item { get; private set; }
 	[SerializeField] Image icon;
 	[SerializeField] TMP_Text nameText;
 

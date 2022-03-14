@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject questItemSlotParent;
 	[SerializeField] GameObject EquipablePlantItemSlotParent;
 
+	[SerializeField] ItemSlot[] equippablePlantItemSlots;
+
 	[SerializeField] GameObject itemSlotPrefab;
 
 	public event EventHandler OnPlantItemSelected;
@@ -44,7 +46,24 @@ public class Inventory : MonoBehaviour
 	{
 		ClearItems();
 		SetItems();
+
+		if (BattleSetupData.plantSO == null) return;
+
+		Debug.Log("Something is selected");
+		SetSelectedPlantInInventory();
 	}
+
+	private void SetSelectedPlantInInventory()
+	{
+		foreach (ItemSlot plantItemSlot in equippablePlantItemSlots)
+		{
+			if (plantItemSlot.item == BattleSetupData.plantSO)
+			{
+				plantItemSlot.ItemSelected();
+			}
+		}
+	}
+
 	void ClearItems()
 	{
 		foreach (Transform child in junkItemSlotParent.transform)
@@ -84,10 +103,12 @@ public class Inventory : MonoBehaviour
 			Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(questItems[i]);
 		}
 
+
 		for (int i = 0; i < plantItems.Count; i++)
 		{
 			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(plantItems[i]);
 		}
+		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 	}
 
 	public void InvokeOnPlantItemSelected()
