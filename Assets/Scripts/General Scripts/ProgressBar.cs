@@ -12,8 +12,6 @@ public class ProgressBar : MonoBehaviour
 
     [SerializeField] Image mask;
 
-    [SerializeField] TMP_Text healthTextCurrent, healthTextMax;
-
     float fillAmount;
 
     // Update is called once per frame
@@ -22,15 +20,9 @@ public class ProgressBar : MonoBehaviour
         GetCurrentFIll();
     }
 
-    void GetCurrentFIll()
+    protected virtual void GetCurrentFIll()
     {
         fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
-
-        if(healthTextCurrent != null && healthTextMax != null)
-		{
-            healthTextCurrent.text = current.ToString();
-            healthTextMax.text = "       / " + maximum.ToString();
-		}
     }
 }

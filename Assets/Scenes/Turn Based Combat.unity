@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 141175391}
   - component: {fileID: 141175390}
   m_Layer: 5
-  m_Name: Health %
+  m_Name: Current Health %
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25657,7 +25657,7 @@ Animator:
   m_GameObject: {fileID: 815465832}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  m_Controller: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25728,7 +25728,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.4615386, y: 2.4615386}
@@ -28094,7 +28094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 444968585}
-  healthSlider: {fileID: 1868589555}
+  healthSlider: {fileID: 0}
 --- !u!1 &1116153715
 GameObject:
   m_ObjectHideFlags: 0
@@ -33963,7 +33963,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424095597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4ae0c4bfc36a4a9242f875c77bd66, type: 3}
+  m_Script: {fileID: 11500000, guid: 1461ac938942bf04a82888f71a42bc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maximum: 100
@@ -34339,7 +34339,7 @@ GameObject:
   - component: {fileID: 1488348117}
   - component: {fileID: 1488348116}
   m_Layer: 5
-  m_Name: Health %
+  m_Name: Current Health %
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37315,7 +37315,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868589552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4ae0c4bfc36a4a9242f875c77bd66, type: 3}
+  m_Script: {fileID: 11500000, guid: 1461ac938942bf04a82888f71a42bc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maximum: 100

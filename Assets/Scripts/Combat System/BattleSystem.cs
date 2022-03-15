@@ -34,7 +34,7 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public float delayBeforeNextEnemyActionAfterBlocking { get; private set; } = 1;
 
 	// Private
-	[HideInInspector] public bool playerHasPlant = true;
+	 public bool playerHasPlant = true;
 
 
 	private void Awake()

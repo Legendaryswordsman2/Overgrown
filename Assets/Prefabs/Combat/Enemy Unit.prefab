@@ -467,8 +467,6 @@ MonoBehaviour:
   maximum: 174
   current: 174
   mask: {fileID: 6455765733406989250}
-  healthTextCurrent: {fileID: 0}
-  healthTextMax: {fileID: 0}
 --- !u!1 &6455765732633149926
 GameObject:
   m_ObjectHideFlags: 0
