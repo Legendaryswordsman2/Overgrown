@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd61a70f921c2e947a4aac66cbf72c6b, type: 3}
+  m_Name: Big Health Plant
+  m_EditorClassIdentifier: 
+  id: 1aae9b5226c6b194096be12865fab6d9
+  ItemName: Big Health Plant
+  ItemDescription: Some Random Item
+  Icon: {fileID: -1918309106959383672, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+  MaximumStacks: 1
+  effects:
+  - {fileID: 11400000, guid: 9d74323cabb75624daa211cd4328d19d, type: 2}

@@ -112,7 +112,14 @@ public abstract class BaseUnit : MonoBehaviour
 
 	public virtual void Heal(int amount)
 	{
+		if(currentHealth + amount > maxHealth)
+		{
+			currentHealth = maxHealth;
+		}
+		else
+		{
 		currentHealth += amount;
+		}
 		UseItem();
 	}
 

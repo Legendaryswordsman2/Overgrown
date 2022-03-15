@@ -29435,6 +29435,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
     - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1aae9b5226c6b194096be12865fab6d9, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1aae9b5226c6b194096be12865fab6d9, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1aae9b5226c6b194096be12865fab6d9, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c79f34c24278c846a3666e960cb407a, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c79f34c24278c846a3666e960cb407a, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: consumableItems.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c79f34c24278c846a3666e960cb407a, type: 2}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: equippablePlantItems.Array.size
       value: 3
       objectReference: {fileID: 0}

@@ -698,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &70624544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1374,8 +1374,6 @@ MonoBehaviour:
   maximum: 100
   current: 100
   mask: {fileID: 1039322614}
-  healthTextCurrent: {fileID: 0}
-  healthTextMax: {fileID: 0}
 --- !u!114 &229667284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27772,7 +27770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &895219345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35402,7 +35400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1964047254
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36441,6 +36439,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2406020428957485588, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020428957485588, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020428957485588, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: equippablePlantItems.Array.size
       value: 3
