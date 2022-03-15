@@ -19,17 +19,14 @@ public class EquipablePlantItem : Item
 
 	Image equippedCheckmark;
 	Inventory inventory;
-
-	bool isEquipped = false;
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		inventory = Inventory.instance;
+;		inventory = Inventory.instance;
 		inventory.InvokeOnPlantItemSelected();
 
 		inventory.OnPlantItemSelected += UnequipPlantItem;
 
-		isEquipped = true;
-		Debug.Log("Plant Item Selected");
+		//isEquipped = true;
 		BattleSetupData.plantSO = this;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
@@ -48,9 +45,8 @@ public class EquipablePlantItem : Item
 
 	private void UnequipPlantItem(object sender, System.EventArgs e)
 	{
-		isEquipped = false;
+		//isEquipped = false;
 		if(equippedCheckmark != null) equippedCheckmark.enabled = false;
-		Debug.Log("Unequipped Plant");
 		inventory.OnPlantItemSelected -= UnequipPlantItem;
 	}
 }

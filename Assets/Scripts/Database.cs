@@ -22,7 +22,6 @@ public class Database : ScriptableObject
 	{
 		foreach (EquipablePlantItem item in equippablePlantItems)
 		{
-			Debug.Log("Found Item");
 			if(item.ID == itemID)
 			{
 				return item;
