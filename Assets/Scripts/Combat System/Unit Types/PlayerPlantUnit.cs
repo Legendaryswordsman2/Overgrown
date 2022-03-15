@@ -139,4 +139,16 @@ public class PlayerPlantUnit : BaseUnit
 		yield return new WaitForSeconds(0);
 		StartCoroutine(battleSystem.SwitchTurn());
 	}
+	protected override void OnValidate()
+	{
+		if (plantSO == null)
+		{
+			gameObject.SetActive(false);
+		}
+		else
+		{
+			gameObject.SetActive(true);
+			base.OnValidate();
+		}
+	}
 }

@@ -1235,7 +1235,7 @@ PrefabInstance:
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: <enemySO>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1266,11 +1266,11 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Turnip Unit
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499035, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_RootOrder
@@ -25629,7 +25629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &815465833
 Transform:
   m_ObjectHideFlags: 0
@@ -25726,7 +25726,7 @@ SpriteRenderer:
   m_SortingLayerID: -1326136763
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
+  m_Sprite: {fileID: 6366112045480231035, guid: 504208fba75efd54497e379710df5fcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -39044,18 +39044,18 @@ PrefabInstance:
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: <enemySO>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Tomato Unit
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499035, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_RootOrder
