@@ -25,8 +25,6 @@ public class Enemy : MonoBehaviour
     Statistics gameStats;
 
     bool canAttack = true;
-
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -117,7 +115,7 @@ public class Enemy : MonoBehaviour
             if (hitEnemy != null && GameManager.timeActive)
             {
                 SOEnemy[] _enemies = enemyData.enemiesToFight[Random.Range(0, enemyData.enemiesToFight.Length)].enemies;
-                GameManager.instance.StartBattle(_enemies, enemyData);
+                GameManager.instance.StartBattle(_enemies, enemyData, false);
                 canAttack = false;
             }
         }

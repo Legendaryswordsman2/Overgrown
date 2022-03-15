@@ -28059,7 +28059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1107256909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28094,7 +28094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 444968585}
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 1868589555}
 --- !u!1 &1116153715
 GameObject:
   m_ObjectHideFlags: 0
@@ -38191,7 +38191,6 @@ MonoBehaviour:
   <arrowPrefab>k__BackingField: {fileID: 9212809993732800865, guid: c92dd7e951ca17a41939eb3e92b288cb, type: 3}
   <walkSpeed>k__BackingField: 4
   <DelayBeforeSwitchingTurn>k__BackingField: 2
-  <WalkDuration>k__BackingField: 1
   <backToBlockAnimationDelay>k__BackingField: 1
   <AttackDuration>k__BackingField: 0.5
   <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 1

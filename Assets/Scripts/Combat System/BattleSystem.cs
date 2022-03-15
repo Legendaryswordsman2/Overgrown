@@ -89,7 +89,7 @@ public class BattleSystem : MonoBehaviour
 	public IEnumerator SwitchTurn()
 	{
 		yield return new WaitForSeconds(DelayBeforeSwitchingTurn);
-
+		Debug.Log("Switching Turn");
 		if (state == BattleState.PlayerTurn)
 		{
 			playerChoices.SetActive(false);
@@ -100,14 +100,13 @@ public class BattleSystem : MonoBehaviour
 				enemiesAlive[i].ResetForNewRound();
 			}
 
-			yield return new WaitForSeconds(2);
-
 			enemiesAlive[0].ChooseAction();
 		} 
 		else if(state == BattleState.EnemyTurn)
 		{
 			state = BattleState.PlayerTurn;
 			playerUnit.ChooseAction();
+			if(playerHasPlant)
 			playerPlantUnit.ResetForNewRound();
 		}
 

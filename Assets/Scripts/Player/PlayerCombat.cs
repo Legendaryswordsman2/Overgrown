@@ -36,10 +36,8 @@ public class PlayerCombat : MonoBehaviour
         CheckIfEnemyIsNear();
     }
 
-    public void CheckIfEnemyIsNear() // Called from attack animation
+    public void CheckIfEnemyIsNear()
     {
-        // Play Attack Animation
-        //anim.SetTrigger("Attack");
 
         // Detect Enemies in range of attack
         Collider2D hitEnemy = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayers);
@@ -56,20 +54,11 @@ public class PlayerCombat : MonoBehaviour
 
                 gameManger.StartBattle(_enemies, tempEnemy.enemyData);
 			}
-
-            StartCoroutine(AttackCooldown());
         }
         catch
         {
             Debug.LogError("The enemy " + hitEnemy.name + " does not have an enemy script and can not be damaged");
         }
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
     }
     private void OnDrawGizmosSelected()
     {

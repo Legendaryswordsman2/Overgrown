@@ -20,6 +20,7 @@ public class PlayerPlantUnit : BaseUnit
 		maxHealth = plantSO.defaultHealth;
 		damage = plantSO.attackDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
+		playerPlantHUD.gameObject.SetActive(true);
 
 		BattleSystem.instance.playerHasPlant = true;
 
