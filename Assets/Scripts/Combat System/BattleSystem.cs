@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleState { PlayerTurn, EnemyTurn}
+public enum BattleState { PlayerTurn, EnemyTurn, GameOver}
 public class BattleSystem : MonoBehaviour
 {
 	public static BattleSystem instance;

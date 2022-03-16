@@ -8,8 +8,6 @@ public class PlayerCombat : MonoBehaviour
 
     [Min(0), Header("Adjustements")]
     [SerializeField] float attackRange = 0.5f;
-    [Min(0)]
-    [SerializeField] float attackCooldown = 0.5f;
     [SerializeField] LayerMask enemyLayers;
 
     [Header("References")]
