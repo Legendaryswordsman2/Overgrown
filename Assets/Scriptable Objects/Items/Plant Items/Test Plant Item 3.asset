@@ -22,4 +22,4 @@ MonoBehaviour:
   attackDamage: 400
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2
-  animatorController: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
+  animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
