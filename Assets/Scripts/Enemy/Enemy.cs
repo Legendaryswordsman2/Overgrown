@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
         try
         {
             //enemyTextureChild.GetComponent<SpriteRenderer>().sprite = enemyData.sprite;
-            enemyTextureChild.GetComponent<Animator>().runtimeAnimatorController = enemyData.animatorController;
+            enemyTextureChild.GetComponent<Animator>().runtimeAnimatorController = enemyData.chosenAnimatorController;
         }
         catch
         {
@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
             {
                 Debug.Log(enemyData.enemyName + "'s sprite is null");
             }
-            if (enemyData.animatorController == null)
+            if (enemyData.chosenAnimatorController == null)
             {
                 Debug.Log(enemyData.enemyName + "'s animator Controller is null");
             }

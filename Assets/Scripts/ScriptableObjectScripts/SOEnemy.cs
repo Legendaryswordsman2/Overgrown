@@ -11,7 +11,9 @@ public class SOEnemy : ScriptableObject
 
 	[Header("Sprites")]
 	public Sprite sprite;
-	public RuntimeAnimatorController animatorController;
+	[Tooltip("A list of animator controllers that will be randomly selected each time that enemy is spawned down")]
+	public RuntimeAnimatorController[] animatorControllers;
+	[HideInInspector] public RuntimeAnimatorController chosenAnimatorController;
 
 	[Header("XP")]
 	public int minXPOnDeath = 2;
@@ -33,6 +35,11 @@ public class SOEnemy : ScriptableObject
 	[Header("Leveling")]
 	public int healthIncreasePerLevelUp = 10;
 	public int damageIncreasePerLevelUp = 2;
+
+	private void Awake()
+	{
+		chosenAnimatorController = animatorControllers[Random.Range(0, animatorControllers.Length)];
+	}
 
 #if UNITY_EDITOR
 	private void OnValidate()

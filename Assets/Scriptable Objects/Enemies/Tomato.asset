@@ -16,7 +16,9 @@ MonoBehaviour:
   defaultHealth: 100
   enemyName: Tomato
   sprite: {fileID: -5079474656933047900, guid: b9275677c4dd20d46ab970ed581dcc82, type: 3}
-  animatorController: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
+  animatorControllers:
+  - {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
+  chosenAnimatorController: {fileID: 0}
   minXPOnDeath: 10
   maxXPOnDeath: 50
   attackRange: 0.5

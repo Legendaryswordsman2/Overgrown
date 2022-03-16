@@ -16,7 +16,9 @@ MonoBehaviour:
   defaultHealth: 100
   enemyName: Carrot
   sprite: {fileID: 6366112045480231035, guid: 504208fba75efd54497e379710df5fcc, type: 3}
-  animatorController: {fileID: 9100000, guid: 66b70546d5f07c74f8d64a73fae57105, type: 2}
+  animatorControllers:
+  - {fileID: 9100000, guid: 66b70546d5f07c74f8d64a73fae57105, type: 2}
+  chosenAnimatorController: {fileID: 0}
   minXPOnDeath: 2
   maxXPOnDeath: 10
   attackRange: 0.5
