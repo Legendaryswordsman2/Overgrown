@@ -60,4 +60,19 @@ public class LevelLoader : MonoBehaviour
 		//Debug.Log("Assigned new player position: " + _newPlayerPosition);
 		animationPlayerScript.newPlayerPosition = _newPlayerPosition;
 	}
+
+	public void loadTitleScreenWithCrossFadeAnimation()
+	{
+		StartCoroutine(loadTitleScreenWithCrossFadeAnimationIenumerator());
+	}
+	public IEnumerator loadTitleScreenWithCrossFadeAnimationIenumerator()
+	{
+		PlayAnimationOnSceneChange("CrossFade", new Vector3());
+
+		anim.SetTrigger("CrossFade Start");
+
+		yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length);
+
+		SceneManager.LoadScene("Title");
+	}
 }
