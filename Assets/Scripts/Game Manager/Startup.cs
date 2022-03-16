@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using TMPro;
+using System;
 
 public class Startup : MonoBehaviour
 {
@@ -8,10 +9,26 @@ public class Startup : MonoBehaviour
     Transform saveSlotOne, saveSlotTwo, saveSlotThree;
     private void Awake()
     {
+        SaveSystem.saveSubLocation = SaveSubLocation.MainSave;
         //SaveSystem.CreateSaveSlotSubFolders();
+        DeleteTempSaves();
         InitializeSaveSlots();
     }
-    void InitializeSaveSlots()
+
+	private void DeleteTempSaves()
+	{
+        if (Directory.Exists(SaveSystem.saveOneLocation + "/Temp"))
+            Directory.Delete(SaveSystem.saveOneLocation + "/Temp", true);
+
+        if (Directory.Exists(SaveSystem.saveTwoLocation + "/Temp"))
+            Directory.Delete(SaveSystem.saveTwoLocation + "/Temp", true);
+
+        if (Directory.Exists(SaveSystem.saveThreeLocation + "/Temp"))
+            Directory.Delete(SaveSystem.saveThreeLocation + "/Temp", true);
+        Debug.Log("Deleted temp save");
+    }
+
+	void InitializeSaveSlots()
 	{
         //Directory.CreateDirectory(SaveSystem.savesFolder + "/SaveOne");
         //Directory.CreateDirectory(SaveSystem.savesFolder + "/SaveTwo");
