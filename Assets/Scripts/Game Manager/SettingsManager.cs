@@ -9,6 +9,8 @@ using TMPro;
 using UnityEditor;
 #endif
 
+enum volumeStages { }
+
 public class SettingsManager : MonoBehaviour
 {
 
@@ -19,19 +21,21 @@ public class SettingsManager : MonoBehaviour
 
     public TMP_Dropdown resolutionDropdown;
 
-    [SerializeField]
-    Slider volumeSlider;
-    [SerializeField]
-    Toggle fullscreenToggle;
-    //[SerializeField]
-    //TMP_Dropdown graphicsDropdown;
+    [SerializeField] Slider volumeSlider;
+
+    [SerializeField] Toggle fullscreenToggle;
+
+    [SerializeField] Image TvVolume;
+
+    [SerializeField] Sprite[] volumeStages;
+
 
     [SerializeField, Header("Sounds"), Space]
     AudioClip defaultButtonClickSound;
 
     AudioSource audioSource;
 
-    bool showReferences;
+    int volumeIndex = 10;
 
     private void Start()
     {
@@ -39,10 +43,65 @@ public class SettingsManager : MonoBehaviour
         ResolutionSetup();
         AssignValues();
     }
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("Volume", volume);
-        PlayerPrefs.SetFloat("Volume", volume);
+    //public void SetVolume(float volume)
+    //{
+    //    audioMixer.SetFloat("Volume", volume);
+    //    PlayerPrefs.SetFloat("Volume", volume);
+    //}
+
+    public void VolumeUp()
+	{
+        if(volumeIndex >= 10)
+		{
+            Debug.Log("At max volume already");
+            return;
+		}
+		else if (volumeIndex <= 0)
+		{
+            audioMixer.SetFloat("Volume", -27);
+            volumeIndex++;
+            TvVolume.sprite = volumeStages[volumeIndex];
+            return;
+		}
+
+        volumeIndex++;
+        Debug.Log(volumeIndex);
+        if(audioMixer.GetFloat("Volume", out float volumeValue))
+		{
+            audioMixer.SetFloat("Volume", volumeValue + 3);
+            TvVolume.sprite = volumeStages[volumeIndex];
+		}
+		else
+		{
+            Debug.LogError("Couldn't get volume value");
+		}
+	}
+    public void VolumeDown()
+	{
+        if(volumeIndex <= 0)
+		{
+            Debug.Log("At min volume already");
+            return;
+		}
+		else if(volumeIndex == 1)
+		{
+            volumeIndex--;
+            Debug.Log(volumeIndex);
+            audioMixer.SetFloat("Volume", -80);
+            TvVolume.sprite = volumeStages[volumeIndex];
+            return;
+        }
+        volumeIndex--;
+        Debug.Log(volumeIndex);
+        if (audioMixer.GetFloat("Volume", out float volumeValue))
+        {
+            audioMixer.SetFloat("Volume", volumeValue - 3);
+            TvVolume.sprite = volumeStages[volumeIndex];
+        }
+        else
+        {
+            Debug.LogError("Couldn't get volume value");
+        }
     }
 
     public void SetFullscreen(bool isFullscreen)
