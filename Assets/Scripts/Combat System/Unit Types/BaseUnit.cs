@@ -152,16 +152,21 @@ public abstract class BaseUnit : MonoBehaviour
 		currentMode = CurrentMode.Null;
 		FlipSprite();
 		anim.Play("Idle Animation");
+		TestWinState();
+	}
 
-		if(battleSystem.playerUnit.currentMode == CurrentMode.Dead)
+	public void TestWinState()
+	{
+		if (battleSystem.playerUnit.currentMode == CurrentMode.Dead)
 		{
 			battleSystem.battleLostScreen.SetActive(true);
 			battleSystem.gameOverScreen.SetActive(true);
 		}
 
-		if(battleSystem.enemiesAlive.Count == 0)
+		if (battleSystem.enemiesAlive.Count == 0)
 		{
-			StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex, BattleSetupData.playerPosition));
+			battleSystem.battleWonScreen.SetActive(true);
+			battleSystem.gameOverScreen.SetActive(true);
 		}
 	}
 

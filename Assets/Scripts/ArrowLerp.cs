@@ -27,6 +27,7 @@ public class ArrowLerp : MonoBehaviour
 
 			GetComponent<SpriteRenderer>().enabled = false;
 			endPosition = new Vector3();
+			playerUnit.TestWinState();
 			StartCoroutine(DestroyTimer());
 		}
 	}
