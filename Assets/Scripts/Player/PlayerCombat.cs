@@ -50,6 +50,11 @@ public class PlayerCombat : MonoBehaviour
                 Enemy tempEnemy = hitEnemy.transform.GetComponentInParent<Enemy>();
                 SOEnemy[] _enemies = tempEnemy.enemyData.enemiesToFight[Random.Range(0, tempEnemy.enemyData.enemiesToFight.Length)].enemies;
 
+                for (int i = 0; i < _enemies.Length; i++)
+                {
+                    _enemies[i] = Instantiate(_enemies[i]);
+                }
+
                 gameManger.StartBattle(_enemies, tempEnemy.enemyData);
 			}
         }

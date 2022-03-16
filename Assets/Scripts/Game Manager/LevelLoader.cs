@@ -14,6 +14,7 @@ public class LevelLoader : MonoBehaviour
 		instance = this;
 		anim = GetComponent<Animator>();
 	}
+	#region Base Methods
 	public IEnumerator LoadLevelWithTransition(string transitionAnimationStartName, string transitionAnimationEndName, string sceneName, Vector3 newPlayerPosition = new Vector3())
 	{
 		GameManager.StopTime();
@@ -61,11 +62,12 @@ public class LevelLoader : MonoBehaviour
 		animationPlayerScript.newPlayerPosition = _newPlayerPosition;
 	}
 
+	#endregion
 	public void loadTitleScreenWithCrossFadeAnimation()
 	{
-		StartCoroutine(loadTitleScreenWithCrossFadeAnimationIenumerator());
+		StartCoroutine(loadTitleScreenWithCrossFadeAnimationIEnumerator());
 	}
-	public IEnumerator loadTitleScreenWithCrossFadeAnimationIenumerator()
+	IEnumerator loadTitleScreenWithCrossFadeAnimationIEnumerator()
 	{
 		PlayAnimationOnSceneChange("CrossFade", new Vector3());
 
@@ -74,5 +76,21 @@ public class LevelLoader : MonoBehaviour
 		yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length);
 
 		SceneManager.LoadScene("Title");
+	}
+
+	public void LoadLevelWithCrossFadeTransition(string sceneName)
+	{
+		StartCoroutine(LoadLevelWithCrossFadeTransitionIEnumerator(sceneName));
+	}
+	
+	IEnumerator LoadLevelWithCrossFadeTransitionIEnumerator(string sceneName)
+	{
+		PlayAnimationOnSceneChange("CrossFade", new Vector3());
+
+		anim.SetTrigger("CrossFade Start");
+
+		yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length);
+
+		SceneManager.LoadScene(sceneName);
 	}
 }

@@ -155,7 +155,8 @@ public abstract class BaseUnit : MonoBehaviour
 
 		if(battleSystem.playerUnit.currentMode == CurrentMode.Dead)
 		{
-			StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Title"));
+			battleSystem.battleLostScreen.SetActive(true);
+			battleSystem.gameOverScreen.SetActive(true);
 		}
 
 		if(battleSystem.enemiesAlive.Count == 0)

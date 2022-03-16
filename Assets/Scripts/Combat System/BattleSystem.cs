@@ -23,6 +23,9 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public GameObject playerChoices { get; private set; }
 	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }
 	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
+	[field: SerializeField] public GameObject gameOverScreen { get; private set; }
+	[field: SerializeField] public GameObject battleLostScreen { get; private set; }
+	[field: SerializeField] public GameObject battleWonScreen { get; private set; }
 
 	[field: Header("Adjustements")]
 	[field: SerializeField] public float walkSpeed { get; private set; } = 4;
