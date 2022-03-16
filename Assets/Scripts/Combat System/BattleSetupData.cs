@@ -10,6 +10,9 @@ public static class BattleSetupData
 	public static bool playerStartsTurn = true;
 	public static EnemySaveData[] enemySaveData = new EnemySaveData[0];
 
+	// After Combat
+	public static int xpToAwardPlayer;
+
 	public static EquipablePlantItem plantSO;
 
 	public static void AssignVariables(SOEnemy[] __enemies, int _sceneIndex, Vector3 _playerPosition, EnemySaveData[] _enemySaveData, bool _playerStartsTurn = true)

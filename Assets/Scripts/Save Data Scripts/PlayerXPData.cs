@@ -8,7 +8,7 @@ public class PlayerXPData
     public int playerLevel;
     public int xp, xpIncreaseOnLevelUp, xpIncreaseIncreaseOnLevelUp, xpToLevelUp;
 
-    public PlayerXPData (Player player)
+    public PlayerXPData (PlayerLevel player)
     {
         playerLevel = player.playerLevel;
         xp = player.xp;

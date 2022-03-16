@@ -115,7 +115,8 @@ public class Enemy : MonoBehaviour
             if (hitEnemy != null && GameManager.timeActive)
             {
                 SOEnemy[] _enemies = enemyData.enemiesToFight[Random.Range(0, enemyData.enemiesToFight.Length)].enemies;
-				for (int i = 0; i < _enemies.Length; i++)
+				
+                for (int i = 0; i < _enemies.Length; i++)
 				{
                     _enemies[i] = Instantiate(_enemies[i]);
 				}
