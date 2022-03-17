@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum BattleState { PlayerTurn, EnemyTurn, GameOver}
 public class BattleSystem : MonoBehaviour
@@ -23,9 +24,14 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public GameObject playerChoices { get; private set; }
 	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }
 	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
+
+	[field: Header("Battle Over Screen Refernces")]
 	[field: SerializeField] public GameObject gameOverScreen { get; private set; }
 	[field: SerializeField] public GameObject battleLostScreen { get; private set; }
 	[field: SerializeField] public GameObject battleWonScreen { get; private set; }
+	[field: SerializeField] public TMP_Text xpGainedText { get; private set; }
+	[field: SerializeField] public TMP_Text moneyGainedText { get; private set; }
+
 
 	[field: Header("Adjustements")]
 	[field: SerializeField] public float walkSpeed { get; private set; } = 4;
@@ -39,8 +45,8 @@ public class BattleSystem : MonoBehaviour
 	[HideInInspector] public bool playerHasPlant = true;
 
 	// Rewards Given when battle won
-	[SerializeField] int xpGiven;
-	[SerializeField] int moneyGiven;
+	[HideInInspector] public int xpGiven;
+	[HideInInspector] public int moneyGiven;
 	private void Awake()
 	{
 		instance = this;

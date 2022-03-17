@@ -165,6 +165,9 @@ public abstract class BaseUnit : MonoBehaviour
 
 		if (battleSystem.enemiesAlive.Count == 0)
 		{
+			battleSystem.xpGainedText.text += " " + battleSystem.xpGiven;
+			battleSystem.moneyGainedText.text += " " + battleSystem.moneyGiven;
+
 			battleSystem.battleWonScreen.SetActive(true);
 			battleSystem.gameOverScreen.SetActive(true);
 		}
