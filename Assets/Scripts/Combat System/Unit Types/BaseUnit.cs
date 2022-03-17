@@ -189,6 +189,21 @@ public abstract class BaseUnit : MonoBehaviour
 		anim.Play("Attack Animation");
 		StartCoroutine(ReturnToBasePOS());
 	}
+	protected float GetAttackModifier()
+	{
+		int temp = Random.Range(0, 101);
+
+		float modifiedDamage = damage;
+
+		Debug.Log(temp);
+
+		if (temp < 20)
+			modifiedDamage *= 1.20f;
+		else if (temp <= 30)
+			modifiedDamage = 0;
+
+		return modifiedDamage;
+	}
 
 	public virtual void ResetForNewRound()
 	{

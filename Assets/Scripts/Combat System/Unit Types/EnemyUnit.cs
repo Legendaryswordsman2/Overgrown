@@ -106,7 +106,10 @@ public class EnemyUnit : BaseUnit
 	protected override void OnAttack()
 	{
 		base.OnAttack();
-		target.TakeDamage(damage);
+
+		float modifiedDamage = GetAttackModifier();
+
+		target.TakeDamage((int)modifiedDamage);
 	}
 
 	protected override void OnValidate()

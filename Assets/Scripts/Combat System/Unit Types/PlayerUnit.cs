@@ -135,19 +135,10 @@ public class PlayerUnit : BaseUnit
 	{
 		base.OnAttack();
 
-		int temp = UnityEngine.Random.Range(0, 101);
 
-		float tempDamage = damage;
+		float modifiedDamage = GetAttackModifier();
 
-		Debug.Log(temp);
-
-		if (temp < 20)
-			tempDamage *= 1.20f;
-		else if (temp <= 30)
-		tempDamage = 0;
-
-
-		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)tempDamage);
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage);
 	}
 	protected override void OnReturnedToBasePosition()
 	{

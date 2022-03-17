@@ -122,7 +122,10 @@ public class PlayerPlantUnit : BaseUnit
 	protected override void OnAttack()
 	{
 		base.OnAttack();
-		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage(damage);
+
+		float modifiedDamage = GetAttackModifier();
+
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage);
 	}
 	protected override void OnReturnedToBasePosition()
 	{
