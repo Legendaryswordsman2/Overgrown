@@ -25,15 +25,18 @@ public class GameManager : MonoBehaviour
 
     public static Vector3 spawnPosition;
 
-    // Hidden Variables
-
     [field: Header("Allowed Actions")]
     [field: SerializeField] public bool allowedToWalk { get; private set; } = true;
 
     public GameObject player { get; private set; }
+
+    // Hidden Variables
+
     AudioSource audioSource;
 
     public static bool timeActive = true;
+
+    InventoryInputManager inventoryInputManager;
 	#endregion
 
 	#region Unity Methods
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
+        inventoryInputManager = inventory.GetComponent<InventoryInputManager>();
     }
 
     private void Update()
@@ -116,7 +120,7 @@ public class GameManager : MonoBehaviour
         {
             if (inventory.gameObject.activeSelf == false)
             {
-                //inventoryCanvas.
+                inventoryInputManager.ResetInventoryView();
                 inventory.gameObject.SetActive(true);
                 playerLevel.SetActive(true);
                 StopTime();

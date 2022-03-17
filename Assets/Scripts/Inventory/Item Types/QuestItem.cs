@@ -7,6 +7,5 @@ public class QuestItem : Item
 {
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		throw new System.NotImplementedException();
 	}
 }
