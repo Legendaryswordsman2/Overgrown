@@ -16,8 +16,14 @@ public class SOEnemy : ScriptableObject
 	[HideInInspector] public RuntimeAnimatorController chosenAnimatorController;
 
 	[Header("XP")]
-	public int minXPOnDeath = 2;
-	public int maxXPOnDeath = 10;
+	public int minXPOnDeath = 5;
+	public int maxXPOnDeath = 15;
+	[HideInInspector] public int XPOnDeath;
+
+	[Header("Money")]
+	public int minMoneyOnDeath = 2;
+	public int maxMoneyOnDeath = 10;
+	[HideInInspector] public int MoneyOnDeath;
 
 	[Header("Comabat")]
 	public float attackRange = 0.5f;
@@ -40,6 +46,8 @@ public class SOEnemy : ScriptableObject
 	private void Awake()
 	{
 		chosenAnimatorController = animatorControllers[Random.Range(0, animatorControllers.Length)];
+		XPOnDeath = Random.Range(minXPOnDeath, maxXPOnDeath + 1);
+		MoneyOnDeath = Random.Range(minMoneyOnDeath, maxMoneyOnDeath + 1);
 	}
 
 #if UNITY_EDITOR

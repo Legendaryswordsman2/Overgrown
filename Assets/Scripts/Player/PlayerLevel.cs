@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class PlayerLevel : MonoBehaviour
 {
     SaveManager saveManager;
 
     [Header("Level & XP")]
-    public int playerLevel = 1;
-    public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
+    [ReadOnlyInspector] public int playerLevel = 1;
+    [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
 
     [Header("References")]
     [SerializeField] TMP_Text levelText;
     [SerializeField] ProgressBar levelProgressBar;
+
+    event EventHandler OnLevelUp;
 
     private void Awake()
 	{
@@ -25,8 +28,14 @@ public class PlayerLevel : MonoBehaviour
     public void GiveXp(int xpAmount)
     {
         xp += xpAmount;
-        levelText.text = "LV: " + playerLevel;
-        levelProgressBar.current = xp;
+
+        if(levelProgressBar != null)
+		{
+            levelText.text = "LV: " + playerLevel;
+            levelProgressBar.current = xp;
+
+		}
+
         if (xp >= xpToLevelUp)
         {
             LevelUp();
@@ -37,14 +46,18 @@ public class PlayerLevel : MonoBehaviour
         playerLevel++;
 
         Debug.Log("You Leveled up to level " + playerLevel);
-        levelText.text = "LV: " + playerLevel;
+
+        if(levelText != null) levelText.text = "LV: " + playerLevel;
 
         xp -= xpToLevelUp;
         xpToLevelUp += xpIncreaseOnLevelUp;
         xpIncreaseOnLevelUp += xpIncreaseIncreaseOnLevelUp;
 
-        levelProgressBar.maximum = xpToLevelUp;
-        levelProgressBar.current = xp;
+        if (levelProgressBar != null)
+		{
+            levelProgressBar.maximum = xpToLevelUp;
+            levelProgressBar.current = xp;
+		}
 
         TestIfCanLevelUpAgain();
     }
@@ -57,9 +70,12 @@ public class PlayerLevel : MonoBehaviour
     }
     public void RefreshValues()
     {
-        levelProgressBar.maximum = xpToLevelUp;
-        levelProgressBar.current = xp;
-        levelText.text = "LV: " + playerLevel;
+        if (levelProgressBar != null)
+        {
+            levelProgressBar.maximum = xpToLevelUp;
+            levelProgressBar.current = xp;
+            levelText.text = "LV: " + playerLevel;
+        }
     }
 
     private void SaveManager_OnSavingGame(object sender, System.EventArgs e)

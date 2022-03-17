@@ -38,11 +38,14 @@ public class BattleSystem : MonoBehaviour
 	// Private
 	[HideInInspector] public bool playerHasPlant = true;
 
-
+	// Rewards Given when battle won
+	[SerializeField] int xpGiven;
+	[SerializeField] int moneyGiven;
 	private void Awake()
 	{
 		instance = this;
 		SetupCombat();
+		SetupRewards();
 	}
 
 	void SetupCombat()
@@ -86,6 +89,16 @@ public class BattleSystem : MonoBehaviour
 			playerChoices.SetActive(false);
 			state = BattleState.EnemyTurn;
 			enemiesAlive[0].ChooseAction();
+		}
+	}
+
+	void SetupRewards()
+	{
+		foreach (EnemyUnit enemy in enemiesAlive)
+		{
+			Debug.Log("XP: " + enemy.enemySO.XPOnDeath + " Money: " + enemy.enemySO.MoneyOnDeath);
+			xpGiven += enemy.enemySO.XPOnDeath;
+			moneyGiven += enemy.enemySO.MoneyOnDeath;
 		}
 	}
 

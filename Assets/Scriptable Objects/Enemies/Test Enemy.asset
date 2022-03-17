@@ -18,9 +18,13 @@ MonoBehaviour:
   sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
   animatorControllers:
   - {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
-  chosenAnimatorController: {fileID: 0}
-  minXPOnDeath: 2
-  maxXPOnDeath: 10
+  chosenAnimatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  minXPOnDeath: 5
+  maxXPOnDeath: 15
+  XPOnDeath: 0
+  minMoneyOnDeath: 2
+  maxMoneyOnDeath: 10
+  MoneyOnDeath: 0
   attackRange: 0.5
   attackDamage: 20
   enemiesToFight:
@@ -31,3 +35,4 @@ MonoBehaviour:
   maxWanderWaitTime: 10
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2
+  xpIncreasePerLevelUp: 10

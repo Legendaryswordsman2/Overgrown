@@ -37704,6 +37704,7 @@ GameObject:
   - component: {fileID: 1990234816}
   - component: {fileID: 1990234815}
   - component: {fileID: 1990234817}
+  - component: {fileID: 1990234818}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -37773,6 +37774,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7562670af1381834ca9a33bb52a76ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1990234818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990234814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d43cb75468a3fc4fab3b029f801d86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLevel: 1
+  xp: 0
+  xpToLevelUp: 100
+  xpIncreaseOnLevelUp: 100
+  xpIncreaseIncreaseOnLevelUp: 20
+  levelText: {fileID: 0}
+  levelProgressBar: {fileID: 0}
 --- !u!1 &2004411741
 GameObject:
   m_ObjectHideFlags: 0
