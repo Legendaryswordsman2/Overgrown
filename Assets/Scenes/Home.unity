@@ -36247,30 +36247,6 @@ PrefabInstance:
       objectReference: {fileID: 1213291053}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
---- !u!1 &2406020429540395381 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 636977076726505128, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-  m_PrefabInstance: {fileID: 2406020429540395380}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2406020429540395382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2406020429540395381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d43cb75468a3fc4fab3b029f801d86b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLevel: 1
-  xp: 0
-  xpToLevelUp: 100
-  xpIncreaseOnLevelUp: 100
-  xpIncreaseIncreaseOnLevelUp: 20
-  levelText: {fileID: 0}
-  levelProgressBar: {fileID: 0}
 --- !u!1001 &8096775231291136372
 PrefabInstance:
   m_ObjectHideFlags: 0

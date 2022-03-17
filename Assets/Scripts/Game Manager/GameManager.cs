@@ -9,24 +9,12 @@ public class GameManager : MonoBehaviour
     #region Assigning Variables
     public static GameManager instance { get; private set; }
 
-    [Header("Player Canvas References")]
-    [SerializeField] GameObject selectLevelMap;
-
+    [field: Header("Player Canvas References")]
     [field: SerializeField] public GameObject pauseMenu { get; private set; }
-    [field: SerializeField] public GameObject inventoryCanvas { get; private set; }
-    [field: SerializeField] public GameObject inventoryAndMapButtons { get; private set; }
+    [field: SerializeField] public Inventory inventory { get; private set; }
     [field: SerializeField] public GameObject playerLevel { get; private set; }
 
     public GameObject plantUiMenu;
-
-    [field: Header("Inventory References")]
-    [field: SerializeField] public GameObject inventory { get; private set; }
-
-    [field: Header("Random References")]
-    [field: SerializeField] public Animator transitionAnimator { get; private set; }
-
-
-
 
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;
@@ -35,18 +23,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] KeyCode pauseMenuKey = KeyCode.Escape;
     [SerializeField] KeyCode inventoryKey = KeyCode.I;
 
-    [field: SerializeField] public KeyCode vaultKey { get; private set; } = KeyCode.Space;
-
     public static Vector3 spawnPosition;
 
     // Hidden Variables
 
-    [field: SerializeField, Header("Allowed Actions")]
-    public bool allowedToDash { get; private set; } = true;
-    [field: SerializeField]
-    public bool allowedToAttack { get; private set; } = true;
-    [field: SerializeField]
-    public bool allowedToWalk { get; private set; } = true;
+    [field: Header("Allowed Actions")]
+    [field: SerializeField] public bool allowedToWalk { get; private set; } = true;
 
     public GameObject player { get; private set; }
     AudioSource audioSource;
@@ -132,19 +114,17 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(inventoryKey) && pauseMenu.activeSelf == false)
         {
-            if (inventoryCanvas.activeSelf == false && selectLevelMap.activeSelf == false)
+            if (inventory.gameObject.activeSelf == false)
             {
-                inventoryCanvas.SetActive(true);
+                //inventoryCanvas.
+                inventory.gameObject.SetActive(true);
                 playerLevel.SetActive(true);
-                inventoryAndMapButtons.SetActive(true);
                 StopTime();
             }
             else
             {
-                inventoryCanvas.SetActive(false);
-                inventoryAndMapButtons.SetActive(false);
+                inventory.gameObject.SetActive(false);
                 playerLevel.SetActive(false);
-                selectLevelMap.SetActive(false);
                 StartTime();
             }
         }
@@ -152,7 +132,7 @@ public class GameManager : MonoBehaviour
 
     void OpenPauseMenu()
     {
-        if (Input.GetKeyDown(pauseMenuKey) && selectLevelMap.activeSelf == false && inventoryCanvas.activeSelf == false)
+        if (Input.GetKeyDown(pauseMenuKey) && inventory.gameObject.activeSelf == false)
         {
             StopTime();
             if (pauseMenu.activeSelf == false)

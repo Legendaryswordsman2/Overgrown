@@ -18,7 +18,6 @@ public class PlantMenu : MonoBehaviour
 	{
 		gameManager = GameManager.instance;
 		amountText = transform.GetChild(2).GetComponent<TMP_Text>();
-		inventory = gameManager.inventory;
 		plantButton = GetComponent<Button>();
 
 		//amountText.text = inventory.GetItemCount(item).ToString();
