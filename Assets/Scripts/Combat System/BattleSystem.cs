@@ -96,7 +96,6 @@ public class BattleSystem : MonoBehaviour
 	{
 		foreach (EnemyUnit enemy in enemiesAlive)
 		{
-			Debug.Log("XP: " + enemy.enemySO.XPOnDeath + " Money: " + enemy.enemySO.MoneyOnDeath);
 			xpGiven += enemy.enemySO.XPOnDeath;
 			moneyGiven += enemy.enemySO.MoneyOnDeath;
 		}

@@ -59,6 +59,8 @@ public class PlayerLevel : MonoBehaviour
             levelProgressBar.current = xp;
 		}
 
+        OnLevelUp?.Invoke(this, EventArgs.Empty);
+
         TestIfCanLevelUpAgain();
     }
     void TestIfCanLevelUpAgain()
