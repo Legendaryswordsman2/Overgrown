@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Steamworks;
+using System;
 public enum AttackType { Basic, Ranged}
 public class PlayerUnit : BaseUnit
 {
@@ -13,7 +14,6 @@ public class PlayerUnit : BaseUnit
 	int enemySelectionIndex = 0;
 	protected override void Setup()
 	{
-		unitName = SteamFriends.GetPersonaName();
 		base.Setup();
 		playerHUD.SetHUD(this);
 	}
@@ -134,7 +134,20 @@ public class PlayerUnit : BaseUnit
 	protected override void OnAttack()
 	{
 		base.OnAttack();
-		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage(damage);
+
+		int temp = UnityEngine.Random.Range(0, 101);
+
+		float tempDamage = damage;
+
+		Debug.Log(temp);
+
+		if (temp < 20)
+			tempDamage *= 1.20f;
+		else if (temp <= 30)
+		tempDamage = 0;
+
+
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)tempDamage);
 	}
 	protected override void OnReturnedToBasePosition()
 	{

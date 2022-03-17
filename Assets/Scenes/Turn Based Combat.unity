@@ -25524,7 +25524,7 @@ Animator:
   m_GameObject: {fileID: 815465832}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25595,7 +25595,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 6366112045480231035, guid: 504208fba75efd54497e379710df5fcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.4615386, y: 2.4615386}
@@ -38065,6 +38065,7 @@ MonoBehaviour:
   xpToLevelUp: 100
   xpIncreaseOnLevelUp: 100
   xpIncreaseIncreaseOnLevelUp: 20
+  money: 0
   levelText: {fileID: 0}
   levelProgressBar: {fileID: 0}
 --- !u!1 &2004411741
@@ -38802,7 +38803,7 @@ MonoBehaviour:
   unitName: Player
   maxHealth: 662
   currentHealth: 0
-  damage: 400
+  damage: 10
   isBlocking: 0
   currentMode: 0
   <playerHUD>k__BackingField: {fileID: 1867131979}

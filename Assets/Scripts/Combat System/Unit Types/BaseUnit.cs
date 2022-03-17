@@ -75,6 +75,13 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 	public virtual void TakeDamage(int _damage)
 	{
+		if(_damage <= 0)
+		{
+			damageText.text = "MISS";
+			damageText.gameObject.SetActive(true);
+			return;
+		}
+
 		if (isBlocking)
 		{
 			_damage /= 2;
@@ -167,6 +174,9 @@ public abstract class BaseUnit : MonoBehaviour
 		{
 			battleSystem.xpGainedText.text += " " + battleSystem.xpGiven;
 			battleSystem.moneyGainedText.text += " " + battleSystem.moneyGiven;
+
+			battleSystem.GetComponent<PlayerLevel>().GiveXp(battleSystem.xpGiven);
+			battleSystem.GetComponent<PlayerLevel>().GiveMoney(battleSystem.moneyGiven);
 
 			battleSystem.battleWonScreen.SetActive(true);
 			battleSystem.gameOverScreen.SetActive(true);

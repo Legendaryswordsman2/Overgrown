@@ -12,7 +12,7 @@ public class CombatInfoHUD : MonoBehaviour
 	{
 		nameText.text = unit.unitName.ToUpper();
 		healthSlider.maximum = unit.maxHealth;
-		healthSlider.current = unit.currentHealth;
+		healthSlider.current = unit.maxHealth;
 	}
 	public void SetHealth(int health)
 	{

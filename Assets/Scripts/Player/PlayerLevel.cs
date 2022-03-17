@@ -12,6 +12,9 @@ public class PlayerLevel : MonoBehaviour
     [ReadOnlyInspector] public int playerLevel = 1;
     [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
 
+    [Header("Money")]
+    [ReadOnlyInspector] public int money = 0;
+
     [Header("References")]
     [SerializeField] TMP_Text levelText;
     [SerializeField] ProgressBar levelProgressBar;
@@ -41,6 +44,11 @@ public class PlayerLevel : MonoBehaviour
             LevelUp();
         }
     }
+
+    public void GiveMoney(int amount)
+	{
+        money += amount;
+	}
     void LevelUp()
     {
         playerLevel++;
@@ -95,6 +103,8 @@ public class PlayerLevel : MonoBehaviour
         xpToLevelUp = xpData.xpToLevelUp;
         xpIncreaseOnLevelUp = xpData.xpIncreaseOnLevelUp;
         xpIncreaseIncreaseOnLevelUp = xpData.xpIncreaseIncreaseOnLevelUp;
+
+        money = xpData.playerMoney;
 
     }
 }
