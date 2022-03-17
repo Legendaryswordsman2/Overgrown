@@ -10,19 +10,19 @@ public class PlayTransitionOnSceneChange : MonoBehaviour
 
 	private void Awake()
 	{
-		DontDestroyOnLoad(this.gameObject);
+		DontDestroyOnLoad(gameObject);
 
-		SceneManager.sceneLoaded += NewSceneLoaded;
+		SceneManager.sceneLoaded += OnNewSceneLoaded;
 	}
 
-	private void NewSceneLoaded(Scene scene, LoadSceneMode mode)
+	private void OnNewSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		LevelLoader.instance.GetComponent<Animator>().SetTrigger(transitionTriggerName);
 		if (newPlayerPosition != null && newPlayerPosition != new Vector3(0, 0, 0))
 		{
 			GameObject.FindGameObjectWithTag("Player").transform.position = newPlayerPosition;
 		}
-		SceneManager.sceneLoaded -= NewSceneLoaded;
+		SceneManager.sceneLoaded -= OnNewSceneLoaded;
 		Destroy(this.gameObject);
 	}
 }
