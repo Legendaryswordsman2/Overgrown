@@ -57,41 +57,12 @@ public class Inventory : MonoBehaviour
 
 	private void SaveManager_OnSavingGame(object sender, EventArgs e)
 	{
-		List<string> itemIDs = new List<string>();
-
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			itemIDs.Add(equippablePlantItems[i].ID);
-		}
-		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", itemIDs);
-
-
-		List<string> junkItemIDs = new List<string>();
-
-		for (int i = 0; i < junkItems.Count; i++)
-		{
-			junkItemIDs.Add(junkItems[i].ID);
-		}
-		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData.json", junkItemIDs);
-
-
-		List<string> consumableItemIDs = new List<string>();
-
-		for (int i = 0; i < consumableItems.Count; i++)
-		{
-			consumableItemIDs.Add(consumableItems[i].ID);
-		}
-		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData.json", consumableItemIDs);
-
-
-		List<string> questItemIDs = new List<string>();
-
-		for (int i = 0; i < questItems.Count; i++)
-		{
-			questItemIDs.Add(questItems[i].ID);
-		}
-		SaveSystem.SaveFile("/Player/Inventory", "/questItemData.json", questItemIDs);
+		SaveEquippablePlantItems();
+		SaveJunkItems();
+		SaveConsumableItems();
+		SaveQuestItems();
 	}
+
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
 	{
@@ -138,6 +109,50 @@ public class Inventory : MonoBehaviour
 		{
 			junkItems.Add(database.GetJunkItem(itemID));
 		}
+	}
+
+	private void SaveEquippablePlantItems()
+	{
+		List<string> EquippablePlantitemIDs = new List<string>();
+
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			EquippablePlantitemIDs.Add(equippablePlantItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", EquippablePlantitemIDs);
+	}
+
+	private void SaveQuestItems()
+	{
+		List<string> questItemIDs = new List<string>();
+
+		for (int i = 0; i < questItems.Count; i++)
+		{
+			questItemIDs.Add(questItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/questItemData.json", questItemIDs);
+	}
+
+	private void SaveConsumableItems()
+	{
+		List<string> consumableItemIDs = new List<string>();
+
+		for (int i = 0; i < consumableItems.Count; i++)
+		{
+			consumableItemIDs.Add(consumableItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData.json", consumableItemIDs);
+	}
+
+	private void SaveJunkItems()
+	{
+		List<string> junkItemIDs = new List<string>();
+
+		for (int i = 0; i < junkItems.Count; i++)
+		{
+			junkItemIDs.Add(junkItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData.json", junkItemIDs);
 	}
 
 	void LoadEquippablePlantItems()
