@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6d5d181b0de6949877c8b0cbbcbfbd, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
-  UnitName: Carrot
+  unitName: Carrot
   defaultHealth: 100
-  damage: 10
+  attackDamage: 10
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2
-  animatorController: {fileID: 9100000, guid: 66b70546d5f07c74f8d64a73fae57105, type: 2}
+  animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}

@@ -197,10 +197,15 @@ public class Inventory : MonoBehaviour
 	{
 		foreach (ItemSlot plantItemSlot in equippablePlantItemSlots)
 		{
-			if (plantItemSlot.item == BattleSetupData.plantSO)
+			if(plantItemSlot.item is EquipablePlantItem c)
 			{
-				plantItemSlot.ItemSelected();
+				if (c.plantSO == BattleSetupData.plantSO) 
+			    {
+					plantItemSlot.ItemSelected();
+			    }
+
 			}
+
 		}
 	}
 

@@ -17,9 +17,4 @@ MonoBehaviour:
   ItemDescription: Some Random Plant Item
   Icon: {fileID: 6538508900697096278, guid: 504208fba75efd54497e379710df5fcc, type: 3}
   MaximumStacks: 1
-  unitName: Carrot
-  defaultHealth: 300
-  attackDamage: 90
-  healthIncreasePerLevelUp: 10
-  damageIncreasePerLevelUp: 2
-  animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  plantSO: {fileID: 11400000, guid: 73fee1c37710d984c8cfe7cbded002fe, type: 2}

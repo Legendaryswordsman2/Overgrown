@@ -6,16 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Items/Equipable Plant Item")]
 public class EquipablePlantItem : Item
 {
-	[Header("Unit Settings")]
-	public string unitName = "Some Random Plant";
-	public int defaultHealth = 100;
-	public int attackDamage = 10;
-
-	[Header("Leveling")]
-	public int healthIncreasePerLevelUp = 10;
-	public int damageIncreasePerLevelUp = 2;
-
-	public RuntimeAnimatorController animatorController;
+	public SOPlant plantSO;
 
 	Image equippedCheckmark;
 	Inventory inventory;
@@ -27,7 +18,7 @@ public class EquipablePlantItem : Item
 		inventory.OnPlantItemSelected += UnequipPlantItem;
 
 		//isEquipped = true;
-		BattleSetupData.plantSO = this;
+		BattleSetupData.plantSO = plantSO;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
 

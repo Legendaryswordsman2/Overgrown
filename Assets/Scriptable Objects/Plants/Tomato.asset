@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6d5d181b0de6949877c8b0cbbcbfbd, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
-  UnitName: Tomato
+  unitName: Tomato
   defaultHealth: 100
-  damage: 10
+  attackDamage: 10
   healthIncreasePerLevelUp: 10
   damageIncreasePerLevelUp: 2
-  animatorController: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
+  animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}

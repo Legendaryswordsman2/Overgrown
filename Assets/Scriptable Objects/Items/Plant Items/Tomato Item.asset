@@ -17,9 +17,4 @@ MonoBehaviour:
   ItemDescription: Some Random Plant Item
   Icon: {fileID: 6538508900697096278, guid: 248d800c643e72a4ab018c8ba138b497, type: 3}
   MaximumStacks: 1
-  unitName: Tomato
-  defaultHealth: 100
-  attackDamage: 400
-  healthIncreasePerLevelUp: 10
-  damageIncreasePerLevelUp: 2
-  animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  plantSO: {fileID: 11400000, guid: 180e7101e122d5542902f1f59e589765, type: 2}

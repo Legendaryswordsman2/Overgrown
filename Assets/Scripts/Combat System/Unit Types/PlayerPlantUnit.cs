@@ -10,7 +10,7 @@ public class PlayerPlantUnit : BaseUnit
 
 	int enemySelectionIndex = 0;
 
-	public EquipablePlantItem plantSO;
+	public SOPlant plantSO;
 
 	public void SetupPlant()
 	{
