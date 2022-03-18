@@ -91,9 +91,9 @@ public class EnemyUnit : BaseUnit
 		}
 	}
 
-	public override void TakeDamage(int _damage)
+	public override void TakeDamage(int _damage, bool isCritical)
 	{
-		base.TakeDamage(_damage);
+		base.TakeDamage(_damage, isCritical);
 		healthBar.current = currentHealth;
 	}
 
@@ -109,7 +109,14 @@ public class EnemyUnit : BaseUnit
 
 		float modifiedDamage = GetAttackModifier();
 
-		target.TakeDamage((int)modifiedDamage);
+		bool isCritical;
+
+		if (modifiedDamage > damage)
+			isCritical = true;
+		else
+			isCritical = false;
+
+		target.TakeDamage((int)modifiedDamage, isCritical);
 	}
 
 	protected override void OnValidate()

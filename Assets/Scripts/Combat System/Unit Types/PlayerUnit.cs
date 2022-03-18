@@ -58,9 +58,9 @@ public class PlayerUnit : BaseUnit
 			}
 		}
 	}
-	public override void TakeDamage(int _damage)
+	public override void TakeDamage(int _damage, bool isCritical)
 	{
-		base.TakeDamage(_damage);
+		base.TakeDamage(_damage, isCritical);
 		if (currentHealth >= 0)
 		{
 			playerHUD.SetHealth(currentHealth);
@@ -138,7 +138,14 @@ public class PlayerUnit : BaseUnit
 
 		float modifiedDamage = GetAttackModifier();
 
-		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage);
+		bool isCritical;
+
+		if (modifiedDamage > damage)
+			isCritical = true;
+		else
+			isCritical = false;
+
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage, isCritical);
 	}
 	protected override void OnReturnedToBasePosition()
 	{

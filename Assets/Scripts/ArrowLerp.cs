@@ -21,7 +21,16 @@ public class ArrowLerp : MonoBehaviour
 
 		if (transform.position == endPosition)
 		{
-			BattleSystem.instance.enemiesAlive[selectionIndex].TakeDamage(damage);
+			float modifiedDamage = GetAttackModifier();
+
+			bool isCritical;
+
+			if (modifiedDamage > damage)
+				isCritical = true;
+			else
+				isCritical = false;
+
+			BattleSystem.instance.enemiesAlive[selectionIndex].TakeDamage((int)modifiedDamage, isCritical);
 			Debug.Log("Switching Turn");
 			StartCoroutine(playerUnit.NextTurn());
 
@@ -30,6 +39,20 @@ public class ArrowLerp : MonoBehaviour
 			playerUnit.TestWinState();
 			StartCoroutine(DestroyTimer());
 		}
+	}
+
+	float GetAttackModifier()
+	{
+		int temp = Random.Range(0, 101);
+
+		float modifiedDamage = damage;
+
+		if (temp < 20)
+			modifiedDamage *= 1.20f;
+		else if (temp <= 30)
+			modifiedDamage = 0;
+
+		return modifiedDamage;
 	}
 
 	IEnumerator DestroyTimer()

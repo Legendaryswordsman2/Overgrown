@@ -102,9 +102,9 @@ public class PlayerPlantUnit : BaseUnit
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
-	public override void TakeDamage(int _damage)
+	public override void TakeDamage(int _damage, bool isCritical)
 	{
-		base.TakeDamage(_damage);
+		base.TakeDamage(_damage, isCritical);
 		if (currentHealth >= 0)
 		{
 			playerPlantHUD.SetHealth(currentHealth);
@@ -125,7 +125,14 @@ public class PlayerPlantUnit : BaseUnit
 
 		float modifiedDamage = GetAttackModifier();
 
-		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage);
+		bool isCritical;
+
+		if (modifiedDamage > damage)
+			isCritical = true;
+		else
+			isCritical = false;
+
+		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage, isCritical);
 	}
 	protected override void OnReturnedToBasePosition()
 	{

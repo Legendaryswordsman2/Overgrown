@@ -73,14 +73,18 @@ public abstract class BaseUnit : MonoBehaviour
 		// Set current health
 		currentHealth = maxHealth;
 	}
-	public virtual void TakeDamage(int _damage)
+	public virtual void TakeDamage(int _damage, bool isCritical)
 	{
 		if(_damage <= 0)
 		{
 			damageText.text = "MISS";
+			damageText.color = Color.red;
 			damageText.gameObject.SetActive(true);
 			return;
 		}
+
+		if (isCritical)
+			damageText.color = Color.green;
 
 		if (isBlocking)
 		{
@@ -93,6 +97,10 @@ public abstract class BaseUnit : MonoBehaviour
 		}
 
 		damageText.text = _damage.ToString();
+
+		if(isCritical == false)
+		damageText.color = Color.white;
+
 		damageText.gameObject.SetActive(true);
 
 		currentHealth -= _damage;
@@ -194,8 +202,6 @@ public abstract class BaseUnit : MonoBehaviour
 		int temp = Random.Range(0, 101);
 
 		float modifiedDamage = damage;
-
-		Debug.Log(temp);
 
 		if (temp < 20)
 			modifiedDamage *= 1.20f;
