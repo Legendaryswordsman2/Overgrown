@@ -12,6 +12,23 @@ public class Database : ScriptableObject
 
 	[SerializeField] EquipablePlantItem[] equippablePlantItems;
 
+	[SerializeField] JunkItem[] junkItems;
+	[SerializeField] ConsumableItem[] consumableItems;
+	[SerializeField] QuestItem[] questItems;
+
+	public JunkItem GetJunkItem(string itemID)
+	{
+		foreach (JunkItem _item in junkItems)
+		{
+			if (_item.ID == itemID)
+			{
+				return _item;
+			}
+		}
+		//Debug.Log("Couldn't find item");
+		return null;
+	}
+
 	public EquipablePlantItem GetEquippablePlantItem(string itemID)
 	{
 		EquipablePlantItem item = GetEquippablePlantItemRefernce(itemID);
@@ -52,6 +69,9 @@ public class Database : ScriptableObject
 		enemies = FindAssetsByType<SOEnemy>("Assets/Scriptable Objects/Enemies");
 		plants = FindAssetsByType<PlantData>("Assets/Scriptable Objects/Plants");
 		equippablePlantItems = FindAssetsByType<EquipablePlantItem>("Assets/Scriptable Objects/Items/Plant Items");
+		junkItems = FindAssetsByType<JunkItem>("Assets/Scriptable Objects/Items/Junk Items");
+		consumableItems = FindAssetsByType<ConsumableItem>("Assets/Scriptable Objects/Items/Consumable Items");
+		questItems = FindAssetsByType<QuestItem>("Assets/Scriptable Objects/Items/Quest Items");
 	}
 
 	// Slightly modified version of this answer: http://answers.unity.com/answers/1216386/view.html

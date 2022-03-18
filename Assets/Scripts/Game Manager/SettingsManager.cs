@@ -21,8 +21,6 @@ public class SettingsManager : MonoBehaviour
 
     public TMP_Dropdown resolutionDropdown;
 
-    [SerializeField] Slider volumeSlider;
-
     [SerializeField] Toggle fullscreenToggle;
 
     [SerializeField] Image TvVolume;

@@ -63,13 +63,21 @@ public class Inventory : MonoBehaviour
 		{
 			itemIDs.Add(equippablePlantItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/InventoryPlantItemData.json", itemIDs);
+		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", itemIDs);
+
+
+		List<string> junkItemIDs = new List<string>();
+
+		for (int i = 0; i < junkItems.Count; i++)
+		{
+			junkItemIDs.Add(junkItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData.json", junkItemIDs);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
 	{
-		Debug.Log("Loading Inventory Plants");
-		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/InventoryPlantItemData.json");
+		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/PlantItemData.json");
 		if (itemIDs == null) return;
 
 		equippablePlantItems.Clear();
@@ -77,6 +85,22 @@ public class Inventory : MonoBehaviour
 		foreach (string itemID in itemIDs)
 		{
 			equippablePlantItems.Add(database.GetEquippablePlantItem(itemID));
+		}
+
+
+		List<string> junkItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/JunkItemData.json");
+		if (junkItemIDs == null) return;
+
+		foreach (var item in junkItemIDs)
+		{
+			Debug.Log(item + " rhge4rh");
+		}
+
+		junkItems.Clear();
+
+		foreach (string _itemID in junkItemIDs)
+		{
+			junkItems.Add(database.GetJunkItem(_itemID));
 		}
 	}
 
