@@ -54,7 +54,7 @@ public class SaveManager : MonoBehaviour
 
 	private void OnDestroy() // Save Game
 	{
-		if (quitingGame) return; // If the player is leaving the game
+		if (quitingGame) return; // If the player is quiting the game
 		SaveGame(false);
 	}
 	#region Base Save and Load
@@ -89,42 +89,6 @@ public class SaveManager : MonoBehaviour
 		SaveSystem.saveSubLocation = SaveSubLocation.Temp;
 	}
 	#endregion  
-
-	#region Saving Data
-	//void SavePlayerHealth()
-	//{
- //       PlayerHealthData healthData = new PlayerHealthData(player.GetComponent<PlayerHealth>());
-
- //       SaveSystem.SaveFile("/Player", "/PlayerHealth.json", healthData);
- //   }
-	//void SavePlayerXpAndLevel()
-	//{
-	//	PlayerXPData xpData = new PlayerXPData(player.GetComponent<Player>());
-	//	SaveSystem.SaveFile("/Player", "/PlayerLevel&XP.json", xpData);
-	//}
-	#endregion
-
-	#region Loading Data
-	//void LoadPlayerHealth()
-	//{
-	//	PlayerHealthData health = SaveSystem.LoadFile<PlayerHealthData>("/Player/PlayerHealth.json");
-	//	if (health != null)
-	//	player.GetComponent<PlayerHealth>().maxHealth = health.playerHealth;
-	//}
-	//void LoadPlayerXpAndLevel()
-	//{
-	//	PlayerXPData xpData = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
-	//	if(xpData != null)
-	//	{
-	//	Player playerScript = player.GetComponent<Player>();
-	//	playerScript.playerLevel = xpData.playerLevel;
-	//	playerScript.xp = xpData.xp;
-	//	playerScript.xpToLevelUp = xpData.xpToLevelUp;
-	//	playerScript.xpIncreaseOnLevelUp = xpData.xpIncreaseOnLevelUp;
-	//	playerScript.xpIncreaseIncreaseOnLevelUp = xpData.xpIncreaseIncreaseOnLevelUp;
-	//	}
-	//}
-	#endregion
 
 	private void OnApplicationQuit()
 	{
