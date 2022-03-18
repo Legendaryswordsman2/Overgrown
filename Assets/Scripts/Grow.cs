@@ -18,7 +18,7 @@ public class Grow : MonoBehaviour
 
     // Scriptable object references
     [Header("Set when the player chooses a plant in game")]
-    [ReadOnlyInspector] public PlantData chosenPlant;
+    [ReadOnlyInspector] public SOGrowingPlant chosenGrowingPlant;
     [ReadOnlyInspector] public SOEnemy chosenEnemy;
 
     // Stages
@@ -122,20 +122,20 @@ public class Grow : MonoBehaviour
                     discardIcon.SetActive(true);
                 }
 
-            for (int i = 0; i < chosenPlant.plantGrowthStages.Length - 1; i++)
+            for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length - 1; i++)
             {
-                growTimes.Add(Random.Range(chosenPlant.plantMinGrowTime, chosenPlant.plantMaxGrowTime));
+                growTimes.Add(Random.Range(chosenGrowingPlant.plantMinGrowTime, chosenGrowingPlant.plantMaxGrowTime));
                 growTime += growTimes[i];
             }
 
-            currentPlantStages = chosenPlant.plantGrowthStages;
+            currentPlantStages = chosenGrowingPlant.plantGrowthStages;
             //monster = chosenPlant.enemy;
             amountOfStages = currentPlantStages.Length;
             plantIcon.SetActive(false);
             sr.sprite = currentPlantStages[nextGrowthStage];
             nextGrowthStage++;
 
-            monsterWaitTimeAfterGrowth = Random.Range(chosenPlant.minMonsterWaitTimeAfterGrowth, chosenPlant.maxMonsterWaitTimeAfterGrowth);
+            monsterWaitTimeAfterGrowth = Random.Range(chosenGrowingPlant.minMonsterWaitTimeAfterGrowth, chosenGrowingPlant.maxMonsterWaitTimeAfterGrowth);
             growTime += monsterWaitTimeAfterGrowth;
 
             startedGrowing = true;

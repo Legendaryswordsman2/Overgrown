@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Plant", fileName = "New Plant")]
-public class PlantData : ScriptableObject
+[CreateAssetMenu(menuName = "Growing Plant", fileName = "New Growing Plant")]
+public class SOGrowingPlant : ScriptableObject
 {
     [ReadOnlyInspector]
     public string id;

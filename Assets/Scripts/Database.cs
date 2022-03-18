@@ -8,7 +8,7 @@ public class Database : ScriptableObject
 {
 	[SerializeField] SOEnemy[] enemies;
 
-	[SerializeField] PlantData[] plants;
+	[SerializeField] SOGrowingPlant[] growingPlants;
 
 	[SerializeField] EquipablePlantItem[] equippablePlantItems;
 
@@ -82,7 +82,7 @@ public class Database : ScriptableObject
 	private void Load()
 	{
 		enemies = FindAssetsByType<SOEnemy>("Assets/Scriptable Objects/Enemies");
-		plants = FindAssetsByType<PlantData>("Assets/Scriptable Objects/Plants");
+		growingPlants = FindAssetsByType<SOGrowingPlant>("Assets/Scriptable Objects/Growing Plants");
 		equippablePlantItems = FindAssetsByType<EquipablePlantItem>("Assets/Scriptable Objects/Items/Plant Items");
 		junkItems = FindAssetsByType<JunkItem>("Assets/Scriptable Objects/Items/Junk Items");
 		consumableItems = FindAssetsByType<ConsumableItem>("Assets/Scriptable Objects/Items/Consumable Items");

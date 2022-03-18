@@ -95,14 +95,14 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 	#region Random
-	public void StartPlanting(PlantData plant)
+	public void StartPlanting(SOGrowingPlant growingPlantSO)
     {
         plantUiMenu.SetActive(false);
 
         for (int i = 0; i < PotsNearPlayer.publicPotsNearPlayer.Count; i++)
         {
-            PotsNearPlayer.publicPotsNearPlayer[i].GetComponent<Grow>().chosenPlant = plant;
-            PotsNearPlayer.publicPotsNearPlayer[i].GetComponent<Grow>().chosenEnemy = plant.enemy;
+            PotsNearPlayer.publicPotsNearPlayer[i].GetComponent<Grow>().chosenGrowingPlant = growingPlantSO;
+            PotsNearPlayer.publicPotsNearPlayer[i].GetComponent<Grow>().chosenEnemy = growingPlantSO.enemy;
             PotsNearPlayer.publicPotsNearPlayer[i].GetComponent<Grow>().AssignVariables();
         }
         StartTime();
