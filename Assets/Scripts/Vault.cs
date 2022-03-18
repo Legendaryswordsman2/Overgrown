@@ -43,7 +43,6 @@ public class Vault : MonoBehaviour
 
 	IEnumerator StartVault()
 	{
-		Debug.Log("Vault Started");
 		//vaultIcon.SetActive(false);
 		playerScript.canWalk = false;
 		anim.Play(animationName);

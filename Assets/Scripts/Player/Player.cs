@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool canWalk { get; set; } = true;
 
     // Private References
-    PlayerHealth playerHealth;
     PlayerStamina stamina;
     Animator anim;
     Rigidbody2D rb;
@@ -36,7 +35,6 @@ public class Player : MonoBehaviour
     {
 
         // Initialize values and references
-    	playerHealth = GetComponent<PlayerHealth>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         stamina = GetComponent<PlayerStamina>();
