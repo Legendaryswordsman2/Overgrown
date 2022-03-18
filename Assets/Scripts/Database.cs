@@ -18,28 +18,43 @@ public class Database : ScriptableObject
 
 	public JunkItem GetJunkItem(string itemID)
 	{
-		foreach (JunkItem _item in junkItems)
+		foreach (JunkItem item in junkItems)
 		{
-			if (_item.ID == itemID)
+			if (item.ID == itemID)
 			{
-				return _item;
+				return item;
 			}
 		}
-		//Debug.Log("Couldn't find item");
+		return null;
+	}
+	public ConsumableItem GetConsumableItem(string itemID)
+	{
+		foreach (ConsumableItem item in consumableItems)
+		{
+			if (item.ID == itemID)
+			{
+				return item;
+			}
+		}
+		return null;
+	}
+	public QuestItem GetQuestItem(string itemID)
+	{
+		foreach (QuestItem item in questItems)
+		{
+			if (item.ID == itemID)
+			{
+				return item;
+			}
+		}
 		return null;
 	}
 
 	public EquipablePlantItem GetEquippablePlantItem(string itemID)
 	{
-		EquipablePlantItem item = GetEquippablePlantItemRefernce(itemID);
-		return item;
-	}
-
-	EquipablePlantItem GetEquippablePlantItemRefernce(string itemID)
-	{
 		foreach (EquipablePlantItem item in equippablePlantItems)
 		{
-			if(item.ID == itemID)
+			if (item.ID == itemID)
 			{
 				return item;
 			}

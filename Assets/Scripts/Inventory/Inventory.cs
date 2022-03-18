@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 	[Header("Items")]
 	public List<JunkItem> junkItems;
 	public List<ConsumableItem> consumableItems;
-	[HideInInspector] public List<QuestItem> questItems;
+	public List<QuestItem> questItems;
 	public List<EquipablePlantItem> equippablePlantItems;
 
 	[Header("Gear")]
@@ -73,9 +73,74 @@ public class Inventory : MonoBehaviour
 			junkItemIDs.Add(junkItems[i].ID);
 		}
 		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData.json", junkItemIDs);
+
+
+		List<string> consumableItemIDs = new List<string>();
+
+		for (int i = 0; i < consumableItems.Count; i++)
+		{
+			consumableItemIDs.Add(consumableItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData.json", consumableItemIDs);
+
+
+		List<string> questItemIDs = new List<string>();
+
+		for (int i = 0; i < questItems.Count; i++)
+		{
+			questItemIDs.Add(questItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/questItemData.json", questItemIDs);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
+	{
+		LoadEquippablePlantItems();
+		LoadJunkItems();
+		LoadConsumableItems();
+		LoadQuestItems();
+	}
+
+	private void LoadQuestItems()
+	{
+		List<string> questItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/QuestItemData.json");
+		if (questItemIDs == null) return;
+
+		questItems.Clear();
+
+		foreach (string itemID in questItemIDs)
+		{
+			questItems.Add(database.GetQuestItem(itemID));
+		}
+	}
+
+	private void LoadConsumableItems()
+	{
+		List<string> consumableItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/ConsumableItemData.json");
+		if (consumableItemIDs == null) return;
+
+		consumableItems.Clear();
+
+		foreach (string itemID in consumableItemIDs)
+		{
+			consumableItems.Add(database.GetConsumableItem(itemID));
+		}
+	}
+
+	private void LoadJunkItems()
+	{
+		List<string> junkItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/JunkItemData.json");
+		if (junkItemIDs == null) return;
+
+		junkItems.Clear();
+
+		foreach (string itemID in junkItemIDs)
+		{
+			junkItems.Add(database.GetJunkItem(itemID));
+		}
+	}
+
+	void LoadEquippablePlantItems()
 	{
 		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/PlantItemData.json");
 		if (itemIDs == null) return;
@@ -85,22 +150,6 @@ public class Inventory : MonoBehaviour
 		foreach (string itemID in itemIDs)
 		{
 			equippablePlantItems.Add(database.GetEquippablePlantItem(itemID));
-		}
-
-
-		List<string> junkItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/JunkItemData.json");
-		if (junkItemIDs == null) return;
-
-		foreach (var item in junkItemIDs)
-		{
-			Debug.Log(item + " rhge4rh");
-		}
-
-		junkItems.Clear();
-
-		foreach (string _itemID in junkItemIDs)
-		{
-			junkItems.Add(database.GetJunkItem(_itemID));
 		}
 	}
 
