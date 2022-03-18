@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: 532, y: 1324.8499}
+  m_SizeDelta: {x: 532, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &358747403
 MonoBehaviour:
@@ -319,12 +319,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1848449685}
   m_Layer: 5
-  m_Name: Plants
+  m_Name: Equippable Plants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1848449685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -356,13 +356,15 @@ GameObject:
   m_Component:
   - component: {fileID: 889596551238624258}
   - component: {fileID: 5565420678890015248}
+  - component: {fileID: 2048024854}
+  - component: {fileID: 1209105619}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &889596551238624258
 RectTransform:
   m_ObjectHideFlags: 0
@@ -525,17 +527,45 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8176bc47cc3e34344bd81b24ec7b8ed9, type: 2}
   - {fileID: 11400000, guid: 8176bc47cc3e34344bd81b24ec7b8ed9, type: 2}
   - {fileID: 11400000, guid: 8176bc47cc3e34344bd81b24ec7b8ed9, type: 2}
-  plantItems:
+  equippablePlantItems:
+  - {fileID: 11400000, guid: 5274a743566658a488fcb6daca42fec6, type: 2}
   - {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
-  - {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
-  - {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
+  - {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
   gear: []
+  categoriesParent: {fileID: 7809169511593148626}
+  categoryButtonsParent: {fileID: 7809169511458936811}
   junkItemSlotParent: {fileID: 7809169511454927060}
   consumableItemSlotParent: {fileID: 7809169511219421527}
   questItemSlotParent: {fileID: 7809169510561113248}
   EquipablePlantItemSlotParent: {fileID: 358747400}
-  equippablePlantItemSlots: []
   itemSlotPrefab: {fileID: 8202397822862838812, guid: bd83d9af9ff53ca4988dc16ce96e9f80, type: 3}
+  database: {fileID: 11400000, guid: 3593be114d2cb0247bfd4c5a0675cdb6, type: 2}
+--- !u!225 &2048024854
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649176847060232419}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1209105619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649176847060232419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a159b912ff998f645a21cebefa8e5964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categoryButtons: {fileID: 7809169511458936811}
+  categories: {fileID: 7809169511593148626}
 --- !u!1 &7809169510446284192
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 0.007096273, g: 0, b: 0.8301887, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -791,41 +821,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7809169511458936811}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5565420678890015248}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: GoToCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7809169512263385658}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7809169512028930576}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7809169512263385658}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &7809169510494563285
 GameObject:
@@ -1279,7 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 0.5471698, g: 0.11020434, b: 0.023228897, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1340,41 +1346,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7809169511458936811}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5565420678890015248}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: GoToCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7809169512028930576}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7809169512028930576}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7809169512263385658}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7809169510603572243
 GameObject:
@@ -1973,7 +1955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 0.754717, g: 0.63282084, b: 0.12459949, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2720,7 +2702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19944407, g: 0.18422927, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2977,7 +2959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7809169511458936810
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4306,7 +4288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 0.053613286, g: 0.54901963, b: 0.023529395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4366,7 +4348,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7809169511777030704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5565420678890015248}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: GoToCategory
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1848449684}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7809169511909459788
 GameObject:
   m_ObjectHideFlags: 0
