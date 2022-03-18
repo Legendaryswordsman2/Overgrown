@@ -17,7 +17,7 @@ MonoBehaviour:
   ItemDescription: Some Random Plant Item
   Icon: {fileID: 6538508900697096278, guid: 502397795801b1444890868d28fd6dad, type: 3}
   MaximumStacks: 1
-  unitName: Test
+  unitName: potato
   defaultHealth: 500
   attackDamage: 90
   healthIncreasePerLevelUp: 10

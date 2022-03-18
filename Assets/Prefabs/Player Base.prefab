@@ -2819,8 +2819,8 @@ GameObject:
   - component: {fileID: 636977076726505122}
   - component: {fileID: 8118033186993684815}
   - component: {fileID: 2406020429753233569}
-  - component: {fileID: 2406020429540395382}
   - component: {fileID: 7349307692255342958}
+  - component: {fileID: 2406020429540395382}
   - component: {fileID: 2406020429753233596}
   - component: {fileID: 7236014399783384536}
   - component: {fileID: 2406020429342347373}
@@ -2954,6 +2954,18 @@ MonoBehaviour:
   healthBar: {fileID: 1226180916571673221}
   playerIsAlive: 0
   canBeHurt: 1
+--- !u!114 &7349307692255342958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636977076726505128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9ad0e04b9f10048ab8b3b8030b763a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2406020429540395382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2974,18 +2986,6 @@ MonoBehaviour:
   money: 0
   levelText: {fileID: 1329404520}
   levelProgressBar: {fileID: 2111630394}
---- !u!114 &7349307692255342958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636977076726505128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e9ad0e04b9f10048ab8b3b8030b763a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &2406020429753233596
 CircleCollider2D:
   m_ObjectHideFlags: 0
