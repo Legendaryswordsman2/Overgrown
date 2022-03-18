@@ -6,17 +6,13 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     [Header("movement")]
-    [SerializeField] float walkSpeed = 10;
+    [SerializeField] float walkSpeed = 40;
 
     [Header("References")]
-    [SerializeField] TMP_Text levelText;
-    [SerializeField] ProgressBar levelProgressBar;
-    [SerializeField] GameObject gainedXPMessageSpawnLocation;
-    [SerializeField] GameObject gainedXPMessagePrfab;
     [SerializeField] CharacterController2D controller;
 
     [Header("Sounds"), Space]
-    [SerializeField] float walkSoundWaitTime = 0.3f;
+    [SerializeField] float walkSoundWaitTime = 0.4f;
 
     float horizontalMove = 0f;
 

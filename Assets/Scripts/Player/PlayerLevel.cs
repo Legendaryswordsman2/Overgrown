@@ -106,5 +106,8 @@ public class PlayerLevel : MonoBehaviour
 
         money = xpData.playerMoney;
 
+        levelText.text = "LV: " + playerLevel;
+        levelProgressBar.maximum = xpToLevelUp;
+        levelProgressBar.current = xp;
     }
 }

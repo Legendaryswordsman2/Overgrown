@@ -38803,7 +38803,7 @@ MonoBehaviour:
   unitName: Player
   maxHealth: 662
   currentHealth: 0
-  damage: 10
+  damage: 90
   isBlocking: 0
   currentMode: 0
   <playerHUD>k__BackingField: {fileID: 1867131979}
