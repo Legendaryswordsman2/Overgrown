@@ -13,9 +13,6 @@ public class Inventory : MonoBehaviour
 	public List<QuestItem> questItems;
 	public List<EquipablePlantItem> equippablePlantItems;
 
-	[Header("Gear")]
-	[HideInInspector] public List<GearItem> gear;
-
 	[Space]
 
 	[SerializeField] GameObject categoriesParent;
