@@ -4,5 +4,6 @@ using UnityEngine;
 
 public static class SaveLocations
 {
-	public static string playerStatsSaveLoadtion = "";
+	// Note these are not full strings to the exact location, just the location of the file within the save folder
+	public static string PlayerLevelAndXPSaveLocation { get;} = "/Player/PlayerLevel&XP.json";
 }
