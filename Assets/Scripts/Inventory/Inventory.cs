@@ -18,12 +18,14 @@ public class Inventory : MonoBehaviour
 
 	[Space]
 
+	[SerializeField] GameObject categoriesParent;
+	[SerializeField] GameObject categoryButtonsParent;
 	[SerializeField] GameObject junkItemSlotParent;
 	[SerializeField] GameObject consumableItemSlotParent;
 	[SerializeField] GameObject questItemSlotParent;
 	[SerializeField] GameObject EquipablePlantItemSlotParent;
 
-	[SerializeField] ItemSlot[] equippablePlantItemSlots;
+	ItemSlot[] equippablePlantItemSlots;
 
 	[SerializeField] GameObject itemSlotPrefab;
 
@@ -76,6 +78,17 @@ public class Inventory : MonoBehaviour
 		{
 			equippablePlantItems.Add(database.GetEquippablePlantItem(itemID));
 		}
+	}
+
+	public void GoToCategory(GameObject categoryToOpen)
+	{
+		foreach (Transform child in categoriesParent.transform)
+		{
+			child.gameObject.SetActive(false);
+		}
+		categoryButtonsParent.SetActive(false);
+
+		categoryToOpen.SetActive(true);
 	}
 
 	public void GoToStartOfList()
