@@ -32541,7 +32541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271467697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09400022, y: 0.188, z: 0}
+  m_LocalPosition: {x: 0.133, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 815465833}
@@ -37370,7 +37370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923151815}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09400022, y: 0.188, z: 0}
+  m_LocalPosition: {x: 0.035, y: -0.333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2135679975}
@@ -37975,6 +37975,7 @@ GameObject:
   - component: {fileID: 1990234815}
   - component: {fileID: 1990234817}
   - component: {fileID: 1990234818}
+  - component: {fileID: 1990234819}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -38068,6 +38069,18 @@ MonoBehaviour:
   money: 0
   levelText: {fileID: 0}
   levelProgressBar: {fileID: 0}
+--- !u!114 &1990234819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990234814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952ad70a54349584d8856125e9670f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2004411741
 GameObject:
   m_ObjectHideFlags: 0

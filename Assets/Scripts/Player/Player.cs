@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     PlayerStamina stamina;
     Animator anim;
     Rigidbody2D rb;
-    [HideInInspector] public AudioClip[] walkSounds;
+     public AudioClip[] walkSounds;
     AudioSource audioSource;
     GameManager gameManager;
     Transform playerTexture;
@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
     {
         if (canPlayWalkingSound)
         {
+            if (walkSounds.Length == 0) yield return null;
             audioSource.clip = walkSounds[Random.Range(0, walkSounds.Length)];
             audioSource.Play();
             canPlayWalkingSound = false;

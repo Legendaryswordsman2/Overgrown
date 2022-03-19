@@ -10,25 +10,34 @@ public class ConsumableItem : Item
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
 		BattleSystem battleSystem = BattleSystem.instance;
-		
-		if(battleSystem == null)
+
+		if (battleSystem == null)
 		{
 			return;
 		}
 
-		UseItem(battleSystem.playerUnit);
-		battleSystem.inventory.gameObject.SetActive(false);
+		if (!battleSystem.playerHasPlant)
+		{
+			UseItem(battleSystem.playerUnit);
+			battleSystem.inventory.gameObject.SetActive(false);
+			Destroy(itemSlot.gameObject);
+		}
+		else
+		{
+			battleSystem.inventory.gameObject.SetActive(false);
+			battleSystem.GetComponent<ChooseTargetToUseItemOn>().ChooseTargetToUseItem(this, itemSlot);
+		}
 
-		Destroy(itemSlot.gameObject);
 	}
 
-	void UseItem(PlayerUnit playerUnit)
+	public void UseItem(BaseUnit unit)
 	{
 		foreach (ConsumableItemEffect effect in effects)
 		{
-			effect.ExecuteEffect(playerUnit);
+			effect.ExecuteEffect(unit);
 		}
-		 playerUnit.CallNextTurn();
+
+		BattleSystem.instance.playerUnit.CallNextTurn();
 		
 	}
 }

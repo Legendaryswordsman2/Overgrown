@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPlantUnit : BaseUnit
 {
-	[SerializeField] CombatInfoHUD playerPlantHUD;
+	public CombatInfoHUD playerPlantHUD;
 
 	AttackType attackType;
 
@@ -115,6 +115,12 @@ public class PlayerPlantUnit : BaseUnit
 		{
 			playerPlantHUD.SetHealth(0);
 		}
+	}
+	public override void Heal(int amount)
+	{
+		base.Heal(amount);
+		StartCoroutine(playerPlantHUD.SetHealthFromItem(currentHealth));
+		battleSystem.playerUnit.UseItem();
 	}
 	protected override void Die()
 	{
