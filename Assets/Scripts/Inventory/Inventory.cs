@@ -110,13 +110,13 @@ public class Inventory : MonoBehaviour
 
 	private void SaveEquippablePlantItems()
 	{
-		List<PlantItemSaveData> EquippablePlantitems = new List<PlantItemSaveData>();
+		List<PlantItemSaveData> equippablePlantitemsSave = new List<PlantItemSaveData>();
 
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
-			EquippablePlantitems.Add(new PlantItemSaveData(equippablePlantItems[i]));
+			equippablePlantitemsSave.Add(new PlantItemSaveData(equippablePlantItems[i]));
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", EquippablePlantitems);
+		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", equippablePlantitemsSave);
 	}
 
 	private void SaveQuestItems()
@@ -154,14 +154,23 @@ public class Inventory : MonoBehaviour
 
 	void LoadEquippablePlantItems()
 	{
-		List<string> itemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/PlantItemData.json");
-		if (itemIDs == null) return;
+		List<PlantItemSaveData> equippablePlantitemsSave = SaveSystem.LoadFile<List<PlantItemSaveData>>("/Player/Inventory/PlantItemData.json");
+		if (equippablePlantitemsSave == null) return;
 
 		equippablePlantItems.Clear();
 
-		foreach (string itemID in itemIDs)
+		foreach (PlantItemSaveData plantItem in equippablePlantitemsSave)
 		{
-			equippablePlantItems.Add(database.GetEquippablePlantItem(itemID));
+			equippablePlantItems.Add(database.GetEquippablePlantItem(plantItem.itemID));
+		}
+
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
+			equippablePlantItems[i].plantSO.attackDamage = equippablePlantitemsSave[i].attackDamage;
+			equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
+			equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
+			equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
 		}
 	}
 
