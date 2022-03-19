@@ -261,7 +261,12 @@ public class Inventory : MonoBehaviour
 		{
 			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
 
-			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
+			var tempItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform);
+			tempItemSlot.GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
+
+			if (tempItemSlot.GetComponent<ItemSlot>().item is EquipablePlantItem c)
+				if (c.isEquipped)
+					c.ItemSelected(tempItemSlot.GetComponent<ItemSlot>());
 		}
 		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 	}
