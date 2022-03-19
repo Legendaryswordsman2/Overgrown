@@ -189,7 +189,6 @@ public class Inventory : MonoBehaviour
 
 		if (BattleSetupData.plantSO == null) return;
 
-		Debug.Log("Something is selected");
 		SetSelectedPlantInInventory();
 	}
 

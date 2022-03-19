@@ -18,6 +18,7 @@ public class PlayerPlantUnit : BaseUnit
 
 		unitName = plantSO.unitName;
 		maxHealth = plantSO.defaultHealth;
+		currentHealth = maxHealth;
 		damage = plantSO.attackDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
 		playerPlantHUD.SetHUD(this);
@@ -104,6 +105,7 @@ public class PlayerPlantUnit : BaseUnit
 	}
 	public override void TakeDamage(int _damage, bool isCritical)
 	{
+		Debug.Log(_damage + " Plant");
 		base.TakeDamage(_damage, isCritical);
 		if (currentHealth >= 0)
 		{
