@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
 		saveManager.OnSavingGame += SaveManager_OnSavingGame;
 
 		GetComponent<CanvasGroup>().alpha = 1;
-		gameObject.SetActive(false);
+		//gameObject.SetActive(false);
 
 		ClearItems();
 	}
@@ -50,6 +50,7 @@ public class Inventory : MonoBehaviour
 	private void Start()
 	{
 		SetItemSlots();
+		gameObject.SetActive(false);
 	}
 
 	private void SaveManager_OnSavingGame(object sender, EventArgs e)
