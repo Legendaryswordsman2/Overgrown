@@ -10,7 +10,7 @@ public class PlayerPlantUnit : BaseUnit
 
 	int enemySelectionIndex = 0;
 
-	public SOPlant plantSO;
+	[ReadOnlyInspector] public SOPlant plantSO;
 
 	public void SetupPlant()
 	{

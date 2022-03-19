@@ -250,6 +250,8 @@ public class Inventory : MonoBehaviour
 
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
+			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
+
 			Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
 		}
 		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();

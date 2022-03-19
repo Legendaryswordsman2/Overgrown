@@ -34,6 +34,11 @@ public class EquipablePlantItem : Item
 		battleSystem.playerUnit.CallNextTurn();
 	}
 
+	private void Awake() // Called when a new instance is createed
+	{
+		plantSO = Instantiate(plantSO); // Create a copy
+	}
+
 	private void UnequipPlantItem(object sender, System.EventArgs e)
 	{
 		//isEquipped = false;

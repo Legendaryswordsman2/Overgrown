@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyUnit : BaseUnit
 {
 	 [field: Header("Refernces")]
-	 [field: SerializeField] public SOEnemy enemySO { get; set; }
+	 [field: SerializeField, ReadOnlyInspector] public SOEnemy enemySO { get; set; }
 
 	ProgressBar healthBar;
 
