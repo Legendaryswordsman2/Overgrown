@@ -52,6 +52,13 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 				plantUnit.transform.GetChild(1).gameObject.SetActive(true);
 				playerUnit.transform.GetChild(1).gameObject.SetActive(false);
 			}
+
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				unitToUseItemOn.transform.GetChild(1).gameObject.SetActive(false);
+				unitToUseItemOn = playerUnit;
+				AwaitingTargetToUseItemOn = false;
+			}
 		}
 	}
 	public void ChooseTargetToUseItem(ConsumableItem _itemToUse, ItemSlot _itemSlot)
