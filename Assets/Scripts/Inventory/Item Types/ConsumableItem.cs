@@ -10,6 +10,11 @@ public class ConsumableItem : Item
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
 		BattleSystem battleSystem = BattleSystem.instance;
+		
+		if(battleSystem == null)
+		{
+			return;
+		}
 
 		UseItem(battleSystem.playerUnit);
 		battleSystem.inventory.gameObject.SetActive(false);
