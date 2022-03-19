@@ -8,6 +8,8 @@ public class EquipablePlantItem : Item
 {
 	public SOPlant plantSO;
 
+	[HideInInspector] public bool isEquipped = false;
+
 	Image equippedCheckmark;
 	Inventory inventory;
 	public override void ItemSelected(ItemSlot itemSlot)
@@ -17,7 +19,7 @@ public class EquipablePlantItem : Item
 
 		inventory.OnPlantItemSelected += UnequipPlantItem;
 
-		//isEquipped = true;
+		isEquipped = true;
 		BattleSetupData.plantSO = plantSO;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
@@ -41,7 +43,7 @@ public class EquipablePlantItem : Item
 
 	private void UnequipPlantItem(object sender, System.EventArgs e)
 	{
-		//isEquipped = false;
+		isEquipped = false;
 		if(equippedCheckmark != null) equippedCheckmark.enabled = false;
 		inventory.OnPlantItemSelected -= UnequipPlantItem;
 	}

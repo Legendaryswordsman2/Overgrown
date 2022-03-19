@@ -7,9 +7,9 @@ using UnityEditor;
 //[CreateAssetMenu(menuName = "Items/Item")]
 public abstract class Item : ScriptableObject
 {
-	[Header("Item Settings")]
 	[SerializeField, ReadOnlyInspector] string id;
 	public string ID { get { return id; } }
+	[Header("Item Settings")]
 	public string ItemName;
 
 	[TextArea]

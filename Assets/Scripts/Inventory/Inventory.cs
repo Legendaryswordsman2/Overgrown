@@ -110,13 +110,13 @@ public class Inventory : MonoBehaviour
 
 	private void SaveEquippablePlantItems()
 	{
-		List<string> EquippablePlantitemIDs = new List<string>();
+		List<PlantItemSaveData> EquippablePlantitems = new List<PlantItemSaveData>();
 
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
-			EquippablePlantitemIDs.Add(equippablePlantItems[i].ID);
+			EquippablePlantitems.Add(new PlantItemSaveData(equippablePlantItems[i]));
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", EquippablePlantitemIDs);
+		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", EquippablePlantitems);
 	}
 
 	private void SaveQuestItems()
