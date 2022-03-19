@@ -1439,6 +1439,11 @@ Transform:
   m_Father: {fileID: 889659004}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &312384805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 636977076726505123, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2406020429540395380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &385550394
 GameObject:
   m_ObjectHideFlags: 0
@@ -27539,6 +27544,76 @@ Transform:
   m_Father: {fileID: 298914192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &848538421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848538422}
+  - component: {fileID: 848538423}
+  - component: {fileID: 848538424}
+  m_Layer: 6
+  m_Name: Walk Sound Detection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848538422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848538421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 312384805}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &848538423
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848538421}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.052408423, y: -0.85962164}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.0052665994, y: 1.3346179}
+  m_EdgeRadius: 0
+--- !u!114 &848538424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848538421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21511b87d188cb4ba1dce102c67ef54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854064343
 GameObject:
   m_ObjectHideFlags: 0
@@ -35212,7 +35287,7 @@ MonoBehaviour:
   discardIcon: {fileID: 0}
   progressBar: {fileID: 0}
   growTime: 0
-  chosenPlant: {fileID: 0}
+  chosenGrowingPlant: {fileID: 0}
   chosenEnemy: {fileID: 0}
   growTimes: 
 --- !u!4 &1930493223 stripped

@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     PlayerStamina stamina;
     Animator anim;
     Rigidbody2D rb;
-    AudioClip[] walkSounds;
+    [HideInInspector] public AudioClip[] walkSounds;
     AudioSource audioSource;
     GameManager gameManager;
     Transform playerTexture;
@@ -65,14 +65,6 @@ public class Player : MonoBehaviour
             controller.Move(horizontalMove * Time.fixedDeltaTime, false, false);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<ChangeWalkSound>())
-        {
-            walkSounds = collision.GetComponent<ChangeWalkSound>().walkSounds;
-        }
-	}
 
     void AnimatePlayer()
     {
