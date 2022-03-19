@@ -8,6 +8,8 @@ public class Database : ScriptableObject
 {
 	[SerializeField] SOEnemy[] enemies;
 
+	[SerializeField] SOPlant[] plants;
+
 	[SerializeField] SOGrowingPlant[] growingPlants;
 
 	[SerializeField] EquipablePlantItem[] equippablePlantItems;
@@ -87,6 +89,7 @@ public class Database : ScriptableObject
 		junkItems = FindAssetsByType<JunkItem>("Assets/Scriptable Objects/Items/Junk Items");
 		consumableItems = FindAssetsByType<ConsumableItem>("Assets/Scriptable Objects/Items/Consumable Items");
 		questItems = FindAssetsByType<QuestItem>("Assets/Scriptable Objects/Items/Quest Items");
+		plants = FindAssetsByType<SOPlant>("Assets/Scriptable Objects/Plants");
 	}
 
 	// Slightly modified version of this answer: http://answers.unity.com/answers/1216386/view.html
