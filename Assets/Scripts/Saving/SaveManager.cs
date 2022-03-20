@@ -46,10 +46,10 @@ public class SaveManager : MonoBehaviour
 	private void Start() // Load Game
 	{
 		//SaveSystem.CreateSaveSlotSubFolders();
-		if (Directory.Exists(SaveSystem.currentSaveLocation + "MainSave"))
-			LoadGame();
-		else
+		if (!Directory.Exists(SaveSystem.currentSaveLocation + "MainSave"))
 			SaveSystem.InitializeSaveSlot();
+
+		LoadGame();
 	}
 
 	private void OnDestroy() // Save Game

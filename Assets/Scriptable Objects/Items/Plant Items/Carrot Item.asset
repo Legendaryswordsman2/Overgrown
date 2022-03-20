@@ -18,3 +18,4 @@ MonoBehaviour:
   Icon: {fileID: 6538508900697096278, guid: 504208fba75efd54497e379710df5fcc, type: 3}
   MaximumStacks: 1
   plantSO: {fileID: 11400000, guid: 73fee1c37710d984c8cfe7cbded002fe, type: 2}
+  isEquipped: 0

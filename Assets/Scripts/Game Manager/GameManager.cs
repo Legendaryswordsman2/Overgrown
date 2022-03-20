@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public GameObject pauseMenu { get; private set; }
     [field: SerializeField] public Inventory inventory { get; private set; }
     [field: SerializeField] public GameObject playerLevel { get; private set; }
-
-    public GameObject plantUiMenu;
+    [field: SerializeField] public GameObject plantUiMenu { get; private set; }
 
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;

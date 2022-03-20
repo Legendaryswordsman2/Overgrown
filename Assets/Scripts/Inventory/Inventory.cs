@@ -47,12 +47,6 @@ public class Inventory : MonoBehaviour
 		ClearItems();
 	}
 
-	private void Start()
-	{
-		SetItemSlots();
-		gameObject.SetActive(false);
-	}
-
 	private void SaveManager_OnSavingGame(object sender, EventArgs e)
 	{
 		SaveEquippablePlantItems();
@@ -68,6 +62,9 @@ public class Inventory : MonoBehaviour
 		LoadJunkItems();
 		LoadConsumableItems();
 		LoadQuestItems();
+
+		SetItemSlots();
+		gameObject.SetActive(false);
 	}
 
 	private void LoadQuestItems()
@@ -167,6 +164,11 @@ public class Inventory : MonoBehaviour
 
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
+			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
+		}
+
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
 			equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
 			equippablePlantItems[i].plantSO.attackDamage = equippablePlantitemsSave[i].attackDamage;
 			equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
@@ -195,7 +197,36 @@ public class Inventory : MonoBehaviour
 
 	void SetItemSlots()
 	{
-		SetItems();
+		for (int i = 0; i < junkItems.Count; i++)
+		{
+			Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(junkItems[i]);
+		}
+
+		for (int i = 0; i < consumableItems.Count; i++)
+		{
+			Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(consumableItems[i]);
+		}
+
+		for (int i = 0; i < questItems.Count; i++)
+		{
+			Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(questItems[i]);
+		}
+
+
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
+
+			var tempItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform);
+			tempItemSlot.GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
+
+			if (tempItemSlot.GetComponent<ItemSlot>().item is EquipablePlantItem c)
+				if (c.isEquipped)
+				{
+					c.ItemSelected(tempItemSlot.GetComponent<ItemSlot>());
+				}
+		}
+		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 
 		if (BattleSetupData.plantSO == null) return;
 
@@ -239,37 +270,6 @@ public class Inventory : MonoBehaviour
 		{
 			Destroy(child.gameObject);
 		}
-	}
-	private void SetItems()
-	{
-		for (int i = 0; i < junkItems.Count; i++)
-		{
-			Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(junkItems[i]);
-		}
-
-		for (int i = 0; i < consumableItems.Count; i++)
-		{
-			Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(consumableItems[i]);
-		}
-
-		for (int i = 0; i < questItems.Count; i++)
-		{
-			Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(questItems[i]);
-		}
-
-
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
-
-			var tempItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform);
-			tempItemSlot.GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
-
-			if (tempItemSlot.GetComponent<ItemSlot>().item is EquipablePlantItem c)
-				if (c.isEquipped)
-					c.ItemSelected(tempItemSlot.GetComponent<ItemSlot>());
-		}
-		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 	}
 
 	public void InvokeOnPlantItemSelected()
