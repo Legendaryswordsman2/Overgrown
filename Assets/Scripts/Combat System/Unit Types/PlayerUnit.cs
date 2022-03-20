@@ -15,7 +15,22 @@ public class PlayerUnit : BaseUnit
 	protected override void Setup()
 	{
 		base.Setup();
+
+		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
+
 		playerHUD.SetHUD(this);
+	}
+
+	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
+	{
+		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats.json");
+		if (statsData == null) return;
+
+		maxHealth = statsData.maxHealth;
+		currentHealth = maxHealth;
+		defense = statsData.defense;
+		damage = statsData.damage;
+		critChance = statsData.critChance;
 	}
 
 	protected override void Update()

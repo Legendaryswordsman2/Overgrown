@@ -12,6 +12,8 @@ public abstract class BaseUnit : MonoBehaviour
 	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
 	[SerializeField] protected int damage = 10;
+	[SerializeField] protected int defense = 0;
+	[SerializeField] protected int critChance = 0;
 
 	// Private
 	TMP_Text damageText;
@@ -31,8 +33,6 @@ public abstract class BaseUnit : MonoBehaviour
 
 	// To be implemented
 
-	//int defence;
-	// int critChance
 
 	private void Awake()
 	{

@@ -251,6 +251,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   damage: 10
+  defense: 0
+  critChance: 0
   isBlocking: 0
   currentMode: 0
   <enemySO>k__BackingField: {fileID: 0}
