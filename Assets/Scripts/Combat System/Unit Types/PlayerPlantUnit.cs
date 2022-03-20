@@ -71,6 +71,7 @@ public class PlayerPlantUnit : BaseUnit
 	}
 	public override void ChooseAction()
 	{
+		Debug.Log("Plant Turn");
 		if (anim != null)
 			anim.Play("Idle Animation");
 		battleSystem.playerPlantChoices.SetActive(true);

@@ -223,30 +223,10 @@ public class Inventory : MonoBehaviour
 			if (tempItemSlot.GetComponent<ItemSlot>().item is EquipablePlantItem c)
 				if (c.isEquipped)
 				{
-					c.ItemSelected(tempItemSlot.GetComponent<ItemSlot>());
+					c.EquipPlantOnSceneLoaded(tempItemSlot.GetComponent<ItemSlot>());
 				}
 		}
 		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
-
-		if (BattleSetupData.plantSO == null) return;
-
-		SetSelectedPlantInInventory();
-	}
-
-	private void SetSelectedPlantInInventory()
-	{
-		foreach (ItemSlot plantItemSlot in equippablePlantItemSlots)
-		{
-			if(plantItemSlot.item is EquipablePlantItem c)
-			{
-				if (c.plantSO == BattleSetupData.plantSO) 
-			    {
-					plantItemSlot.ItemSelected();
-			    }
-
-			}
-
-		}
 	}
 
 	void ClearItems()

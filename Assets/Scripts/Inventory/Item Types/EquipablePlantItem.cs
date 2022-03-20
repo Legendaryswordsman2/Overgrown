@@ -36,6 +36,25 @@ public class EquipablePlantItem : Item
 		battleSystem.playerUnit.CallNextTurn();
 	}
 
+	public void EquipPlantOnSceneLoaded(ItemSlot itemSlot)
+	{
+		inventory = Inventory.instance;
+
+		inventory.OnPlantItemSelected += UnequipPlantItem;
+
+		isEquipped = true;
+		BattleSetupData.plantSO = plantSO;
+		equippedCheckmark = itemSlot.equippedCheckmark;
+		equippedCheckmark.enabled = true;
+
+		if (BattleSystem.instance == null) return;
+
+		BattleSystem battleSystem = BattleSystem.instance;
+
+		battleSystem.playerPlantUnit.plantSO = BattleSetupData.plantSO;
+		battleSystem.playerPlantUnit.SetupPlant();
+	}
+
 	private void Awake() // Called when a new instance is createed
 	{
 		plantSO = Instantiate(plantSO); // Create a copy

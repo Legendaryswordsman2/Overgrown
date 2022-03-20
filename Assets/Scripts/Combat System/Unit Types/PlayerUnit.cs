@@ -17,8 +17,6 @@ public class PlayerUnit : BaseUnit
 		base.Setup();
 
 		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
-
-		playerHUD.SetHUD(this);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
@@ -31,6 +29,8 @@ public class PlayerUnit : BaseUnit
 		defense = statsData.defense;
 		damage = statsData.damage;
 		critChance = statsData.critChance;
+
+		playerHUD.SetHUD(this);
 	}
 
 	protected override void Update()
@@ -174,6 +174,7 @@ public class PlayerUnit : BaseUnit
 		if (battleSystem.playerHasPlant)
 		{
 			battleSystem.playerChoices.SetActive(false);
+			Debug.Log("Plant Turn now");
 			battleSystem.playerPlantUnit.ChooseAction();
 		}
 		else
@@ -183,6 +184,7 @@ public class PlayerUnit : BaseUnit
 	}
 	public void CallNextTurn()
 	{
+		Debug.Log("Call next turn");
 		StartCoroutine(NextTurn());
 	}
 
