@@ -30,6 +30,8 @@ public class PlayerStats : MonoBehaviour
 
 	private void Start()
 	{
+		if (healthText == null) return;
+
 		healthText.text += " " + maxHealth;
 		defenseText.text += " " + defense;
 		damageText.text += " " + damage;
