@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum BattleState { PlayerTurn, EnemyTurn, GameOver}
+public enum BattleState { PlayerTurn, PlayerPlantTurn, EnemyTurn, GameOver}
 public class BattleSystem : MonoBehaviour
 {
 	public static BattleSystem instance;
 
-	public BattleState state { get; private set; }
+	public BattleState state { get; set; }
 
 	[Header("Units")]
 	[SerializeField, ReadOnlyInspector] EnemyUnit[] enemies;
@@ -87,13 +87,11 @@ public class BattleSystem : MonoBehaviour
 
 		if (BattleSetupData.playerStartsTurn)
 		{
-			state = BattleState.PlayerTurn;
 			playerUnit.ChooseAction();
 		}
 		else
 		{
 			playerChoices.SetActive(false);
-			state = BattleState.EnemyTurn;
 			enemiesAlive[0].ChooseAction();
 		}
 	}
@@ -110,10 +108,9 @@ public class BattleSystem : MonoBehaviour
 	public IEnumerator SwitchTurn()
 	{
 		yield return new WaitForSeconds(DelayBeforeSwitchingTurn);
-		if (state == BattleState.PlayerTurn)
+		if (state == BattleState.PlayerTurn || state == BattleState.PlayerPlantTurn)
 		{
 			playerChoices.SetActive(false);
-			state = BattleState.EnemyTurn;
 
 			for (int i = 0; i < enemiesAlive.Count; i++)
 			{
@@ -124,16 +121,15 @@ public class BattleSystem : MonoBehaviour
 		} 
 		else if(state == BattleState.EnemyTurn)
 		{
-			state = BattleState.PlayerTurn;
 			playerUnit.ChooseAction();
 			if(playerHasPlant)
 			playerPlantUnit.ResetForNewRound();
 		}
 
 
-		if(state != BattleState.PlayerTurn && state != BattleState.EnemyTurn)
+		if(state != BattleState.PlayerTurn && state != BattleState.EnemyTurn && state != BattleState.PlayerPlantTurn)
 		{
-			Debug.LogWarning("Its no ones turn");
+			Debug.LogWarning("It's no ones turn");
 		}
 	}
 	void ClearEnemies()

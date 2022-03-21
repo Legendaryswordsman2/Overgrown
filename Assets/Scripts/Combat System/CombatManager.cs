@@ -17,14 +17,23 @@ public class CombatManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) && BattleSystem.instance.state == BattleState.PlayerTurn)
+		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			BattleSystem battleSystem = BattleSystem.instance;
 
-			BattleSystem.instance.playerChoices.SetActive(true);
+			if (battleSystem.state == BattleState.PlayerTurn)
+			{
+			battleSystem.playerChoices.SetActive(true);
+			battleSystem.playerUnit.currentMode = CurrentMode.Null;
+			}
+			else if(battleSystem.state == BattleState.PlayerPlantTurn)
+			{
+				battleSystem.playerPlantChoices.SetActive(true);
+				battleSystem.playerPlantUnit.currentMode = CurrentMode.Null;
+			}
+
 			inventory.gameObject.SetActive(false);
 
-			battleSystem.playerUnit.currentMode = CurrentMode.Null;
 
 			for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
 			{

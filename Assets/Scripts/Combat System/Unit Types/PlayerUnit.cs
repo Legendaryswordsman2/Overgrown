@@ -93,6 +93,8 @@ public class PlayerUnit : BaseUnit
 	{
 		base.ChooseAction();
 
+		battleSystem.state = BattleState.PlayerTurn;
+
 		if (anim != null)
 			anim.Play("Idle Animation");
 		BattleSystem.instance.playerChoices.SetActive(true);

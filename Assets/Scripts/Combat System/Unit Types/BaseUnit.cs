@@ -183,6 +183,7 @@ public abstract class BaseUnit : MonoBehaviour
 		{
 			battleSystem.battleLostScreen.SetActive(true);
 			battleSystem.gameOverScreen.SetActive(true);
+			GameManager.StopTime();
 		}
 
 		if (battleSystem.enemiesAlive.Count == 0)
@@ -195,6 +196,7 @@ public abstract class BaseUnit : MonoBehaviour
 
 			battleSystem.battleWonScreen.SetActive(true);
 			battleSystem.gameOverScreen.SetActive(true);
+			GameManager.StopTime();
 		}
 	}
 

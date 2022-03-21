@@ -32,6 +32,8 @@ public class EnemyUnit : BaseUnit
 	{
 		base.ChooseAction();
 
+		battleSystem.state = BattleState.EnemyTurn;
+
 		int temp = Random.Range(0, 2);
 
 			BasicAttack();
