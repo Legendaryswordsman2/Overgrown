@@ -237,8 +237,8 @@ MonoBehaviour:
   changeSceneIcon: {fileID: 266324308}
   changeSceneKey: 101
   sceneName: Home
-  transitionEndAnimation: 
-  newPlayerPosition: {x: 0, y: 0, z: 0}
+  transitionEndAnimation: CrossFade
+  newPlayerPosition: {x: -2.98, y: -0.7026598, z: 0}
   hasStartTransition: 0
 --- !u!61 &236992963
 BoxCollider2D:
