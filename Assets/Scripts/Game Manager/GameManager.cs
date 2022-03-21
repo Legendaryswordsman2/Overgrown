@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public Inventory inventory { get; private set; }
     [field: SerializeField] public GameObject playerLevel { get; private set; }
     [field: SerializeField] public GameObject plantUiMenu { get; private set; }
+    [field: SerializeField] public GameObject playerHealthBar { get; private set; }
 
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;
@@ -118,16 +119,16 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(inventoryKey) && pauseMenu.activeSelf == false)
         {
             if (inventory.gameObject.activeSelf == false)
-            {
+            { // Open Inventory
                 inventoryInputManager.ResetInventoryView();
                 inventory.gameObject.SetActive(true);
-                playerLevel.SetActive(true);
+                playerHealthBar.SetActive(false);
                 StopTime();
             }
             else
-            {
+            { // Close Inventory
                 inventory.gameObject.SetActive(false);
-                playerLevel.SetActive(false);
+                playerHealthBar.SetActive(true);
                 StartTime();
             }
         }
@@ -136,21 +137,25 @@ public class GameManager : MonoBehaviour
     void OpenPauseMenu()
     {
         if (Input.GetKeyDown(pauseMenuKey) && inventory.gameObject.activeSelf == false)
-        {
+        { // Open Pause Menu
             StopTime();
             if (pauseMenu.activeSelf == false)
             {
                 pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
                 pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+
+                playerHealthBar.SetActive(false);
                 pauseMenu.SetActive(true);
             }
-            else
+            else // Close Pause Menu
             {
                 StartTime();
 
                 pauseMenu.SetActive(false);
                 pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
                 pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+
+                playerHealthBar.SetActive(true);
             }
         }
     }

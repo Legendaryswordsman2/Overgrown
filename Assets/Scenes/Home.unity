@@ -34110,6 +34110,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1387079425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2406020429181688481, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2406020429540395380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400864657
 GameObject:
   m_ObjectHideFlags: 0
@@ -36682,6 +36687,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2406020429186786924, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: <playerHealthBar>k__BackingField
+      value: 
+      objectReference: {fileID: 1387079425}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base
@@ -36941,6 +36950,10 @@ PrefabInstance:
     - target: {fileID: 7809169510365549054, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -192.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809169510834922944, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7809169511164941628, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchorMax.y
