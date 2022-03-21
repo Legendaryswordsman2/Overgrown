@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $
+  m_text: $1,000,000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 111.7
+  m_fontSize: 64.8
   m_fontSizeBase: 124.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43.44, y: 45.003784}
-  m_SizeDelta: {x: 335.36, y: 140.0075}
+  m_AnchoredPosition: {x: 40.811462, y: 45.003784}
+  m_SizeDelta: {x: 340.6171, y: 140.0075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &45375572
 CanvasRenderer:
