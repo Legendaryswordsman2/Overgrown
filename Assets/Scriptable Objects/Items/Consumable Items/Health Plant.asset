@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6c6a24b517e874446a0342dfe732565d
   ItemName: Health Plant
-  ItemDescription: Some Random Item
+  ItemDescription: 'A magical potion capable of healing deep wounds.
+
+
+    -Heals
+    for 50 HP'
   Icon: {fileID: 5548789938343600767, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   MaximumStacks: 1
   effects:
