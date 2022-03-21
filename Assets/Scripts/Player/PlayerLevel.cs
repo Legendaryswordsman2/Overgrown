@@ -12,8 +12,8 @@ public class PlayerLevel : MonoBehaviour
     [ReadOnlyInspector] public int playerLevel = 1;
     [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
 
-    [Header("Money")]
-    [ReadOnlyInspector] public int money = 0;
+    [Header("Money"), Range(0, 1000000)]
+     [ReadOnlyInspector] public int money = 0;
 
     [Header("References")]
     [SerializeField] TMP_Text levelText;
@@ -109,10 +109,13 @@ public class PlayerLevel : MonoBehaviour
 
         if(levelProgressBar != null)
 		{
-        levelText.text = "LV: " + playerLevel;
-        levelProgressBar.maximum = xpToLevelUp;
-        levelProgressBar.current = xp;
-            MoneyText.text = "$" + money;
+            levelText.text = "LV: " + playerLevel;
+            levelProgressBar.maximum = xpToLevelUp;
+            levelProgressBar.current = xp;
+
+            string tempMoney = money.ToString();
+            //string.Format(("Score: {0:#,#}", score));
+            MoneyText.text = "$" + money.ToString("#,#");
 		}
     }
 }
