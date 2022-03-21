@@ -18,6 +18,7 @@ public class PlayerLevel : MonoBehaviour
     [Header("References")]
     [SerializeField] TMP_Text levelText;
     [SerializeField] ProgressBar levelProgressBar;
+    [SerializeField] TMP_Text MoneyText;
 
     event EventHandler OnLevelUp;
 
@@ -111,6 +112,7 @@ public class PlayerLevel : MonoBehaviour
         levelText.text = "LV: " + playerLevel;
         levelProgressBar.maximum = xpToLevelUp;
         levelProgressBar.current = xp;
+            MoneyText.text = "$" + money;
 		}
     }
 }
