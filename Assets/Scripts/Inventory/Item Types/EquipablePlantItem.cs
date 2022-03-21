@@ -8,7 +8,7 @@ public class EquipablePlantItem : Item
 {
 	public SOPlant plantSO;
 
-	[HideInInspector] public bool isEquipped = false;
+	[ReadOnlyInspector] public bool isEquipped = false;
 
 	Image equippedCheckmark;
 	Inventory inventory;
@@ -46,6 +46,8 @@ public class EquipablePlantItem : Item
 		BattleSetupData.plantSO = plantSO;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
+
+		Debug.Log(BattleSetupData.plantSO.unitName);
 
 		if (BattleSystem.instance == null) return;
 

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
 
-    public static bool timeActive = true;
+    public static bool timeActive { get; private set; } = true;
 
     InventoryInputManager inventoryInputManager;
 	#endregion

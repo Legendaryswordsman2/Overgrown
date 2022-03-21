@@ -17,6 +17,7 @@ public class PlayTransitionOnSceneChange : MonoBehaviour
 
 	private void OnNewSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
+		GameManager.StartTime();
 		LevelLoader.instance.GetComponent<Animator>().SetTrigger(transitionTriggerName);
 		if (newPlayerPosition != null && newPlayerPosition != new Vector3(0, 0, 0))
 		{
