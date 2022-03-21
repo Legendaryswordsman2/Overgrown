@@ -89,7 +89,6 @@ public abstract class BaseUnit : MonoBehaviour
 		if (isBlocking)
 		{
 			_damage /= 2;
-			Debug.Log("IS blocking " + _damage);
 			StartCoroutine(HurtWhileBlocking());
 		}
 		else
@@ -135,7 +134,6 @@ public abstract class BaseUnit : MonoBehaviour
 		{
 		currentHealth += amount;
 		}
-		UseItem();
 	}
 
 	protected bool LerpToTarget(Vector3 endPosition)

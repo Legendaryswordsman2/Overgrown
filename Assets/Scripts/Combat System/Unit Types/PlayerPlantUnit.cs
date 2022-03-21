@@ -106,7 +106,6 @@ public class PlayerPlantUnit : BaseUnit
 	}
 	public override void TakeDamage(int _damage, bool isCritical)
 	{
-		Debug.Log(_damage + " Plant");
 		base.TakeDamage(_damage, isCritical);
 		if (currentHealth >= 0)
 		{

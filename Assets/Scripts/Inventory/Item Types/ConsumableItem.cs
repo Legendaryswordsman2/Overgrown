@@ -11,10 +11,8 @@ public class ConsumableItem : Item
 	{
 		BattleSystem battleSystem = BattleSystem.instance;
 
-		if (battleSystem == null)
-		{
-			return;
-		}
+		if (battleSystem == null) return;
+
 
 		if (!battleSystem.playerHasPlant)
 		{
@@ -36,8 +34,5 @@ public class ConsumableItem : Item
 		{
 			effect.ExecuteEffect(unit);
 		}
-
-		BattleSystem.instance.playerUnit.CallNextTurn();
-		
 	}
 }

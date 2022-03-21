@@ -23,5 +23,6 @@ public class CombatInfoHUD : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1.5f);
 		healthSlider.current = health;
+		BattleSystem.instance.playerUnit.CallNextTurn();
 	}
 }

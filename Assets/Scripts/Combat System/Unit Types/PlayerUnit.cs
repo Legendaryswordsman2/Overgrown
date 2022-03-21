@@ -91,7 +91,7 @@ public class PlayerUnit : BaseUnit
 	{
 		base.ChooseAction();
 
-		battleSystem.state = BattleState.PlayerTurn;
+		BattleSystem.instance.state = BattleState.PlayerTurn;
 
 		if (anim != null)
 			anim.Play("Idle Animation");
@@ -174,7 +174,6 @@ public class PlayerUnit : BaseUnit
 		if (battleSystem.playerHasPlant)
 		{
 			battleSystem.playerChoices.SetActive(false);
-			Debug.Log("Plant Turn now");
 			battleSystem.playerPlantUnit.ChooseAction();
 		}
 		else
@@ -184,7 +183,6 @@ public class PlayerUnit : BaseUnit
 	}
 	public void CallNextTurn()
 	{
-		Debug.Log("Call next turn");
 		StartCoroutine(NextTurn());
 	}
 
@@ -192,6 +190,7 @@ public class PlayerUnit : BaseUnit
 	{
 		base.Heal(amount);
 		StartCoroutine(playerHUD.SetHealthFromItem(currentHealth));
+		UseItem();
 	}
 	public void EscapeBattle()
 	{
