@@ -12,5 +12,7 @@ public class ItemInfoBox : MonoBehaviour
 	{
 		itemName.text = _itemName;
 		itemDescription.text = _itemDescription;
+
+		gameObject.SetActive(true);
 	}
 }

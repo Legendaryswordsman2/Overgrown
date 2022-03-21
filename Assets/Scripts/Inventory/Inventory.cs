@@ -13,17 +13,24 @@ public class Inventory : MonoBehaviour
 	public List<QuestItem> questItems;
 	public List<EquipablePlantItem> equippablePlantItems;
 
-	[Space]
-
+	[Header("Parents")]
 	[SerializeField] GameObject categoriesParent;
 	[SerializeField] GameObject categoryButtonsParent;
 	[SerializeField] GameObject junkItemSlotParent;
 	[SerializeField] GameObject consumableItemSlotParent;
 	[SerializeField] GameObject questItemSlotParent;
 	[SerializeField] GameObject EquipablePlantItemSlotParent;
+
+	[field: Header("Other Refernces")]
 	[field: SerializeField] public ItemInfoBox itemInfoBox { get; private set; }
+	[field: SerializeField] public PlantInfoBox plantInfoBox { get; private set; }
 
 	ItemSlot[] equippablePlantItemSlots;
+
+	[Header("Item Slots")]
+	[SerializeField] List<ItemSlot> junkItemSlots = new List<ItemSlot>();
+	[SerializeField] List<ItemSlot> consumableItemSlots = new List<ItemSlot>();
+	[SerializeField] List<ItemSlot> questItemSlots = new List<ItemSlot>();
 
 	[SerializeField] GameObject itemSlotPrefab;
 
@@ -171,6 +178,7 @@ public class Inventory : MonoBehaviour
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
 			equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
+			equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
 			equippablePlantItems[i].plantSO.attackDamage = equippablePlantitemsSave[i].attackDamage;
 			equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
 			equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
@@ -200,17 +208,23 @@ public class Inventory : MonoBehaviour
 	{
 		for (int i = 0; i < junkItems.Count; i++)
 		{
-			Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(junkItems[i]);
+			var itemSlot = Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>();
+			itemSlot.SetSlot(junkItems[i]);
+			junkItemSlots.Add(itemSlot);
 		}
 
 		for (int i = 0; i < consumableItems.Count; i++)
 		{
-			Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(consumableItems[i]);
+			var itemSlot = Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>();
+			itemSlot.SetSlot(consumableItems[i]);
+			consumableItemSlots.Add(itemSlot);
 		}
 
 		for (int i = 0; i < questItems.Count; i++)
 		{
-			Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>().SetSlot(questItems[i]);
+			var itemSlot = Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>();
+			itemSlot.SetSlot(questItems[i]);
+			questItemSlots.Add(itemSlot);
 		}
 
 
@@ -258,4 +272,47 @@ public class Inventory : MonoBehaviour
 		OnPlantItemSelected?.Invoke(this, EventArgs.Empty);
 	}
 
+	public void AddItem(Item item)
+	{
+		if(item is JunkItem junkItem)
+		{
+			junkItems.Add(junkItem);
+		}
+		else if(item is ConsumableItem consumableItem)
+		{
+			consumableItems.Add(consumableItem);
+		}
+		else if (item is QuestItem questItem)
+		{
+			questItems.Add(questItem);
+		}
+		//else if (item is MeleeWeapon meleeWeapon)
+		//{
+			
+		//}
+		//else if (item is RangedWeapon rangedWeapon)
+		//{
+
+		//}
+		//else if (item is Armor armor)
+		//{
+
+		//}
+	}
+
+	public void RemoveItem(Item item)
+	{
+		if(item is JunkItem junkItem)
+		{
+			junkItems.Remove(junkItem);
+		}
+		else if (item is ConsumableItem consumableItem)
+		{
+			consumableItems.Remove(consumableItem);
+		}
+		else if (item is QuestItem questItem)
+		{
+			questItems.Remove(questItem);
+		}
+	}
 }

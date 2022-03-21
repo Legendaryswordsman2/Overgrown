@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5c79f34c24278c846a3666e960cb407a
   ItemName: Small Health Plant
-  ItemDescription: Some Random Item
+  ItemDescription: 'A slightly magical potion capable of healing small wounds.
+
+
+    -Heals
+    for 20 HP'
   Icon: {fileID: -3100480105601499812, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   MaximumStacks: 1
   effects:

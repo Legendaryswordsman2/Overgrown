@@ -43,12 +43,17 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
+		if(item is EquipablePlantItem plantItem)
+		{
+			Inventory.instance.plantInfoBox.SetInfoBox(plantItem.plantSO);
+			return;
+		}
 		Inventory.instance.itemInfoBox.SetInfoBox(item.ItemName.ToUpper(), item.ItemDescription.ToUpper());
-		Inventory.instance.itemInfoBox.gameObject.SetActive(true);
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
+		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
 	}
 }
