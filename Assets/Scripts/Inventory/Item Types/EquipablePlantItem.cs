@@ -8,7 +8,7 @@ public class EquipablePlantItem : Item
 {
 	public SOPlant plantSO;
 
-	[ReadOnlyInspector] public bool isEquipped = false;
+	[HideInInspector] public bool isEquipped = false;
 
 	Image equippedCheckmark;
 	Inventory inventory;
@@ -55,7 +55,7 @@ public class EquipablePlantItem : Item
 		battleSystem.playerPlantUnit.SetupPlant();
 	}
 
-	private void Awake() // Called when a new instance is createed
+	public void InitNewCopy() // Called when a new instance is createed
 	{
 		plantSO = Instantiate(plantSO); // Create a copy
 	}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 180e7101e122d5542902f1f59e589765
   unitName: Tomato
-  defaultHealth: 300
+  defaultHealth: 400
+  currentHealth: 300
   attackDamage: 900
   defense: 0
   critChance: 0
