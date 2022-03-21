@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
             else
             { // Close Inventory
                 inventory.gameObject.SetActive(false);
+                Inventory.instance.itemInfoBox.gameObject.SetActive(false);
                 playerHealthBar.SetActive(true);
                 StartTime();
             }

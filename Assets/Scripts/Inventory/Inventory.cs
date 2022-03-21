@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject consumableItemSlotParent;
 	[SerializeField] GameObject questItemSlotParent;
 	[SerializeField] GameObject EquipablePlantItemSlotParent;
+	[field: SerializeField] public ItemInfoBox itemInfoBox { get; private set; }
 
 	ItemSlot[] equippablePlantItemSlots;
 

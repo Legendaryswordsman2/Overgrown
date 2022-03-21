@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	[field: SerializeField] public Item item { get; private set; }
 	[SerializeField] Image icon;
@@ -38,5 +39,16 @@ public class ItemSlot : MonoBehaviour
 		icon.sprite = item.Icon;
 		icon.enabled = true;
 		nameText.text = item.ItemName;
+	}
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		Inventory.instance.itemInfoBox.SetInfoBox(item.ItemName.ToUpper(), item.ItemDescription.ToUpper());
+		Inventory.instance.itemInfoBox.gameObject.SetActive(true);
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
 	}
 }

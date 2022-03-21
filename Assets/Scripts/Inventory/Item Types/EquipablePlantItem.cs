@@ -47,8 +47,6 @@ public class EquipablePlantItem : Item
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
 
-		Debug.Log(BattleSetupData.plantSO.unitName);
-
 		if (BattleSystem.instance == null) return;
 
 		BattleSystem battleSystem = BattleSystem.instance;
