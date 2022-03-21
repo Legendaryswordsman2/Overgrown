@@ -44,6 +44,8 @@ public class BattleSystem : MonoBehaviour
 	// Private
 	[HideInInspector] public bool playerHasPlant = true;
 
+	public int enemySelectionIndex = 0;
+
 	// Rewards Given when battle won
 	[HideInInspector] public int xpGiven;
 	[HideInInspector] public int moneyGiven;

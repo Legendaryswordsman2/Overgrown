@@ -75,7 +75,6 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 	public virtual void TakeDamage(int _damage, bool isCritical)
 	{
-		Debug.Log(_damage + "   1");
 		if(_damage <= 0)
 		{
 			damageText.text = "MISS";
@@ -83,11 +82,9 @@ public abstract class BaseUnit : MonoBehaviour
 			damageText.gameObject.SetActive(true);
 			return;
 		}
-		Debug.Log(_damage + "   2");
 
 		if (isCritical)
 			damageText.color = Color.green;
-		Debug.Log(_damage + "   3");
 
 		if (isBlocking)
 		{
@@ -99,18 +96,14 @@ public abstract class BaseUnit : MonoBehaviour
 		{
 			anim.Play("Hurt Animation");
 		}
-		Debug.Log(_damage + "   4");
 
 		damageText.text = _damage.ToString();
 
 		if(isCritical == false)
 		damageText.color = Color.white;
-		Debug.Log(_damage + "   5");
 
 		damageText.gameObject.SetActive(true);
-		Debug.Log(_damage + "   6");
 		currentHealth -= _damage;
-		Debug.Log(_damage + "   7");
 
 		if (currentHealth <= 0) Die();
 	}

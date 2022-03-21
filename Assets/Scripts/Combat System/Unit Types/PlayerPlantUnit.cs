@@ -8,8 +8,6 @@ public class PlayerPlantUnit : BaseUnit
 
 	AttackType attackType;
 
-	int enemySelectionIndex = 0;
-
 	[ReadOnlyInspector] public SOPlant plantSO;
 
 	public void SetupPlant()
@@ -46,26 +44,26 @@ public class PlayerPlantUnit : BaseUnit
 
 			if (Input.GetKeyDown(KeyCode.W))
 			{
-				if (enemySelectionIndex <= 0) return;
-				enemySelectionIndex--;
+				if (battleSystem.enemySelectionIndex <= 0) return;
+				battleSystem.enemySelectionIndex--;
 
 				for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
 				{
 					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 				}
-				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 			}
 
 			if (Input.GetKeyDown(KeyCode.S))
 			{
-				if (enemySelectionIndex >= battleSystem.enemiesAlive.Count - 1) return;
-				enemySelectionIndex++;
+				if (battleSystem.enemySelectionIndex >= battleSystem.enemiesAlive.Count - 1) return;
+				battleSystem.enemySelectionIndex++;
 
 				for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
 				{
 					battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 				}
-				battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 			}
 		}
 	}
@@ -87,11 +85,11 @@ public class PlayerPlantUnit : BaseUnit
 
 		battleSystem.playerPlantChoices.SetActive(false);
 
-		if (enemySelectionIndex < 0) enemySelectionIndex = 0;
+		if (battleSystem.enemySelectionIndex < 0) battleSystem.enemySelectionIndex = 0;
 
-		if (enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
+		if (battleSystem.enemySelectionIndex > battleSystem.enemiesAlive.Count - 1) battleSystem.enemySelectionIndex = battleSystem.enemiesAlive.Count - 1;
 
-		battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
+		battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 
 		currentMode = CurrentMode.AwaitingTargetToAttack;
 	}
@@ -102,7 +100,7 @@ public class PlayerPlantUnit : BaseUnit
 			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 		}
 
-		locationToAttackTarget = battleSystem.enemiesAlive[enemySelectionIndex].transform.GetChild(2).position;
+		locationToAttackTarget = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(2).position;
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
@@ -143,7 +141,7 @@ public class PlayerPlantUnit : BaseUnit
 		else
 			isCritical = false;
 
-		battleSystem.enemiesAlive[enemySelectionIndex].TakeDamage((int)modifiedDamage, isCritical);
+		battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].TakeDamage((int)modifiedDamage, isCritical);
 	}
 	protected override void OnReturnedToBasePosition()
 	{
