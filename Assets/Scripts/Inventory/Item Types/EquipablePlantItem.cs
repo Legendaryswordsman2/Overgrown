@@ -14,6 +14,29 @@ public class EquipablePlantItem : Item
 	Inventory inventory;
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
+		if (isEquipped)
+		{
+			isEquipped = false;
+			BattleSetupData.plantSO = null;
+
+			equippedCheckmark = itemSlot.equippedCheckmark;
+			equippedCheckmark.enabled = false;
+
+			if (BattleSystem.instance == null) return;
+
+			BattleSystem _battleSystem = BattleSystem.instance;
+
+			_battleSystem.playerPlantUnit.DisablePlant();
+
+			inventory.OnPlantItemSelected -= UnequipPlantItem;
+
+			_battleSystem.inventory.gameObject.SetActive(false);
+
+			_battleSystem.playerUnit.CallNextTurn();
+
+			return;
+		}
+
 ;		inventory = Inventory.instance;
 		inventory.InvokeOnPlantItemSelected();
 

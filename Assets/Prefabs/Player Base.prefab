@@ -1467,7 +1467,7 @@ GameObject:
   - component: {fileID: 1693892996}
   - component: {fileID: 1693892995}
   m_Layer: 5
-  m_Name: Max Health %
+  m_Name: Max Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2239,14 +2239,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9ad0e04b9f10048ab8b3b8030b763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 147
+  currentHealth: 0
   defense: 0
   damage: 10
   critChance: 0
-  healthText: {fileID: 7809169512137163263}
-  defenseText: {fileID: 7809169512156362469}
-  damageText: {fileID: 7809169511164941627}
-  critChanceText: {fileID: 7809169510365549053}
+  playerHealthBar: {fileID: 1226180916571673221}
+  currentHealthText: {fileID: 1226180917221182377}
+  maxHealthText: {fileID: 1693892995}
+  healthTextStat: {fileID: 7809169512137163263}
+  defenseTextStat: {fileID: 7809169512156362469}
+  damageTextStat: {fileID: 7809169511164941627}
+  critChanceTextStat: {fileID: 7809169510365549053}
 --- !u!114 &2406020429540395382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,7 +3860,7 @@ GameObject:
   - component: {fileID: 1226180917221182376}
   - component: {fileID: 1226180917221182377}
   m_Layer: 5
-  m_Name: Health %
+  m_Name: Current Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

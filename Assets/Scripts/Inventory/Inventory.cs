@@ -228,7 +228,6 @@ public class Inventory : MonoBehaviour
 			questItemSlots.Add(itemSlot);
 		}
 
-
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
 			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);

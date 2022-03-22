@@ -8,15 +8,22 @@ public class PlayerStats : MonoBehaviour
 {
 	[Header("Starting Stats")]
 	public int maxHealth = 100;
+	[ReadOnlyInspector] public int currentHealth = 0;
 	public int defense = 0;
 	public int damage = 10;
 	public int critChance = 0;
 
 	[Header("Stats Refernces")]
-	[SerializeField] TMP_Text healthText;
-	[SerializeField] TMP_Text defenseText;
-	[SerializeField] TMP_Text damageText;
-	[SerializeField] TMP_Text critChanceText;
+	[SerializeField] ProgressBar playerHealthBar;
+	[SerializeField] TMP_Text currentHealthText;
+	[SerializeField] TMP_Text maxHealthText;
+
+	[Space]
+
+	[SerializeField] TMP_Text healthTextStat;
+	[SerializeField] TMP_Text defenseTextStat;
+	[SerializeField] TMP_Text damageTextStat;
+	[SerializeField] TMP_Text critChanceTextStat;
 
 	SaveManager saveManager;
 
@@ -30,12 +37,18 @@ public class PlayerStats : MonoBehaviour
 
 	private void Start()
 	{
-		if (healthText == null) return;
+		if (healthTextStat == null) return;
 
-		healthText.text += " " + maxHealth;
-		defenseText.text += " " + defense;
-		damageText.text += " " + damage;
-		critChanceText.text += " " + critChance;
+		healthTextStat.text += " " + maxHealth;
+		defenseTextStat.text += " " + defense;
+		damageTextStat.text += " " + damage;
+		critChanceTextStat.text += " " + critChance;
+
+		playerHealthBar.maximum = maxHealth;
+		playerHealthBar.current = currentHealth;
+
+		currentHealthText.text = currentHealth.ToString();
+		maxHealthText.text = "       / " + maxHealth.ToString();
 	}
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
@@ -47,9 +60,15 @@ public class PlayerStats : MonoBehaviour
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
 		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats.json");
-		if (statsData == null) return;
+		if (statsData == null)
+		{
+			currentHealth = maxHealth;
+			return;
+		}
+
 
 		maxHealth = statsData.maxHealth;
+		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
 		damage = statsData.damage;
 		critChance = statsData.critChance;

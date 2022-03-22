@@ -10,11 +10,20 @@ public class PlayerUnit : BaseUnit
 	[field: SerializeField] public CombatInfoHUD playerHUD { get; private set; }
 
 	AttackType attackType;
+
+	PlayerStatsSaveData playerStats;
 	protected override void Setup()
 	{
 		base.Setup();
 
 		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
+		SaveManager.instance.OnSavingGame += SaveManager_OnSavingGame;
+	}
+
+	private void SaveManager_OnSavingGame(object sender, EventArgs e)
+	{
+		playerStats.currentHealth = currentHealth;
+		SaveSystem.SaveFile("/Player", "/PlayerStats.json", playerStats);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
@@ -22,8 +31,10 @@ public class PlayerUnit : BaseUnit
 		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats.json");
 		if (statsData == null) return;
 
+		playerStats = statsData;
+
 		maxHealth = statsData.maxHealth;
-		currentHealth = maxHealth;
+		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
 		damage = statsData.damage;
 		critChance = statsData.critChance;

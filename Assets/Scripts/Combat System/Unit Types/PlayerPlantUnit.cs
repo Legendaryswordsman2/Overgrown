@@ -27,6 +27,16 @@ public class PlayerPlantUnit : BaseUnit
 		gameObject.SetActive(true);
 	}
 
+	public void DisablePlant()
+	{
+		plantSO = null;
+
+		playerPlantHUD.gameObject.SetActive(false);
+		battleSystem.playerHasPlant = false;
+
+		gameObject.SetActive(false);
+	}
+
 	protected override void Update()
 	{
 		base.Update();

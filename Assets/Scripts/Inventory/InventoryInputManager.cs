@@ -28,6 +28,7 @@ public class InventoryInputManager : MonoBehaviour
 		}
 
 		inventory.itemInfoBox.gameObject.SetActive(false);
+		inventory.plantInfoBox.gameObject.SetActive(false);
 
 		categoryButtons.SetActive(true);
 	}
