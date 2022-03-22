@@ -33,6 +33,8 @@ public class CombatManager : MonoBehaviour
 			}
 
 			inventory.gameObject.SetActive(false);
+			inventory.itemInfoBox.gameObject.SetActive(false);
+			inventory.plantInfoBox.gameObject.SetActive(false);
 
 
 			for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)

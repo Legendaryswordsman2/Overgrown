@@ -156,6 +156,7 @@ public class Inventory : MonoBehaviour
 			equippablePlantItems[i].isEquipped = false;
 		}
 		BattleSetupData.plantSO = null;
+		RefreshInventory();
 	}
 
 	private void SaveJunkItems()
@@ -223,6 +224,50 @@ public class Inventory : MonoBehaviour
 		SetItemSlots();
 	}
 
+	public void RefreshJunkItemSlots()
+	{
+		foreach (Transform child in junkItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < junkItems.Count; i++)
+		{
+			var itemSlot = Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>();
+			itemSlot.SetSlot(junkItems[i]);
+			junkItemSlots.Add(itemSlot);
+		}
+	}
+	public void RefreshConsumableItemSlots()
+	{
+		foreach (Transform child in consumableItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < consumableItems.Count; i++)
+		{
+			var itemSlot = Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>();
+			itemSlot.SetSlot(consumableItems[i]);
+			consumableItemSlots.Add(itemSlot);
+		}
+	}
+
+	public void RefreshQuestItemSlots()
+	{
+		foreach (Transform child in questItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < questItems.Count; i++)
+		{
+			var itemSlot = Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>();
+			itemSlot.SetSlot(questItems[i]);
+			questItemSlots.Add(itemSlot);
+		}
+	}
+
 	void SetItemSlots()
 	{
 		for (int i = 0; i < junkItems.Count; i++)
@@ -237,6 +282,7 @@ public class Inventory : MonoBehaviour
 			var itemSlot = Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>();
 			itemSlot.SetSlot(consumableItems[i]);
 			consumableItemSlots.Add(itemSlot);
+			RefreshConsumableItemSlots();
 		}
 
 		for (int i = 0; i < questItems.Count; i++)
