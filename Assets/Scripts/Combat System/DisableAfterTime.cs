@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageText : MonoBehaviour
+public class DisableAfterTime : MonoBehaviour
 {
 	[SerializeField] float timeUntilDisable = 2;
 	private void OnEnable()
@@ -11,7 +11,7 @@ public class DamageText : MonoBehaviour
 	}
 	IEnumerator Timer()
 	{
-		yield return new WaitForSeconds(timeUntilDisable);
+		yield return new WaitForSecondsRealtime(timeUntilDisable);
 		gameObject.SetActive(false);
 	}
 }

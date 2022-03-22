@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
 	[field: Header("Other Refernces")]
 	[field: SerializeField] public ItemInfoBox itemInfoBox { get; private set; }
 	[field: SerializeField] public PlantInfoBox plantInfoBox { get; private set; }
+	[field: SerializeField] public GameObject CantEquipPlantPopup { get; private set; }
 
 	ItemSlot[] equippablePlantItemSlots;
 
@@ -146,6 +147,15 @@ public class Inventory : MonoBehaviour
 			consumableItemIDs.Add(consumableItems[i].ID);
 		}
 		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData.json", consumableItemIDs);
+	}
+
+	public void UnequipPlant()
+	{
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			equippablePlantItems[i].isEquipped = false;
+		}
+		BattleSetupData.plantSO = null;
 	}
 
 	private void SaveJunkItems()

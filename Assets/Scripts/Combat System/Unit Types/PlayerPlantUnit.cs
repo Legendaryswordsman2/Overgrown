@@ -139,6 +139,7 @@ public class PlayerPlantUnit : BaseUnit
 	{
 		base.Die();
 		battleSystem.playerHasPlant = false;
+		Inventory.instance.UnequipPlant();
 	}
 	protected override void OnAttack()
 	{
