@@ -10,7 +10,6 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 	PlayerUnit playerUnit;
 	PlayerPlantUnit plantUnit;
 	ConsumableItem itemToUse;
-	ItemSlot itemSlot;
 
 	private void Awake()
 	{
@@ -28,7 +27,7 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				itemToUse.UseItem(unitToUseItemOn);
-				Destroy(itemSlot.gameObject);
+				Inventory.instance.RemoveItem(itemToUse);
 				unitToUseItemOn.transform.GetChild(1).gameObject.SetActive(false);
 
 				if (unitToUseItemOn == playerUnit)
@@ -61,10 +60,9 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 			}
 		}
 	}
-	public void ChooseTargetToUseItem(ConsumableItem _itemToUse, ItemSlot _itemSlot)
+	public void ChooseTargetToUseItem(ConsumableItem _itemToUse)
 	{
 		itemToUse = _itemToUse;
-		itemSlot = _itemSlot;
 
 		playerUnit.transform.GetChild(1).gameObject.SetActive(true);
 		plantUnit.transform.GetChild(1).gameObject.SetActive(false);

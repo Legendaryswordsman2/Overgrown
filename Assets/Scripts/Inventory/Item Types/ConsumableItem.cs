@@ -18,12 +18,12 @@ public class ConsumableItem : Item
 		{
 			UseItem(battleSystem.playerUnit);
 			battleSystem.inventory.gameObject.SetActive(false);
-			Destroy(itemSlot.gameObject);
+			Inventory.instance.RemoveItem(this);
 		}
 		else
 		{
 			battleSystem.inventory.gameObject.SetActive(false);
-			battleSystem.GetComponent<ChooseTargetToUseItemOn>().ChooseTargetToUseItem(this, itemSlot);
+			battleSystem.GetComponent<ChooseTargetToUseItemOn>().ChooseTargetToUseItem(this);
 		}
 
 	}

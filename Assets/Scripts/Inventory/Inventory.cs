@@ -359,14 +359,17 @@ public class Inventory : MonoBehaviour
 		if(item is JunkItem junkItem)
 		{
 			junkItems.Add(junkItem);
+			RefreshJunkItemSlots();
 		}
 		else if(item is ConsumableItem consumableItem)
 		{
 			consumableItems.Add(consumableItem);
+			RefreshConsumableItemSlots();
 		}
 		else if (item is QuestItem questItem)
 		{
 			questItems.Add(questItem);
+			RefreshQuestItemSlots();
 		}
 		//else if (item is MeleeWeapon meleeWeapon)
 		//{
@@ -387,14 +390,17 @@ public class Inventory : MonoBehaviour
 		if(item is JunkItem junkItem)
 		{
 			junkItems.Remove(junkItem);
+			RefreshJunkItemSlots();
 		}
 		else if (item is ConsumableItem consumableItem)
 		{
 			consumableItems.Remove(consumableItem);
+			RefreshConsumableItemSlots();
 		}
 		else if (item is QuestItem questItem)
 		{
 			questItems.Remove(questItem);
+			RefreshQuestItemSlots();
 		}
 	}
 }
