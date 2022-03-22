@@ -26,9 +26,9 @@ public class Inventory : MonoBehaviour
 	[field: SerializeField] public PlantInfoBox plantInfoBox { get; private set; }
 	[field: SerializeField] public GameObject CantEquipPlantPopup { get; private set; }
 
-	ItemSlot[] equippablePlantItemSlots;
 
 	[Header("Item Slots")]
+	[SerializeField] List<ItemSlot> equippablePlantItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> junkItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> consumableItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> questItemSlots = new List<ItemSlot>();
@@ -268,6 +268,27 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
+	public void RefreshEquippablePlantItemSlots()
+	{
+		foreach (Transform child in EquipablePlantItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			var ItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(equippablePlantItems[i]);
+			equippablePlantItemSlots.Add(ItemSlot);
+
+			if (ItemSlot.item is EquipablePlantItem c)
+				if (c.isEquipped)
+				{
+					c.EquipPlantOnSceneLoaded(ItemSlot.GetComponent<ItemSlot>());
+				}
+		}
+	}
+
 	void SetItemSlots()
 	{
 		for (int i = 0; i < junkItems.Count; i++)
@@ -282,7 +303,6 @@ public class Inventory : MonoBehaviour
 			var itemSlot = Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>();
 			itemSlot.SetSlot(consumableItems[i]);
 			consumableItemSlots.Add(itemSlot);
-			RefreshConsumableItemSlots();
 		}
 
 		for (int i = 0; i < questItems.Count; i++)
@@ -294,18 +314,16 @@ public class Inventory : MonoBehaviour
 
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
-			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
+			var ItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(equippablePlantItems[i]);
+			equippablePlantItemSlots.Add(ItemSlot);
 
-			var tempItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform);
-			tempItemSlot.GetComponent<ItemSlot>().SetSlot(equippablePlantItems[i]);
-
-			if (tempItemSlot.GetComponent<ItemSlot>().item is EquipablePlantItem c)
+			if (ItemSlot.item is EquipablePlantItem c)
 				if (c.isEquipped)
 				{
-					c.EquipPlantOnSceneLoaded(tempItemSlot.GetComponent<ItemSlot>());
+					c.EquipPlantOnSceneLoaded(ItemSlot.GetComponent<ItemSlot>());
 				}
 		}
-		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 	}
 
 	void ClearItemSlots()
