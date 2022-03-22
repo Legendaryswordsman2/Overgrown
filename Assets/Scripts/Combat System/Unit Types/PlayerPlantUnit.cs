@@ -16,7 +16,7 @@ public class PlayerPlantUnit : BaseUnit
 
 		unitName = plantSO.unitName;
 		maxHealth = plantSO.defaultHealth;
-		currentHealth = maxHealth;
+		currentHealth = plantSO.currentHealth;
 		damage = plantSO.attackDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
 		playerPlantHUD.SetHUD(this);
@@ -120,10 +120,12 @@ public class PlayerPlantUnit : BaseUnit
 		if (currentHealth >= 0)
 		{
 			playerPlantHUD.SetHealth(currentHealth);
+			plantSO.currentHealth = currentHealth;
 		}
 		else
 		{
 			playerPlantHUD.SetHealth(0);
+			plantSO.currentHealth = 0;
 		}
 	}
 	public override void Heal(int amount)
@@ -131,6 +133,7 @@ public class PlayerPlantUnit : BaseUnit
 		base.Heal(amount);
 		StartCoroutine(playerPlantHUD.SetHealthFromItem(currentHealth));
 		battleSystem.playerUnit.UseItem();
+		plantSO.currentHealth = currentHealth;
 	}
 	protected override void Die()
 	{

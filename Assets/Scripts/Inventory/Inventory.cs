@@ -50,10 +50,11 @@ public class Inventory : MonoBehaviour
 		saveManager.OnSavingGame += SaveManager_OnSavingGame;
 
 		GetComponent<CanvasGroup>().alpha = 1;
-		//gameObject.SetActive(false);
 
-		ClearItems();
+		ClearItemSlots();
 	}
+
+	#region Save and Load
 
 	private void SaveManager_OnSavingGame(object sender, EventArgs e)
 	{
@@ -186,6 +187,7 @@ public class Inventory : MonoBehaviour
 			equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
 		}
 	}
+	#endregion
 
 	public void GoToCategory(GameObject categoryToOpen)
 	{
@@ -203,6 +205,12 @@ public class Inventory : MonoBehaviour
 		junkItemSlotParent.transform.position = new Vector3(junkItemSlotParent.transform.position.x, 0);
 		consumableItemSlotParent.transform.position = new Vector3(consumableItemSlotParent.transform.position.x, 0);
 		questItemSlotParent.transform.position = new Vector3(questItemSlotParent.transform.position.x, 0);
+	}
+
+	public void RefreshInventory()
+	{
+		ClearItemSlots();
+		SetItemSlots();
 	}
 
 	void SetItemSlots()
@@ -244,7 +252,7 @@ public class Inventory : MonoBehaviour
 		equippablePlantItemSlots = EquipablePlantItemSlotParent.GetComponentsInChildren<ItemSlot>();
 	}
 
-	void ClearItems()
+	void ClearItemSlots()
 	{
 		foreach (Transform child in junkItemSlotParent.transform)
 		{
