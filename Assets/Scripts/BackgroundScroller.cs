@@ -7,7 +7,7 @@ public class BackgroundScroller : MonoBehaviour
 	MeshRenderer backgroundMeshRenderer;
 	Vector2 textureOffset = Vector2.zero;
 
-	[SerializeField] float speed = 1;
+	[SerializeField] float speed = 0.05f;
 
 	private void Start()
 	{
