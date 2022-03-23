@@ -36277,6 +36277,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: armorItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: armorItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f70f70603f67584280cc4d8a2ab9e6a, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: armorItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e59b2085759a05c42acd64204820c481, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: meleeWeaponItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: rangedWeaponItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: meleeWeaponItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b32b56c1f61e6f488dadcf182e0e900, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: meleeWeaponItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e13d942095e1684f90676f596d67e05, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: rangedWeaponItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e3b7cb235a1f5654c9a6fc1b28f66b19, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: rangedWeaponItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b30405f3519afa54e95456f10ac2286f, type: 2}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base

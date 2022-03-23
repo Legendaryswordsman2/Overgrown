@@ -41,6 +41,7 @@ public class InventorySaveSystem : MonoBehaviour
 		LoadJunkItems();
 		LoadConsumableItems();
 		LoadQuestItems();
+		LoadMeleeWeaponItems();
 
 		inventory.SetItemSlots();
 		gameObject.SetActive(false);
@@ -86,16 +87,6 @@ public class InventorySaveSystem : MonoBehaviour
 		}
 		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", equippablePlantitemsSave);
 	}
-	private void SaveArmorItems()
-	{
-		List<string> armorItemIDs = new List<string>();
-
-		for (int i = 0; i < inventory.armorItems.Count; i++)
-		{
-			armorItemIDs.Add(inventory.armorItems[i].ID);
-		}
-		SaveSystem.SaveFile("/Player/Inventory", "/ArmorItemData.json", armorItemIDs);
-	}
 	private void SaveMeleeWeaponItems()
 	{
 		List<string> meleeWeaponItemIDs = new List<string>();
@@ -115,6 +106,16 @@ public class InventorySaveSystem : MonoBehaviour
 			rangedWeaponItemIDs.Add(inventory.rangedWeaponItems[i].ID);
 		}
 		SaveSystem.SaveFile("/Player/Inventory", "/RangedWeaponItemData", rangedWeaponItemIDs);
+	}
+	private void SaveArmorItems()
+	{
+		List<string> armorItemIDs = new List<string>();
+
+		for (int i = 0; i < inventory.armorItems.Count; i++)
+		{
+			armorItemIDs.Add(inventory.armorItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/ArmorItemData.json", armorItemIDs);
 	}
 
 	private void LoadQuestItems()
@@ -179,6 +180,18 @@ public class InventorySaveSystem : MonoBehaviour
 			inventory.equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
 			inventory.equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
 			inventory.equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
+		}
+	}
+	private void LoadMeleeWeaponItems()
+	{
+		List<string> meleeWeaponIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/MeleeWeaponItemData");
+		if (meleeWeaponIDs == null) return;
+
+		inventory.meleeWeaponItems.Clear();
+
+		foreach (string itemID in meleeWeaponIDs)
+		{
+			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(itemID));
 		}
 	}
 	#endregion

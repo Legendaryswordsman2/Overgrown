@@ -66,6 +66,39 @@ public class Database : ScriptableObject
 		}
 		return null;
 	}
+	public MeleeWeapon GetMeleeWeaponItem(string itemID)
+	{
+		foreach (MeleeWeapon item in meleeWeaponItems)
+		{
+			if (item.ID == itemID)
+			{
+				return item;
+			}
+		}
+		return null;
+	}
+	public RangedWeapon GetRangedWeaponItem(string itemID)
+	{
+		foreach (RangedWeapon item in rangedWeaponItems)
+		{
+			if (item.ID == itemID)
+			{
+				return item;
+			}
+		}
+		return null;
+	}
+	public Armor GetArmorItem(string itemID)
+	{
+		foreach (Armor item in armorItems)
+		{
+			if (item.ID == itemID)
+			{
+				return item;
+			}
+		}
+		return null;
+	}
 
 #if UNITY_EDITOR
 	private void OnValidate()
@@ -128,5 +161,6 @@ public class Database : ScriptableObject
 		}
 		return assets;
 	}
+
 #endif
 }
