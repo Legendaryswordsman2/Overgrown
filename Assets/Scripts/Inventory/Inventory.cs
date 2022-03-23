@@ -13,6 +13,11 @@ public class Inventory : MonoBehaviour
 	public List<QuestItem> questItems;
 	public List<EquipablePlantItem> equippablePlantItems;
 
+	[Header("Gear")]
+	public List<Armor> armorItems;
+	public List<MeleeWeapon> meleeWeaponItems;
+	public List<RangedWeapon> rangedWeaponItems;
+
 	[Header("Parents")]
 	[SerializeField] GameObject categoriesParent;
 	[SerializeField] GameObject categoryButtonsParent;
@@ -59,10 +64,16 @@ public class Inventory : MonoBehaviour
 
 	private void SaveManager_OnSavingGame(object sender, EventArgs e)
 	{
+		// Items
 		SaveEquippablePlantItems();
 		SaveJunkItems();
 		SaveConsumableItems();
 		SaveQuestItems();
+
+		// Gear
+		SaveArmorItems();
+		SaveMeleeWeaponItems();
+		SaveRangedWeaponItems();
 	}
 
 
@@ -135,7 +146,7 @@ public class Inventory : MonoBehaviour
 		{
 			questItemIDs.Add(questItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/questItemData.json", questItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory", "/QuestItemData.json", questItemIDs);
 	}
 
 	private void SaveConsumableItems()
@@ -147,6 +158,38 @@ public class Inventory : MonoBehaviour
 			consumableItemIDs.Add(consumableItems[i].ID);
 		}
 		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData.json", consumableItemIDs);
+	}
+
+	private void SaveArmorItems()
+	{
+		List<string> armorItemIDs = new List<string>();
+
+		for (int i = 0; i < armorItems.Count; i++)
+		{
+			armorItemIDs.Add(armorItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/ArmorItemData.json", armorItemIDs);
+	}
+	
+	private void SaveMeleeWeaponItems()
+	{
+		List<string> meleeWeaponItemIDs = new List<string>();
+
+		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		{
+			meleeWeaponItemIDs.Add(meleeWeaponItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/MeleeWeaponItemData", meleeWeaponItemIDs);
+	}
+	private void SaveRangedWeaponItems()
+	{
+		List<string> rangedWeaponItemIDs = new List<string>();
+
+		for (int i = 0; i < rangedWeaponItems.Count; i++)
+		{
+			rangedWeaponItemIDs.Add(rangedWeaponItems[i].ID);
+		}
+		SaveSystem.SaveFile("/Player/Inventory", "/RangedWeaponItemData", rangedWeaponItemIDs);
 	}
 
 	public void UnequipPlant()
