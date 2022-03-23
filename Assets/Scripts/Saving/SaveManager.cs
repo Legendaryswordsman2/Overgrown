@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour
 	public event EventHandler OnSavingGame;
 	public event EventHandler OnLoadingGame;
 
-	bool quitingGame = false;
+	bool canSave = true;
 
 	public void MakeTempMainSave()
 	{
@@ -35,7 +35,7 @@ public class SaveManager : MonoBehaviour
 		Debug.Log("Deleted temp save");
 	}
 
-	private void Awake()
+	private void Awake() // Set Instance
 	{
 		if (instance != null)
 			Destroy(this);
@@ -45,7 +45,6 @@ public class SaveManager : MonoBehaviour
 
 	private void Start() // Load Game
 	{
-		//SaveSystem.CreateSaveSlotSubFolders();
 		if (!Directory.Exists(SaveSystem.currentSaveLocation + "MainSave"))
 			SaveSystem.InitializeSaveSlot();
 
@@ -54,7 +53,7 @@ public class SaveManager : MonoBehaviour
 
 	private void OnDestroy() // Save Game
 	{
-		if (quitingGame) return; // If the player is quiting the game
+		if (!canSave) return; // If the class is not allowed to save
 		SaveGame(false);
 	}
 	#region Base Save and Load
@@ -67,8 +66,6 @@ public class SaveManager : MonoBehaviour
 			SaveSystem.saveSubLocation = SaveSubLocation.Temp;
 		}
 		OnSavingGame?.Invoke(this, EventArgs.Empty);
-		//SavePlayerHealth();
-		//SavePlayerXpAndLevel();
 		Debug.Log("Saved Game in: " + SaveSystem.saveSubLocation);
 
 		SaveSystem.saveSubLocation = SaveSubLocation.Temp;
@@ -93,6 +90,6 @@ public class SaveManager : MonoBehaviour
 	private void OnApplicationQuit()
 	{
 		DeleteTempSave();
-		quitingGame = true;
+		canSave = true;
 	}
 }
