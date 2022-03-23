@@ -90,6 +90,6 @@ public class SaveManager : MonoBehaviour
 	private void OnApplicationQuit()
 	{
 		DeleteTempSave();
-		canSave = true;
+		canSave = false;
 	}
 }

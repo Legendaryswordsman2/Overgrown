@@ -46,6 +46,9 @@ public class Inventory : MonoBehaviour
 
 	public event EventHandler OnPlantItemSelected;
 
+
+	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;
+
 	private void Awake()
 	{
 		instance = this;
@@ -152,9 +155,48 @@ public class Inventory : MonoBehaviour
 		BattleSetupData.plantSO = null;
 		RefreshInventory();
 	}
+	void CreateItemCopies()
+	{
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
+			equippablePlantItems[i].InitNewCopy();
+		}
+
+		if(equippablePlantitemsSave != null && equippablePlantitemsSave.Count != 0)
+		{
+			for (int i = 0; i < equippablePlantItems.Count; i++)
+			{
+				equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
+				equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
+				equippablePlantItems[i].plantSO.attackDamage = equippablePlantitemsSave[i].attackDamage;
+				equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
+				equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
+				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
+			}
+		}
+
+		//Debug.Log(meleeWeaponItems.Count);
+		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		{
+			meleeWeaponItems[i] = Instantiate(meleeWeaponItems[i]);
+		}
+
+		for (int i = 0; i < rangedWeaponItems.Count; i++)
+		{
+			rangedWeaponItems[i] = Instantiate(rangedWeaponItems[i]);
+		}
+
+		for (int i = 0; i < armorItems.Count; i++)
+		{
+			armorItems[i] = Instantiate(armorItems[i]);
+		}
+	}
 
 	public void SetItemSlots()
 	{
+		CreateItemCopies();
+
 		for (int i = 0; i < junkItems.Count; i++)
 		{
 			var itemSlot = Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>();

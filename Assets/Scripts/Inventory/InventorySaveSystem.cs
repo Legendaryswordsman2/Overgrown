@@ -167,22 +167,8 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			inventory.equippablePlantItems.Add(database.GetEquippablePlantItem(plantItem.itemID));
 		}
-
-		for (int i = 0; i < inventory.equippablePlantItems.Count; i++)
-		{
-			inventory.equippablePlantItems[i] = Instantiate(inventory.equippablePlantItems[i]);
-			inventory.equippablePlantItems[i].InitNewCopy();
-		}
-
-		for (int i = 0; i < inventory.equippablePlantItems.Count; i++)
-		{
-			inventory.equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
-			inventory.equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
-			inventory.equippablePlantItems[i].plantSO.attackDamage = equippablePlantitemsSave[i].attackDamage;
-			inventory.equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
-			inventory.equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
-			inventory.equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
-		}
+		Debug.Log(equippablePlantitemsSave.Count);
+		inventory.equippablePlantitemsSave = equippablePlantitemsSave;
 	}
 	private void LoadMeleeWeaponItems()
 	{
@@ -194,11 +180,6 @@ public class InventorySaveSystem : MonoBehaviour
 		foreach (string itemID in meleeWeaponIDs)
 		{
 			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(itemID));
-		}
-
-		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
-		{
-			inventory.meleeWeaponItems[i] = Instantiate(inventory.meleeWeaponItems[i]);
 		}
 	}
 	private void LoadRangedWeaponItems()
@@ -212,11 +193,6 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			inventory.rangedWeaponItems.Add(database.GetRangedWeaponItem(itemID));
 		}
-
-		for (int i = 0; i < inventory.rangedWeaponItems.Count; i++)
-		{
-			inventory.rangedWeaponItems[i] = Instantiate(inventory.rangedWeaponItems[i]);
-		}
 	}
 	private void LoadArmorItems()
 	{
@@ -228,11 +204,6 @@ public class InventorySaveSystem : MonoBehaviour
 		foreach (string itemID in armorIDs)
 		{
 			inventory.armorItems.Add(database.GetArmorItem(itemID));
-		}
-
-		for (int i = 0; i < inventory.armorItems.Count; i++)
-		{
-			inventory.armorItems[i] = Instantiate(inventory.armorItems[i]);
 		}
 	}
 	#endregion
