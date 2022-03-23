@@ -167,7 +167,6 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			inventory.equippablePlantItems.Add(database.GetEquippablePlantItem(plantItem.itemID));
 		}
-		Debug.Log(equippablePlantitemsSave.Count);
 		inventory.equippablePlantitemsSave = equippablePlantitemsSave;
 	}
 	private void LoadMeleeWeaponItems()

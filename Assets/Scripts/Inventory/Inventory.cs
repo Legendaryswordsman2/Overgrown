@@ -42,6 +42,10 @@ public class Inventory : MonoBehaviour
 	[SerializeField] List<ItemSlot> consumableItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> questItemSlots = new List<ItemSlot>();
 
+	[SerializeField] List<ItemSlot> meleeWeaponItemSlots = new List<ItemSlot>();
+	[SerializeField] List<ItemSlot> rangedWeaponItemSlots = new List<ItemSlot>();
+	[SerializeField] List<ItemSlot> armorItemSlots = new List<ItemSlot>();
+
 	[SerializeField] GameObject itemSlotPrefab;
 
 	public event EventHandler OnPlantItemSelected;
@@ -176,7 +180,6 @@ public class Inventory : MonoBehaviour
 			}
 		}
 
-		//Debug.Log(meleeWeaponItems.Count);
 		for (int i = 0; i < meleeWeaponItems.Count; i++)
 		{
 			meleeWeaponItems[i] = Instantiate(meleeWeaponItems[i]);
@@ -236,36 +239,43 @@ public class Inventory : MonoBehaviour
 	{
 		foreach (Transform child in junkItemSlotParent.transform)
 		{
+			junkItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
 		foreach (Transform child in consumableItemSlotParent.transform)
 		{
+			consumableItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
 		foreach (Transform child in questItemSlotParent.transform)
 		{
+			questItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
 		foreach (Transform child in EquipablePlantItemSlotParent.transform)
 		{
+			equippablePlantItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
 		foreach (Transform child in meleeWeaponItemSlotParent.transform)
 		{
+			meleeWeaponItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
 		foreach (Transform child in rangedWeaponItemSlotParent.transform)
 		{
+			rangedWeaponItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
 		foreach (Transform child in armorItemSlotParent.transform)
 		{
+			armorItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 	}
