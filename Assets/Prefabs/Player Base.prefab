@@ -2113,7 +2113,7 @@ GameObject:
   - component: {fileID: 636977076726505122}
   - component: {fileID: 8118033186993684815}
   - component: {fileID: 7349307692255342958}
-  - component: {fileID: 2406020429540395382}
+  - component: {fileID: 1636912120575920942}
   - component: {fileID: 2406020429753233596}
   - component: {fileID: 7236014399783384536}
   - component: {fileID: 2406020429342347373}
@@ -2251,7 +2251,7 @@ MonoBehaviour:
   defenseTextStat: {fileID: 7809169512156362469}
   damageTextStat: {fileID: 7809169511164941627}
   critChanceTextStat: {fileID: 7809169510365549053}
---- !u!114 &2406020429540395382
+--- !u!114 &1636912120575920942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
