@@ -12,11 +12,15 @@ public class Database : ScriptableObject
 
 	[SerializeField] SOGrowingPlant[] growingPlants;
 
+	[Header("Items")]
 	[SerializeField] EquipablePlantItem[] equippablePlantItems;
-
 	[SerializeField] JunkItem[] junkItems;
 	[SerializeField] ConsumableItem[] consumableItems;
 	[SerializeField] QuestItem[] questItems;
+	[Header("Gear")]
+	[SerializeField] Armor[] armorItems;
+	[SerializeField] MeleeWeapon[] meleeWeaponItems;
+	[SerializeField] RangedWeapon[] rangedWeaponItems;
 
 	public JunkItem GetJunkItem(string itemID)
 	{
@@ -51,7 +55,6 @@ public class Database : ScriptableObject
 		}
 		return null;
 	}
-
 	public EquipablePlantItem GetEquippablePlantItem(string itemID)
 	{
 		foreach (EquipablePlantItem item in equippablePlantItems)
@@ -84,12 +87,21 @@ public class Database : ScriptableObject
 	private void Load()
 	{
 		enemies = FindAssetsByType<SOEnemy>("Assets/Scriptable Objects/Enemies");
+
 		growingPlants = FindAssetsByType<SOGrowingPlant>("Assets/Scriptable Objects/Growing Plants");
+
+		plants = FindAssetsByType<SOPlant>("Assets/Scriptable Objects/Plants");
+
+		// Items
 		equippablePlantItems = FindAssetsByType<EquipablePlantItem>("Assets/Scriptable Objects/Items/Plant Items");
 		junkItems = FindAssetsByType<JunkItem>("Assets/Scriptable Objects/Items/Junk Items");
 		consumableItems = FindAssetsByType<ConsumableItem>("Assets/Scriptable Objects/Items/Consumable Items");
 		questItems = FindAssetsByType<QuestItem>("Assets/Scriptable Objects/Items/Quest Items");
-		plants = FindAssetsByType<SOPlant>("Assets/Scriptable Objects/Plants");
+
+		// Gear
+		armorItems = FindAssetsByType<Armor>("Assets/Scriptable Objects/Items/Gear/Armor");
+		meleeWeaponItems = FindAssetsByType<MeleeWeapon>("Assets/Scriptable Objects/Items/Gear/Melee Weapons");
+		rangedWeaponItems = FindAssetsByType<RangedWeapon>("Assets/Scriptable Objects/Items/Gear/Ranged Weapons");
 	}
 
 	// Slightly modified version of this answer: http://answers.unity.com/answers/1216386/view.html

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d4707b5f55d5684ea7a93128ab92f3e, type: 3}
-  m_Name: New Melee Weapon
+  m_Script: {fileID: 11500000, guid: 5c6d6449c74346342b834b0f1fd93da8, type: 3}
+  m_Name: Wooden Armor
   m_EditorClassIdentifier: 
-  id: 7b32b56c1f61e6f488dadcf182e0e900
-  ItemName: Random Melee Weapon
-  ItemDescription: Some Random Item
-  Icon: {fileID: 0}
+  id: 0f70f70603f67584280cc4d8a2ab9e6a
+  ItemName: Wooden Armor
+  ItemDescription: Basic shitty wodden armor
+  Icon: {fileID: 21300000, guid: 6d167bcc15996394986f6959a6085976, type: 3}
   MaximumStacks: 1

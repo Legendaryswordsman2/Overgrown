@@ -20,8 +20,8 @@ public abstract class Item : ScriptableObject
 	public Sprite Icon;
 
 	bool canStack;
-	[Range(1, 99)]
-	public int MaximumStacks = 1;
+	//[Range(1, 99)]
+	//public int MaximumStacks = 1;
 
 	public abstract void ItemSelected(ItemSlot itemSlot);
 

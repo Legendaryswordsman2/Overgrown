@@ -19,6 +19,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
   - {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
   - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
+  plants:
+  - {fileID: 11400000, guid: 73fee1c37710d984c8cfe7cbded002fe, type: 2}
+  - {fileID: 11400000, guid: 08a8aba3a2806354bbe1cb9e28f14827, type: 2}
+  - {fileID: 11400000, guid: 180e7101e122d5542902f1f59e589765, type: 2}
   growingPlants:
   - {fileID: 11400000, guid: 53551e4031a9b384ea14c3ff05eb5ccd, type: 2}
   - {fileID: 11400000, guid: e671372b1d2698a4d93f34354b9652d6, type: 2}
@@ -38,3 +42,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c79f34c24278c846a3666e960cb407a, type: 2}
   questItems:
   - {fileID: 11400000, guid: 8176bc47cc3e34344bd81b24ec7b8ed9, type: 2}
+  armorItems:
+  - {fileID: 11400000, guid: e59b2085759a05c42acd64204820c481, type: 2}
+  - {fileID: 11400000, guid: 0f70f70603f67584280cc4d8a2ab9e6a, type: 2}
+  meleeWeaponItems:
+  - {fileID: 11400000, guid: 6e13d942095e1684f90676f596d67e05, type: 2}
+  - {fileID: 11400000, guid: 7b32b56c1f61e6f488dadcf182e0e900, type: 2}
+  rangedWeaponItems:
+  - {fileID: 11400000, guid: e3b7cb235a1f5654c9a6fc1b28f66b19, type: 2}
+  - {fileID: 11400000, guid: b30405f3519afa54e95456f10ac2286f, type: 2}

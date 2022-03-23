@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9e7d6505b98a534a9429336e880deee, type: 3}
-  m_Name: New Ranged Weapon
+  m_Name: Improved Bow
   m_EditorClassIdentifier: 
-  id: e3b7cb235a1f5654c9a6fc1b28f66b19
-  ItemName: Some Ranged Weapon
-  ItemDescription: Some Random Item
-  Icon: {fileID: 0}
-  MaximumStacks: 1
+  id: b30405f3519afa54e95456f10ac2286f
+  ItemName: Improved Bow
+  ItemDescription: An improved bow for more damage
+  Icon: {fileID: 21300000, guid: 8e85614d26f43cb4880b840bb2e66817, type: 3}
+  rangedDamageModifier: 5
