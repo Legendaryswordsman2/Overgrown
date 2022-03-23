@@ -42,6 +42,8 @@ public class InventorySaveSystem : MonoBehaviour
 		LoadConsumableItems();
 		LoadQuestItems();
 		LoadMeleeWeaponItems();
+		LoadRangedWeaponItems();
+		LoadArmorItems();
 
 		inventory.SetItemSlots();
 		gameObject.SetActive(false);
@@ -95,7 +97,7 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			meleeWeaponItemIDs.Add(inventory.meleeWeaponItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/MeleeWeaponItemData", meleeWeaponItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItemIDs);
 	}
 	private void SaveRangedWeaponItems()
 	{
@@ -105,7 +107,7 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			rangedWeaponItemIDs.Add(inventory.rangedWeaponItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/RangedWeaponItemData", rangedWeaponItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory/Gear", "/RangedWeaponItemData.json", rangedWeaponItemIDs);
 	}
 	private void SaveArmorItems()
 	{
@@ -115,7 +117,7 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			armorItemIDs.Add(inventory.armorItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/ArmorItemData.json", armorItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory/Gear", "/ArmorItemData.json", armorItemIDs);
 	}
 
 	private void LoadQuestItems()
@@ -184,7 +186,7 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadMeleeWeaponItems()
 	{
-		List<string> meleeWeaponIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/MeleeWeaponItemData");
+		List<string> meleeWeaponIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
 		if (meleeWeaponIDs == null) return;
 
 		inventory.meleeWeaponItems.Clear();
@@ -197,6 +199,40 @@ public class InventorySaveSystem : MonoBehaviour
 		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
 		{
 			inventory.meleeWeaponItems[i] = Instantiate(inventory.meleeWeaponItems[i]);
+		}
+	}
+	private void LoadRangedWeaponItems()
+	{
+		List<string> rangedWeaponIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/Gear/RangedWeaponItemData.json");
+		if (rangedWeaponIDs == null) return;
+
+		inventory.rangedWeaponItems.Clear();
+
+		foreach (string itemID in rangedWeaponIDs)
+		{
+			inventory.rangedWeaponItems.Add(database.GetRangedWeaponItem(itemID));
+		}
+
+		for (int i = 0; i < inventory.rangedWeaponItems.Count; i++)
+		{
+			inventory.rangedWeaponItems[i] = Instantiate(inventory.rangedWeaponItems[i]);
+		}
+	}
+	private void LoadArmorItems()
+	{
+		List<string> armorIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/Gear/ArmorItemData.json");
+		if (armorIDs == null) return;
+
+		inventory.armorItems.Clear();
+
+		foreach (string itemID in armorIDs)
+		{
+			inventory.armorItems.Add(database.GetArmorItem(itemID));
+		}
+
+		for (int i = 0; i < inventory.armorItems.Count; i++)
+		{
+			inventory.armorItems[i] = Instantiate(inventory.armorItems[i]);
 		}
 	}
 	#endregion
