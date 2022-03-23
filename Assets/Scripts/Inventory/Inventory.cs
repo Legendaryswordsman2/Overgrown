@@ -211,6 +211,21 @@ public class Inventory : MonoBehaviour
 		{
 			Destroy(child.gameObject);
 		}
+
+		foreach (Transform child in meleeWeaponItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in rangedWeaponItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in armorItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
 	}
 
 	public void InvokeOnPlantItemSelected()
