@@ -14,9 +14,9 @@ public class Inventory : MonoBehaviour
 	public List<EquipablePlantItem> equippablePlantItems;
 
 	[Header("Gear")]
-	public List<Armor> armorItems;
 	public List<MeleeWeapon> meleeWeaponItems;
 	public List<RangedWeapon> rangedWeaponItems;
+	public List<Armor> armorItems;
 
 	[Header("Parents")]
 	[SerializeField] GameObject categoriesParent;
@@ -25,6 +25,10 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject consumableItemSlotParent;
 	[SerializeField] GameObject questItemSlotParent;
 	[SerializeField] GameObject EquipablePlantItemSlotParent;
+
+	[SerializeField] GameObject meleeWeaponItemSlotParent;
+	[SerializeField] GameObject rangedWeaponItemSlotParent;
+	[SerializeField] GameObject armorItemSlotParent;
 
 	[field: Header("Other Refernces")]
 	[field: SerializeField] public ItemInfoBox itemInfoBox { get; private set; }
@@ -244,7 +248,6 @@ public class Inventory : MonoBehaviour
 
 		//}
 	}
-
 
 	public void RemoveItem(Item item)
 	{
