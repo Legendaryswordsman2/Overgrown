@@ -193,6 +193,11 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(itemID));
 		}
+
+		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
+		{
+			inventory.meleeWeaponItems[i] = Instantiate(inventory.meleeWeaponItems[i]);
+		}
 	}
 	#endregion
 }
