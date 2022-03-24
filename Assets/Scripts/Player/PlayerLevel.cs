@@ -113,8 +113,9 @@ public class PlayerLevel : MonoBehaviour
             levelProgressBar.maximum = xpToLevelUp;
             levelProgressBar.current = xp;
 
-            string tempMoney = money.ToString();
-            //string.Format(("Score: {0:#,#}", score));
+            if (money == 0)
+                MoneyText.text = "$0";
+            else
             MoneyText.text = "$" + money.ToString("#,#");
 		}
     }

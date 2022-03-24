@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Items/Gear/Melee Weapon")]
-public class MeleeWeapon : Item
+public class MeleeWeapon : Item, IEquippable
 {
 	[SerializeField] int meleeDamageModifier = 1;
 
@@ -13,6 +13,7 @@ public class MeleeWeapon : Item
 
 	Image equippedCheckmark;
 	Inventory inventory;
+
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
 		inventory = Inventory.instance;
@@ -56,5 +57,15 @@ public class MeleeWeapon : Item
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
 		inventory.OnMeleeWeaponItemSelected -= UnequipMeleeWeaponItem;
+	}
+
+	public void Equip()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void Unequip()
+	{
+		throw new NotImplementedException();
 	}
 }
