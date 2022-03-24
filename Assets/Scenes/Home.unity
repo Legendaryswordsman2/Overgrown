@@ -36281,6 +36281,50 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e64f46aff965dc4093d22cfe01ba097, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e64f46aff965dc4093d22cfe01ba097, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e64f46aff965dc4093d22cfe01ba097, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19fb7e6248e37f04e8a7c7ef1869f487, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19fb7e6248e37f04e8a7c7ef1869f487, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19fb7e6248e37f04e8a7c7ef1869f487, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19fb7e6248e37f04e8a7c7ef1869f487, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19fb7e6248e37f04e8a7c7ef1869f487, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5754f734586ec6046ba1a60b964c290d, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItems.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5754f734586ec6046ba1a60b964c290d, type: 2}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base
