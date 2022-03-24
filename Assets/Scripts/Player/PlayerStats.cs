@@ -79,6 +79,12 @@ public class PlayerStats : MonoBehaviour
 		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
 		meleeDamage = statsData.meleeDamage;
+		rangedDamage = statsData.rangedDamage;
 		critChance = statsData.critChance;
+
+		// Modifiers
+		defenseModifier = statsData.defenseModifier;
+		meleeDamageModifier = statsData.meleeDamageModifier;
+		rangedDamageModifier = statsData.rangedDamageModifier;
 	}
 }

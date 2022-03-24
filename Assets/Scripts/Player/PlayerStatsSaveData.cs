@@ -14,6 +14,10 @@ public class PlayerStatsSaveData
 	public int critChance = 0;
 
 	// Modifiers
+	[Header("Stat Modifiers")]
+	public int defenseModifier;
+	public int meleeDamageModifier;
+	public int rangedDamageModifier;
 
 	public PlayerStatsSaveData(PlayerStats playerStats)
 	{
@@ -23,5 +27,10 @@ public class PlayerStatsSaveData
 		meleeDamage = playerStats.meleeDamage;
 		rangedDamage = playerStats.rangedDamage;
 		critChance = playerStats.critChance;
+
+		// Modifiers
+		defenseModifier = playerStats.defenseModifier;
+		meleeDamageModifier = playerStats.meleeDamageModifier;
+		rangedDamageModifier = playerStats.rangedDamageModifier;
 	}
 }
