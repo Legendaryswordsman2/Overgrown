@@ -37,6 +37,7 @@ public class PlayerUnit : BaseUnit
 		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
 		meleeDamage = statsData.meleeDamage;
+		rangedDamage = statsData.rangedDamage;
 		critChance = statsData.critChance;
 
 		playerHUD.SetHUD(this);
