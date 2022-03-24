@@ -171,38 +171,38 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadMeleeWeaponItems()
 	{
-		List<string> meleeWeaponIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
+		List<GearSaveData> meleeWeaponIDs = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
 		if (meleeWeaponIDs == null) return;
 
 		inventory.meleeWeaponItems.Clear();
 
-		foreach (string itemID in meleeWeaponIDs)
+		foreach (GearSaveData item in meleeWeaponIDs)
 		{
-			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(itemID));
+			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(item.itemID));
 		}
 	}
 	private void LoadRangedWeaponItems()
 	{
-		List<string> rangedWeaponIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/Gear/RangedWeaponItemData.json");
+		List<GearSaveData> rangedWeaponIDs = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/RangedWeaponItemData.json");
 		if (rangedWeaponIDs == null) return;
 
 		inventory.rangedWeaponItems.Clear();
 
-		foreach (string itemID in rangedWeaponIDs)
+		foreach (GearSaveData item in rangedWeaponIDs)
 		{
-			inventory.rangedWeaponItems.Add(database.GetRangedWeaponItem(itemID));
+			inventory.rangedWeaponItems.Add(database.GetRangedWeaponItem(item.itemID));
 		}
 	}
 	private void LoadArmorItems()
 	{
-		List<string> armorIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/Gear/ArmorItemData.json");
+		List<GearSaveData> armorIDs = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/ArmorItemData.json");
 		if (armorIDs == null) return;
 
 		inventory.armorItems.Clear();
 
-		foreach (string itemID in armorIDs)
+		foreach (GearSaveData item in armorIDs)
 		{
-			inventory.armorItems.Add(database.GetArmorItem(itemID));
+			inventory.armorItems.Add(database.GetArmorItem(item.itemID));
 		}
 	}
 	#endregion

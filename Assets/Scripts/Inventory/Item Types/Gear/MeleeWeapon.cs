@@ -29,7 +29,20 @@ public class MeleeWeapon : Item
 
 		inventory.InvokeOnMeleeWeaponItemSelected();
 
-		inventory.OnMeleeWeaponitemSelected += UnequipMeleeWeaponItem;
+		inventory.OnMeleeWeaponItemSelected += UnequipMeleeWeaponItem;
+
+		isEquipped = true;
+
+		GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = meleeDamageModifier;
+		equippedCheckmark = itemSlot.equippedCheckmark;
+		equippedCheckmark.enabled = true;
+	}
+
+	public void EquipOnSceneLoaded(ItemSlot itemSlot)
+	{
+		inventory = Inventory.instance;
+
+		inventory.OnMeleeWeaponItemSelected += UnequipMeleeWeaponItem;
 
 		isEquipped = true;
 
@@ -42,6 +55,6 @@ public class MeleeWeapon : Item
 	{
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
-		inventory.OnMeleeWeaponitemSelected -= UnequipMeleeWeaponItem;
+		inventory.OnMeleeWeaponItemSelected -= UnequipMeleeWeaponItem;
 	}
 }

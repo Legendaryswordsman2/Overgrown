@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject itemSlotPrefab;
 
 	public event EventHandler OnPlantItemSelected;
-	public event EventHandler OnMeleeWeaponitemSelected;
+	public event EventHandler OnMeleeWeaponItemSelected;
 	public event EventHandler OnRangedWeaponitemSelected;
 	public event EventHandler OnArmoritemSelected;
 
@@ -233,7 +233,7 @@ public class Inventory : MonoBehaviour
 			if (ItemSlot.item is EquipablePlantItem c)
 				if (c.isEquipped)
 				{
-					c.EquipPlantOnSceneLoaded(ItemSlot.GetComponent<ItemSlot>());
+					c.EquipPlantOnSceneLoaded(ItemSlot);
 				}
 		}
 
@@ -242,6 +242,10 @@ public class Inventory : MonoBehaviour
 			var ItemSlot = Instantiate(itemSlotPrefab, meleeWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
 			ItemSlot.SetSlot(meleeWeaponItems[i]);
 			meleeWeaponItemSlots.Add(ItemSlot);
+
+			if (ItemSlot.item is MeleeWeapon c)
+				if (c.isEquipped)
+					c.EquipOnSceneLoaded(ItemSlot);
 		}
 
 		for (int i = 0; i < rangedWeaponItems.Count; i++)
@@ -311,7 +315,7 @@ public class Inventory : MonoBehaviour
 	}
 	public void InvokeOnMeleeWeaponItemSelected()
 	{
-		OnMeleeWeaponitemSelected?.Invoke(this, EventArgs.Empty);
+		OnMeleeWeaponItemSelected?.Invoke(this, EventArgs.Empty);
 	}
 	public void InvokeOnRangedWeaponItemSelected()
 	{
