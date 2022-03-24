@@ -233,6 +233,27 @@ public class Inventory : MonoBehaviour
 					c.EquipPlantOnSceneLoaded(ItemSlot.GetComponent<ItemSlot>());
 				}
 		}
+
+		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		{
+			var ItemSlot = Instantiate(itemSlotPrefab, meleeWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(meleeWeaponItems[i]);
+			meleeWeaponItemSlots.Add(ItemSlot);
+		}
+
+		for (int i = 0; i < rangedWeaponItems.Count; i++)
+		{
+			var ItemSlot = Instantiate(itemSlotPrefab, rangedWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(rangedWeaponItems[i]);
+			rangedWeaponItemSlots.Add(ItemSlot);
+		}
+
+		for (int i = 0; i < armorItems.Count; i++)
+		{
+			var ItemSlot = Instantiate(itemSlotPrefab, armorItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(armorItems[i]);
+			armorItemSlots.Add(ItemSlot);
+		}
 	}
 
 	void ClearItemSlots()
