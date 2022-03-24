@@ -91,31 +91,31 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void SaveMeleeWeaponItems()
 	{
-		List<string> meleeWeaponItemIDs = new List<string>();
+		List<GearSaveData> meleeWeaponItemIDs = new List<GearSaveData>();
 
 		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
 		{
-			meleeWeaponItemIDs.Add(inventory.meleeWeaponItems[i].ID);
+			meleeWeaponItemIDs.Add(new GearSaveData(inventory.meleeWeaponItems[i].ID, inventory.meleeWeaponItems[i].isEquipped));
 		}
 		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItemIDs);
 	}
 	private void SaveRangedWeaponItems()
 	{
-		List<string> rangedWeaponItemIDs = new List<string>();
+		List<GearSaveData> rangedWeaponItemIDs = new List<GearSaveData>();
 
 		for (int i = 0; i < inventory.rangedWeaponItems.Count; i++)
 		{
-			rangedWeaponItemIDs.Add(inventory.rangedWeaponItems[i].ID);
+			rangedWeaponItemIDs.Add(new GearSaveData(inventory.rangedWeaponItems[i].ID, inventory.rangedWeaponItems[i].isEquipped));
 		}
 		SaveSystem.SaveFile("/Player/Inventory/Gear", "/RangedWeaponItemData.json", rangedWeaponItemIDs);
 	}
 	private void SaveArmorItems()
 	{
-		List<string> armorItemIDs = new List<string>();
+		List<GearSaveData> armorItemIDs = new List<GearSaveData>();
 
 		for (int i = 0; i < inventory.armorItems.Count; i++)
 		{
-			armorItemIDs.Add(inventory.armorItems[i].ID);
+			armorItemIDs.Add(new GearSaveData(inventory.armorItems[i].ID, inventory.armorItems[i].isEquipped));
 		}
 		SaveSystem.SaveFile("/Player/Inventory/Gear", "/ArmorItemData.json", armorItemIDs);
 	}

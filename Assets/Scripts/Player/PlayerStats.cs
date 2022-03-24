@@ -83,8 +83,8 @@ public class PlayerStats : MonoBehaviour
 		critChance = statsData.critChance;
 
 		// Modifiers
-		defenseModifier = statsData.defenseModifier;
-		meleeDamageModifier = statsData.meleeDamageModifier;
-		rangedDamageModifier = statsData.rangedDamageModifier;
+		//defenseModifier = statsData.defenseModifier;
+		//meleeDamageModifier = statsData.meleeDamageModifier;
+		//rangedDamageModifier = statsData.rangedDamageModifier;
 	}
 }
