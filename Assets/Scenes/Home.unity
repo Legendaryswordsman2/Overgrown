@@ -36420,6 +36420,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1213291053}
+    - target: {fileID: 7349307692255342958, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7809169511315238686, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Can't Equip Plant Popup

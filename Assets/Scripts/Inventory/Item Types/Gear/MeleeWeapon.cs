@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,33 @@ public class MeleeWeapon : Item
 	Inventory inventory;
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		
+		inventory = Inventory.instance;
+
+		if (isEquipped)
+		{
+			GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = 0;
+
+			isEquipped = false;
+			if (equippedCheckmark != null) equippedCheckmark.enabled = false;
+
+			return;
+		}
+
+		inventory.InvokeOnMeleeWeaponItemSelected();
+
+		inventory.OnMeleeWeaponitemSelected += UnequipMeleeWeaponItem;
+
+		isEquipped = true;
+
+		GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = meleeDamageModifier;
+		equippedCheckmark = itemSlot.equippedCheckmark;
+		equippedCheckmark.enabled = true;
+	}
+
+	private void UnequipMeleeWeaponItem(object sender, EventArgs e)
+	{
+		isEquipped = false;
+		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
+		inventory.OnMeleeWeaponitemSelected -= UnequipMeleeWeaponItem;
 	}
 }

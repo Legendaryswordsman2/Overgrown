@@ -17,7 +17,7 @@ public class PlayerPlantUnit : BaseUnit
 		unitName = plantSO.unitName;
 		maxHealth = plantSO.defaultHealth;
 		currentHealth = plantSO.currentHealth;
-		damage = plantSO.attackDamage;
+		meleeDamage = plantSO.meleeDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
 		playerPlantHUD.SetHUD(this);
 		playerPlantHUD.gameObject.SetActive(true);
@@ -149,7 +149,7 @@ public class PlayerPlantUnit : BaseUnit
 
 		bool isCritical;
 
-		if (modifiedDamage > damage)
+		if (modifiedDamage > meleeDamage)
 			isCritical = true;
 		else
 			isCritical = false;

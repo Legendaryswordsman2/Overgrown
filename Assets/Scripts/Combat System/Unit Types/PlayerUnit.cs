@@ -36,7 +36,7 @@ public class PlayerUnit : BaseUnit
 		maxHealth = statsData.maxHealth;
 		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
-		damage = statsData.damage;
+		meleeDamage = statsData.meleeDamage;
 		critChance = statsData.critChance;
 
 		playerHUD.SetHUD(this);
@@ -147,7 +147,7 @@ public class PlayerUnit : BaseUnit
 
 		locationToAttackTarget = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(2).position;
 		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform).GetComponent<ArrowLerp>();
-		arrow.damage = damage;
+		arrow.damage = rangedDamage;
 		arrow.selectionIndex = battleSystem.enemySelectionIndex;
 		arrow.playerUnit = this;
 		arrow.endPosition = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.position;
@@ -166,7 +166,7 @@ public class PlayerUnit : BaseUnit
 
 		bool isCritical;
 
-		if (modifiedDamage > damage)
+		if (modifiedDamage > meleeDamage)
 			isCritical = true;
 		else
 			isCritical = false;

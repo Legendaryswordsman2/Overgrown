@@ -27,7 +27,7 @@ public class SOEnemy : ScriptableObject
 
 	[Header("Comabat")]
 	public float attackRange = 0.5f;
-	public int attackDamage = 20;
+	public int meleeDamage = 10;
 	public EnemiesToFight[] enemiesToFight;
 
 	[Header("Walk Speeds")]

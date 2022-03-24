@@ -49,6 +49,9 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject itemSlotPrefab;
 
 	public event EventHandler OnPlantItemSelected;
+	public event EventHandler OnMeleeWeaponitemSelected;
+	public event EventHandler OnRangedWeaponitemSelected;
+	public event EventHandler OnArmoritemSelected;
 
 
 	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;
@@ -173,7 +176,7 @@ public class Inventory : MonoBehaviour
 			{
 				equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
 				equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
-				equippablePlantItems[i].plantSO.attackDamage = equippablePlantitemsSave[i].attackDamage;
+				equippablePlantItems[i].plantSO.meleeDamage = equippablePlantitemsSave[i].meleeDamage;
 				equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
 				equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
 				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
@@ -301,10 +304,24 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
+	#region Invoke Events
 	public void InvokeOnPlantItemSelected()
 	{
 		OnPlantItemSelected?.Invoke(this, EventArgs.Empty);
 	}
+	public void InvokeOnMeleeWeaponItemSelected()
+	{
+		OnMeleeWeaponitemSelected?.Invoke(this, EventArgs.Empty);
+	}
+	public void InvokeOnRangedWeaponItemSelected()
+	{
+		OnRangedWeaponitemSelected?.Invoke(this, EventArgs.Empty);
+	}
+	public void InvokeOnArmorItemSelected()
+	{
+		OnArmoritemSelected?.Invoke(this, EventArgs.Empty);
+	}
+	#endregion
 
 	public void AddItem(Item item)
 	{

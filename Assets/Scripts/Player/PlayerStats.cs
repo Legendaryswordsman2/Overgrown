@@ -10,8 +10,16 @@ public class PlayerStats : MonoBehaviour
 	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth = 0;
 	public int defense = 0;
-	public int damage = 10;
+	public int meleeDamage = 10;
+	public int rangedDamage = 10;
 	public int critChance = 0;
+
+	[Header("Stat Modifiers")]
+	//public int maxHealthModifier;
+	[ReadOnlyInspector] public int defenseModifier;
+	[ReadOnlyInspector] public int meleeDamageModifier;
+	[ReadOnlyInspector] public int rangedDamageModifier;
+
 
 	[Header("Stats Refernces")]
 	[SerializeField] ProgressBar playerHealthBar;
@@ -41,7 +49,7 @@ public class PlayerStats : MonoBehaviour
 
 		healthTextStat.text += " " + maxHealth;
 		defenseTextStat.text += " " + defense;
-		damageTextStat.text += " " + damage;
+		damageTextStat.text += " " + meleeDamage;
 		critChanceTextStat.text += " " + critChance;
 
 		playerHealthBar.maximum = maxHealth;
@@ -70,7 +78,7 @@ public class PlayerStats : MonoBehaviour
 		maxHealth = statsData.maxHealth;
 		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
-		damage = statsData.damage;
+		meleeDamage = statsData.meleeDamage;
 		critChance = statsData.critChance;
 	}
 }

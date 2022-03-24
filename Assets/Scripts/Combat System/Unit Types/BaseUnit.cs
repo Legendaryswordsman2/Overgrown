@@ -11,7 +11,8 @@ public abstract class BaseUnit : MonoBehaviour
 	[Header("Stats")]
 	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
-	[SerializeField] protected int damage = 10;
+	[SerializeField] protected int meleeDamage = 10;
+	[SerializeField] protected int rangedDamage = 10;
 	[SerializeField] protected int defense = 0;
 	[SerializeField] protected int critChance = 0;
 
@@ -201,7 +202,7 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		int temp = Random.Range(0, 101);
 
-		float modifiedDamage = damage;
+		float modifiedDamage = meleeDamage;
 
 		if (temp < 20)
 			modifiedDamage *= 1.20f;

@@ -17,7 +17,7 @@ public class EnemyUnit : BaseUnit
 
 		unitName = enemySO.enemyName;
 		maxHealth = enemySO.defaultHealth;
-		damage = enemySO.attackDamage;
+		meleeDamage = enemySO.meleeDamage;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = enemySO.chosenAnimatorController;
 
 		healthBar = transform.GetChild(0).GetChild(0).GetComponent<ProgressBar>();
@@ -113,7 +113,7 @@ public class EnemyUnit : BaseUnit
 
 		bool isCritical;
 
-		if (modifiedDamage > damage)
+		if (modifiedDamage > meleeDamage)
 			isCritical = true;
 		else
 			isCritical = false;

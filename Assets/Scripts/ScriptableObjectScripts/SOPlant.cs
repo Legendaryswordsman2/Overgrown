@@ -14,7 +14,7 @@ public class SOPlant : ScriptableObject
 	public string unitName = "Some Random Plant";
 	public int defaultHealth = 100;
 	[ReadOnlyInspector] public int currentHealth = 0;
-	public int attackDamage = 10;
+	public int meleeDamage = 10;
 	public int defense = 0;
 	public int critChance = 0;
 

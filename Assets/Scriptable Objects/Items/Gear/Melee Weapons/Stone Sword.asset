@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6e13d942095e1684f90676f596d67e05
   ItemName: Stone Sword
-  ItemDescription: A decent stone sword
+  ItemDescription: 'A decent stone sword
+
+
+    +5 Melee Damage'
   Icon: {fileID: 21300000, guid: a9d0d6b78a6228943b0035b404729b65, type: 3}
   meleeDamageModifier: 5
+  isEquipped: 0

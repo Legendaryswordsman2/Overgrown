@@ -6,14 +6,14 @@ public class PlantSaveData
 {
 	string ID;
 	public int defaultHealth = 100;
-	public int attackDamage = 10;
+	public int meleeDamage = 10;
 	public int defense = 0;
 	public int critChance = 0;
 
 	public PlantSaveData(SOPlant plantSO)
 	{
 		defaultHealth = plantSO.defaultHealth;
-		attackDamage = plantSO.attackDamage;
+		meleeDamage = plantSO.meleeDamage;
 		defense = plantSO.defense;
 		critChance = plantSO.critChance;
 	}
