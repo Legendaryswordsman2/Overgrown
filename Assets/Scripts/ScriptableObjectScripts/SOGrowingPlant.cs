@@ -11,11 +11,7 @@ public class SOGrowingPlant : ScriptableObject
 
     public Sprite[] plantGrowthStages = { };
 
-    public int plantMinGrowTime = 1, plantMaxGrowTime = 10;
-
-    [Space]
-    public int minMonsterWaitTimeAfterGrowth = 2;
-    public int maxMonsterWaitTimeAfterGrowth = 10;
+    public int plantGrowTime = 20;
 
     [Space]
     public SOPlant plant;

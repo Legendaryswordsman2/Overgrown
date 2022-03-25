@@ -13,18 +13,45 @@ public class Grow : MonoBehaviour
 
 	[Space]
 
-	[SerializeField, ReadOnlyInspector] SOGrowingPlant chosenGrowingPlant;
+	[SerializeField] SOGrowingPlant chosenGrowingPlant;
 
 	// Growing
-	List<int> GrowthStageTimes = new List<int>();
+	[SerializeField] int totalGrowTime;
+	[SerializeField] float stageGrowthTime;
+
+	[SerializeField] int currentGrowthStageIndex = 0;
 
 	public void StartGrowing()
 	{
 		plant.sprite = chosenGrowingPlant.plantGrowthStages[0];
+		currentGrowthStageIndex++;
 
-		//for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length; i++)
-		//{
-		//	GrowthStageTimes.Add()
-		//}
+		totalGrowTime = chosenGrowingPlant.plantGrowTime;
+
+		stageGrowthTime = totalGrowTime / (float)chosenGrowingPlant.plantGrowthStages.Length;
+
+		progressBar.maximum = totalGrowTime;
+
+		StartCoroutine(NextGrowthStage());
+	}
+
+    IEnumerator NextGrowthStage()
+	{
+		yield return new WaitForSeconds(stageGrowthTime);
+		plant.sprite = chosenGrowingPlant.plantGrowthStages[currentGrowthStageIndex];
+		currentGrowthStageIndex++;
+
+		if (currentGrowthStageIndex == chosenGrowingPlant.plantGrowthStages.Length)
+		{
+			Debug.Log("Finished Growing");
+		}
+		else
+		{
+			StartCoroutine(NextGrowthStage());
+		}
+	}
+	IEnumerator Timer()
+	{
+		yield return new WaitForSeconds(1);
 	}
 }

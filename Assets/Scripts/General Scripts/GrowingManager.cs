@@ -34,8 +34,9 @@ public class GrowingManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.E) && plantablePot != null)
 		{
-			GameManager.StopTime();
-			plantUiMenu.SetActive(true);
+			//GameManager.StopTime();
+			//plantUiMenu.SetActive(true);
+			plantablePot.GetComponentInParent<Grow>().StartGrowing();
 		}
 	}
 
