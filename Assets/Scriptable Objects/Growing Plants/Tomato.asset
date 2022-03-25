@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ce5da55303b24fb796aa80c321a44, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
+  id: 25c95c2f4b1eb8148a0586ca6c3e0920
   plantGrowthStages:
   - {fileID: -4832571376610259945, guid: 7cce30994151a0d42becaac91c97c11c, type: 3}
   - {fileID: -8890486001880264371, guid: 7cce30994151a0d42becaac91c97c11c, type: 3}
@@ -23,4 +24,4 @@ MonoBehaviour:
   plantMaxGrowTime: 10
   minMonsterWaitTimeAfterGrowth: 2
   maxMonsterWaitTimeAfterGrowth: 10
-  enemy: {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
+  plant: {fileID: 11400000, guid: 180e7101e122d5542902f1f59e589765, type: 2}

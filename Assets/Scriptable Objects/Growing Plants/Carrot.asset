@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ce5da55303b24fb796aa80c321a44, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
+  id: 53551e4031a9b384ea14c3ff05eb5ccd
   plantGrowthStages:
   - {fileID: -5442058538944839945, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
   - {fileID: 2200300883934704177, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
@@ -23,4 +24,4 @@ MonoBehaviour:
   plantMaxGrowTime: 1
   minMonsterWaitTimeAfterGrowth: 1
   maxMonsterWaitTimeAfterGrowth: 1
-  enemy: {fileID: 11400000, guid: dad21c419e3b3ef4985e84d985d623bd, type: 2}
+  plant: {fileID: 11400000, guid: 73fee1c37710d984c8cfe7cbded002fe, type: 2}

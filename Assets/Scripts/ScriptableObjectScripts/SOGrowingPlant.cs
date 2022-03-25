@@ -18,7 +18,7 @@ public class SOGrowingPlant : ScriptableObject
     public int maxMonsterWaitTimeAfterGrowth = 10;
 
     [Space]
-    public SOEnemy enemy;
+    public SOPlant plant;
 
 #if UNITY_EDITOR
     private void OnValidate()

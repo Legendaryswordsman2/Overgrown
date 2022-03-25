@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ce5da55303b24fb796aa80c321a44, type: 3}
   m_Name: Potato
   m_EditorClassIdentifier: 
+  id: e671372b1d2698a4d93f34354b9652d6
   plantGrowthStages:
   - {fileID: -5442058538944839945, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
   - {fileID: 2200300883934704177, guid: a6ee416ffdb226842bd751c1db357b9a, type: 3}
@@ -23,4 +24,4 @@ MonoBehaviour:
   plantMaxGrowTime: 10
   minMonsterWaitTimeAfterGrowth: 2
   maxMonsterWaitTimeAfterGrowth: 10
-  enemy: {fileID: 11400000, guid: 376d15727c0850f4ca499ff118e1d730, type: 2}
+  plant: {fileID: 11400000, guid: 08a8aba3a2806354bbe1cb9e28f14827, type: 2}
