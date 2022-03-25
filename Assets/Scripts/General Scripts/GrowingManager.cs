@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotsNearPlayer : MonoBehaviour
+public class GrowingManager : MonoBehaviour
 {
 	[SerializeField, ReadOnlyInspector] GameObject plantablePot;
 
@@ -15,13 +15,19 @@ public class PotsNearPlayer : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "Pot")
+		if (collision.CompareTag("Pot"))
+		{
 			plantablePot = collision.gameObject;
+			plantablePot.GetComponentInParent<Grow>().plantIcon.SetActive(true);
+		}
 	}
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.tag == "Pot")
+		if (collision.CompareTag("Pot"))
+		{
+			plantablePot.GetComponentInParent<Grow>().plantIcon.SetActive(false);
 			plantablePot = null;
+		}
 	}
 
 	private void Update()
@@ -31,5 +37,12 @@ public class PotsNearPlayer : MonoBehaviour
 			GameManager.StopTime();
 			plantUiMenu.SetActive(true);
 		}
+	}
+
+	public void StartPlanting(SOGrowingPlant growingPlantSO)
+	{
+		plantUiMenu.SetActive(false);
+
+		
 	}
 }
