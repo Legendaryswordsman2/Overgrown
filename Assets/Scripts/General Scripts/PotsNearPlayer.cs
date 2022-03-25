@@ -4,28 +4,32 @@ using UnityEngine;
 
 public class PotsNearPlayer : MonoBehaviour
 {
-    public static bool isInRangeToPlant;
+	[SerializeField, ReadOnlyInspector] GameObject plantablePot;
 
-    [SerializeField]
-    List<GameObject> potsNearPlayer;
+	GameObject plantUiMenu;
 
-    public static List<GameObject> publicPotsNearPlayer { get; set; }
+	private void Awake()
+	{
+		plantUiMenu = GameManager.instance.plantUiMenu;
+	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Pot"))
-        {
-            potsNearPlayer.Add(collision.gameObject);
-            publicPotsNearPlayer = potsNearPlayer;
-        }
-    }
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.tag == "Pot")
+			plantablePot = collision.gameObject;
+	}
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.tag == "Pot")
+			plantablePot = null;
+	}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Pot"))
-        {
-            potsNearPlayer.Remove(collision.gameObject);
-            publicPotsNearPlayer = potsNearPlayer;
-        }
-    }
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.E) && plantablePot != null)
+		{
+			GameManager.StopTime();
+			plantUiMenu.SetActive(true);
+		}
+	}
 }
