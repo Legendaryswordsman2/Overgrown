@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "Items/Gear/Armor")]
+[CreateAssetMenu(menuName = "Items/Gear/Ranged Weapon")]
 public class RangedWeapon : Item
 {
-   public	int rangedDamageModifier = 1;
+	public int rangedDamageModifier = 1;
 
 	[HideInInspector] public bool isEquipped = false;
 
@@ -14,6 +14,41 @@ public class RangedWeapon : Item
 	Inventory inventory;
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		
+		equippedCheckmark = itemSlot.equippedCheckmark;
+		Equip();
+	}
+
+	void Equip()
+	{
+		if (isEquipped)
+		{
+			GameManager.instance.player.GetComponent<PlayerStats>().UnequipRangedWeapon();
+			return;
+		}
+
+		GameManager.instance.player.GetComponent<PlayerStats>().EquipRangedWeapon(this);
+
+		isEquipped = true;
+		equippedCheckmark.enabled = true;
+	}
+
+	public void EquipForNewScene(ItemSlot itemSlot)
+	{
+		if (BattleSystem.instance != null)
+			BattleSystem.instance.GetComponent<PlayerStats>().EquipRangedWeapon(this);
+
+		if (GameManager.instance != null)
+			GameManager.instance.player.GetComponent<PlayerStats>().EquipRangedWeapon(this);
+
+		equippedCheckmark = itemSlot.equippedCheckmark;
+
+		isEquipped = true;
+		equippedCheckmark.enabled = true;
+	}
+
+	public void Unequip()
+	{
+		isEquipped = false;
+		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
 	}
 }

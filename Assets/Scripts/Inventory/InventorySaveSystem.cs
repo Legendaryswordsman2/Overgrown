@@ -184,27 +184,29 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadRangedWeaponItems()
 	{
-		List<GearSaveData> rangedWeaponIDs = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/RangedWeaponItemData.json");
-		if (rangedWeaponIDs == null) return;
+		List<GearSaveData> rangedWeapons = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/RangedWeaponItemData.json");
+		if (rangedWeapons == null) return;
 
 		inventory.rangedWeaponItems.Clear();
 
-		foreach (GearSaveData item in rangedWeaponIDs)
+		foreach (GearSaveData item in rangedWeapons)
 		{
 			inventory.rangedWeaponItems.Add(database.GetRangedWeaponItem(item.itemID));
 		}
+		inventory.rangedWeaponItemsSave = rangedWeapons;
 	}
 	private void LoadArmorItems()
 	{
-		List<GearSaveData> armorIDs = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/ArmorItemData.json");
-		if (armorIDs == null) return;
+		List<GearSaveData> armorItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/ArmorItemData.json");
+		if (armorItems == null) return;
 
 		inventory.armorItems.Clear();
 
-		foreach (GearSaveData item in armorIDs)
+		foreach (GearSaveData item in armorItems)
 		{
 			inventory.armorItems.Add(database.GetArmorItem(item.itemID));
 		}
+		inventory.armorItemsSave = armorItems;
 	}
 	#endregion
 }

@@ -53,6 +53,8 @@ public class Inventory : MonoBehaviour
 
 	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;
 	[HideInInspector] public List<GearSaveData> meleeWeaponItemsSave;
+	[HideInInspector] public List<GearSaveData> rangedWeaponItemsSave;
+	[HideInInspector] public List<GearSaveData> armorItemsSave;
 
 	private void Awake()
 	{
@@ -185,22 +187,20 @@ public class Inventory : MonoBehaviour
 		for (int i = 0; i < meleeWeaponItems.Count; i++)
 		{
 			meleeWeaponItems[i] = Instantiate(meleeWeaponItems[i]);
+			meleeWeaponItems[i].isEquipped = meleeWeaponItemsSave[i].isEquipped;
 
 		}
-			for (int i2 = 0; i2 < meleeWeaponItems.Count; i2++)
-			{
-				meleeWeaponItems[i2].isEquipped = meleeWeaponItemsSave[i2].isEquipped;
-			}
-
 
 		for (int i = 0; i < rangedWeaponItems.Count; i++)
 		{
 			rangedWeaponItems[i] = Instantiate(rangedWeaponItems[i]);
+			rangedWeaponItems[i].isEquipped = rangedWeaponItemsSave[i].isEquipped;
 		}
 
 		for (int i = 0; i < armorItems.Count; i++)
 		{
 			armorItems[i] = Instantiate(armorItems[i]);
+			armorItems[i].isEquipped = armorItemsSave[i].isEquipped;
 		}
 	}
 
@@ -249,15 +249,8 @@ public class Inventory : MonoBehaviour
 			meleeWeaponItemSlots.Add(ItemSlot);
 
 			if (ItemSlot.item is MeleeWeapon c)
-			{
-				print("Is Melee Weapon");
 				if (c.isEquipped)
-				{
-					print("Is Equipped");
 					c.EquipForNewScene(ItemSlot);
-				}
-
-			}
 		}
 
 		for (int i = 0; i < rangedWeaponItems.Count; i++)
@@ -265,6 +258,10 @@ public class Inventory : MonoBehaviour
 			var ItemSlot = Instantiate(itemSlotPrefab, rangedWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
 			ItemSlot.SetSlot(rangedWeaponItems[i]);
 			rangedWeaponItemSlots.Add(ItemSlot);
+
+			if (ItemSlot.item is RangedWeapon c)
+				if (c.isEquipped)
+					c.EquipForNewScene(ItemSlot);
 		}
 
 		for (int i = 0; i < armorItems.Count; i++)
@@ -272,6 +269,10 @@ public class Inventory : MonoBehaviour
 			var ItemSlot = Instantiate(itemSlotPrefab, armorItemSlotParent.transform).GetComponent<ItemSlot>();
 			ItemSlot.SetSlot(armorItems[i]);
 			armorItemSlots.Add(ItemSlot);
+
+			if (ItemSlot.item is Armor c)
+				if (c.isEquipped)
+					c.EquipForNewScene(ItemSlot);
 		}
 	}
 

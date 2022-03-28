@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +12,6 @@ public class MeleeWeapon : Item
 
 	Image equippedCheckmark;
 	Inventory inventory;
-
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
 		equippedCheckmark = itemSlot.equippedCheckmark;
@@ -46,17 +44,6 @@ public class MeleeWeapon : Item
 		equippedCheckmark = itemSlot.equippedCheckmark;
 
 		isEquipped = true;
-		equippedCheckmark.enabled = true;
-	}
-
-	public void EquipOnSceneLoaded(ItemSlot itemSlot)
-	{
-		inventory = Inventory.instance;
-
-		isEquipped = true;
-
-		//GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = meleeDamageModifier;
-		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
 	}
 

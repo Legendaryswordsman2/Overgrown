@@ -2354,9 +2354,9 @@ MonoBehaviour:
   meleeDamage: 10
   rangedDamage: 10
   critChance: 0
-  defenseModifier: 0
-  meleeDamageModifier: 0
-  rangedDamageModifier: 0
+  meleeWeapon: {fileID: 0}
+  rangedWeapon: {fileID: 0}
+  armor: {fileID: 0}
   playerHealthBar: {fileID: 1226180916571673221}
   currentHealthText: {fileID: 1226180917221182377}
   maxHealthText: {fileID: 1693892995}

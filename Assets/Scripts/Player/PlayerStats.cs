@@ -114,10 +114,8 @@ public class PlayerStats : MonoBehaviour
 
 	public void EquipMeleeWeapon(MeleeWeapon _meleeWeapon)
 	{
-		if(meleeWeapon != null)
-		{
+		if (meleeWeapon != null)
 			meleeWeapon.Unequip();
-		}
 
 		meleeWeapon = _meleeWeapon;
 	}
@@ -126,5 +124,33 @@ public class PlayerStats : MonoBehaviour
 	{
 		meleeWeapon.Unequip();
 		meleeWeapon = null;
+	}
+
+	public void EquipRangedWeapon(RangedWeapon _rangedWeapon)
+	{
+		if (rangedWeapon != null)
+			rangedWeapon.Unequip();
+
+		rangedWeapon = _rangedWeapon;
+	}
+
+	public void UnequipRangedWeapon()
+	{
+		rangedWeapon.Unequip();
+		rangedWeapon = null;
+	}
+
+	public void EquipArmor(Armor _armor)
+	{
+		if (armor != null)
+			armor.Unequip();
+
+		armor = _armor;
+	}
+
+	public void UnequipArmor()
+	{
+		armor.Unequip();
+		armor = null;
 	}
 }

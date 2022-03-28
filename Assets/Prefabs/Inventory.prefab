@@ -3273,9 +3273,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
   - {fileID: 11400000, guid: 5274a743566658a488fcb6daca42fec6, type: 2}
   - {fileID: 11400000, guid: 56df51b1accd12543a755858eb73342f, type: 2}
-  meleeWeaponItems: []
-  rangedWeaponItems: []
-  armorItems: []
+  meleeWeaponItems:
+  - {fileID: 11400000, guid: 6e13d942095e1684f90676f596d67e05, type: 2}
+  - {fileID: 11400000, guid: 7b32b56c1f61e6f488dadcf182e0e900, type: 2}
+  rangedWeaponItems:
+  - {fileID: 11400000, guid: e3b7cb235a1f5654c9a6fc1b28f66b19, type: 2}
+  - {fileID: 11400000, guid: b30405f3519afa54e95456f10ac2286f, type: 2}
+  armorItems:
+  - {fileID: 11400000, guid: e59b2085759a05c42acd64204820c481, type: 2}
+  - {fileID: 11400000, guid: 0f70f70603f67584280cc4d8a2ab9e6a, type: 2}
   categoriesParent: {fileID: 7809169511593148626}
   categoryButtonsParent: {fileID: 7809169511458936811}
   junkItemSlotParent: {fileID: 7809169511454927060}
@@ -3297,6 +3303,9 @@ MonoBehaviour:
   armorItemSlots: []
   itemSlotPrefab: {fileID: 8202397822862838812, guid: bd83d9af9ff53ca4988dc16ce96e9f80, type: 3}
   equippablePlantitemsSave: []
+  meleeWeaponItemsSave: []
+  rangedWeaponItemsSave: []
+  armorItemsSave: []
 --- !u!225 &2048024854
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3761,7 +3770,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7809169511527683209}
+      - m_Target: {fileID: 7809169511685659817}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3785,7 +3794,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7809169511685659817}
+      - m_Target: {fileID: 7809169511527683209}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -6844,7 +6853,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7809169511685659817}
+      - m_Target: {fileID: 7809169511527683209}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -6868,7 +6877,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7809169511527683209}
+      - m_Target: {fileID: 7809169511685659817}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
