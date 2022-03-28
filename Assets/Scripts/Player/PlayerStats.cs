@@ -87,4 +87,9 @@ public class PlayerStats : MonoBehaviour
 		//meleeDamageModifier = statsData.meleeDamageModifier;
 		//rangedDamageModifier = statsData.rangedDamageModifier;
 	}
+
+	public void Sleep()
+	{
+		currentHealth = maxHealth;
+	}
 }

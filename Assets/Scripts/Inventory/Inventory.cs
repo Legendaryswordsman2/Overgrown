@@ -308,6 +308,14 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
+	public void ResetPlantsHealth()
+	{
+		for (int i = 0; i < equippablePlantItems.Count; i++)
+		{
+			equippablePlantItems[i].plantSO.currentHealth = equippablePlantItems[i].plantSO.defaultHealth;
+		}
+	}
+
 	#region Invoke Events
 	public void InvokeOnPlantItemSelected()
 	{

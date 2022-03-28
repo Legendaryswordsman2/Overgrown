@@ -9,6 +9,8 @@ public class LevelLoader : MonoBehaviour
 
 	Animator anim;
 
+	bool changingScenes = false;
+
 	private void Awake()
 	{
 		instance = this;
@@ -17,6 +19,10 @@ public class LevelLoader : MonoBehaviour
 	#region Base Methods
 	public IEnumerator LoadLevelWithTransition(string transitionAnimationStartName, string transitionAnimationEndName, string sceneName, Vector3 newPlayerPosition = new Vector3())
 	{
+		if (changingScenes) yield return null;
+
+		changingScenes = true;
+
 		GameManager.StopTime();
 
 		anim.SetTrigger(transitionAnimationStartName);
@@ -30,6 +36,10 @@ public class LevelLoader : MonoBehaviour
 	}
 	public IEnumerator LoadLevelWithTransition(string transitionAnimationStartName, string transitionAnimationEndName, int sceneIndex, Vector3 newPlayerPosition = new Vector3())
 	{
+		if (changingScenes) yield return null;
+
+		changingScenes = true;
+
 		GameManager.StopTime();
 
 		anim.SetTrigger(transitionAnimationStartName);
@@ -43,12 +53,20 @@ public class LevelLoader : MonoBehaviour
 	}
 	public void LoadLevel(string sceneName, string endAnimationName, Vector3 newPlayerPosition = new Vector3())
 	{
+		if (changingScenes) return;
+
+		changingScenes = true;
+
 		PlayAnimationOnSceneChange(endAnimationName, newPlayerPosition);
 
 		SceneManager.LoadScene(sceneName);
 	}
 	public void LoadLevel(string sceneName)
 	{
+		if (changingScenes) return;
+
+		changingScenes = true;
+
 		SceneManager.LoadScene(sceneName);
 	}
 
@@ -69,6 +87,10 @@ public class LevelLoader : MonoBehaviour
 	}
 	IEnumerator loadTitleScreenWithCrossFadeAnimationIEnumerator()
 	{
+		if (changingScenes) yield return null;
+
+		changingScenes = true;
+
 		PlayAnimationOnSceneChange("CrossFade", new Vector3());
 
 		anim.SetTrigger("CrossFade Start");
@@ -85,6 +107,10 @@ public class LevelLoader : MonoBehaviour
 	
 	IEnumerator LoadLevelWithCrossFadeTransitionIEnumerator(string sceneName)
 	{
+		if (changingScenes) yield return null;
+
+		changingScenes = true;
+
 		PlayAnimationOnSceneChange("CrossFade", new Vector3());
 
 		anim.SetTrigger("CrossFade Start");
