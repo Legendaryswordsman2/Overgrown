@@ -11,36 +11,11 @@ public class PlayerUnit : BaseUnit
 
 	AttackType attackType;
 
-	PlayerStatsSaveData playerStats;
+	[SerializeField] PlayerStats playerStats;
+
 	protected override void Setup()
 	{
 		base.Setup();
-
-		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
-		SaveManager.instance.OnSavingGame += SaveManager_OnSavingGame;
-	}
-
-	private void SaveManager_OnSavingGame(object sender, EventArgs e)
-	{
-		playerStats.currentHealth = currentHealth;
-		SaveSystem.SaveFile("/Player", "/PlayerStats.json", playerStats);
-	}
-
-	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
-	{
-		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats.json");
-		if (statsData == null) return;
-
-		playerStats = statsData;
-
-		maxHealth = statsData.maxHealth;
-		currentHealth = statsData.currentHealth;
-		defense = statsData.defense;
-		meleeDamage = statsData.meleeDamage;
-		rangedDamage = statsData.rangedDamage;
-		critChance = statsData.critChance;
-
-		playerHUD.SetHUD(this);
 	}
 
 	protected override void Update()

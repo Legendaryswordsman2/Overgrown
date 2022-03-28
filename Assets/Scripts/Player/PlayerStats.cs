@@ -38,6 +38,7 @@ public class PlayerStats : MonoBehaviour
 	[SerializeField] TMP_Text critChanceTextStat;
 
 	SaveManager saveManager;
+	BattleSystem battleSystem;
 
 	private void Awake()
 	{
@@ -49,7 +50,22 @@ public class PlayerStats : MonoBehaviour
 
 	private void Start()
 	{
-		if (healthTextStat == null) return;
+		if (BattleSystem.instance != null) 
+		{
+			battleSystem = BattleSystem.instance;
+			PlayerUnit playerUnit = battleSystem.playerUnit;
+
+			playerUnit.maxHealth = maxHealth;
+			playerUnit.currentHealth = currentHealth;
+			playerUnit.meleeDamage = meleeDamage + meleeWeapon.meleeDamageModifier;
+			playerUnit.rangedDamage = rangedDamage;
+			playerUnit.defense = defense;
+			playerUnit.critChance = critChance;
+
+			playerUnit.playerHUD.SetHUD(playerUnit);
+				
+			return;
+		}
 
 		healthTextStat.text += " " + maxHealth;
 		defenseTextStat.text += " " + defense;
@@ -65,6 +81,9 @@ public class PlayerStats : MonoBehaviour
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
 	{
+		if(BattleSystem.instance != null)
+		currentHealth = BattleSystem.instance.playerUnit.currentHealth;
+
 		var saveData = new PlayerStatsSaveData(this);
 		SaveSystem.SaveFile("/Player", "/PlayerStats.json", saveData);
 	}
@@ -85,15 +104,11 @@ public class PlayerStats : MonoBehaviour
 		meleeDamage = statsData.meleeDamage;
 		rangedDamage = statsData.rangedDamage;
 		critChance = statsData.critChance;
-
-		// Modifiers
-		//defenseModifier = statsData.defenseModifier;
-		//meleeDamageModifier = statsData.meleeDamageModifier;
-		//rangedDamageModifier = statsData.rangedDamageModifier;
 	}
 
 	public void Sleep()
 	{
+		Debug.Log("Plaher Slet");
 		currentHealth = maxHealth;
 	}
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Items/Gear/Ranged Weapon")]
 public class Armor : Item
 {
-	[SerializeField] int armorModifier = 1;
+	public int armorModifier = 1;
 
 	[HideInInspector] public bool isEquipped = false;
 

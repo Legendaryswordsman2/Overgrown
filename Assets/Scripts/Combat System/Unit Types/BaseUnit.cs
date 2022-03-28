@@ -11,10 +11,10 @@ public abstract class BaseUnit : MonoBehaviour
 	[Header("Stats")]
 	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
-	[SerializeField] protected int meleeDamage = 10;
-	[SerializeField] protected int rangedDamage = 10;
-	[SerializeField] protected int defense = 0;
-	[SerializeField] protected int critChance = 0;
+	public int meleeDamage = 10;
+	public int rangedDamage = 10;
+	public int defense = 0;
+	public int critChance = 0;
 
 	// Private
 	TMP_Text damageText;

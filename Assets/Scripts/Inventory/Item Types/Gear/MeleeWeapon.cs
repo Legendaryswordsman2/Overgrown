@@ -7,9 +7,9 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Items/Gear/Melee Weapon")]
 public class MeleeWeapon : Item
 {
-	[SerializeField] int meleeDamageModifier = 1;
+	public int meleeDamageModifier = 1;
 
-	public bool isEquipped = false;
+	[HideInInspector] public bool isEquipped = false;
 
 	Image equippedCheckmark;
 	Inventory inventory;
@@ -37,6 +37,10 @@ public class MeleeWeapon : Item
 
 	public void EquipForNewScene(ItemSlot itemSlot)
 	{
+		if (BattleSystem.instance != null)
+			BattleSystem.instance.GetComponent<PlayerStats>().EquipMeleeWeapon(this);
+
+		if(GameManager.instance != null)
 		GameManager.instance.player.GetComponent<PlayerStats>().EquipMeleeWeapon(this);
 
 		equippedCheckmark = itemSlot.equippedCheckmark;

@@ -37983,6 +37983,7 @@ GameObject:
   - component: {fileID: 1990234817}
   - component: {fileID: 1990234818}
   - component: {fileID: 1990234819}
+  - component: {fileID: 1990234820}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -38090,6 +38091,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952ad70a54349584d8856125e9670f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1990234820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990234814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9ad0e04b9f10048ab8b3b8030b763a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  defense: 0
+  meleeDamage: 10
+  rangedDamage: 10
+  critChance: 0
+  meleeWeapon: {fileID: 0}
+  rangedWeapon: {fileID: 0}
+  armor: {fileID: 0}
+  playerHealthBar: {fileID: 0}
+  currentHealthText: {fileID: 0}
+  maxHealthText: {fileID: 0}
+  healthTextStat: {fileID: 0}
+  defenseTextStat: {fileID: 0}
+  damageTextStat: {fileID: 0}
+  critChanceTextStat: {fileID: 0}
 --- !u!1 &2004411741
 GameObject:
   m_ObjectHideFlags: 0
@@ -38832,6 +38861,7 @@ MonoBehaviour:
   isBlocking: 0
   currentMode: 0
   <playerHUD>k__BackingField: {fileID: 1867131979}
+  playerStats: {fileID: 0}
 --- !u!212 &2135679977
 SpriteRenderer:
   m_ObjectHideFlags: 0
