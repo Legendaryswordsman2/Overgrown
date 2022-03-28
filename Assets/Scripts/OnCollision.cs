@@ -7,7 +7,7 @@ public class OnCollision : MonoBehaviour
 {
 	[Tooltip("The game object that collides with this game object must have the specified tag")]
 	[SerializeField] string tag;
-
+	
 	[SerializeField] UnityEvent onCollisionEnter;
 	[SerializeField] UnityEvent onCollisionExit;
 
@@ -58,6 +58,9 @@ public class OnCollision : MonoBehaviour
 		if (!isInRanged || buttonPressKey == KeyCode.None) return;
 
 		if (Input.GetKeyDown(buttonPressKey))
+		{
+			Debug.Log("Trigger Entered And Button Press");
 			onTriggerEnterAndButtonPress.Invoke();
+		}
 	}
 }
