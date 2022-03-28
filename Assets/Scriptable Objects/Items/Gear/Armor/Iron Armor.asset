@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: e59b2085759a05c42acd64204820c481
   ItemName: Iron Armor
-  ItemDescription: Decent iron armor
+  ItemDescription: 'Decent iron armor
+
+
+    +3 Defense'
   Icon: {fileID: 21300000, guid: b7f972b2a75ca024ca95c5b537e47acf, type: 3}
   armorModifier: 3
+  isEquipped: 0
