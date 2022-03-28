@@ -18,9 +18,11 @@ public class Grow : MonoBehaviour
 	// Growing
 	[SerializeField] int totalGrowTime;
 	[SerializeField] float stageGrowthTime;
-	[SerializeField, ReadOnlyInspector] int elapsedTime = 0;
+	[SerializeField, ReadOnlyInspector] int timeRemaining;
 
 	[SerializeField, ReadOnlyInspector] int currentGrowthStageIndex = 0;
+
+	[SerializeField] int[] stageIntervals;
 
 	public void StartGrowing()
 	{
@@ -36,6 +38,8 @@ public class Grow : MonoBehaviour
 		plantIcon.SetActive(false);
 
 		progressBar.gameObject.SetActive(true);
+
+		timeRemaining = chosenGrowingPlant.plantGrowTime;
 
 		StartCoroutine(NextGrowthStage());
 		StartCoroutine(Timer());
@@ -59,10 +63,10 @@ public class Grow : MonoBehaviour
 	IEnumerator Timer()
 	{
 		yield return new WaitForSeconds(1);
-		elapsedTime++;
-		progressBar.current = elapsedTime;
+		timeRemaining--;
+		progressBar.current = timeRemaining;
 
-		if (elapsedTime < totalGrowTime)
+		if (timeRemaining > 0)
 		{
 		StartCoroutine(Timer());
 		}
