@@ -29,8 +29,8 @@ public class PlayerStatsSaveData
 		critChance = playerStats.critChance;
 
 		// Modifiers
-		defenseModifier = playerStats.defenseModifier;
-		meleeDamageModifier = playerStats.meleeDamageModifier;
-		rangedDamageModifier = playerStats.rangedDamageModifier;
+		//defenseModifier = playerStats.defenseModifier;
+		//meleeDamageModifier = playerStats.meleeDamageModifier;
+		//rangedDamageModifier = playerStats.rangedDamageModifier;
 	}
 }

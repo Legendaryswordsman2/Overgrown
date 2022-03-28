@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class OnCollision : MonoBehaviour
 {
 	[Tooltip("The game object that collides with this game object must have the specified tag")]
-	[SerializeField] string tag;
+	[SerializeField] string collisionTag;
 	
 	[SerializeField] UnityEvent onCollisionEnter;
 	[SerializeField] UnityEvent onCollisionExit;
@@ -21,7 +21,7 @@ public class OnCollision : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (tag == "" || !collision.gameObject.CompareTag(tag)) return;
+		if (collisionTag == "" || !collision.gameObject.CompareTag(tag)) return;
 
 		Debug.Log("Collision Entered");
 		onCollisionEnter.Invoke();
@@ -29,7 +29,7 @@ public class OnCollision : MonoBehaviour
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		if (tag == "" || !collision.gameObject.CompareTag(tag)) return;
+		if (collisionTag == "" || !collision.gameObject.CompareTag(tag)) return;
 
 		Debug.Log("Collision Exited");
 		onCollisionExit.Invoke();
@@ -37,7 +37,7 @@ public class OnCollision : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (tag == "" || !collision.gameObject.CompareTag(tag)) return;
+		if (collisionTag == "" || !collision.gameObject.CompareTag(tag)) return;
 
 		Debug.Log("Trigger Entered");
 		isInRanged = true;
@@ -46,7 +46,7 @@ public class OnCollision : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (tag == "" || !collision.gameObject.CompareTag(tag)) return;
+		if (collisionTag == "" || !collision.gameObject.CompareTag(tag)) return;
 
 		Debug.Log("Trigger Exited");
 		isInRanged = false;

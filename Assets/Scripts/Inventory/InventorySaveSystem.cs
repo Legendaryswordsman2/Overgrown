@@ -91,13 +91,13 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void SaveMeleeWeaponItems()
 	{
-		List<GearSaveData> meleeWeaponItemIDs = new List<GearSaveData>();
+		List<GearSaveData> meleeWeaponItems = new List<GearSaveData>();
 
 		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
 		{
-			meleeWeaponItemIDs.Add(new GearSaveData(inventory.meleeWeaponItems[i].ID, inventory.meleeWeaponItems[i].isEquipped));
+			meleeWeaponItems.Add(new GearSaveData(inventory.meleeWeaponItems[i].ID, inventory.meleeWeaponItems[i].isEquipped));
 		}
-		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItems);
 	}
 	private void SaveRangedWeaponItems()
 	{
@@ -171,15 +171,16 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadMeleeWeaponItems()
 	{
-		List<GearSaveData> meleeWeaponIDs = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
-		if (meleeWeaponIDs == null) return;
+		List<GearSaveData> meleeWeaponItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
+		if (meleeWeaponItems == null) return;
 
 		inventory.meleeWeaponItems.Clear();
 
-		foreach (GearSaveData item in meleeWeaponIDs)
+		foreach (GearSaveData item in meleeWeaponItems)
 		{
 			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(item.itemID));
 		}
+		inventory.meleeWeaponItemsSave = meleeWeaponItems;
 	}
 	private void LoadRangedWeaponItems()
 	{

@@ -14,11 +14,15 @@ public class PlayerStats : MonoBehaviour
 	public int rangedDamage = 10;
 	public int critChance = 0;
 
-	[Header("Stat Modifiers")]
-	//public int maxHealthModifier;
-	[ReadOnlyInspector] public int defenseModifier;
-	[ReadOnlyInspector] public int meleeDamageModifier;
-	[ReadOnlyInspector] public int rangedDamageModifier;
+	//[Header("Stat Modifiers")]
+	//[ReadOnlyInspector] public int defenseModifier;
+	//[ReadOnlyInspector] public int meleeDamageModifier;
+	//[ReadOnlyInspector] public int rangedDamageModifier;
+
+	[Header("Stat Item Modifiers")]
+	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
+	[ReadOnlyInspector] public RangedWeapon rangedWeapon;
+	[ReadOnlyInspector] public Armor armor;
 
 
 	[Header("Stats Refernces")]
@@ -91,5 +95,21 @@ public class PlayerStats : MonoBehaviour
 	public void Sleep()
 	{
 		currentHealth = maxHealth;
+	}
+
+	public void EquipMeleeWeapon(MeleeWeapon _meleeWeapon)
+	{
+		if(meleeWeapon != null)
+		{
+			meleeWeapon.Unequip();
+		}
+
+		meleeWeapon = _meleeWeapon;
+	}
+
+	public void UnequipMeleeWeapon()
+	{
+		meleeWeapon.Unequip();
+		meleeWeapon = null;
 	}
 }

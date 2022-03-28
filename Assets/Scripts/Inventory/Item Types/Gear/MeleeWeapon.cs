@@ -5,37 +5,43 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Items/Gear/Melee Weapon")]
-public class MeleeWeapon : Item, IEquippable
+public class MeleeWeapon : Item
 {
 	[SerializeField] int meleeDamageModifier = 1;
 
-	[HideInInspector] public bool isEquipped = false;
+	public bool isEquipped = false;
 
 	Image equippedCheckmark;
 	Inventory inventory;
 
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-		inventory = Inventory.instance;
+		equippedCheckmark = itemSlot.equippedCheckmark;
+		Equip();
+	}
 
+	void Equip()
+	{
 		if (isEquipped)
 		{
-			GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = 0;
-
-			isEquipped = false;
-			if (equippedCheckmark != null) equippedCheckmark.enabled = false;
-
+			GameManager.instance.player.GetComponent<PlayerStats>().UnequipMeleeWeapon();
 			return;
 		}
 
-		inventory.InvokeOnMeleeWeaponItemSelected();
-
-		inventory.OnMeleeWeaponItemSelected += UnequipMeleeWeaponItem;
+		GameManager.instance.player.GetComponent<PlayerStats>().EquipMeleeWeapon(this);
 
 		isEquipped = true;
+		equippedCheckmark.enabled = true;
 
-		GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = meleeDamageModifier;
+	}
+
+	public void EquipForNewScene(ItemSlot itemSlot)
+	{
+		GameManager.instance.player.GetComponent<PlayerStats>().EquipMeleeWeapon(this);
+
 		equippedCheckmark = itemSlot.equippedCheckmark;
+
+		isEquipped = true;
 		equippedCheckmark.enabled = true;
 	}
 
@@ -43,29 +49,16 @@ public class MeleeWeapon : Item, IEquippable
 	{
 		inventory = Inventory.instance;
 
-		inventory.OnMeleeWeaponItemSelected += UnequipMeleeWeaponItem;
-
 		isEquipped = true;
 
-		GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = meleeDamageModifier;
+		//GameManager.instance.player.GetComponent<PlayerStats>().meleeDamageModifier = meleeDamageModifier;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;
 	}
 
-	private void UnequipMeleeWeaponItem(object sender, EventArgs e)
+	public void Unequip()
 	{
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
-		inventory.OnMeleeWeaponItemSelected -= UnequipMeleeWeaponItem;
-	}
-
-	public void Equip()
-	{
-		throw new NotImplementedException();
-	}
-
-	public void Unequip()
-	{
-		throw new NotImplementedException();
 	}
 }

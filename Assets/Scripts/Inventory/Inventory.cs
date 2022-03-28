@@ -49,12 +49,10 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject itemSlotPrefab;
 
 	public event EventHandler OnPlantItemSelected;
-	public event EventHandler OnMeleeWeaponItemSelected;
-	public event EventHandler OnRangedWeaponitemSelected;
-	public event EventHandler OnArmoritemSelected;
 
 
 	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;
+	[HideInInspector] public List<GearSaveData> meleeWeaponItemsSave;
 
 	private void Awake()
 	{
@@ -182,11 +180,18 @@ public class Inventory : MonoBehaviour
 				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
 			}
 		}
+		
 
 		for (int i = 0; i < meleeWeaponItems.Count; i++)
 		{
 			meleeWeaponItems[i] = Instantiate(meleeWeaponItems[i]);
+
 		}
+			for (int i2 = 0; i2 < meleeWeaponItems.Count; i2++)
+			{
+				meleeWeaponItems[i2].isEquipped = meleeWeaponItemsSave[i2].isEquipped;
+			}
+
 
 		for (int i = 0; i < rangedWeaponItems.Count; i++)
 		{
@@ -244,8 +249,15 @@ public class Inventory : MonoBehaviour
 			meleeWeaponItemSlots.Add(ItemSlot);
 
 			if (ItemSlot.item is MeleeWeapon c)
+			{
+				print("Is Melee Weapon");
 				if (c.isEquipped)
-					c.EquipOnSceneLoaded(ItemSlot);
+				{
+					print("Is Equipped");
+					c.EquipForNewScene(ItemSlot);
+				}
+
+			}
 		}
 
 		for (int i = 0; i < rangedWeaponItems.Count; i++)
@@ -320,18 +332,6 @@ public class Inventory : MonoBehaviour
 	public void InvokeOnPlantItemSelected()
 	{
 		OnPlantItemSelected?.Invoke(this, EventArgs.Empty);
-	}
-	public void InvokeOnMeleeWeaponItemSelected()
-	{
-		OnMeleeWeaponItemSelected?.Invoke(this, EventArgs.Empty);
-	}
-	public void InvokeOnRangedWeaponItemSelected()
-	{
-		OnRangedWeaponitemSelected?.Invoke(this, EventArgs.Empty);
-	}
-	public void InvokeOnArmorItemSelected()
-	{
-		OnArmoritemSelected?.Invoke(this, EventArgs.Empty);
 	}
 	#endregion
 
