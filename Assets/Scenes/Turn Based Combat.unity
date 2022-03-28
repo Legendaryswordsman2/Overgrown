@@ -38852,12 +38852,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Player
-  maxHealth: 662
+  maxHealth: 100
   currentHealth: 0
-  meleeDamage: 52
-  rangedDamage: 49
-  defense: 23
-  critChance: 19
+  meleeDamage: 10
+  rangedDamage: 10
+  defense: 0
+  critChance: 0
   isBlocking: 0
   currentMode: 0
   <playerHUD>k__BackingField: {fileID: 1867131979}

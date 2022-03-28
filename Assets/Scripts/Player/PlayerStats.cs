@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-[System.Serializable]
 public class PlayerStats : MonoBehaviour
 {
 	[Header("Starting Stats")]
@@ -69,9 +68,9 @@ public class PlayerStats : MonoBehaviour
 				playerUnit.rangedDamage = rangedDamage;
 
 			if (armor != null)
-				playerUnit.defense = defense;
-			else
 				playerUnit.defense = defense + armor.armorModifier;
+			else
+				playerUnit.defense = defense;
 
 			playerUnit.critChance = critChance;
 
