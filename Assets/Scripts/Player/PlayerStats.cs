@@ -109,6 +109,8 @@ public class PlayerStats : MonoBehaviour
 		if(BattleSystem.instance != null)
 		currentHealth = BattleSystem.instance.playerUnit.currentHealth;
 
+		Debug.Log(currentHealth);
+
 		var saveData = new PlayerStatsSaveData(this);
 		SaveSystem.SaveFile("/Player", "/PlayerStats.json", saveData);
 	}

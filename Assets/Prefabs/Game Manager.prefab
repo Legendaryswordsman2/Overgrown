@@ -51,6 +51,7 @@ MonoBehaviour:
   <playerLevel>k__BackingField: {fileID: 0}
   <plantUiMenu>k__BackingField: {fileID: 0}
   <playerHealthBar>k__BackingField: {fileID: 0}
+  <player>k__BackingField: {fileID: 0}
   enemyTemplate: {fileID: 4669908542637058254, guid: 59c4c88c6bd7ae7488ba9231fb09a44c, type: 3}
   pauseMenuKey: 27
   inventoryKey: 105

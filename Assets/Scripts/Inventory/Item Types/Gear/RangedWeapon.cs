@@ -45,8 +45,6 @@ public class RangedWeapon : Item
 
 		equippedCheckmark = itemSlot.equippedCheckmark;
 
-		GameManager.instance.player.GetComponent<PlayerStats>().RefreshRangedDamageStat();
-
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
 	}

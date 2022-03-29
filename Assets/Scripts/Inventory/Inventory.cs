@@ -182,25 +182,23 @@ public class Inventory : MonoBehaviour
 				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
 			}
 		}
-		
-
 		for (int i = 0; i < meleeWeaponItems.Count; i++)
 		{
 			meleeWeaponItems[i] = Instantiate(meleeWeaponItems[i]);
-			meleeWeaponItems[i].isEquipped = meleeWeaponItemsSave[i].isEquipped;
+			if(meleeWeaponItemsSave.Count != 0) meleeWeaponItems[i].isEquipped = meleeWeaponItemsSave[i].isEquipped;
 
 		}
 
 		for (int i = 0; i < rangedWeaponItems.Count; i++)
 		{
 			rangedWeaponItems[i] = Instantiate(rangedWeaponItems[i]);
-			rangedWeaponItems[i].isEquipped = rangedWeaponItemsSave[i].isEquipped;
+			if(rangedWeaponItemsSave.Count != 0) rangedWeaponItems[i].isEquipped = rangedWeaponItemsSave[i].isEquipped;
 		}
 
 		for (int i = 0; i < armorItems.Count; i++)
 		{
 			armorItems[i] = Instantiate(armorItems[i]);
-			armorItems[i].isEquipped = armorItemsSave[i].isEquipped;
+			if(armorItemsSave.Count != 0) armorItems[i].isEquipped = armorItemsSave[i].isEquipped;
 		}
 	}
 

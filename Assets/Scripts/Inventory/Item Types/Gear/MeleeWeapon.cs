@@ -46,8 +46,6 @@ public class MeleeWeapon : Item
 
 		equippedCheckmark = itemSlot.equippedCheckmark;
 
-		GameManager.instance.player.GetComponent<PlayerStats>().RefreshMeleeDamageStat();
-
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
 	}

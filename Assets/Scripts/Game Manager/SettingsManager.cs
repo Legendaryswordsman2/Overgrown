@@ -66,7 +66,6 @@ public class SettingsManager : MonoBehaviour
 
         volumeIndex++;
         PlayerPrefs.SetInt("Volume Index", volumeIndex);
-        Debug.Log(volumeIndex);
         if(audioMixer.GetFloat("Volume", out float volumeValue))
 		{
             audioMixer.SetFloat("Volume", volumeValue + 3);

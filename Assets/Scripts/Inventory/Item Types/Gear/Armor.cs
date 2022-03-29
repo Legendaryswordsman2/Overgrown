@@ -45,8 +45,6 @@ public class Armor : Item
 
 		equippedCheckmark = itemSlot.equippedCheckmark;
 
-		GameManager.instance.player.GetComponent<PlayerStats>().RefreshDefenseStat();
-
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
 	}
