@@ -88,13 +88,37 @@ public static class SaveSystem
         using StreamWriter sw = new StreamWriter(path);
         sw.Write(appID);
     }
-    public static void CreateSaveSlotSubFolders()
-    {
-        Directory.CreateDirectory(currentSaveLocation + "MainSave" +"/Player");
-        Directory.CreateDirectory(currentSaveLocation + "MainSave" + "/Inventory/ExternalStorage");
 
-        Directory.CreateDirectory(currentSaveLocation + "Temp" + "/Player");
-        Directory.CreateDirectory(currentSaveLocation + "Temp" + "/Inventory/ExternalStorage");
+    public static T LoadFileInSpecificSave<T>(int saveLocationIndex, string filePath)
+	{
+		switch (saveLocationIndex)
+		{
+            case (1):
+                filePath = saveOneLocation +  "/" + saveSubLocation + "/" + filePath;
+                break;
 
+            case (2):
+                filePath = saveTwoLocation + "/" + saveSubLocation + "/" + filePath;
+                break;
+
+            case (3):
+                filePath = saveThreeLocation + "/" + saveSubLocation + "/" + filePath;
+                break;
+
+            default:
+                Debug.LogError("Not a valid SaveLocationIndex");
+                break;
+
+        }
+
+        if (!File.Exists(filePath))
+        {
+            return default(T);
+        }
+        using (Stream stream = File.Open(filePath, FileMode.Open))
+        {
+            var binaryFormatter = new BinaryFormatter();
+            return (T)binaryFormatter.Deserialize(stream);
+        }
     }
 }

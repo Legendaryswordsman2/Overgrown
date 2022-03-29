@@ -42,11 +42,6 @@ public class SettingsManager : MonoBehaviour
         VolumeSetup();
         AssignValues();
     }
-    //public void SetVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("Volume", volume);
-    //    PlayerPrefs.SetFloat("Volume", volume);
-    //}
 
     public void VolumeUp()
 	{

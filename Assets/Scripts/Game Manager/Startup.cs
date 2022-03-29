@@ -25,7 +25,7 @@ public class Startup : MonoBehaviour
 
         if (Directory.Exists(SaveSystem.saveThreeLocation + "/Temp"))
             Directory.Delete(SaveSystem.saveThreeLocation + "/Temp", true);
-        Debug.Log("Deleted temp save");
+        Debug.Log("Deleted temp saves");
     }
 
 	void InitializeSaveSlots()
@@ -38,7 +38,7 @@ public class Startup : MonoBehaviour
 
         if(File.Exists(SaveSystem.saveOneLocation + "/MainSave/Player/PlayerLevel&XP.json"))
         {
-            PlayerXPData xpDataSaveOne = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
+            PlayerXPData xpDataSaveOne = SaveSystem.LoadFileInSpecificSave<PlayerXPData>(1, "/Player/PlayerLevel&XP.json");
 
             saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveOne.playerLevel.ToString();
             saveSlotOne.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveOne.xpToLevelUp;
@@ -47,7 +47,7 @@ public class Startup : MonoBehaviour
 
         if (File.Exists(SaveSystem.saveTwoLocation + "/MainSave/Player/PlayerLevel&XP.json"))
         {
-            PlayerXPData xpDataSaveTwo = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
+            PlayerXPData xpDataSaveTwo = SaveSystem.LoadFileInSpecificSave<PlayerXPData>(2, "/Player/PlayerLevel&XP.json");
 
             saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveTwo.playerLevel.ToString();
             saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveTwo.xpToLevelUp;
@@ -56,7 +56,7 @@ public class Startup : MonoBehaviour
 
         if (File.Exists(SaveSystem.saveThreeLocation + "/MainSave/Player/PlayerLevel&XP.json"))
         {
-            PlayerXPData xpDataSaveThree = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
+            PlayerXPData xpDataSaveThree = SaveSystem.LoadFileInSpecificSave<PlayerXPData>(3, "/Player/PlayerLevel&XP.json");
 
             saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveThree.playerLevel.ToString();
             saveSlotThree.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveThree.xpToLevelUp;
