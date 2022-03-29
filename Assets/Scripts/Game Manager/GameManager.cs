@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public GameObject playerLevel { get; private set; }
     [field: SerializeField] public GameObject plantUiMenu { get; private set; }
     [field: SerializeField] public GameObject playerHealthBar { get; private set; }
+    [field: SerializeField] public GameObject player { get; private set; }
 
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;
@@ -28,7 +29,6 @@ public class GameManager : MonoBehaviour
     [field: Header("Allowed Actions")]
     [field: SerializeField] public bool allowedToWalk { get; private set; } = true;
 
-    public GameObject player { get; private set; }
 
     // Hidden Variables
 

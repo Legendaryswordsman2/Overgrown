@@ -23,10 +23,13 @@ public class RangedWeapon : Item
 		if (isEquipped)
 		{
 			GameManager.instance.player.GetComponent<PlayerStats>().UnequipRangedWeapon();
+			GameManager.instance.player.GetComponent<PlayerStats>().RefreshRangedDamageStat();
 			return;
 		}
 
 		GameManager.instance.player.GetComponent<PlayerStats>().EquipRangedWeapon(this);
+
+		GameManager.instance.player.GetComponent<PlayerStats>().RefreshRangedDamageStat();
 
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
@@ -42,12 +45,16 @@ public class RangedWeapon : Item
 
 		equippedCheckmark = itemSlot.equippedCheckmark;
 
+		GameManager.instance.player.GetComponent<PlayerStats>().RefreshRangedDamageStat();
+
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
 	}
 
 	public void Unequip()
 	{
+		GameManager.instance.player.GetComponent<PlayerStats>().RefreshRangedDamageStat();
+
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
 	}

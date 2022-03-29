@@ -23,10 +23,13 @@ public class MeleeWeapon : Item
 		if (isEquipped)
 		{
 			GameManager.instance.player.GetComponent<PlayerStats>().UnequipMeleeWeapon();
+			GameManager.instance.player.GetComponent<PlayerStats>().RefreshMeleeDamageStat();
 			return;
 		}
 
 		GameManager.instance.player.GetComponent<PlayerStats>().EquipMeleeWeapon(this);
+
+		GameManager.instance.player.GetComponent<PlayerStats>().RefreshMeleeDamageStat();
 
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
@@ -43,12 +46,16 @@ public class MeleeWeapon : Item
 
 		equippedCheckmark = itemSlot.equippedCheckmark;
 
+		GameManager.instance.player.GetComponent<PlayerStats>().RefreshMeleeDamageStat();
+
 		isEquipped = true;
 		equippedCheckmark.enabled = true;
 	}
 
 	public void Unequip()
 	{
+		GameManager.instance.player.GetComponent<PlayerStats>().RefreshMeleeDamageStat();
+
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
 	}

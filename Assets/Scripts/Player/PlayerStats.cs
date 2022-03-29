@@ -68,7 +68,7 @@ public class PlayerStats : MonoBehaviour
 				playerUnit.rangedDamage = rangedDamage;
 
 			if (armor != null)
-				playerUnit.defense = defense + armor.armorModifier;
+				playerUnit.defense = defense + armor.defenseModifier;
 			else
 				playerUnit.defense = defense;
 
@@ -82,19 +82,20 @@ public class PlayerStats : MonoBehaviour
 		healthTextStat.text += " " + maxHealth;
 
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text += " " + (meleeDamage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (meleeDamage + meleeWeapon.meleeDamageModifier);
 		else
-			meleeDamageTextStat.text += " " + meleeDamage;
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + meleeDamage;
 
-		if(rangedWeapon != null)
-		rangedDamageTextStat.text += " " + (rangedDamage + rangedWeapon.rangedDamageModifier);
+		if (rangedWeapon != null)
+			rangedDamageTextStat.text = "RANGED DAMAGE: " + (rangedDamage + rangedWeapon.rangedDamageModifier);
 		else
-			rangedDamageTextStat.text += " " + rangedDamage;
+			rangedDamageTextStat.text = "RANGED DAMAGE: " + rangedDamage;
 
 		if (armor != null)
-			defenseTextStat.text += " " + (defense + armor.armorModifier);
+			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
 		else
-			defenseTextStat.text += " " + defense;
+			defenseTextStat.text = "DEFENSE: " + defense;
+
 		critChanceTextStat.text += " " + critChance;
 
 		playerHealthBar.max = maxHealth;
@@ -176,5 +177,28 @@ public class PlayerStats : MonoBehaviour
 	{
 		armor.Unequip();
 		armor = null;
+	}
+
+
+	public void RefreshMeleeDamageStat()
+	{
+		if (meleeWeapon != null)
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (meleeDamage + meleeWeapon.meleeDamageModifier);
+		else
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + meleeDamage;
+	}
+	public void RefreshRangedDamageStat()
+	{
+		if (rangedWeapon != null)
+			rangedDamageTextStat.text = "RANGED DAMAGE: " + (rangedDamage + rangedWeapon.rangedDamageModifier);
+		else
+			rangedDamageTextStat.text = "RANGED DAMAGE: " + rangedDamage;
+	}
+	public void RefreshDefenseStat()
+	{
+		if (armor != null)
+			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+		else
+			rangedDamageTextStat.text = "RANGED DAMAGE: " + rangedDamage;
 	}
 }
