@@ -15,7 +15,8 @@ MonoBehaviour:
   id: 08a8aba3a2806354bbe1cb9e28f14827
   unitName: Potato
   defaultHealth: 100
-  attackDamage: 10
+  currentHealth: 100
+  meleeDamage: 50
   defense: 0
   critChance: 0
   animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}

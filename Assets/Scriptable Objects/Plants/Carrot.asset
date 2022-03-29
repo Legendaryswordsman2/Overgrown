@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6d5d181b0de6949877c8b0cbbcbfbd, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
+  id: 73fee1c37710d984c8cfe7cbded002fe
   unitName: Carrot
   defaultHealth: 100
-  attackDamage: 10
-  healthIncreasePerLevelUp: 10
-  damageIncreasePerLevelUp: 2
+  currentHealth: 100
+  meleeDamage: 10
+  defense: 5
+  critChance: 20
   animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
