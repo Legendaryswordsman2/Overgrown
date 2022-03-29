@@ -6,7 +6,7 @@ using TMPro;
 public class CombatInfoHUD : MonoBehaviour
 {
 	[SerializeField] TMP_Text nameText;
-	[SerializeField] ProgressBar healthSlider;
+	[SerializeField] PlayerHealthBar healthSlider;
 
 	public void SetHUD(BaseUnit unit)
 	{
