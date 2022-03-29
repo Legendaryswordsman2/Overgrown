@@ -31,8 +31,9 @@ public class PlayerStats : MonoBehaviour
 	[Space]
 
 	[SerializeField] TMP_Text healthTextStat;
+	[SerializeField] TMP_Text meleeDamageTextStat;
+	[SerializeField] TMP_Text rangedDamageTextStat;
 	[SerializeField] TMP_Text defenseTextStat;
-	[SerializeField] TMP_Text damageTextStat;
 	[SerializeField] TMP_Text critChanceTextStat;
 
 	SaveManager saveManager;
@@ -79,8 +80,21 @@ public class PlayerStats : MonoBehaviour
 		}
 
 		healthTextStat.text += " " + maxHealth;
-		defenseTextStat.text += " " + defense;
-		damageTextStat.text += " " + meleeDamage;
+
+		if (meleeWeapon != null)
+			meleeDamageTextStat.text += " " + (meleeDamage + meleeWeapon.meleeDamageModifier);
+		else
+			meleeDamageTextStat.text += " " + meleeDamage;
+
+		if(rangedWeapon != null)
+		rangedDamageTextStat.text += " " + (rangedDamage + rangedWeapon.rangedDamageModifier);
+		else
+			rangedDamageTextStat.text += " " + rangedDamage;
+
+		if (armor != null)
+			defenseTextStat.text += " " + (defense + armor.armorModifier);
+		else
+			defenseTextStat.text += " " + defense;
 		critChanceTextStat.text += " " + critChance;
 
 		playerHealthBar.max = maxHealth;
