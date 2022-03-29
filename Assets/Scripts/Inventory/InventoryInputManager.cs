@@ -22,6 +22,12 @@ public class InventoryInputManager : MonoBehaviour
 	}
 	public void ResetInventoryView()
 	{
+		if (categoryButtons.activeSelf)
+		{
+			GameManager.instance.CloseInventory();
+			return;
+		}
+
 		foreach (Transform child in categories.transform)
 		{
 			child.gameObject.SetActive(false);

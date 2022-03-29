@@ -135,6 +135,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CloseInventory()
+	{
+        inventory.gameObject.SetActive(false);
+        Inventory.instance.itemInfoBox.gameObject.SetActive(false);
+        playerHealthBar.SetActive(true);
+        StartTime();
+    }
+
     void OpenPauseMenu()
     {
         if (Input.GetKeyDown(pauseMenuKey) && inventory.gameObject.activeSelf == false)
