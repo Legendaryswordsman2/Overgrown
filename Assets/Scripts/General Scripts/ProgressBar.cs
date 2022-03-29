@@ -9,7 +9,7 @@ public class ProgressBar : MonoBehaviour
 {
     [Min(0)]
     public int max = 100;
-    public int current = 100;
+    public int current = 0;
 
     [SerializeField] Image mask;
 
