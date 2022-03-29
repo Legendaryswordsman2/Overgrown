@@ -13,6 +13,9 @@ public class ConsumableItem : Item
 
 		if (battleSystem == null) return;
 
+		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
+		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
+
 
 		if (!battleSystem.playerHasPlant)
 		{

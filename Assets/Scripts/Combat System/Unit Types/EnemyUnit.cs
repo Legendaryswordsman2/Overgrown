@@ -34,12 +34,12 @@ public class EnemyUnit : BaseUnit
 
 		battleSystem.state = BattleState.EnemyTurn;
 
-		int temp = Random.Range(0, 2);
+		int temp = Random.Range(0, 5);
 
+		if (temp <= 1)
+			Block();
+		else
 			BasicAttack();
-		//if (temp == 0)
-		//else
-		//	Block();
 	}
 
 	void BasicAttack()
