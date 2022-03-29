@@ -19,5 +19,5 @@ MonoBehaviour:
 
     +3 Defense'
   Icon: {fileID: 21300000, guid: b7f972b2a75ca024ca95c5b537e47acf, type: 3}
-  armorModifier: 3
+  defenseModifier: 3
   isEquipped: 0
