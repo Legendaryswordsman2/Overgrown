@@ -21,7 +21,7 @@ public class PlayerStamina : MonoBehaviour
 
     private void Start()
     {
-        staminaBar.maximum = maxStamina;
+        staminaBar.max = maxStamina;
         currentStamina = maxStamina;
     }
     private void Update()

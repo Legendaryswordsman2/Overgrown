@@ -64,7 +64,7 @@ public class PlayerLevel : MonoBehaviour
 
         if (levelProgressBar != null)
 		{
-            levelProgressBar.maximum = xpToLevelUp;
+            levelProgressBar.max = xpToLevelUp;
             levelProgressBar.current = xp;
 		}
 
@@ -83,7 +83,7 @@ public class PlayerLevel : MonoBehaviour
     {
         if (levelProgressBar != null)
         {
-            levelProgressBar.maximum = xpToLevelUp;
+            levelProgressBar.max = xpToLevelUp;
             levelProgressBar.current = xp;
             levelText.text = "LV: " + playerLevel;
         }
@@ -110,7 +110,7 @@ public class PlayerLevel : MonoBehaviour
         if(levelProgressBar != null)
 		{
             levelText.text = "LV: " + playerLevel;
-            levelProgressBar.maximum = xpToLevelUp;
+            levelProgressBar.max = xpToLevelUp;
             levelProgressBar.current = xp;
 
             if (money == 0)

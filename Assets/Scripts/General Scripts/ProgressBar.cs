@@ -8,7 +8,8 @@ using TMPro;
 public class ProgressBar : MonoBehaviour
 {
     [Min(0)]
-    public int maximum, current;
+    public int max = 100;
+    public int current = 100;
 
     [SerializeField] Image mask;
 
@@ -22,7 +23,13 @@ public class ProgressBar : MonoBehaviour
 
     protected virtual void GetCurrentFIll()
     {
-        fillAmount = (float)current / (float)maximum;
+        fillAmount = (float)current / (float)max;
         mask.fillAmount = fillAmount;
     }
+
+	private void OnValidate()
+	{
+        if (current > max)
+            current = max;
+	}
 }

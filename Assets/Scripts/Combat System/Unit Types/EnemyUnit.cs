@@ -22,7 +22,7 @@ public class EnemyUnit : BaseUnit
 
 		healthBar = transform.GetChild(0).GetChild(0).GetComponent<ProgressBar>();
 
-		healthBar.maximum = maxHealth;
+		healthBar.max = maxHealth;
 		healthBar.current = maxHealth;
 
 		gameObject.SetActive(true);

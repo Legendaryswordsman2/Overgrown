@@ -41,7 +41,7 @@ public class Startup : MonoBehaviour
             PlayerXPData xpDataSaveOne = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
 
             saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveOne.playerLevel.ToString();
-            saveSlotOne.GetChild(1).GetComponent<ProgressBar>().maximum = xpDataSaveOne.xpToLevelUp;
+            saveSlotOne.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveOne.xpToLevelUp;
             saveSlotOne.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveOne.xp;
         }
 
@@ -50,7 +50,7 @@ public class Startup : MonoBehaviour
             PlayerXPData xpDataSaveTwo = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
 
             saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveTwo.playerLevel.ToString();
-            saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().maximum = xpDataSaveTwo.xpToLevelUp;
+            saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveTwo.xpToLevelUp;
             saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveTwo.xp;
         }
 
@@ -59,7 +59,7 @@ public class Startup : MonoBehaviour
             PlayerXPData xpDataSaveThree = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
 
             saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveThree.playerLevel.ToString();
-            saveSlotThree.GetChild(1).GetComponent<ProgressBar>().maximum = xpDataSaveThree.xpToLevelUp;
+            saveSlotThree.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveThree.xpToLevelUp;
             saveSlotThree.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveThree.xp;
         }
 	}

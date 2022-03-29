@@ -14,7 +14,7 @@ public class PlayerHealthBar : ProgressBar
 		if (healthTextCurrent != null && healthTextMax != null)
 		{
 			healthTextCurrent.text = current.ToString();
-			healthTextMax.text = "       / " + maximum.ToString();
+			healthTextMax.text = "       / " + max.ToString();
 		}
 	}
 }

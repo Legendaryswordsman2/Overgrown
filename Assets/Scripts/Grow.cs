@@ -33,7 +33,7 @@ public class Grow : MonoBehaviour
 
 		stageGrowthTime = totalGrowTime / (float)chosenGrowingPlant.plantGrowthStages.Length;
 
-		progressBar.maximum = totalGrowTime;
+		progressBar.max = totalGrowTime;
 
 		plantIcon.SetActive(false);
 

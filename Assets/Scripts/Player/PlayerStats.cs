@@ -26,8 +26,7 @@ public class PlayerStats : MonoBehaviour
 
 	[Header("Stats Refernces")]
 	[SerializeField] ProgressBar playerHealthBar;
-	[SerializeField] TMP_Text currentHealthText;
-	[SerializeField] TMP_Text maxHealthText;
+	[SerializeField] TMP_Text playerHealthText;
 
 	[Space]
 
@@ -84,11 +83,10 @@ public class PlayerStats : MonoBehaviour
 		damageTextStat.text += " " + meleeDamage;
 		critChanceTextStat.text += " " + critChance;
 
-		playerHealthBar.maximum = maxHealth;
+		playerHealthBar.max = maxHealth;
 		playerHealthBar.current = currentHealth;
 
-		currentHealthText.text = currentHealth.ToString();
-		maxHealthText.text = "       / " + maxHealth.ToString();
+		playerHealthText.text = currentHealth + " / " + maxHealth;
 	}
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)

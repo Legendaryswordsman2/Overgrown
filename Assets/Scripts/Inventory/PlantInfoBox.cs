@@ -11,7 +11,7 @@ public class PlantInfoBox : MonoBehaviour
 	public void SetInfoBox(SOPlant plantSO)
 	{
 		plantName.text = plantSO.unitName.ToUpper();
-		plantHealthBar.maximum = plantSO.defaultHealth;
+		plantHealthBar.max = plantSO.defaultHealth;
 		plantHealthBar.current = plantSO.currentHealth;
 
 		gameObject.SetActive(true);
