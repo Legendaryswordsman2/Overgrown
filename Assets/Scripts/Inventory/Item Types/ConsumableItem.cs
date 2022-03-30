@@ -38,4 +38,9 @@ public class ConsumableItem : Item
 			effect.ExecuteEffect(unit);
 		}
 	}
+
+	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	{
+		throw new System.NotImplementedException();
+	}
 }

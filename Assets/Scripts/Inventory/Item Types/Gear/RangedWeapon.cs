@@ -56,4 +56,9 @@ public class RangedWeapon : Item
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
 	}
+
+	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	{
+		throw new System.NotImplementedException();
+	}
 }

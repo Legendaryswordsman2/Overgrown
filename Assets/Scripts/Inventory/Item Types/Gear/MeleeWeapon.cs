@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Items/Gear/Melee Weapon")]
 public class MeleeWeapon : Item
 {
+	[Space]
+
 	public int meleeDamageModifier = 1;
 
 	[HideInInspector] public bool isEquipped = false;
@@ -56,5 +58,10 @@ public class MeleeWeapon : Item
 
 		isEquipped = false;
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
+	}
+
+	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	{
+		throw new System.NotImplementedException();
 	}
 }

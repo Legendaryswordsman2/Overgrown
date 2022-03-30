@@ -98,4 +98,9 @@ public class EquipablePlantItem : Item
 		if(equippedCheckmark != null) equippedCheckmark.enabled = false;
 		inventory.OnPlantItemSelected -= UnequipPlantItem;
 	}
+
+	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	{
+		throw new System.NotImplementedException();
+	}
 }

@@ -19,11 +19,16 @@ public abstract class Item : ScriptableObject
 
 	public Sprite Icon;
 
+	[Space]
+
  	public bool Sellable = true;
+	public int price = 10;
+	public int sellPrice = 5;
 
 	bool canStack;
 
 	public abstract void ItemSelected(ItemSlot itemSlot);
+	public abstract void BuyItem(BuyableItemSlot itemSlot, Inventory inventory);
 
 #if UNITY_EDITOR
 	protected virtual void OnValidate()
@@ -32,24 +37,4 @@ public abstract class Item : ScriptableObject
 		id = AssetDatabase.AssetPathToGUID(path);
 	}
 #endif
-
-
-//	#region Editor
-
-//#if UNITY_EDITOR
-//	[CustomEditor(typeof(Item))]
-//	public class ItemEditor : Editor
-//	{
-//		public override void OnInspectorGUI()
-//		{
-//			base.OnInspectorGUI();
-
-//			Item item = (Item)target;
-
-//			EditorGUILayout.Space();
-//			EditorGUILayout.LabelField("Details");
-//		}
-//	}
-//#endif
-//	#endregion
 }
