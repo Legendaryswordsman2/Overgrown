@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 778083b234f55554a8ddf299bc5c3bb2
   defaultHealth: 50
+  meleeDamage: 17
+  defense: 0
+  critChance: 0
   enemyName: Test Enemy
   sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
   animatorControllers:
@@ -21,12 +24,11 @@ MonoBehaviour:
   chosenAnimatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
   minXPOnDeath: 5
   maxXPOnDeath: 15
-  XPOnDeath: 7
+  XPOnDeath: 13
   minMoneyOnDeath: 2
   maxMoneyOnDeath: 10
-  MoneyOnDeath: 9
+  MoneyOnDeath: 4
   attackRange: 0.5
-  meleeDamage: 17
   enemiesToFight: []
   attackWalkSpeed: 5
   wanderSpeed: 3

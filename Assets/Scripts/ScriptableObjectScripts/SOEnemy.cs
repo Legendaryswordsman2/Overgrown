@@ -6,7 +6,11 @@ public class SOEnemy : ScriptableObject
 {
 	[ReadOnlyInspector]
 	public string id;
+	[Header("Stats")]
 	public int defaultHealth = 100;
+	public int meleeDamage = 10;
+	public int defense = 0;
+	public int critChance;
 	public string enemyName = "Enemy";
 
 	[Header("Sprites")]
@@ -27,7 +31,6 @@ public class SOEnemy : ScriptableObject
 
 	[Header("Comabat")]
 	public float attackRange = 0.5f;
-	public int meleeDamage = 10;
 	public EnemiesToFight[] enemiesToFight;
 
 	[Header("Walk Speeds")]
