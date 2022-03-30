@@ -59,7 +59,6 @@ public class EnemySpawnManager : MonoBehaviour
 	}
 	void SpawnEnemiesFromBeforeCombat()
 	{
-		Debug.Log("Spawning enemies from before");
 		foreach (var enemy in BattleSetupData.enemySaveData)
 		{
 			enemiesAlive.Add(gameManager.SpawnEnemy(enemy.enemyType, enemy.spawnPosition));

@@ -110,7 +110,6 @@ public abstract class BaseUnit : MonoBehaviour
 	protected virtual void Die()
 	{
 		gameObject.SetActive(false);
-		Debug.Log(unitName + " has died");
 		currentMode = CurrentMode.Dead;
 	}
 	IEnumerator HurtWhileBlocking()
@@ -227,7 +226,6 @@ public abstract class BaseUnit : MonoBehaviour
 	#region Actions
 	public virtual void Block()
 	{
-		Debug.Log("Blocking");
 		isBlocking = true;
 		anim.Play("Block Animation");
 		StartCoroutine(NextTurn());

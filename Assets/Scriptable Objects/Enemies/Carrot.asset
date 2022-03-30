@@ -24,7 +24,7 @@ MonoBehaviour:
   XPOnDeath: 8
   minMoneyOnDeath: 2
   maxMoneyOnDeath: 10
-  MoneyOnDeath: 6
+  MoneyOnDeath: 8
   attackRange: 0.5
   meleeDamage: 10
   enemiesToFight:
@@ -38,8 +38,9 @@ MonoBehaviour:
   - enemies:
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
-  - enemies:
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - enemies:
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}

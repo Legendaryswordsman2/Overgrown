@@ -22,8 +22,6 @@ public abstract class Item : ScriptableObject
  	public bool Sellable = true;
 
 	bool canStack;
-	//[Range(1, 99)]
-	//public int MaximumStacks = 1;
 
 	public abstract void ItemSelected(ItemSlot itemSlot);
 

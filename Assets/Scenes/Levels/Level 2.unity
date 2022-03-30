@@ -30990,7 +30990,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a98df9a1357cf344ab6f5166960553e, type: 2}
   - {fileID: 11400000, guid: c8320990068f75b47a0db36c0e3cc3c1, type: 2}
   <enemiesAlive>k__BackingField: []
-  <MinSpawns>k__BackingField: 3
+  <MinSpawns>k__BackingField: 5
   <MaxSpawns>k__BackingField: 7
   availableSpawnLocations: []
 --- !u!1 &1607013133
