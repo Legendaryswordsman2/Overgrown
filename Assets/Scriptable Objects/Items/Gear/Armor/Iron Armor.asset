@@ -22,5 +22,5 @@ MonoBehaviour:
   Sellable: 1
   price: 10
   sellPrice: 5
-  defenseModifier: 90
+  defenseModifier: 10
   isEquipped: 0

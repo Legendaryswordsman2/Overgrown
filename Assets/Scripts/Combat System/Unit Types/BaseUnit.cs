@@ -78,10 +78,16 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		if(defense != 0)
 		{
-			float tempDefense = defense;
+			float tempDefense = 0;
 			float tempDamage = _damage;
 
-			Debug.Log("Defense: " + tempDamage);
+			for (int i = 0; i < defense; i++)
+			{
+				tempDefense += battleSystem.defensePercentagePerDefensePoint;
+				Debug.Log("Current Defense: " + tempDefense);
+			}
+
+			Debug.Log("Defenssse: " + tempDamage);
 			tempDamage = -(((tempDamage * tempDefense) / 100) - tempDamage);
 			Debug.Log("Defense: " + tempDamage);
 			_damage = (int)tempDamage;
