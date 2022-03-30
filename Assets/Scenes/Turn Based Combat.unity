@@ -39149,7 +39149,7 @@ MonoBehaviour:
   currentHealth: 0
   meleeDamage: 10
   rangedDamage: 10
-  defense: 0
+  defense: 5
   critChance: 0
   isBlocking: 0
   currentMode: 0

@@ -13,7 +13,7 @@ public abstract class BaseUnit : MonoBehaviour
 	[ReadOnlyInspector] public int currentHealth;
 	[ReadOnlyInspector] public int meleeDamage = 10;
 	[ReadOnlyInspector] public int rangedDamage = 10;
-	[ReadOnlyInspector] public int defense = 0;
+	public int defense = 0;
 	[ReadOnlyInspector] public int critChance = 0;
 
 	// Private
@@ -76,6 +76,17 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 	public virtual void TakeDamage(int _damage, bool isCritical)
 	{
+		if(defense != 0)
+		{
+			float tempDefense = defense;
+			float tempDamage = _damage;
+
+			Debug.Log("Defense: " + tempDamage);
+			tempDamage = -(((tempDamage * tempDefense) / 100) - tempDamage);
+			Debug.Log("Defense: " + tempDamage);
+			_damage = (int)tempDamage;
+		}
+
 		if(_damage <= 0)
 		{
 			damageText.text = "MISS";
