@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7b32b56c1f61e6f488dadcf182e0e900
   ItemName: Wooden Sword
-  ItemDescription: 'A basic wodden sword
+  ItemDescription: 'A basic wooden sword
 
 
     +2 Melee Damage'

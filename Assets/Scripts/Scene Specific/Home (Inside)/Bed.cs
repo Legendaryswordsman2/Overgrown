@@ -38,7 +38,6 @@ public class Bed : MonoBehaviour
 
 	void Sleep()
 	{
-		Debug.Log("Slept");
 		GameManager gameManager = GameManager.instance;
 		gameManager.player.GetComponent<PlayerStats>().Sleep();
 		gameManager.inventory.ResetPlantsHealth();

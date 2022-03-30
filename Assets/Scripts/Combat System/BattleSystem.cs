@@ -118,7 +118,7 @@ public class BattleSystem : MonoBehaviour
 			{
 				enemiesAlive[i].ResetForNewRound();
 			}
-
+			yield return new WaitForSeconds(0.5f);
 			enemiesAlive[0].ChooseAction();
 		} 
 		else if(state == BattleState.EnemyTurn)

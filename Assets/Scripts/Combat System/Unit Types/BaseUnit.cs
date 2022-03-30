@@ -227,6 +227,7 @@ public abstract class BaseUnit : MonoBehaviour
 	#region Actions
 	public virtual void Block()
 	{
+		Debug.Log("Blocking");
 		isBlocking = true;
 		anim.Play("Block Animation");
 		StartCoroutine(NextTurn());

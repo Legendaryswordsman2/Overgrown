@@ -36,10 +36,12 @@ public class EnemyUnit : BaseUnit
 
 		int temp = Random.Range(0, 5);
 
-		if (temp <= 1)
-			Block();
-		else
-			BasicAttack();
+		Block();
+
+		//if (temp <= 1)
+		//	Block();
+		//else
+		//	BasicAttack();
 	}
 
 	void BasicAttack()
