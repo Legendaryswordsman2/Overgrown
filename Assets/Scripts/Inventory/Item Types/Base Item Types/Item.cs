@@ -19,6 +19,8 @@ public abstract class Item : ScriptableObject
 
 	public Sprite Icon;
 
+ 	public bool Sellable = true;
+
 	bool canStack;
 	//[Range(1, 99)]
 	//public int MaximumStacks = 1;
