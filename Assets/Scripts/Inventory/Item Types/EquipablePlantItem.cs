@@ -60,6 +60,9 @@ public class EquipablePlantItem : Item
 		battleSystem.playerPlantUnit.plantSO = BattleSetupData.plantSO;
 		battleSystem.playerPlantUnit.SetupPlant();
 
+		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
+		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
+
 		battleSystem.inventory.gameObject.SetActive(false);
 
 		battleSystem.playerUnit.CallNextTurn();

@@ -121,18 +121,18 @@ public class EnemyUnit : BaseUnit
 		target.TakeDamage((int)modifiedDamage, isCritical);
 	}
 
-	protected override void OnValidate()
-	{
-		if (enemySO == null)
-		{
-			gameObject.SetActive(false);
-			name = "Unit";
-		} 
-		else
-		{
-			gameObject.SetActive(true);
-			SetupEnemy();
-			base.OnValidate();
-		}
-	}
+	//protected override void OnValidate()
+	//{
+	//	if (enemySO == null)
+	//	{
+	//		gameObject.SetActive(false);
+	//		name = "Unit";
+	//	}
+	//	else
+	//	{
+	//		gameObject.SetActive(true);
+	//		SetupEnemy();
+	//		base.OnValidate();
+	//	}
+	//}
 }

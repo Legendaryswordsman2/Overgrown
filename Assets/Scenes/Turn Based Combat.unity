@@ -1334,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: unitName
-      value: Turnip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: <enemySO>k__BackingField
@@ -1346,12 +1346,12 @@ PrefabInstance:
       objectReference: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b897f541d3db4ce4c862a23a93c1415d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: enemySO
       value: 
@@ -1370,7 +1370,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: ' Unit'
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -3136,18 +3136,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: unitName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: enemySO
       value: 
@@ -3166,7 +3170,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: ' Unit'
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -25773,14 +25777,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: unitName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
+    - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: enemySO
       value: 
@@ -25799,7 +25811,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: ' Unit'
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -26027,7 +26039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Player Plant
-  maxHealth: 334
+  maxHealth: 100
   currentHealth: 0
   meleeDamage: 10
   rangedDamage: 10
@@ -27166,18 +27178,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: unitName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: enemySO
       value: 
@@ -27196,7 +27212,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: ' Unit'
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -38906,18 +38922,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: unitName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
     - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499033, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: enemySO
       value: 
@@ -38936,7 +38956,7 @@ PrefabInstance:
       objectReference: {fileID: 433161408}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: ' Unit'
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive
@@ -39375,19 +39395,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: unitName
-      value: Tomato
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: <enemySO>k__BackingField
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2565244481164499014, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499032, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: ' Unit'
       objectReference: {fileID: 0}
     - target: {fileID: 2565244481164499034, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: m_IsActive

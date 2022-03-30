@@ -21,14 +21,25 @@ MonoBehaviour:
   chosenAnimatorController: {fileID: 9100000, guid: c02ac81a401701e4c969d602ae18db46, type: 2}
   minXPOnDeath: 10
   maxXPOnDeath: 50
-  XPOnDeath: 17
+  XPOnDeath: 10
   minMoneyOnDeath: 2
   maxMoneyOnDeath: 10
-  MoneyOnDeath: 7
+  MoneyOnDeath: 2
   attackRange: 0.5
-  attackDamage: 20
+  meleeDamage: 10
   enemiesToFight:
   - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}
     - {fileID: 11400000, guid: 778083b234f55554a8ddf299bc5c3bb2, type: 2}

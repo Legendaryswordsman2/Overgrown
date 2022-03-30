@@ -9,12 +9,12 @@ public abstract class BaseUnit : MonoBehaviour
 	public string unitName = "Unit";
 
 	[Header("Stats")]
-	public int maxHealth = 100;
+	[ReadOnlyInspector] public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
-	public int meleeDamage = 10;
-	public int rangedDamage = 10;
-	public int defense = 0;
-	public int critChance = 0;
+	[ReadOnlyInspector] public int meleeDamage = 10;
+	[ReadOnlyInspector] public int rangedDamage = 10;
+	[ReadOnlyInspector] public int defense = 0;
+	[ReadOnlyInspector] public int critChance = 0;
 
 	// Private
 	TMP_Text damageText;

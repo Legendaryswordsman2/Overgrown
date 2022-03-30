@@ -22,9 +22,6 @@ public class PlayerPlantUnit : BaseUnit
 		playerPlantHUD.SetHUD(this);
 		playerPlantHUD.gameObject.SetActive(true);
 
-		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
-		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
-
 		BattleSystem.instance.playerHasPlant = true;
 
 		gameObject.SetActive(true);
