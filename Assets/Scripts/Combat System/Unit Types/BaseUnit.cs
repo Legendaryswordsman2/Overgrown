@@ -13,7 +13,7 @@ public abstract class BaseUnit : MonoBehaviour
 	[ReadOnlyInspector] public int currentHealth;
 	[ReadOnlyInspector] public int meleeDamage = 10;
 	[ReadOnlyInspector] public int rangedDamage = 10;
-	public int defense = 0;
+	[ReadOnlyInspector] public int defense = 0;
 	[ReadOnlyInspector] public int critChance = 0;
 
 	// Private
