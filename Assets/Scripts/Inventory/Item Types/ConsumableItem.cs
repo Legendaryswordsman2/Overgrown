@@ -31,6 +31,11 @@ public class ConsumableItem : Item
 		}
 		else
 		{
+			if(battleSystem.playerUnit.currentHealth >= battleSystem.playerUnit.maxHealth && battleSystem.playerPlantUnit.currentHealth >= battleSystem.playerPlantUnit.maxHealth)
+			{
+				Inventory.instance.textPopup.SetPopup("PARTY ALREADY HAS FULL HEALTH");
+				return;
+			}
 			battleSystem.inventory.gameObject.SetActive(false);
 			battleSystem.GetComponent<ChooseTargetToUseItemOn>().ChooseTargetToUseItem(this);
 		}

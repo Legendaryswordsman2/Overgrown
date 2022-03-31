@@ -26,6 +26,13 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
+				if(unitToUseItemOn.currentHealth >= unitToUseItemOn.maxHealth)
+				{
+					Inventory.instance.textPopup.SetPopup("THIS UNIT IS ALREADY HAS FULL HEALTH");
+					return;
+				}
+
+
 				itemToUse.UseItem(unitToUseItemOn);
 				Inventory.instance.RemoveItem(itemToUse);
 				unitToUseItemOn.transform.GetChild(1).gameObject.SetActive(false);
