@@ -20,6 +20,7 @@ public class EnemyUnit : BaseUnit
 		maxHealth = enemySO.defaultHealth;
 		meleeDamage = enemySO.meleeDamage;
 		defense = enemySO.defense;
+		critChance = enemySO.critChance;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = enemySO.chosenAnimatorController;
 
 		healthBar = transform.GetChild(0).GetChild(0).GetComponent<ProgressBar>();

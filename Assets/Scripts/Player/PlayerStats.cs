@@ -8,17 +8,12 @@ public class PlayerStats : MonoBehaviour
 	[Header("Starting Stats")]
 	public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth = 0;
-	public int defense = 0;
 	public int meleeDamage = 10;
 	public int rangedDamage = 10;
+	public int defense = 0;
 	public int critChance = 0;
 
-	//[Header("Stat Modifiers")]
-	//[ReadOnlyInspector] public int defenseModifier;
-	//[ReadOnlyInspector] public int meleeDamageModifier;
-	//[ReadOnlyInspector] public int rangedDamageModifier;
-
-	[Header("Stat Item Modifiers")]
+	[Header("Equipped Items")]
 	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
 	[ReadOnlyInspector] public RangedWeapon rangedWeapon;
 	[ReadOnlyInspector] public Armor armor;

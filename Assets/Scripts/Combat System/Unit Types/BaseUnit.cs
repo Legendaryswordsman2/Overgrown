@@ -14,7 +14,7 @@ public abstract class BaseUnit : MonoBehaviour
 	[ReadOnlyInspector] public int meleeDamage = 10;
 	[ReadOnlyInspector] public int rangedDamage = 10;
 	[ReadOnlyInspector] public int defense = 0;
-	public int critChance = 0;
+	[ReadOnlyInspector] public int critChance = 0;
 
 	// Private
 	TMP_Text damageText;
@@ -223,7 +223,6 @@ public abstract class BaseUnit : MonoBehaviour
 		{
 			_critChance += battleSystem.critPercentagePerCritPoint;
 		}
-		Debug.Log("Crit Chance is: " + _critChance);
 
 		if (temp < _critChance)
 			modifiedDamage *= 1.20f;

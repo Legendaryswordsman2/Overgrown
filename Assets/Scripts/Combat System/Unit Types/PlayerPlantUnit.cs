@@ -19,6 +19,7 @@ public class PlayerPlantUnit : BaseUnit
 		currentHealth = plantSO.currentHealth;
 		meleeDamage = plantSO.meleeDamage;
 		defense = plantSO.defense;
+		critChance = plantSO.critChance;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
 		playerPlantHUD.SetHUD(this);
 		playerPlantHUD.gameObject.SetActive(true);
