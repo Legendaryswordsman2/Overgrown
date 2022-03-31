@@ -19,6 +19,12 @@ public class ConsumableItem : Item
 
 		if (!battleSystem.playerHasPlant)
 		{
+			if (battleSystem.playerUnit.currentHealth >= battleSystem.playerUnit.maxHealth)
+			{
+				Inventory.instance.textPopup.SetPopup("PLAYER ALREADY HAS FULL HEALTH");
+				return;
+			}
+
 			UseItem(battleSystem.playerUnit);
 			battleSystem.inventory.gameObject.SetActive(false);
 			Inventory.instance.RemoveItem(this);

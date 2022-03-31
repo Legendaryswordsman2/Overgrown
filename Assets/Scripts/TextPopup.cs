@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TitleText : MonoBehaviour
+public class TextPopup : MonoBehaviour
 {
-	TMP_Text titleText;
-
-	private void Awake()
+	[SerializeField] TMP_Text popupText;
+	public void SetPopup(string text, float duration = 1)
 	{
-		titleText = GetComponentInChildren<TMP_Text>();
-	}
-	public void SetTitle(string text, float duration)
-	{
-		titleText.text = text;
+		popupText.text = text;
 
 		gameObject.SetActive(true);
 

@@ -14,7 +14,7 @@ public class EquipablePlantItem : Item
 	Inventory inventory;
 	public override void ItemSelected(ItemSlot itemSlot)
 	{
-;		inventory = Inventory.instance;
+		inventory = Inventory.instance;
 		if (isEquipped)
 		{
 			isEquipped = false;
@@ -40,7 +40,7 @@ public class EquipablePlantItem : Item
 
 		if(plantSO.currentHealth <= 0)
 		{
-			inventory.CantEquipPlantPopup.SetActive(true);
+			inventory.textPopup.SetPopup("CANT EQUIP PLANT");
 			return;
 		}
 

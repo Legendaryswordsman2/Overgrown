@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
 	[field: Header("Other Refernces")]
 	[field: SerializeField] public ItemInfoBox itemInfoBox { get; private set; }
 	[field: SerializeField] public PlantInfoBox plantInfoBox { get; private set; }
-	[field: SerializeField] public GameObject CantEquipPlantPopup { get; private set; }
+	[field: SerializeField] public TextPopup textPopup { get; private set; }
 
 
 	[Header("Item Slots")]
