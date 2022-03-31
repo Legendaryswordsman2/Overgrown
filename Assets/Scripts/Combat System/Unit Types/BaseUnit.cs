@@ -6,15 +6,15 @@ using TMPro;
 public enum CurrentMode { Null, Attacking, ReturningHome, AwaitingTargetToAttack, Dead}
 public abstract class BaseUnit : MonoBehaviour
 {
-	public string unitName = "Unit";
+	[ReadOnlyInspector] public string unitName = "Unit";
 
 	[Header("Stats")]
 	[ReadOnlyInspector] public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
 	[ReadOnlyInspector] public int meleeDamage = 10;
 	[ReadOnlyInspector] public int rangedDamage = 10;
-	public int defense = 0;
-	[ReadOnlyInspector] public int critChance = 0;
+	[ReadOnlyInspector] public int defense = 0;
+	public int critChance = 0;
 
 	// Private
 	TMP_Text damageText;
@@ -84,12 +84,9 @@ public abstract class BaseUnit : MonoBehaviour
 			for (int i = 0; i < defense; i++)
 			{
 				tempDefense += battleSystem.defensePercentagePerDefensePoint;
-				Debug.Log("Current Defense: " + tempDefense);
 			}
 
-			Debug.Log("Defenssse: " + tempDamage);
 			tempDamage = -(((tempDamage * tempDefense) / 100) - tempDamage);
-			Debug.Log("Defense: " + tempDamage);
 			_damage = (int)tempDamage;
 		}
 
@@ -216,13 +213,21 @@ public abstract class BaseUnit : MonoBehaviour
 	}
 	protected float GetAttackModifier()
 	{
-		int temp = Random.Range(0, 101);
+		float temp = Random.Range(0, 101);
 
 		float modifiedDamage = meleeDamage;
 
-		if (temp < 20)
+		float _critChance = battleSystem.baseCritChancePercantage;
+
+		for (int i = 0; i < critChance; i++)
+		{
+			_critChance += battleSystem.critPercentagePerCritPoint;
+		}
+		Debug.Log("Crit Chance is: " + _critChance);
+
+		if (temp < _critChance)
 			modifiedDamage *= 1.20f;
-		else if (temp <= 30)
+		else if (temp <= _critChance + 10)
 			modifiedDamage = 0;
 
 		return modifiedDamage;

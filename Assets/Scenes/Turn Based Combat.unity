@@ -38318,6 +38318,7 @@ MonoBehaviour:
   <backToBlockAnimationDelay>k__BackingField: 1
   <AttackDuration>k__BackingField: 0.5
   <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 1
+  <defensePercentagePerDefensePoint>k__BackingField: 0.4
   playerHasPlant: 0
   enemySelectionIndex: 0
   xpGiven: 0
@@ -39149,7 +39150,7 @@ MonoBehaviour:
   currentHealth: 0
   meleeDamage: 10
   rangedDamage: 10
-  defense: 5
+  defense: 0
   critChance: 0
   isBlocking: 0
   currentMode: 0

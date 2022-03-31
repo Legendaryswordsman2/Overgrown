@@ -41,6 +41,8 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public float AttackDuration { get; private set; } = 1;
 	[field: SerializeField] public float delayBeforeNextEnemyActionAfterBlocking { get; private set; } = 1;
 	[field: SerializeField] public float defensePercentagePerDefensePoint { get; private set; } = 0.4f;
+	[field: SerializeField] public float critPercentagePerCritPoint { get; private set; } = 0.2f;
+	[field: SerializeField] public float baseCritChancePercantage { get; private set; } = 20;
 
 	// Private
 	[HideInInspector] public bool playerHasPlant = true;

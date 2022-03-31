@@ -16,6 +16,7 @@ public class EnemyUnit : BaseUnit
 		if (enemySO == null) return;
 
 		unitName = enemySO.enemyName;
+		name = unitName;
 		maxHealth = enemySO.defaultHealth;
 		meleeDamage = enemySO.meleeDamage;
 		defense = enemySO.defense;
