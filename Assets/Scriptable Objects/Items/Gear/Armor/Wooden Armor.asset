@@ -17,7 +17,10 @@ MonoBehaviour:
   ItemDescription: 'Basic shitty wodden armor
 
 
-    +1 Defense'
+    +4 Defense'
   Icon: {fileID: 21300000, guid: 6d167bcc15996394986f6959a6085976, type: 3}
-  armorModifier: 1
+  Sellable: 1
+  price: 10
+  sellPrice: 5
+  defenseModifier: 4
   isEquipped: 0
