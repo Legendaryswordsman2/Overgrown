@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -101,14 +102,10 @@ public class PlayerStats : MonoBehaviour
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
 	{
-		if(BattleSystem.instance == null)
+		if (SceneManager.GetActiveScene().name == "Turn Based Combat")
 		{
-			Debug.Log("Battle System Is Null");
-		}
-		if (BattleSystem.instance != null)
-		{
-			Debug.Log("Battle System Active");
 			currentHealth = BattleSystem.instance.playerUnit.currentHealth;
+			Debug.Log("In Combat Scene");
 		}
 
 		var saveData = new PlayerStatsSaveData(this);

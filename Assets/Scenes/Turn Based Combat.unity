@@ -319,9 +319,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 397446211}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevelWithCrossFadeTransition
+      - m_Target: {fileID: 2030320573}
+        m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
+        m_MethodName: LeaveSceneWithoutSaving
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38319,6 +38319,8 @@ MonoBehaviour:
   <AttackDuration>k__BackingField: 0.5
   <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 1
   <defensePercentagePerDefensePoint>k__BackingField: 0.4
+  <critPercentagePerCritPoint>k__BackingField: 0.2
+  <baseCritChancePercantage>k__BackingField: 20
   playerHasPlant: 0
   enemySelectionIndex: 0
   xpGiven: 0
@@ -38395,10 +38397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
-  defense: 0
+  <currentHealth>k__BackingField: 0
   meleeDamage: 10
   rangedDamage: 10
+  defense: 0
   critChance: 0
   meleeWeapon: {fileID: 0}
   rangedWeapon: {fileID: 0}

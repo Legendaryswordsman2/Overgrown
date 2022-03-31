@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour
 	public event EventHandler OnSavingGame;
 	public event EventHandler OnLoadingGame;
 
-	bool canSave { get; set; } = true;
+	public bool canSave { get; set; } = true;
 
 	public void MakeTempMainSave()
 	{
@@ -86,6 +86,12 @@ public class SaveManager : MonoBehaviour
 		SaveSystem.saveSubLocation = SaveSubLocation.Temp;
 	}
 	#endregion  
+
+	public void LeaveSceneWithoutSaving(string sceneName)
+	{
+		canSave = false;
+		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", sceneName));
+	}
 
 	private void OnApplicationQuit()
 	{
