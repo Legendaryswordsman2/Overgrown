@@ -70,10 +70,6 @@ public class PlayerUnit : BaseUnit
 			playerHUD.SetHealth(0);
 		}
 	}
-	protected override void Die()
-	{
-		base.Die();
-	}
 	public override void ChooseAction()
 	{
 		base.ChooseAction();

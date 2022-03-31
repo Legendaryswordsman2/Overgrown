@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
 	[Header("Starting Stats")]
 	public int maxHealth = 100;
-	[ReadOnlyInspector] public int currentHealth = 0;
+	[field: ReadOnlyInspector, SerializeField] public int currentHealth { get; set; } = 0;
 	public int meleeDamage = 10;
 	public int rangedDamage = 10;
 	public int defense = 0;
@@ -101,8 +101,15 @@ public class PlayerStats : MonoBehaviour
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
 	{
-		if(BattleSystem.instance != null)
-		currentHealth = BattleSystem.instance.playerUnit.currentHealth;
+		if(BattleSystem.instance == null)
+		{
+			Debug.Log("Battle System Is Null");
+		}
+		if (BattleSystem.instance != null)
+		{
+			Debug.Log("Battle System Active");
+			currentHealth = BattleSystem.instance.playerUnit.currentHealth;
+		}
 
 		var saveData = new PlayerStatsSaveData(this);
 		SaveSystem.SaveFile("/Player", "/PlayerStats.json", saveData);

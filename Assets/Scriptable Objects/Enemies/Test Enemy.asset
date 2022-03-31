@@ -16,7 +16,7 @@ MonoBehaviour:
   defaultHealth: 50
   meleeDamage: 17
   defense: 0
-  critChance: 400
+  critChance: 0
   enemyName: Test Enemy
   sprite: {fileID: 3112801437585409821, guid: 6bbac7da456e3c64fab47746b511191a, type: 3}
   animatorControllers:

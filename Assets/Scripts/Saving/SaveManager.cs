@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour
 	public event EventHandler OnSavingGame;
 	public event EventHandler OnLoadingGame;
 
-	bool canSave = true;
+	bool canSave { get; set; } = true;
 
 	public void MakeTempMainSave()
 	{

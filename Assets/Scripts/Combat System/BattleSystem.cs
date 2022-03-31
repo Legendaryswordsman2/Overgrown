@@ -6,7 +6,7 @@ using TMPro;
 public enum BattleState { PlayerTurn, PlayerPlantTurn, EnemyTurn, GameOver}
 public class BattleSystem : MonoBehaviour
 {
-	public static BattleSystem instance;
+	public static BattleSystem instance { get; private set; }
 
 	public BattleState state { get; set; }
 
