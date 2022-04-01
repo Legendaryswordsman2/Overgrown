@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
 
+    GameObject currentlyOpenOverlay;
+
     public static bool timeActive { get; private set; } = true;
 
     InventoryInputManager inventoryInputManager;
@@ -54,10 +57,32 @@ public class GameManager : MonoBehaviour
 
         OpenInventory();
     }
+
+    public void OpenOverlay(GameObject overlayToOpen, bool stopTime = false)
+	{
+        if(currentlyOpenOverlay != null)
+        currentlyOpenOverlay.SetActive(false);
+
+        currentlyOpenOverlay = overlayToOpen;
+
+        currentlyOpenOverlay.SetActive(true);
+
+        if (stopTime) StopTime();
+	}
+
+    public void CloseOverlay(bool startTime = true)
+	{
+        if (currentlyOpenOverlay != null)
+            currentlyOpenOverlay.SetActive(false);
+
+        currentlyOpenOverlay = null;
+
+        if (startTime) StartTime();
+	}
 	#endregion
 
 	#region Essentials
-    public static void StopTime()
+	public static void StopTime()
     {
         Time.timeScale = 0f;
         timeActive = false;
