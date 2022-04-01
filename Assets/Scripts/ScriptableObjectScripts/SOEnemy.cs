@@ -6,16 +6,17 @@ public class SOEnemy : ScriptableObject
 {
 	[ReadOnlyInspector]
 	public string id;
+
+	[Space]
+
+	public string enemyName = "Enemy";
 	[Header("Stats")]
 	public int defaultHealth = 100;
 	public int meleeDamage = 10;
 	public int defense = 0;
 	public int critChance;
-	public string enemyName = "Enemy";
 
-	[Header("Sprites")]
-	public Sprite sprite;
-	[Tooltip("A list of animator controllers that will be randomly selected each time that enemy is spawned down")]
+	[Header("Variants"), Tooltip("Each animator controller represents a variant, when this enemy is spawned, one of these will be chosen at random")]
 	public RuntimeAnimatorController[] animatorControllers;
 	[HideInInspector] public RuntimeAnimatorController chosenAnimatorController;
 

@@ -77,15 +77,10 @@ public class Enemy : MonoBehaviour
         // Sprites
         try
         {
-            //enemyTextureChild.GetComponent<SpriteRenderer>().sprite = enemyData.sprite;
             enemyTextureChild.GetComponent<Animator>().runtimeAnimatorController = enemyData.chosenAnimatorController;
         }
         catch
         {
-            if (enemyData.sprite == null)
-            {
-                Debug.Log(enemyData.enemyName + "'s sprite is null");
-            }
             if (enemyData.chosenAnimatorController == null)
             {
                 Debug.Log(enemyData.enemyName + "'s animator Controller is null");
