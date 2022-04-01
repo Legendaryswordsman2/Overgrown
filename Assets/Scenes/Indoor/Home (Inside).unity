@@ -1494,6 +1494,7 @@ MonoBehaviour:
   sleepKey: 101
   playerWakeUpPosition: {x: 33.605, y: -2.778, z: 0}
   sleepIcon: {fileID: 899884612}
+  timeUntilCanSleepAgain: 5
 --- !u!1 &1078663801
 GameObject:
   m_ObjectHideFlags: 0

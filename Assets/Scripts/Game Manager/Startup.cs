@@ -10,9 +10,10 @@ public class Startup : MonoBehaviour
     private void Awake()
     {
         SaveSystem.saveSubLocation = SaveSubLocation.MainSave;
-        //SaveSystem.CreateSaveSlotSubFolders();
         DeleteTempSaves();
         InitializeSaveSlots();
+
+        Bed.playerhasSleptBefore = false;
     }
 
 	private void DeleteTempSaves()
