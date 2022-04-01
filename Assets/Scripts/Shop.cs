@@ -6,6 +6,8 @@ public class Shop : MonoBehaviour
 {
 	bool isInRange;
 
+	[SerializeField] GameObject shop;
+
 	[SerializeField] GameObject openShopIcon;
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +26,14 @@ public class Shop : MonoBehaviour
 	{
 		if(isInRange && Input.GetKeyDown(KeyCode.E))
 		{
+			shop.SetActive(true);
+			GameManager.StopTime();
+		}
 
+		if (Input.GetKeyDown(KeyCode.Escape) && shop.activeSelf)
+		{
+			shop.SetActive(false);
+			GameManager.StartTime();
 		}
 	}
 
