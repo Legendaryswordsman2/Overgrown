@@ -160,7 +160,7 @@ public class Inventory : MonoBehaviour
 			equippablePlantItems[i].isEquipped = false;
 		}
 		BattleSetupData.plantSO = null;
-		RefreshInventory();
+		RefreshEquippablePlantItemSlots();
 	}
 	void CreateItemCopies()
 	{

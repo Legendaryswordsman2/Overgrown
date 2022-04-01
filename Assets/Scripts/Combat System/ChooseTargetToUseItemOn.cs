@@ -28,7 +28,11 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 			{
 				if(unitToUseItemOn.currentHealth >= unitToUseItemOn.maxHealth)
 				{
-					Inventory.instance.textPopup.SetPopup("THIS UNIT IS ALREADY HAS FULL HEALTH");
+					if (unitToUseItemOn == playerUnit)
+						Inventory.instance.textPopup.SetPopup("PLAYER ALREADY HAS FULL HEALTH");
+					else
+						Inventory.instance.textPopup.SetPopup(unitToUseItemOn.unitName.ToUpper() + " ALREADY HAS FULL HEALTH");
+					
 					return;
 				}
 
@@ -73,6 +77,8 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 
 		playerUnit.transform.GetChild(1).gameObject.SetActive(true);
 		plantUnit.transform.GetChild(1).gameObject.SetActive(false);
+
+		unitToUseItemOn = playerUnit;
 
 		AwaitingTargetToUseItemOn = true;
 	}
