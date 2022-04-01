@@ -1974,10 +1974,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
-  defense: 0
+  <currentHealth>k__BackingField: 0
   meleeDamage: 10
   rangedDamage: 10
+  defense: 0
   critChance: 0
   meleeWeapon: {fileID: 0}
   rangedWeapon: {fileID: 0}
