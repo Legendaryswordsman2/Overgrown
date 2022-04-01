@@ -16,7 +16,7 @@ MonoBehaviour:
   unitName: Carrot
   defaultHealth: 100
   currentHealth: 100
-  meleeDamage: 10
+  meleeDamage: 13
   defense: 5
-  critChance: 20
+  critChance: 7
   animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}

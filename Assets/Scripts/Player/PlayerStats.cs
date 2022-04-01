@@ -105,7 +105,6 @@ public class PlayerStats : MonoBehaviour
 		if (SceneManager.GetActiveScene().name == "Turn Based Combat")
 		{
 			currentHealth = BattleSystem.instance.playerUnit.currentHealth;
-			Debug.Log("In Combat Scene");
 		}
 
 		var saveData = new PlayerStatsSaveData(this);

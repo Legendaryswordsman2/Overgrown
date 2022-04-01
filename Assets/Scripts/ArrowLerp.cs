@@ -31,7 +31,6 @@ public class ArrowLerp : MonoBehaviour
 				isCritical = false;
 
 			BattleSystem.instance.enemiesAlive[selectionIndex].TakeDamage((int)modifiedDamage, isCritical);
-			Debug.Log("Switching Turn");
 			StartCoroutine(playerUnit.NextTurn());
 
 			GetComponent<SpriteRenderer>().enabled = false;
