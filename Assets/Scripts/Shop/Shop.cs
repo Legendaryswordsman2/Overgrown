@@ -14,9 +14,7 @@ public class Shop : MonoBehaviour
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			bool success = GameManager.CloseOverlay(gameObject);
-		}
+			GameManager.CloseOverlay(gameObject);
 	}
 
 	public void GoToStartOfList()
