@@ -10,7 +10,7 @@ public class MeleeWeapon : Item
 
 	public int meleeDamageModifier = 1;
 
-	[HideInInspector] public bool isEquipped = false;
+	 public bool isEquipped = false;
 
 	Image equippedCheckmark;
 	Inventory inventory;

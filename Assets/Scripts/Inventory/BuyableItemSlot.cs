@@ -21,7 +21,14 @@ public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	}
 	public void ItemSelected()
 	{
-		item.BuyItem(this, Inventory.instance);
+		//item.BuyItem(this, Inventory.instance);
+	}
+	public void BuyItem()
+	{
+		Inventory inventory = Inventory.instance;
+
+		inventory.AddItem(item);
+		inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);
 	}
 
 	private void OnValidate()

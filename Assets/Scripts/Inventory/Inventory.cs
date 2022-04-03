@@ -152,6 +152,42 @@ public class Inventory : MonoBehaviour
 				}
 		}
 	}
+	public void RefreshMeleeWeaponItemSlots()
+	{
+		foreach (Transform child in meleeWeaponItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		{
+			var ItemSlot = Instantiate(itemSlotPrefab, meleeWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(meleeWeaponItems[i]);
+			meleeWeaponItemSlots.Add(ItemSlot);
+
+			if (ItemSlot.item is MeleeWeapon c)
+				if (c.isEquipped)
+					c.EquipForNewScene(ItemSlot);
+		}
+	}
+	public void RefreshArmorItemSlots()
+	{
+		foreach (Transform child in armorItemSlotParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < armorItems.Count; i++)
+		{
+			var ItemSlot = Instantiate(itemSlotPrefab, armorItemSlotParent.transform).GetComponent<ItemSlot>();
+			ItemSlot.SetSlot(armorItems[i]);
+			armorItemSlots.Add(ItemSlot);
+
+			if (ItemSlot.item is Armor c)
+				if (c.isEquipped)
+					c.EquipForNewScene(ItemSlot);
+		}
+	}
 	public void UnequipPlant()
 	{
 		for (int i = 0; i < equippablePlantItems.Count; i++)
@@ -327,14 +363,16 @@ public class Inventory : MonoBehaviour
 			questItems.Add(questItem);
 			RefreshQuestItemSlots();
 		}
-		//else if (item is MeleeWeapon meleeWeapon)
-		//{
-			
-		//}
-		//else if (item is Armor armor)
-		//{
-
-		//}
+		else if (item is MeleeWeapon meleeWeapon)
+		{
+			meleeWeaponItems.Add(meleeWeapon);
+			RefreshMeleeWeaponItemSlots();
+		}
+		else if (item is Armor armor)
+		{
+			armorItems.Add(armor);
+			RefreshArmorItemSlots();
+		}
 	}
 
 	public void RemoveItem(Item item)
