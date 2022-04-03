@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class ShopStorefront : MonoBehaviour
 {
-	bool isInRange;
+
+	[Header("Items on sale")]
+	[SerializeField] JunkItem[] junkItems;
+	[SerializeField] ConsumableItem[] consumableItems;
+	[SerializeField] MeleeWeapon[] weapons;
+	[SerializeField] Armor[] armor;
 
 	[SerializeField] Shop shop;
 
 	[SerializeField] GameObject openShopIcon;
 
+	bool isInRange;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		isInRange = true;
@@ -30,16 +36,14 @@ public class ShopStorefront : MonoBehaviour
 			bool successfullyOpenedShop = GameManager.OpenOverlay(shop.gameObject);
 			if (successfullyOpenedShop == false) return;
 
+			SetShopItemSlots();
 
 			GameManager.instance.playerHealthBar.SetActive(false);
 			GameManager.StopTime();
 		}
-
-		//if (Input.GetKeyDown(KeyCode.Escape) && shop.gameObject.activeSelf)
-		//{
-		//	bool successfullyClosedShop = GameManager.CloseOverlay(shop.gameObject);
-		//	if(successfullyClosedShop) GameManager.StartTime();
-		//}
 	}
-
+	void SetShopItemSlots()
+	{
+		shop.SetJunkItemSlots(junkItems);
+	}
 }

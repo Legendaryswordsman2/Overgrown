@@ -11,6 +11,10 @@ public class Shop : MonoBehaviour
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
 
+	[Space]
+
+	[SerializeField] GameObject buyableItemSlotPrefab;
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -44,5 +48,13 @@ public class Shop : MonoBehaviour
 		shopMainMenu.SetActive(false);
 
 		categoryToOpen.SetActive(true);
+	}
+
+	public void SetJunkItemSlots(JunkItem[] junkItems)
+	{
+		for (int i = 0; i < junkItems.Length; i++)
+		{
+			Instantiate(buyableItemSlotPrefab, junkItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(junkItems[i]);
+		}
 	}
 }
