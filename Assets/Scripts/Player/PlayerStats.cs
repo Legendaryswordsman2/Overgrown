@@ -111,7 +111,7 @@ public class PlayerStats : MonoBehaviour
 		maxHealth = statsData.maxHealth;
 		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
-		damage = statsData.meleeDamage;
+		damage = statsData.damage;
 		critChance = statsData.critChance;
 	}
 
