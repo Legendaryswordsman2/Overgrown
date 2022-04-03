@@ -52,6 +52,7 @@ public class ConsumableItem : Item
 
 	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
 	{
-		throw new System.NotImplementedException();
+		inventory.AddItem(this);
+		inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);
 	}
 }

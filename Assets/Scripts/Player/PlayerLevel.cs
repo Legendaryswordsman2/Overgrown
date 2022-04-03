@@ -18,7 +18,8 @@ public class PlayerLevel : MonoBehaviour
     [Header("References")]
     [SerializeField] TMP_Text levelText;
     [SerializeField] ProgressBar levelProgressBar;
-    [SerializeField] TMP_Text MoneyText;
+    [SerializeField] TMP_Text moneyText;
+    [SerializeField] TMP_Text shopMoneyText;
 
     event EventHandler OnLevelUp;
 
@@ -114,9 +115,15 @@ public class PlayerLevel : MonoBehaviour
             levelProgressBar.current = xp;
 
             if (money == 0)
-                MoneyText.text = "$0";
-            else
-            MoneyText.text = "$" + money.ToString("#,#");
+			{
+                moneyText.text = "$0";
+                shopMoneyText.text = "$0";
+			}
+			else
+			{
+                moneyText.text = "$" + money.ToString("#,#");
+                shopMoneyText.text = "$" + money.ToString("#,#");
+            }
 		}
     }
 }

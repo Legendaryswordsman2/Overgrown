@@ -34,4 +34,15 @@ public class Shop : MonoBehaviour
 
 		itemInfoBox.gameObject.SetActive(false);
 	}
+
+	public void GoToCategory(GameObject categoryToOpen)
+	{
+		foreach (Transform child in categoriesParent.transform)
+		{
+			child.gameObject.SetActive(false);
+		}
+		shopMainMenu.SetActive(false);
+
+		categoryToOpen.SetActive(true);
+	}
 }
