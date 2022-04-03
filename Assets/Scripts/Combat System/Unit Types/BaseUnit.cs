@@ -11,8 +11,7 @@ public abstract class BaseUnit : MonoBehaviour
 	[Header("Stats")]
 	[ReadOnlyInspector] public int maxHealth = 100;
 	[ReadOnlyInspector] public int currentHealth;
-	[ReadOnlyInspector] public int meleeDamage = 10;
-	[ReadOnlyInspector] public int rangedDamage = 10;
+	[ReadOnlyInspector] public int damage = 10;
 	[ReadOnlyInspector] public int defense = 0;
 	[ReadOnlyInspector] public int critChance = 0;
 
@@ -216,7 +215,7 @@ public abstract class BaseUnit : MonoBehaviour
 	{
 		float temp = Random.Range(0, 101);
 
-		float modifiedDamage = meleeDamage;
+		float modifiedDamage = damage;
 
 		float _critChance = battleSystem.baseCritChancePercantage;
 

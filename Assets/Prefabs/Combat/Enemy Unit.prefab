@@ -325,8 +325,7 @@ MonoBehaviour:
   unitName: Enemy
   maxHealth: 100
   currentHealth: 0
-  meleeDamage: 10
-  rangedDamage: 10
+  damage: 10
   defense: 0
   critChance: 0
   isBlocking: 0

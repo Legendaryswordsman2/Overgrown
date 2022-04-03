@@ -31,7 +31,6 @@ public class InventorySaveSystem : MonoBehaviour
 		// Gear
 		SaveArmorItems();
 		SaveMeleeWeaponItems();
-		SaveRangedWeaponItems();
 	}
 
 
@@ -42,7 +41,6 @@ public class InventorySaveSystem : MonoBehaviour
 		LoadConsumableItems();
 		LoadQuestItems();
 		LoadMeleeWeaponItems();
-		LoadRangedWeaponItems();
 		LoadArmorItems();
 
 		inventory.SetItemSlots();
@@ -98,16 +96,6 @@ public class InventorySaveSystem : MonoBehaviour
 			meleeWeaponItems.Add(new GearSaveData(inventory.meleeWeaponItems[i].ID, inventory.meleeWeaponItems[i].isEquipped));
 		}
 		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItems);
-	}
-	private void SaveRangedWeaponItems()
-	{
-		List<GearSaveData> rangedWeaponItemIDs = new List<GearSaveData>();
-
-		for (int i = 0; i < inventory.rangedWeaponItems.Count; i++)
-		{
-			rangedWeaponItemIDs.Add(new GearSaveData(inventory.rangedWeaponItems[i].ID, inventory.rangedWeaponItems[i].isEquipped));
-		}
-		SaveSystem.SaveFile("/Player/Inventory/Gear", "/RangedWeaponItemData.json", rangedWeaponItemIDs);
 	}
 	private void SaveArmorItems()
 	{
@@ -181,19 +169,6 @@ public class InventorySaveSystem : MonoBehaviour
 			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(item.itemID));
 		}
 		inventory.meleeWeaponItemsSave = meleeWeaponItems;
-	}
-	private void LoadRangedWeaponItems()
-	{
-		List<GearSaveData> rangedWeapons = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/RangedWeaponItemData.json");
-		if (rangedWeapons == null) return;
-
-		inventory.rangedWeaponItems.Clear();
-
-		foreach (GearSaveData item in rangedWeapons)
-		{
-			inventory.rangedWeaponItems.Add(database.GetRangedWeaponItem(item.itemID));
-		}
-		inventory.rangedWeaponItemsSave = rangedWeapons;
 	}
 	private void LoadArmorItems()
 	{

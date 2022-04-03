@@ -54,14 +54,9 @@ public class PlayerStats : MonoBehaviour
 			playerUnit.currentHealth = currentHealth;
 
 			if (meleeWeapon != null)
-				playerUnit.meleeDamage = meleeDamage + meleeWeapon.meleeDamageModifier;
+				playerUnit.damage = meleeDamage + meleeWeapon.meleeDamageModifier;
 			else
-				playerUnit.meleeDamage = meleeDamage;
-
-			if (rangedWeapon != null)
-				playerUnit.rangedDamage = rangedDamage + rangedWeapon.rangedDamageModifier;
-			else
-				playerUnit.rangedDamage = rangedDamage;
+				playerUnit.damage = meleeDamage;
 
 			if (armor != null)
 				playerUnit.defense = defense + armor.defenseModifier;

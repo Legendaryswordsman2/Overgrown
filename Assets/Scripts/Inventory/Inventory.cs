@@ -15,7 +15,6 @@ public class Inventory : MonoBehaviour
 
 	[Header("Gear")]
 	public List<MeleeWeapon> meleeWeaponItems;
-	public List<RangedWeapon> rangedWeaponItems;
 	public List<Armor> armorItems;
 
 	[Header("Parents")]
@@ -27,7 +26,6 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject EquipablePlantItemSlotParent;
 
 	[SerializeField] GameObject meleeWeaponItemSlotParent;
-	[SerializeField] GameObject rangedWeaponItemSlotParent;
 	[SerializeField] GameObject armorItemSlotParent;
 
 	[field: Header("Other Refernces")]
@@ -43,7 +41,6 @@ public class Inventory : MonoBehaviour
 	[SerializeField] List<ItemSlot> questItemSlots = new List<ItemSlot>();
 
 	[SerializeField] List<ItemSlot> meleeWeaponItemSlots = new List<ItemSlot>();
-	[SerializeField] List<ItemSlot> rangedWeaponItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> armorItemSlots = new List<ItemSlot>();
 
 	[SerializeField] GameObject itemSlotPrefab;
@@ -53,7 +50,6 @@ public class Inventory : MonoBehaviour
 
 	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;
 	[HideInInspector] public List<GearSaveData> meleeWeaponItemsSave;
-	[HideInInspector] public List<GearSaveData> rangedWeaponItemsSave;
 	[HideInInspector] public List<GearSaveData> armorItemsSave;
 
 	private void Awake()
@@ -189,12 +185,6 @@ public class Inventory : MonoBehaviour
 
 		}
 
-		for (int i = 0; i < rangedWeaponItems.Count; i++)
-		{
-			rangedWeaponItems[i] = Instantiate(rangedWeaponItems[i]);
-			if(rangedWeaponItemsSave.Count != 0) rangedWeaponItems[i].isEquipped = rangedWeaponItemsSave[i].isEquipped;
-		}
-
 		for (int i = 0; i < armorItems.Count; i++)
 		{
 			armorItems[i] = Instantiate(armorItems[i]);
@@ -251,17 +241,6 @@ public class Inventory : MonoBehaviour
 					c.EquipForNewScene(ItemSlot);
 		}
 
-		for (int i = 0; i < rangedWeaponItems.Count; i++)
-		{
-			var ItemSlot = Instantiate(itemSlotPrefab, rangedWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
-			ItemSlot.SetSlot(rangedWeaponItems[i]);
-			rangedWeaponItemSlots.Add(ItemSlot);
-
-			if (ItemSlot.item is RangedWeapon c)
-				if (c.isEquipped)
-					c.EquipForNewScene(ItemSlot);
-		}
-
 		for (int i = 0; i < armorItems.Count; i++)
 		{
 			var ItemSlot = Instantiate(itemSlotPrefab, armorItemSlotParent.transform).GetComponent<ItemSlot>();
@@ -303,12 +282,6 @@ public class Inventory : MonoBehaviour
 		foreach (Transform child in meleeWeaponItemSlotParent.transform)
 		{
 			meleeWeaponItemSlots.Clear();
-			Destroy(child.gameObject);
-		}
-
-		foreach (Transform child in rangedWeaponItemSlotParent.transform)
-		{
-			rangedWeaponItemSlots.Clear();
 			Destroy(child.gameObject);
 		}
 
@@ -354,10 +327,6 @@ public class Inventory : MonoBehaviour
 		//else if (item is MeleeWeapon meleeWeapon)
 		//{
 			
-		//}
-		//else if (item is RangedWeapon rangedWeapon)
-		//{
-
 		//}
 		//else if (item is Armor armor)
 		//{

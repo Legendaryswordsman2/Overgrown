@@ -6,8 +6,6 @@ public class PlayerPlantUnit : BaseUnit
 {
 	public CombatInfoHUD playerPlantHUD;
 
-	AttackType attackType;
-
 	[ReadOnlyInspector] public SOPlant plantSO;
 
 	public void SetupPlant()
@@ -17,7 +15,7 @@ public class PlayerPlantUnit : BaseUnit
 		unitName = plantSO.unitName;
 		maxHealth = plantSO.defaultHealth;
 		currentHealth = plantSO.currentHealth;
-		meleeDamage = plantSO.meleeDamage;
+		damage = plantSO.meleeDamage;
 		defense = plantSO.defense;
 		critChance = plantSO.critChance;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
@@ -48,10 +46,8 @@ public class PlayerPlantUnit : BaseUnit
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				currentMode = CurrentMode.Null;
-				if (attackType == AttackType.Basic)
-					BasicAttack();
-				//else
-				//	RangedAttack();
+
+				BasicAttack();
 			}
 
 			if (Input.GetKeyDown(KeyCode.W))
@@ -88,12 +84,8 @@ public class PlayerPlantUnit : BaseUnit
 			anim.Play("Idle Animation");
 		battleSystem.playerPlantChoices.SetActive(true);
 	}
-	public void SelectTargetToAttack(bool isBasicAttack)
+	public void SelectTargetToAttack()
 	{
-		if (isBasicAttack)
-			attackType = AttackType.Basic;
-		else
-			attackType = AttackType.Ranged;
 
 		battleSystem.playerPlantChoices.SetActive(false);
 
@@ -151,7 +143,7 @@ public class PlayerPlantUnit : BaseUnit
 
 		bool isCritical;
 
-		if (modifiedDamage > meleeDamage)
+		if (modifiedDamage > damage)
 			isCritical = true;
 		else
 			isCritical = false;

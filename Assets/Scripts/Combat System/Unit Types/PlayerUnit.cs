@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Steamworks;
 using System;
-public enum AttackType { Basic, Ranged}
 public class PlayerUnit : BaseUnit
 {
 	[field: Header("References")]
 	[field: SerializeField] public CombatInfoHUD playerHUD { get; private set; }
-
-	AttackType attackType;
 
 	[SerializeField] PlayerStats playerStats;
 
@@ -27,10 +24,7 @@ public class PlayerUnit : BaseUnit
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				currentMode = CurrentMode.Null;
-				if (attackType == AttackType.Basic)
 					BasicAttack();
-				else
-					RangedAttack();
 			}
 
 			if (Input.GetKeyDown(KeyCode.W))
@@ -82,12 +76,8 @@ public class PlayerUnit : BaseUnit
 	}
 
 	#region Actions
-	public void SelectTargetToAttack(bool isBasicAttack)
+	public void SelectTargetToAttack()
 	{
-		if (isBasicAttack)
-			attackType = AttackType.Basic;
-		else
-			attackType = AttackType.Ranged;
 
 		battleSystem.playerChoices.SetActive(false);
 
@@ -119,7 +109,6 @@ public class PlayerUnit : BaseUnit
 
 		locationToAttackTarget = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(2).position;
 		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform).GetComponent<ArrowLerp>();
-		arrow.damage = rangedDamage;
 		arrow.selectionIndex = battleSystem.enemySelectionIndex;
 		arrow.playerUnit = this;
 		arrow.endPosition = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.position;
@@ -138,7 +127,7 @@ public class PlayerUnit : BaseUnit
 
 		bool isCritical;
 
-		if (modifiedDamage > meleeDamage)
+		if (modifiedDamage > damage)
 			isCritical = true;
 		else
 			isCritical = false;
