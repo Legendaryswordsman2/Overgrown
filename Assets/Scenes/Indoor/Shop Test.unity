@@ -1009,9 +1009,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 19fb7e6248e37f04e8a7c7ef1869f487, type: 2}
   - {fileID: 11400000, guid: 5754f734586ec6046ba1a60b964c290d, type: 2}
   - {fileID: 11400000, guid: 9e64f46aff965dc4093d22cfe01ba097, type: 2}
-  consumableItems: []
-  weapons: []
-  armor: []
+  consumableItems:
+  - {fileID: 11400000, guid: 1aae9b5226c6b194096be12865fab6d9, type: 2}
+  - {fileID: 11400000, guid: 6c6a24b517e874446a0342dfe732565d, type: 2}
+  - {fileID: 11400000, guid: 5c79f34c24278c846a3666e960cb407a, type: 2}
+  weapons:
+  - {fileID: 11400000, guid: 7b32b56c1f61e6f488dadcf182e0e900, type: 2}
+  - {fileID: 11400000, guid: 6e13d942095e1684f90676f596d67e05, type: 2}
+  armor:
+  - {fileID: 11400000, guid: 0f70f70603f67584280cc4d8a2ab9e6a, type: 2}
+  - {fileID: 11400000, guid: e59b2085759a05c42acd64204820c481, type: 2}
   shop: {fileID: 2095412847}
   openShopIcon: {fileID: 1968898486}
 --- !u!61 &637038942
@@ -1612,6 +1619,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1219895724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1219895724, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1311017923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1833,6 +1845,11 @@ Transform:
   m_Father: {fileID: 265091049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1484923541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1484923541, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504886193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,17 +3065,37 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 122981154, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Name
+      value: Weapon items List
+      objectReference: {fileID: 0}
+    - target: {fileID: 122981154, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 125708644, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128169184, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Name
+      value: Armor items List
       objectReference: {fileID: 0}
     - target: {fileID: 1155179630, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1219895724, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Name
+      value: Panel (Size of list) Weapon Items
+      objectReference: {fileID: 0}
     - target: {fileID: 1219895725, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484923541, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_Name
+      value: Panel (Size of list) Armor Items
       objectReference: {fileID: 0}
     - target: {fileID: 1518837057, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_IsActive
@@ -3069,9 +3106,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: armorItemSlotsParent
+      value: 
+      objectReference: {fileID: 1484923541}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: buyableItemSlotPrefab
       value: 
       objectReference: {fileID: 2635848604678278020, guid: cd57bc63012338745891d8671d24aebe, type: 3}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: weaponItemSlotsParent
+      value: 
+      objectReference: {fileID: 1219895724}
     - target: {fileID: 1636912120575920942, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: money
       value: 0

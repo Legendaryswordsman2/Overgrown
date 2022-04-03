@@ -10,6 +10,8 @@ public class Shop : MonoBehaviour
 
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
+	[SerializeField] GameObject weaponItemSlotsParent;
+	[SerializeField] GameObject armorItemSlotsParent;
 
 	[Space]
 
@@ -50,11 +52,54 @@ public class Shop : MonoBehaviour
 		categoryToOpen.SetActive(true);
 	}
 
+	public void clearShopItemSlots()
+	{
+		foreach (Transform child in junkItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in consumableItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in weaponItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in armorItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+	}
 	public void SetJunkItemSlots(JunkItem[] junkItems)
 	{
 		for (int i = 0; i < junkItems.Length; i++)
 		{
 			Instantiate(buyableItemSlotPrefab, junkItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(junkItems[i]);
+		}
+	}
+	public void SetConsumableItemSlots(ConsumableItem[] consumableItems)
+	{
+		for (int i = 0; i < consumableItems.Length; i++)
+		{
+			Instantiate(buyableItemSlotPrefab, consumableItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(consumableItems[i]);
+		}
+	}
+	public void SetWeaponItemSlots(MeleeWeapon[] weaponItems)
+	{
+		for (int i = 0; i < weaponItems.Length; i++)
+		{
+			Instantiate(buyableItemSlotPrefab, weaponItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(weaponItems[i]);
+		}
+	}
+	public void SetArmorItemSlots(Armor[] armorItems)
+	{
+		for (int i = 0; i < armorItems.Length; i++)
+		{
+			Instantiate(buyableItemSlotPrefab, armorItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(armorItems[i]);
 		}
 	}
 }

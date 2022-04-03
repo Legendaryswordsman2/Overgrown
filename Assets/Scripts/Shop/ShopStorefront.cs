@@ -44,6 +44,11 @@ public class ShopStorefront : MonoBehaviour
 	}
 	void SetShopItemSlots()
 	{
+		shop.clearShopItemSlots();
+
 		shop.SetJunkItemSlots(junkItems);
+		shop.SetConsumableItemSlots(consumableItems);
+		shop.SetWeaponItemSlots(weapons);
+		shop.SetArmorItemSlots(armor);
 	}
 }
