@@ -32,7 +32,7 @@ public class ShopStorefront : MonoBehaviour
 	{
 		if(isInRange && Input.GetKeyDown(KeyCode.E))
 		{
-			shop.ResetShopView();
+			shop.ResetShopView(false);
 			bool successfullyOpenedShop = GameManager.OpenOverlay(shop.gameObject);
 			if (successfullyOpenedShop == false) return;
 

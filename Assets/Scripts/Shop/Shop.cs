@@ -20,7 +20,7 @@ public class Shop : MonoBehaviour
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
-			GameManager.CloseOverlay(gameObject);
+			ResetShopView(true);
 	}
 
 	public void GoToStartOfList()
@@ -29,8 +29,14 @@ public class Shop : MonoBehaviour
 		consumableItemSlotsParent.transform.position = new Vector3(consumableItemSlotsParent.transform.position.x, 0);
 	}
 
-	public void ResetShopView()
+	public void ResetShopView(bool canCloseShop)
 	{
+		if (canCloseShop && shopMainMenu.activeSelf)
+		{
+			bool success = GameManager.CloseOverlay(gameObject);
+			if(success) return;
+		}
+
 		shopMainMenu.SetActive(true);
 
 		foreach (Transform child in categoriesParent.transform)
