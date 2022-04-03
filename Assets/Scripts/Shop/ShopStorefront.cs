@@ -28,7 +28,11 @@ public class ShopStorefront : MonoBehaviour
 		{
 			shop.ResetShopView();
 			bool successfullyOpenedShop = GameManager.OpenOverlay(shop.gameObject);
-			if(successfullyOpenedShop) GameManager.StopTime();
+			if (successfullyOpenedShop == false) return;
+
+
+			GameManager.instance.playerHealthBar.SetActive(false);
+			GameManager.StopTime();
 		}
 
 		//if (Input.GetKeyDown(KeyCode.Escape) && shop.gameObject.activeSelf)

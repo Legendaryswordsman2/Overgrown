@@ -11,6 +11,14 @@ public class Shop : MonoBehaviour
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			bool success = GameManager.CloseOverlay(gameObject);
+		}
+	}
+
 	public void GoToStartOfList()
 	{
 		junkItemSlotsParent.transform.position = new Vector3(junkItemSlotsParent.transform.position.x, 0);

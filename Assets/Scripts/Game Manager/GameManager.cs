@@ -53,12 +53,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        OpenPauseMenu();
+        if (Input.GetKeyDown(pauseMenuKey))
+            if (currentlyOpenOverlay == pauseMenu)
+                ClosePauseMenu();
+            else
+                OpenPauseMenu();
 
-        OpenInventory();
+        if (Input.GetKeyDown(inventoryKey))
+            if (currentlyOpenOverlay == inventory.gameObject)
+                CloseInventory();
+            else
+                OpenInventory();
     }
 
-    public static bool OpenOverlay(GameObject overlayToOpen, bool stopTime = false)
+    public static bool OpenOverlay(GameObject overlayToOpen, bool stopTime = true)
 	{
         if (currentlyOpenOverlay != null) return false;
 
@@ -73,17 +81,18 @@ public class GameManager : MonoBehaviour
 
     public static bool CloseOverlay(GameObject overlayToClose, bool startTime = true)
 	{
-        if(overlayToClose != currentlyOpenOverlay)
-		{
-            Debug.Log("The overlay you're trying to close is already closed");
-            return false;
-		}
-
-        if (currentlyOpenOverlay == null)
+        if (overlayToClose == null)
 		{
             Debug.LogError("Can't close an overlay that is null");
             return false;
         }
+
+        if(overlayToClose != currentlyOpenOverlay)
+		{
+            Debug.Log($"The overlay '{overlayToClose}' you're trying to close is already closed");
+            return false;
+		}
+
 
         currentlyOpenOverlay.SetActive(false);
 
@@ -155,28 +164,21 @@ public class GameManager : MonoBehaviour
 
     void OpenInventory()
     {
-        if (Input.GetKeyDown(inventoryKey) && pauseMenu.activeSelf == false)
-        {
-            if (inventory.gameObject.activeSelf == false)
-            { // Open Inventory
-                inventoryInputManager.ResetInventoryView();
-                inventory.gameObject.SetActive(true);
-                playerHealthBar.SetActive(false);
-                StopTime();
-            }
-            else
-            { // Close Inventory
-                inventory.gameObject.SetActive(false);
-                Inventory.instance.itemInfoBox.gameObject.SetActive(false);
-                playerHealthBar.SetActive(true);
-                StartTime();
-            }
-        }
-    }
+		inventoryInputManager.ResetInventoryView(false);
+		bool success = OpenOverlay(inventory.gameObject);
+
+		if (success == false) return;
+
+		playerHealthBar.SetActive(false);
+		StopTime();
+	}
 
     public void CloseInventory()
 	{
-        inventory.gameObject.SetActive(false);
+        bool success = CloseOverlay(inventory.gameObject);
+
+        if (success == false) return;
+
         Inventory.instance.itemInfoBox.gameObject.SetActive(false);
         playerHealthBar.SetActive(true);
         StartTime();
@@ -184,28 +186,22 @@ public class GameManager : MonoBehaviour
 
     void OpenPauseMenu()
     {
-        if (Input.GetKeyDown(pauseMenuKey) && inventory.gameObject.activeSelf == false)
-        { // Open Pause Menu
-            StopTime();
-            if (pauseMenu.activeSelf == false)
-            {
-                pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
-                pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+		pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
+		pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
 
-                playerHealthBar.SetActive(false);
-                pauseMenu.SetActive(true);
-            }
-            else // Close Pause Menu
-            {
-                StartTime();
+		bool success = OpenOverlay(pauseMenu, true);
+		if (success) playerHealthBar.SetActive(false);
+	}
+    void ClosePauseMenu()
+	{
+        bool success = CloseOverlay(pauseMenu);
 
-                pauseMenu.SetActive(false);
-                pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
-                pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+        if (success == false) return;
 
-                playerHealthBar.SetActive(true);
-            }
-        }
+        pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
+        pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+
+        playerHealthBar.SetActive(true);
     }
     public void PlaySound(AudioClip sound)
     {

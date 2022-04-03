@@ -20,9 +20,9 @@ public class InventoryInputManager : MonoBehaviour
 			ResetInventoryView();
 		}
 	}
-	public void ResetInventoryView()
+	public void ResetInventoryView(bool canCloseInventory = true)
 	{
-		if (categoryButtons.activeSelf)
+		if (canCloseInventory && categoryButtons.activeSelf)
 		{
 			GameManager.instance.CloseInventory();
 			return;
