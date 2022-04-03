@@ -3699,7 +3699,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2649176847060232419}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -5799,7 +5799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7809169511458936810}
   m_Layer: 5
-  m_Name: Main Menu
+  m_Name: Main Menu (Inventory)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7770,7 +7770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7809169512263385657
 RectTransform:
   m_ObjectHideFlags: 0

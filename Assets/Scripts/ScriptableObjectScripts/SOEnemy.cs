@@ -12,7 +12,7 @@ public class SOEnemy : ScriptableObject
 	public string enemyName = "Enemy";
 	[Header("Stats")]
 	public int defaultHealth = 100;
-	public int meleeDamage = 10;
+	public int damage = 10;
 	public int defense = 0;
 	public int critChance;
 

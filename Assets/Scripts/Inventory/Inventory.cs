@@ -77,6 +77,9 @@ public class Inventory : MonoBehaviour
 		junkItemSlotParent.transform.position = new Vector3(junkItemSlotParent.transform.position.x, 0);
 		consumableItemSlotParent.transform.position = new Vector3(consumableItemSlotParent.transform.position.x, 0);
 		questItemSlotParent.transform.position = new Vector3(questItemSlotParent.transform.position.x, 0);
+
+		meleeWeaponItemSlotParent.transform.position = new Vector3(junkItemSlotParent.transform.position.x, 0);
+		armorItemSlotParent.transform.position = new Vector3(armorItemSlotParent.transform.position.x, 0);
 	}
 
 	public void RefreshInventory()

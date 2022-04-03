@@ -18,7 +18,7 @@ public class EnemyUnit : BaseUnit
 		unitName = enemySO.enemyName;
 		name = unitName;
 		maxHealth = enemySO.defaultHealth;
-		damage = enemySO.meleeDamage;
+		damage = enemySO.damage;
 		defense = enemySO.defense;
 		critChance = enemySO.critChance;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = enemySO.chosenAnimatorController;
