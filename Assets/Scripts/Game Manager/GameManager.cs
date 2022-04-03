@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
 
-    GameObject currentlyOpenOverlay;
+    public static GameObject currentlyOpenOverlay { get; private set; }
 
     public static bool timeActive { get; private set; } = true;
 
@@ -58,26 +58,40 @@ public class GameManager : MonoBehaviour
         OpenInventory();
     }
 
-    public void OpenOverlay(GameObject overlayToOpen, bool stopTime = false)
+    public static bool OpenOverlay(GameObject overlayToOpen, bool stopTime = false)
 	{
-        if(currentlyOpenOverlay != null)
-        currentlyOpenOverlay.SetActive(false);
+        if (currentlyOpenOverlay != null) return false;
 
         currentlyOpenOverlay = overlayToOpen;
 
         currentlyOpenOverlay.SetActive(true);
 
         if (stopTime) StopTime();
+
+        return true;
 	}
 
-    public void CloseOverlay(bool startTime = true)
+    public static bool CloseOverlay(GameObject overlayToClose, bool startTime = true)
 	{
-        if (currentlyOpenOverlay != null)
-            currentlyOpenOverlay.SetActive(false);
+        if(overlayToClose != currentlyOpenOverlay)
+		{
+            Debug.Log("The overlay you're trying to close is already closed");
+            return false;
+		}
+
+        if (currentlyOpenOverlay == null)
+		{
+            Debug.LogError("Can't close an overlay that is null");
+            return false;
+        }
+
+        currentlyOpenOverlay.SetActive(false);
 
         currentlyOpenOverlay = null;
 
         if (startTime) StartTime();
+
+        return true;
 	}
 	#endregion
 

@@ -6,7 +6,7 @@ public class ShopStorefront : MonoBehaviour
 {
 	bool isInRange;
 
-	[SerializeField] GameObject shop;
+	[SerializeField] Shop shop;
 
 	[SerializeField] GameObject openShopIcon;
 
@@ -26,15 +26,16 @@ public class ShopStorefront : MonoBehaviour
 	{
 		if(isInRange && Input.GetKeyDown(KeyCode.E))
 		{
-			shop.SetActive(true);
-			GameManager.StopTime();
+			shop.ResetShopView();
+			bool successfullyOpenedShop = GameManager.OpenOverlay(shop.gameObject);
+			if(successfullyOpenedShop) GameManager.StopTime();
 		}
 
-		if (Input.GetKeyDown(KeyCode.Escape) && shop.activeSelf)
-		{
-			shop.SetActive(false);
-			GameManager.StartTime();
-		}
+		//if (Input.GetKeyDown(KeyCode.Escape) && shop.gameObject.activeSelf)
+		//{
+		//	bool successfullyClosedShop = GameManager.CloseOverlay(shop.gameObject);
+		//	if(successfullyClosedShop) GameManager.StartTime();
+		//}
 	}
 
 }
