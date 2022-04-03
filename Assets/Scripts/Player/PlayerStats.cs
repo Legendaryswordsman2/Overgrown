@@ -9,14 +9,12 @@ public class PlayerStats : MonoBehaviour
 	[Header("Starting Stats")]
 	public int maxHealth = 100;
 	[field: ReadOnlyInspector, SerializeField] public int currentHealth { get; set; } = 0;
-	public int meleeDamage = 10;
-	public int rangedDamage = 10;
+	public int damage = 10;
 	public int defense = 0;
 	public int critChance = 0;
 
 	[Header("Equipped Items")]
 	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
-	[ReadOnlyInspector] public RangedWeapon rangedWeapon;
 	[ReadOnlyInspector] public Armor armor;
 
 
@@ -28,7 +26,6 @@ public class PlayerStats : MonoBehaviour
 
 	[SerializeField] TMP_Text healthTextStat;
 	[SerializeField] TMP_Text meleeDamageTextStat;
-	[SerializeField] TMP_Text rangedDamageTextStat;
 	[SerializeField] TMP_Text defenseTextStat;
 	[SerializeField] TMP_Text critChanceTextStat;
 
@@ -54,9 +51,9 @@ public class PlayerStats : MonoBehaviour
 			playerUnit.currentHealth = currentHealth;
 
 			if (meleeWeapon != null)
-				playerUnit.damage = meleeDamage + meleeWeapon.meleeDamageModifier;
+				playerUnit.damage = damage + meleeWeapon.meleeDamageModifier;
 			else
-				playerUnit.damage = meleeDamage;
+				playerUnit.damage = damage;
 
 			if (armor != null)
 				playerUnit.defense = defense + armor.defenseModifier;
@@ -73,14 +70,9 @@ public class PlayerStats : MonoBehaviour
 		healthTextStat.text += " " + maxHealth;
 
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (meleeDamage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
 		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + meleeDamage;
-
-		if (rangedWeapon != null)
-			rangedDamageTextStat.text = "RANGED DAMAGE: " + (rangedDamage + rangedWeapon.rangedDamageModifier);
-		else
-			rangedDamageTextStat.text = "RANGED DAMAGE: " + rangedDamage;
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
 
 		if (armor != null)
 			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
@@ -119,8 +111,7 @@ public class PlayerStats : MonoBehaviour
 		maxHealth = statsData.maxHealth;
 		currentHealth = statsData.currentHealth;
 		defense = statsData.defense;
-		meleeDamage = statsData.meleeDamage;
-		rangedDamage = statsData.rangedDamage;
+		damage = statsData.meleeDamage;
 		critChance = statsData.critChance;
 	}
 
@@ -144,20 +135,6 @@ public class PlayerStats : MonoBehaviour
 		meleeWeapon = null;
 	}
 
-	public void EquipRangedWeapon(RangedWeapon _rangedWeapon)
-	{
-		if (rangedWeapon != null)
-			rangedWeapon.Unequip();
-
-		rangedWeapon = _rangedWeapon;
-	}
-
-	public void UnequipRangedWeapon()
-	{
-		rangedWeapon.Unequip();
-		rangedWeapon = null;
-	}
-
 	public void EquipArmor(Armor _armor)
 	{
 		if (armor != null)
@@ -176,22 +153,15 @@ public class PlayerStats : MonoBehaviour
 	public void RefreshMeleeDamageStat()
 	{
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (meleeDamage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
 		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + meleeDamage;
-	}
-	public void RefreshRangedDamageStat()
-	{
-		if (rangedWeapon != null)
-			rangedDamageTextStat.text = "RANGED DAMAGE: " + (rangedDamage + rangedWeapon.rangedDamageModifier);
-		else
-			rangedDamageTextStat.text = "RANGED DAMAGE: " + rangedDamage;
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
 	}
 	public void RefreshDefenseStat()
 	{
 		if (armor != null)
 			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
 		else
-			rangedDamageTextStat.text = "RANGED DAMAGE: " + rangedDamage;
+			defenseTextStat.text = "DEFENSE: " + defense;
 	}
 }

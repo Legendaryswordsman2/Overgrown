@@ -20,7 +20,6 @@ public class Database : ScriptableObject
 	[Header("Gear")]
 	[SerializeField] Armor[] armorItems;
 	[SerializeField] MeleeWeapon[] meleeWeaponItems;
-	[SerializeField] RangedWeapon[] rangedWeaponItems;
 
 	public JunkItem GetJunkItem(string itemID)
 	{
@@ -77,17 +76,6 @@ public class Database : ScriptableObject
 		}
 		return null;
 	}
-	public RangedWeapon GetRangedWeaponItem(string itemID)
-	{
-		foreach (RangedWeapon item in rangedWeaponItems)
-		{
-			if (item.ID == itemID)
-			{
-				return item;
-			}
-		}
-		return null;
-	}
 	public Armor GetArmorItem(string itemID)
 	{
 		foreach (Armor item in armorItems)
@@ -134,7 +122,6 @@ public class Database : ScriptableObject
 		// Gear
 		armorItems = FindAssetsByType<Armor>("Assets/Scriptable Objects/Items/Gear/Armor");
 		meleeWeaponItems = FindAssetsByType<MeleeWeapon>("Assets/Scriptable Objects/Items/Gear/Melee Weapons");
-		rangedWeaponItems = FindAssetsByType<RangedWeapon>("Assets/Scriptable Objects/Items/Gear/Ranged Weapons");
 	}
 
 	// Slightly modified version of this answer: http://answers.unity.com/answers/1216386/view.html

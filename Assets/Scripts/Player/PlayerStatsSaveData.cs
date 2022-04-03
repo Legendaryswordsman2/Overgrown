@@ -24,13 +24,7 @@ public class PlayerStatsSaveData
 		maxHealth = playerStats.maxHealth;
 		currentHealth = playerStats.currentHealth;
 		defense = playerStats.defense;
-		meleeDamage = playerStats.meleeDamage;
-		rangedDamage = playerStats.rangedDamage;
+		meleeDamage = playerStats.damage;
 		critChance = playerStats.critChance;
-
-		// Modifiers
-		//defenseModifier = playerStats.defenseModifier;
-		//meleeDamageModifier = playerStats.meleeDamageModifier;
-		//rangedDamageModifier = playerStats.rangedDamageModifier;
 	}
 }
