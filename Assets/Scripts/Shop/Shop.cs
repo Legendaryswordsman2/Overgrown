@@ -32,7 +32,7 @@ public class Shop : MonoBehaviour
 
 	public void ResetShopView(bool canCloseShop)
 	{
-		if(canCloseShop && Inventory.instance.gameObject.activeSelf)
+		if(Inventory.instance.gameObject.activeSelf)
 		{
 			sellSubMenu.SetActive(true);
 			shopMainMenu.SetActive(false);
@@ -51,6 +51,7 @@ public class Shop : MonoBehaviour
 		if (canCloseShop && shopMainMenu.activeSelf)
 		{
 			bool success = GameManager.CloseOverlay(gameObject);
+			if (success) GameManager.instance.playerHealthBar.SetActive(true);
 			if(success) return;
 		}
 
