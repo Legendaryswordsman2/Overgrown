@@ -10,6 +10,7 @@ public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	[field: SerializeField] public Item item { get; private set; }
 	[SerializeField] Image icon;
 	[SerializeField] TMP_Text nameText;
+	[SerializeField] TMP_Text costText;
 
 	public void SetSlot(Item _item)
 	{
@@ -17,6 +18,7 @@ public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 		icon.sprite = item.Icon;
 		icon.enabled = true;
 		nameText.text = item.ItemName;
+		costText.text = "$" + item.price.ToString("#,#");
 
 	}
 	public void ItemSelected()
@@ -37,13 +39,12 @@ public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 		{
 			icon.enabled = false;
 			nameText.text = "";
+			costText.text = "";
 			return;
 		}
 
 
-		icon.sprite = item.Icon;
-		icon.enabled = true;
-		nameText.text = item.ItemName;
+		SetSlot(item);
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
