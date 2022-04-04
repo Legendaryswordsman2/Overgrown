@@ -16,4 +16,6 @@ MonoBehaviour:
   ItemName: Quest Item
   ItemDescription: Some Random Item
   Icon: {fileID: -1918309106959383672, guid: 143694918aff8f443ab8204d820ec605, type: 3}
-  MaximumStacks: 1
+  Sellable: 0
+  price: 10
+  sellPrice: 5

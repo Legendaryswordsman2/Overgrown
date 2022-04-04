@@ -69,10 +69,69 @@ public class Inventory : MonoBehaviour
 	public void SetSelectionModeToSell()
 	{
 		selectionMode = SelectionMode.Sell;
+
+		for (int i = 0; i < junkItemSlots.Count; i++)
+		{
+			if(junkItemSlots[i].item.Sellable)
+			junkItemSlots[i].ShowSellPrice();
+		}
+
+		for (int i = 0; i < consumableItemSlots.Count; i++)
+		{
+			if (consumableItemSlots[i].item.Sellable)
+				consumableItemSlots[i].ShowSellPrice();
+		}
+		PlayerStats playerStats = GameManager.instance.player.GetComponent<PlayerStats>();
+
+		if(playerStats.meleeWeapon != null)
+		playerStats.meleeWeapon.itemSlotReference.equippedCheckmark.enabled = false;
+		for (int i = 0; i < meleeWeaponItemSlots.Count; i++)
+		{
+			if (meleeWeaponItemSlots[i].item.Sellable)
+				meleeWeaponItemSlots[i].ShowSellPrice();
+		}
+
+		if (playerStats.armor != null)
+			playerStats.armor.itemSlotReference.equippedCheckmark.enabled = false;
+
+		for (int i = 0; i < armorItemSlots.Count; i++)
+		{
+			if (armorItemSlots[i].item.Sellable)
+				armorItemSlots[i].ShowSellPrice();
+		}
 	}
 	public void SetSelectionModeToDefault()
 	{
 		selectionMode = SelectionMode.Default;
+		for (int i = 0; i < junkItemSlots.Count; i++)
+		{
+
+				junkItemSlots[i].HideSellPrice();
+		}
+
+		for (int i = 0; i < consumableItemSlots.Count; i++)
+		{
+				consumableItemSlots[i].HideSellPrice();
+		}
+
+		PlayerStats playerStats = GameManager.instance.player.GetComponent<PlayerStats>();
+
+		if (playerStats.meleeWeapon != null)
+			playerStats.meleeWeapon.itemSlotReference.equippedCheckmark.enabled = true;
+
+		for (int i = 0; i < meleeWeaponItemSlots.Count; i++)
+		{
+				meleeWeaponItemSlots[i].HideSellPrice();
+		}
+
+		if (playerStats.armor != null)
+			playerStats.armor.itemSlotReference.equippedCheckmark.enabled = true;
+
+		for (int i = 0; i < armorItemSlots.Count; i++)
+		{
+				armorItemSlots[i].HideSellPrice();
+		}
+
 	}
 
 	public void GoToCategory(GameObject categoryToOpen)
@@ -407,6 +466,16 @@ public class Inventory : MonoBehaviour
 		{
 			questItems.Remove(questItem);
 			RefreshQuestItemSlots();
+		}
+		else if(item is MeleeWeapon meleeWeapon)
+		{
+			meleeWeaponItems.Remove(meleeWeapon);
+			RefreshMeleeWeaponItemSlots();
+		}
+		else if(item is Armor armorItem)
+		{
+			armorItems.Remove(armorItem);
+			RefreshArmorItemSlots();
 		}
 	}
 }

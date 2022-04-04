@@ -16,3 +16,6 @@ MonoBehaviour:
   ItemName: Carrot Seed
   ItemDescription: A generic carrot seed
   Icon: {fileID: 21300000, guid: 269ed972562317d459da4e85cf4c71af, type: 3}
+  Sellable: 1
+  price: 10
+  sellPrice: 5

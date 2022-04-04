@@ -19,5 +19,9 @@ MonoBehaviour:
 
     +5 Melee Damage'
   Icon: {fileID: 21300000, guid: a9d0d6b78a6228943b0035b404729b65, type: 3}
+  Sellable: 1
+  price: 10
+  sellPrice: 5
+  itemSlotReference: {fileID: 0}
   meleeDamageModifier: 5
   isEquipped: 0

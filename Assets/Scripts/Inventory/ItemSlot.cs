@@ -9,6 +9,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	[field: SerializeField] public Item item { get; private set; }
 	[SerializeField] Image icon;
 	[SerializeField] TMP_Text nameText;
+	[SerializeField] TMP_Text sellPriceText;
 
 
 	public Image equippedCheckmark;
@@ -18,6 +19,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		icon.sprite = item.Icon;
 		icon.enabled = true;
 		nameText.text = item.ItemName;
+		item.itemSlotReference = this;
 		
 	}
 	public void ItemSelected()
@@ -32,11 +34,24 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 			GameManager.instance.player.GetComponent<PlayerLevel>().GiveMoney(item.sellPrice);
 			Inventory.instance.textPopup.SetPopup("ITEM SOLD", 0.5f);
-			Destroy(gameObject);
+			Inventory.instance.itemInfoBox.gameObject.SetActive(false);
+			Inventory.instance.RemoveItem(item);
+			//Destroy(gameObject);
 			return;
 		}
 
 		item.ItemSelected(this);
+	}
+
+	public void ShowSellPrice()
+	{
+		sellPriceText.text = item.sellPrice.ToString("#,#");
+		sellPriceText.gameObject.SetActive(true);
+	}
+
+	public void HideSellPrice()
+	{
+		sellPriceText.gameObject.SetActive(false);
 	}
 
 	private void OnValidate()

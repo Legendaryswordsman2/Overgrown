@@ -25,6 +25,10 @@ public abstract class Item : ScriptableObject
 	public int price = 10;
 	public int sellPrice = 5;
 
+	[Space]
+
+	public ItemSlot itemSlotReference;
+
 	bool canStack;
 
 	public abstract void ItemSelected(ItemSlot itemSlot);
