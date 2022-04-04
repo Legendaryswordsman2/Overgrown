@@ -7,6 +7,7 @@ public class Shop : MonoBehaviour
 	[SerializeField] GameObject shopMainMenu;
 	[SerializeField] GameObject categoriesParent;
 	[SerializeField] ItemInfoBox itemInfoBox;
+	[SerializeField] GameObject sellSubMenu;
 
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
@@ -31,6 +32,22 @@ public class Shop : MonoBehaviour
 
 	public void ResetShopView(bool canCloseShop)
 	{
+		if(canCloseShop && Inventory.instance.gameObject.activeSelf)
+		{
+			sellSubMenu.SetActive(true);
+			shopMainMenu.SetActive(false);
+			Inventory.instance.gameObject.SetActive(false);
+			Inventory.instance.SetSelectionModeToDefault();
+
+			foreach (Transform child in categoriesParent.transform)
+			{
+				child.gameObject.SetActive(false);
+			}
+
+			itemInfoBox.gameObject.SetActive(false);
+			return;
+		}
+
 		if (canCloseShop && shopMainMenu.activeSelf)
 		{
 			bool success = GameManager.CloseOverlay(gameObject);
@@ -45,6 +62,8 @@ public class Shop : MonoBehaviour
 		}
 
 		itemInfoBox.gameObject.SetActive(false);
+
+		sellSubMenu.SetActive(false);
 	}
 
 	public void GoToCategory(GameObject categoryToOpen)

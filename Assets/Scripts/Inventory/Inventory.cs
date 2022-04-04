@@ -66,6 +66,15 @@ public class Inventory : MonoBehaviour
 		ClearItemSlots();
 	}
 
+	public void SetSelectionModeToSell()
+	{
+		selectionMode = SelectionMode.Sell;
+	}
+	public void SetSelectionModeToDefault()
+	{
+		selectionMode = SelectionMode.Default;
+	}
+
 	public void GoToCategory(GameObject categoryToOpen)
 	{
 		foreach (Transform child in categoriesParent.transform)
