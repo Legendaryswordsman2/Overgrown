@@ -29,8 +29,16 @@ public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	{
 		Inventory inventory = Inventory.instance;
 
-		inventory.AddItem(item);
-		inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);
+		if (item.price <= GameManager.instance.player.GetComponent<PlayerLevel>().money)
+		{
+			inventory.AddItem(item);
+			inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);
+			GameManager.instance.player.GetComponent<PlayerLevel>().TakeMoney(item.price);
+		}
+		else
+		{
+			inventory.textPopup.SetPopup("NOT ENOUGH MONEY", 0.5f, false, Color.red);
+		}
 	}
 
 	private void OnValidate()

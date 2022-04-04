@@ -12,8 +12,8 @@ public class PlayerLevel : MonoBehaviour
     [ReadOnlyInspector] public int playerLevel = 1;
     [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
 
-    [Header("Money"), Range(0, 1000000)]
-     [ReadOnlyInspector] public int money = 0;
+    [field: Header("Money"), Range(0, 1000000)]
+    [field: ReadOnlyInspector] public int money { get; private set; } = 0;
 
     [Header("References")]
     [SerializeField] TMP_Text levelText;
@@ -50,7 +50,15 @@ public class PlayerLevel : MonoBehaviour
     public void GiveMoney(int amount)
 	{
         money += amount;
-	}
+        moneyText.text = "$" + money.ToString("#,#");
+        shopMoneyText.text = "$" + money.ToString("#,#");
+    }
+    public void TakeMoney(int amount)
+	{
+        money -= amount;
+        moneyText.text = "$" + money.ToString("#,#");
+        shopMoneyText.text = "$" + money.ToString("#,#");
+    }
     void LevelUp()
     {
         playerLevel++;
