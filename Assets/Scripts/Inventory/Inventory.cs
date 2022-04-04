@@ -348,6 +348,8 @@ public class Inventory : MonoBehaviour
 
 	public void AddItem(Item item)
 	{
+		item = Instantiate(item);
+
 		if(item is JunkItem junkItem)
 		{
 			junkItems.Add(junkItem);
