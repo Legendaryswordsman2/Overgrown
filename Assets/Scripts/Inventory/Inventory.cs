@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum SelectionMode { Default, Sell }
 public class Inventory : MonoBehaviour
 {
 	public static Inventory instance;
@@ -46,6 +47,10 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject itemSlotPrefab;
 
 	public event EventHandler OnPlantItemSelected;
+
+	[field: Space]
+
+	[field: SerializeField] public SelectionMode selectionMode { get; private set; } = SelectionMode.Default;
 
 
 	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;

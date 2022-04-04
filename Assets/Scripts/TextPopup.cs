@@ -12,7 +12,6 @@ public class TextPopup : MonoBehaviour
 
 		if(textColor == new Color())
 		{
-			Debug.Log("Default Color");
 			textColor = Color.white;
 			popupText.color = textColor;
 		}

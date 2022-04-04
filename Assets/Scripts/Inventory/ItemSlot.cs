@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-
 public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	[field: SerializeField] public Item item { get; private set; }
 	[SerializeField] Image icon;
 	[SerializeField] TMP_Text nameText;
 
-	public Image equippedCheckmark;
 
+	public Image equippedCheckmark;
 	public void SetSlot(Item _item)
 	{
 		item = _item;
@@ -23,6 +22,20 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	}
 	public void ItemSelected()
 	{
+		if (Inventory.instance.selectionMode == SelectionMode.Sell)
+		{
+			if (!item.Sellable)
+			{
+				Inventory.instance.textPopup.SetPopup("CANT SELL ITEM", 0.5f, false, Color.red);
+				return;
+			}
+
+			GameManager.instance.player.GetComponent<PlayerLevel>().GiveMoney(item.sellPrice);
+			Inventory.instance.textPopup.SetPopup("ITEM SOLD", 0.5f);
+			Destroy(gameObject);
+			return;
+		}
+
 		item.ItemSelected(this);
 	}
 
