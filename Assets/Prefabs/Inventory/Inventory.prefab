@@ -3435,6 +3435,11 @@ MonoBehaviour:
   <itemInfoBox>k__BackingField: {fileID: 871479072}
   <plantInfoBox>k__BackingField: {fileID: 325857871}
   <textPopup>k__BackingField: {fileID: 0}
+  junkItemsCategory: {fileID: 7809169511340991893}
+  consumableItemsCategory: {fileID: 7809169512069872718}
+  questItemsCategory: {fileID: 7809169510867690781}
+  weaponItemsCategory: {fileID: 7809169511704945617}
+  armorItemsCategory: {fileID: 7809169511527683209}
   equippablePlantItemSlots: []
   junkItemSlots: []
   consumableItemSlots: []
@@ -6347,7 +6352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7809169511704945616}
   m_Layer: 5
-  m_Name: Melee Weapons List
+  m_Name: Weapons List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

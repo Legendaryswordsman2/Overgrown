@@ -34,6 +34,12 @@ public class Inventory : MonoBehaviour
 	[field: SerializeField] public PlantInfoBox plantInfoBox { get; private set; }
 	[field: SerializeField] public TextPopup textPopup { get; private set; }
 
+	[SerializeField] GameObject junkItemsCategory;
+	[SerializeField] GameObject consumableItemsCategory;
+	[SerializeField] GameObject questItemsCategory;
+	[SerializeField] GameObject weaponItemsCategory;
+	[SerializeField] GameObject armorItemsCategory;
+
 
 	[Header("Item Slots")]
 	[SerializeField] List<ItemSlot> equippablePlantItemSlots = new List<ItemSlot>();
@@ -92,6 +98,15 @@ public class Inventory : MonoBehaviour
 		ClearItemSlots();
 		CreateItemCopies();
 		SetItemSlots();
+	}
+	public void ResetTabs()
+	{
+		junkItemsCategory.SetActive(true);
+		consumableItemsCategory.SetActive(false);
+		questItemsCategory.SetActive(false);
+
+		weaponItemsCategory.SetActive(true);
+		armorItemsCategory.SetActive(false);
 	}
 
 	public void RefreshJunkItemSlots()

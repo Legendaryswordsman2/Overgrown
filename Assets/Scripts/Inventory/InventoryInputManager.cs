@@ -28,6 +28,8 @@ public class InventoryInputManager : MonoBehaviour
 			return;
 		}
 
+		inventory.ResetTabs();
+
 		foreach (Transform child in categories.transform)
 		{
 			child.gameObject.SetActive(false);
