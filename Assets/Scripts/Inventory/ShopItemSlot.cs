@@ -44,17 +44,13 @@ public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	}
 	public void ItemSelected()
 	{
-
 		if (itemSlotMode == ShopItemSlotMode.Buying)
-			BuyItem();
-		else if(itemSlotMode == ShopItemSlotMode.Selling)
-		{
-			// Sell Item
-		}
+			BuyItem(Inventory.instance);
+		else if (itemSlotMode == ShopItemSlotMode.Selling)
+			SellItem(Inventory.instance);
 	}
-	public void BuyItem()
+	public void BuyItem(Inventory inventory)
 	{
-		Inventory inventory = Inventory.instance;
 
 		if (item.price <= GameManager.instance.player.GetComponent<PlayerLevel>().money)
 		{
@@ -66,6 +62,14 @@ public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		{
 			inventory.textPopup.SetPopup("NOT ENOUGH MONEY", 0.5f, false, Color.red);
 		}
+	}
+	public void SellItem(Inventory inventory)
+	{
+		GameManager.instance.player.GetComponent<PlayerLevel>().GiveMoney(item.sellPrice);
+		inventory.textPopup.SetPopup("ITEM SOLD", 0.5f);
+		shop.itemInfoBox.gameObject.SetActive(false);
+		inventory.RemoveItem(item);
+		Destroy(gameObject);
 	}
 
 	private void OnValidate()
@@ -85,17 +89,11 @@ public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if (item is EquipablePlantItem plantItem)
-		{
-			Inventory.instance.plantInfoBox.SetInfoBox(plantItem.plantSO);
-			return;
-		}
-		Inventory.instance.itemInfoBox.SetInfoBox(item.ItemName.ToUpper(), item.ItemDescription.ToUpper());
+		shop.itemInfoBox.SetInfoBox(item.ItemName.ToUpper(), item.ItemDescription.ToUpper());
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
-		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
+		shop.itemInfoBox.gameObject.SetActive(false);
 	}
 }

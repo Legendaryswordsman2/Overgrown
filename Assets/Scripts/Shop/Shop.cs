@@ -6,8 +6,9 @@ public class Shop : MonoBehaviour
 	public static Shop instance;
 
 	[SerializeField] GameObject shopMainMenu;
-	[SerializeField] GameObject categoriesParent;
-	[SerializeField] ItemInfoBox itemInfoBox;
+	[SerializeField] GameObject buyingCategoriesParent;
+	[SerializeField] GameObject sellingCategoriesParent;
+	public ItemInfoBox itemInfoBox;
 	[SerializeField] GameObject sellSubMenu;
 
 	[Header("Buying Items")]
@@ -42,9 +43,26 @@ public class Shop : MonoBehaviour
 	}
 	public void Initialize()
 	{
+		Debug.Log("Initializing");
+		// Setup Sellable Item Slots
 		for (int i = 0; i < inventory.junkItems.Count; i++)
 		{
 			Instantiate(shopItemSlotPrefab, sellingJunkItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.junkItems[i], ShopItemSlotMode.Selling);
+		}
+
+		for (int i = 0; i < inventory.consumableItems.Count; i++)
+		{
+			Instantiate(shopItemSlotPrefab, sellingConsumableItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.consumableItems[i], ShopItemSlotMode.Selling);
+		}
+
+		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
+		{
+			Instantiate(shopItemSlotPrefab, sellingWeaponItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.meleeWeaponItems[i], ShopItemSlotMode.Selling);
+		}
+
+		for (int i = 0; i < inventory.armorItems.Count; i++)
+		{
+			Instantiate(shopItemSlotPrefab, sellingArmorItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.armorItems[i], ShopItemSlotMode.Selling);
 		}
 	}
 
@@ -63,20 +81,6 @@ public class Shop : MonoBehaviour
 
 	public void ResetShopView(bool canCloseShop)
 	{
-		if(Inventory.instance.gameObject.activeSelf)
-		{
-			sellSubMenu.SetActive(true);
-			shopMainMenu.SetActive(false);
-
-			foreach (Transform child in categoriesParent.transform)
-			{
-				child.gameObject.SetActive(false);
-			}
-
-			itemInfoBox.gameObject.SetActive(false);
-			return;
-		}
-
 		if (canCloseShop && shopMainMenu.activeSelf)
 		{
 			bool success = GameManager.CloseOverlay(gameObject);
@@ -86,7 +90,12 @@ public class Shop : MonoBehaviour
 
 		shopMainMenu.SetActive(true);
 
-		foreach (Transform child in categoriesParent.transform)
+		foreach (Transform child in buyingCategoriesParent.transform)
+		{
+			child.gameObject.SetActive(false);
+		}
+
+		foreach (Transform child in sellingCategoriesParent.transform)
 		{
 			child.gameObject.SetActive(false);
 		}
@@ -98,13 +107,24 @@ public class Shop : MonoBehaviour
 
 	public void GoToCategory(GameObject categoryToOpen)
 	{
-		foreach (Transform child in categoriesParent.transform)
+		foreach (Transform child in buyingCategoriesParent.transform)
 		{
 			child.gameObject.SetActive(false);
 		}
+
+		foreach (Transform child in sellingCategoriesParent.transform)
+		{
+			child.gameObject.SetActive(false);
+		}
+
 		shopMainMenu.SetActive(false);
 
+		sellSubMenu.SetActive(false);
+
+		itemInfoBox.gameObject.SetActive(false);
+
 		categoryToOpen.SetActive(true);
+
 	}
 
 	#region Buying Items

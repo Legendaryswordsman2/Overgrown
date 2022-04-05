@@ -387,27 +387,27 @@ public class Inventory : MonoBehaviour
 		if(item is JunkItem junkItem)
 		{
 			junkItems.Remove(junkItem);
-			RefreshJunkItemSlots();
+			//RefreshJunkItemSlots();
 		}
 		else if (item is ConsumableItem consumableItem)
 		{
 			consumableItems.Remove(consumableItem);
-			RefreshConsumableItemSlots();
+			//RefreshConsumableItemSlots();
 		}
 		else if (item is QuestItem questItem)
 		{
 			questItems.Remove(questItem);
-			RefreshQuestItemSlots();
+			//RefreshQuestItemSlots();
 		}
 		else if(item is MeleeWeapon meleeWeapon)
 		{
 			meleeWeaponItems.Remove(meleeWeapon);
-			RefreshMeleeWeaponItemSlots();
+			//RefreshMeleeWeaponItemSlots();
 		}
 		else if(item is Armor armorItem)
 		{
 			armorItems.Remove(armorItem);
-			RefreshArmorItemSlots();
+			//RefreshArmorItemSlots();
 		}
 	}
 }

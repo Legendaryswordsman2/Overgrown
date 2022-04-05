@@ -370,8 +370,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2635848604678278023}
-        m_TargetAssemblyTypeName: BuyableItemSlot, Assembly-CSharp
-        m_MethodName: BuyItem
+        m_TargetAssemblyTypeName: ShopItemSlot, Assembly-CSharp
+        m_MethodName: ItemSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
