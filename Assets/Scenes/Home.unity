@@ -26631,6 +26631,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &734728115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2406020429186786924, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2406020429540395380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9506304abdaf5489a908a4db2dd23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &752536595
 GameObject:
   m_ObjectHideFlags: 0
@@ -36023,6 +36034,22 @@ PrefabInstance:
     - target: {fileID: 636977076726505123, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226180916757045899, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226180916757045899, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 734728115}
+    - target: {fileID: 1226180916757045899, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226180916757045899, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2406020429382006015, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_LocalPosition.x

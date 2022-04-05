@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour
 		bool success = OpenOverlay(pauseMenu, true);
 		if (success) playerHealthBar.SetActive(false);
 	}
-    void ClosePauseMenu()
+    public void ClosePauseMenu()
 	{
         bool success = CloseOverlay(pauseMenu);
 
