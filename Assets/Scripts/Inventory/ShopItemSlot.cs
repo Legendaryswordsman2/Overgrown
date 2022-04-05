@@ -68,6 +68,15 @@ public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		GameManager.instance.player.GetComponent<PlayerLevel>().GiveMoney(item.sellPrice);
 		inventory.textPopup.SetPopup("ITEM SOLD", 0.5f);
 		shop.itemInfoBox.gameObject.SetActive(false);
+
+		if (item is MeleeWeapon meleeWeapon)
+			if (meleeWeapon.isEquipped)
+				GameManager.instance.player.GetComponent<PlayerStats>().UnequipMeleeWeapon();
+
+		if (item is Armor armor)
+			if (armor.isEquipped)
+				GameManager.instance.player.GetComponent<PlayerStats>().UnequipArmor();
+
 		inventory.RemoveItem(item);
 		Destroy(gameObject);
 	}

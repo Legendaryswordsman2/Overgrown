@@ -43,6 +43,7 @@ public class InventorySaveSystem : MonoBehaviour
 		LoadMeleeWeaponItems();
 		LoadArmorItems();
 
+		inventory.CreateItemCopies();
 		inventory.SetItemSlots();
 		gameObject.SetActive(false);
 	}

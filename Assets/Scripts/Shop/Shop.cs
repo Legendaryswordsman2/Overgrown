@@ -12,6 +12,8 @@ public class Shop : MonoBehaviour
 	[SerializeField] GameObject sellSubMenu;
 
 	[Header("Buying Items")]
+	[SerializeField] GameObject itemsCategory;
+	[SerializeField] GameObject gearCategory;
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
 	[SerializeField] GameObject weaponItemSlotsParent;
@@ -19,6 +21,8 @@ public class Shop : MonoBehaviour
 	public Color buyColor = Color.red;
 
 	[Header("Selling Items")]
+	[SerializeField] GameObject sellingItemsCategory;
+	[SerializeField] GameObject sellingGearCategory;
 	[SerializeField] GameObject sellingJunkItemSlotsParent;
 	[SerializeField] GameObject sellingConsumableItemSlotsParent;
 	[SerializeField] GameObject sellingWeaponItemSlotsParent;
@@ -85,7 +89,27 @@ public class Shop : MonoBehaviour
 		{
 			bool success = GameManager.CloseOverlay(gameObject);
 			if (success) GameManager.instance.playerHealthBar.SetActive(true);
-			if(success) return;
+			if (success)
+			{
+				inventory.ClearItemSlots();
+				inventory.SetItemSlots();
+				return;
+			}
+
+		}
+
+		if(sellingItemsCategory.activeSelf || sellingGearCategory.activeSelf)
+		{
+
+			foreach (Transform child in sellingCategoriesParent.transform)
+			{
+				child.gameObject.SetActive(false);
+			}
+
+			itemInfoBox.gameObject.SetActive(false);
+
+			sellSubMenu.SetActive(true);
+			return;
 		}
 
 		shopMainMenu.SetActive(true);

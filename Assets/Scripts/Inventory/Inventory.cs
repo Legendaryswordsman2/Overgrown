@@ -90,6 +90,7 @@ public class Inventory : MonoBehaviour
 	public void RefreshInventory()
 	{
 		ClearItemSlots();
+		CreateItemCopies();
 		SetItemSlots();
 	}
 
@@ -202,7 +203,7 @@ public class Inventory : MonoBehaviour
 		BattleSetupData.plantSO = null;
 		RefreshEquippablePlantItemSlots();
 	}
-	void CreateItemCopies()
+	public void CreateItemCopies()
 	{
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
@@ -238,8 +239,6 @@ public class Inventory : MonoBehaviour
 
 	public void SetItemSlots()
 	{
-		CreateItemCopies();
-
 		for (int i = 0; i < junkItems.Count; i++)
 		{
 			var itemSlot = Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>();
@@ -297,7 +296,7 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	void ClearItemSlots()
+	public void ClearItemSlots()
 	{
 		foreach (Transform child in junkItemSlotParent.transform)
 		{
