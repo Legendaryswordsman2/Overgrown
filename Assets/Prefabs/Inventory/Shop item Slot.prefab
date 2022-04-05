@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 2635848604678278023}
   - component: {fileID: 3935854881531149724}
   m_Layer: 5
-  m_Name: Buyable item Slot
+  m_Name: Shop item Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

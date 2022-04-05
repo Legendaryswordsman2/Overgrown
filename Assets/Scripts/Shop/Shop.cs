@@ -1,22 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Shop : MonoBehaviour
 {
+	public static Shop instance;
+
 	[SerializeField] GameObject shopMainMenu;
 	[SerializeField] GameObject categoriesParent;
 	[SerializeField] ItemInfoBox itemInfoBox;
 	[SerializeField] GameObject sellSubMenu;
 
+	[Header("Buying Items")]
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
 	[SerializeField] GameObject weaponItemSlotsParent;
 	[SerializeField] GameObject armorItemSlotsParent;
+	public Color buyColor = Color.red;
+
+	[Header("Selling Items")]
+	[SerializeField] GameObject sellingJunkItemSlotsParent;
+	[SerializeField] GameObject sellingConsumableItemSlotsParent;
+	[SerializeField] GameObject sellingWeaponItemSlotsParent;
+	[SerializeField] GameObject sellingArmorItemSlotsParent;
+	public Color sellColor = Color.green;
 
 	[Space]
 
-	[SerializeField] GameObject buyableItemSlotPrefab;
+	[SerializeField] GameObject shopItemSlotPrefab;
+
+	bool initialized = false;
+
+	Inventory inventory;
+
+	private void Awake()
+	{
+		instance = this;
+
+		inventory = Inventory.instance;
+
+		Initialize();
+	}
+	public void Initialize()
+	{
+		for (int i = 0; i < inventory.junkItems.Count; i++)
+		{
+			Instantiate(shopItemSlotPrefab, sellingJunkItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.junkItems[i], ShopItemSlotMode.Selling);
+		}
+	}
+
 
 	private void Update()
 	{
@@ -36,8 +67,6 @@ public class Shop : MonoBehaviour
 		{
 			sellSubMenu.SetActive(true);
 			shopMainMenu.SetActive(false);
-			Inventory.instance.gameObject.SetActive(false);
-			Inventory.instance.SetSelectionModeToDefault();
 
 			foreach (Transform child in categoriesParent.transform)
 			{
@@ -78,6 +107,7 @@ public class Shop : MonoBehaviour
 		categoryToOpen.SetActive(true);
 	}
 
+	#region Buying Items
 	public void clearShopItemSlots()
 	{
 		foreach (Transform child in junkItemSlotsParent.transform)
@@ -104,28 +134,30 @@ public class Shop : MonoBehaviour
 	{
 		for (int i = 0; i < junkItems.Length; i++)
 		{
-			Instantiate(buyableItemSlotPrefab, junkItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(junkItems[i]);
+			Instantiate(shopItemSlotPrefab, junkItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(junkItems[i], ShopItemSlotMode.Buying);
 		}
 	}
 	public void SetConsumableItemSlots(ConsumableItem[] consumableItems)
 	{
 		for (int i = 0; i < consumableItems.Length; i++)
 		{
-			Instantiate(buyableItemSlotPrefab, consumableItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(consumableItems[i]);
+			Instantiate(shopItemSlotPrefab, consumableItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(consumableItems[i], ShopItemSlotMode.Buying);
 		}
 	}
 	public void SetWeaponItemSlots(MeleeWeapon[] weaponItems)
 	{
 		for (int i = 0; i < weaponItems.Length; i++)
 		{
-			Instantiate(buyableItemSlotPrefab, weaponItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(weaponItems[i]);
+			Instantiate(shopItemSlotPrefab, weaponItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(weaponItems[i], ShopItemSlotMode.Buying);
 		}
 	}
 	public void SetArmorItemSlots(Armor[] armorItems)
 	{
 		for (int i = 0; i < armorItems.Length; i++)
 		{
-			Instantiate(buyableItemSlotPrefab, armorItemSlotsParent.transform).GetComponent<BuyableItemSlot>().SetSlot(armorItems[i]);
+			Instantiate(shopItemSlotPrefab, armorItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(armorItems[i], ShopItemSlotMode.Buying);
 		}
 	}
+	#endregion
+
 }

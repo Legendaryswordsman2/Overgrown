@@ -99,7 +99,7 @@ public class EquipablePlantItem : Item
 		inventory.OnPlantItemSelected -= UnequipPlantItem;
 	}
 
-	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	public override void BuyItem(ShopItemSlot itemSlot, Inventory inventory)
 	{
 		throw new System.NotImplementedException();
 	}

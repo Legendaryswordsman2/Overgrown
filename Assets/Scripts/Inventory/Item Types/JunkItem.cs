@@ -13,7 +13,7 @@ public class JunkItem : Item
 	{
 
 	}
-	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	public override void BuyItem(ShopItemSlot itemSlot, Inventory inventory)
 	{
 		inventory.AddItem(this);
 		inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);

@@ -57,7 +57,7 @@ public class Armor : Item
 		if (equippedCheckmark != null) equippedCheckmark.enabled = false;
 	}
 
-	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	public override void BuyItem(ShopItemSlot itemSlot, Inventory inventory)
 	{
 		throw new System.NotImplementedException();
 	}

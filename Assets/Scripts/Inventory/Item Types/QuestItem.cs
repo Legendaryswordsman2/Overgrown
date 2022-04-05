@@ -10,7 +10,7 @@ public class QuestItem : Item
 
 	}
 
-	public override void BuyItem(BuyableItemSlot itemSlot, Inventory inventory)
+	public override void BuyItem(ShopItemSlot itemSlot, Inventory inventory)
 	{
 		throw new System.NotImplementedException();
 	}

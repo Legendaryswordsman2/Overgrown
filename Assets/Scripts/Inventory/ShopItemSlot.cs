@@ -5,25 +5,52 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public enum ShopItemSlotMode { Buying, Selling }
+public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	[field: SerializeField] public Item item { get; private set; }
 	[SerializeField] Image icon;
 	[SerializeField] TMP_Text nameText;
 	[SerializeField] TMP_Text costText;
 
-	public void SetSlot(Item _item)
+	[Space]
+
+	Shop shop;
+
+	public ShopItemSlotMode itemSlotMode { get; private set; } = ShopItemSlotMode.Buying;
+
+	public void SetSlot(Item _item, ShopItemSlotMode _itemSlotMode)
 	{
+		shop = Shop.instance;
+
+		itemSlotMode = _itemSlotMode;
+
 		item = _item;
 		icon.sprite = item.Icon;
 		icon.enabled = true;
 		nameText.text = item.ItemName;
-		costText.text = "$" + item.price.ToString("#,#");
+
+		if(itemSlotMode == ShopItemSlotMode.Buying)
+		{
+			costText.color = shop.buyColor;
+			costText.text = "$" + item.price.ToString("#,#");
+		}
+		else
+		{
+			costText.color = shop.sellColor;
+			costText.text = "$" + item.sellPrice.ToString("#,#");
+		}
 
 	}
 	public void ItemSelected()
 	{
-		//item.BuyItem(this, Inventory.instance);
+
+		if (itemSlotMode == ShopItemSlotMode.Buying)
+			BuyItem();
+		else if(itemSlotMode == ShopItemSlotMode.Selling)
+		{
+			// Sell Item
+		}
 	}
 	public void BuyItem()
 	{
@@ -51,8 +78,9 @@ public class BuyableItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 			return;
 		}
 
-
-		SetSlot(item);
+		icon.sprite = item.Icon;
+		icon.enabled = true;
+		nameText.text = item.ItemName;
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
