@@ -62,10 +62,16 @@ public class Shop : MonoBehaviour
 	{
 		Debug.Log("Initializing");
 		// Setup Sellable Item Slots
+		SetupSellableItemSlots();
+		initialized = true;
+	}
+
+	private void SetupSellableItemSlots()
+	{
 		for (int i = 0; i < inventory.junkItems.Count; i++)
 		{
 			if (inventory.junkItems[i].Sellable == true)
-			Instantiate(shopItemSlotPrefab, sellingJunkItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.junkItems[i], ShopItemSlotMode.Selling);
+				Instantiate(shopItemSlotPrefab, sellingJunkItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.junkItems[i], ShopItemSlotMode.Selling);
 		}
 
 		for (int i = 0; i < inventory.consumableItems.Count; i++)
@@ -86,7 +92,6 @@ public class Shop : MonoBehaviour
 				Instantiate(shopItemSlotPrefab, sellingArmorItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.armorItems[i], ShopItemSlotMode.Selling);
 		}
 	}
-
 
 	private void Update()
 	{
@@ -116,6 +121,12 @@ public class Shop : MonoBehaviour
 		}
 
 		ResetTabs();
+
+		if (initialized)
+		{
+			ClearSellItemSlots();
+			SetupSellableItemSlots();
+		}
 
 		if(sellingItemsCategory.activeSelf || sellingGearCategory.activeSelf)
 		{
@@ -183,6 +194,29 @@ public class Shop : MonoBehaviour
 
 		categoryToOpen.SetActive(true);
 
+	}
+
+	public void ClearSellItemSlots()
+	{
+		foreach (Transform child in sellingJunkItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in sellingConsumableItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in sellingWeaponItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		foreach (Transform child in sellingArmorItemSlotsParent.transform)
+		{
+			Destroy(child.gameObject);
+		}
 	}
 
 	#region Buying Items
