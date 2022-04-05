@@ -3538,7 +3538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417138102}
   m_Layer: 5
-  m_Name: Selling Categories
+  m_Name: Selling Categories (Don't Disable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5666,7 +5666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2214686795079277343, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
-      value: Buying Categories
+      value: Buying Categories (Don't Disable)
       objectReference: {fileID: 0}
     - target: {fileID: 2214686795079277343, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_IsActive
