@@ -20,7 +20,8 @@ MonoBehaviour:
     +7 Defense'
   Icon: {fileID: 21300000, guid: b7f972b2a75ca024ca95c5b537e47acf, type: 3}
   Sellable: 1
-  price: 10
-  sellPrice: 5
+  price: 25
+  sellPrice: 15
+  itemSlotReference: {fileID: 0}
   defenseModifier: 7
   isEquipped: 0

@@ -20,6 +20,9 @@ MonoBehaviour:
     -Heals
     for 50 HP'
   Icon: {fileID: 5548789938343600767, guid: 143694918aff8f443ab8204d820ec605, type: 3}
-  MaximumStacks: 1
+  Sellable: 1
+  price: 35
+  sellPrice: 20
+  itemSlotReference: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 53111b163f9597740a1daa1898231471, type: 2}

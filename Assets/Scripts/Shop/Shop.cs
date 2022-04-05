@@ -51,22 +51,26 @@ public class Shop : MonoBehaviour
 		// Setup Sellable Item Slots
 		for (int i = 0; i < inventory.junkItems.Count; i++)
 		{
+			if (inventory.junkItems[i].Sellable == true)
 			Instantiate(shopItemSlotPrefab, sellingJunkItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.junkItems[i], ShopItemSlotMode.Selling);
 		}
 
 		for (int i = 0; i < inventory.consumableItems.Count; i++)
 		{
-			Instantiate(shopItemSlotPrefab, sellingConsumableItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.consumableItems[i], ShopItemSlotMode.Selling);
+			if (inventory.consumableItems[i].Sellable == true)
+				Instantiate(shopItemSlotPrefab, sellingConsumableItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.consumableItems[i], ShopItemSlotMode.Selling);
 		}
 
 		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
 		{
-			Instantiate(shopItemSlotPrefab, sellingWeaponItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.meleeWeaponItems[i], ShopItemSlotMode.Selling);
+			if (inventory.meleeWeaponItems[i].Sellable == true)
+				Instantiate(shopItemSlotPrefab, sellingWeaponItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.meleeWeaponItems[i], ShopItemSlotMode.Selling);
 		}
 
 		for (int i = 0; i < inventory.armorItems.Count; i++)
 		{
-			Instantiate(shopItemSlotPrefab, sellingArmorItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.armorItems[i], ShopItemSlotMode.Selling);
+			if (inventory.armorItems[i].Sellable == true)
+				Instantiate(shopItemSlotPrefab, sellingArmorItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.armorItems[i], ShopItemSlotMode.Selling);
 		}
 	}
 
