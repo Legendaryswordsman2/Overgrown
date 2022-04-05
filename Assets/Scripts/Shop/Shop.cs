@@ -14,6 +14,12 @@ public class Shop : MonoBehaviour
 	[Header("Buying Items")]
 	[SerializeField] GameObject itemsCategory;
 	[SerializeField] GameObject gearCategory;
+
+	[SerializeField] GameObject junkItemsCategory;
+	[SerializeField] GameObject consumableItemsCategory;
+	[SerializeField] GameObject weaponItemsCategory;
+	[SerializeField] GameObject armorItemsCategory;
+
 	[SerializeField] GameObject junkItemSlotsParent;
 	[SerializeField] GameObject consumableItemSlotsParent;
 	[SerializeField] GameObject weaponItemSlotsParent;
@@ -23,6 +29,13 @@ public class Shop : MonoBehaviour
 	[Header("Selling Items")]
 	[SerializeField] GameObject sellingItemsCategory;
 	[SerializeField] GameObject sellingGearCategory;
+
+	[SerializeField] GameObject sellingJunkItemsCategory;
+	[SerializeField] GameObject sellingConsumableItemsCategory;
+	[SerializeField] GameObject sellingWeaponItemsCategory;
+	[SerializeField] GameObject sellingArmorItemsCategory;
+
+
 	[SerializeField] GameObject sellingJunkItemSlotsParent;
 	[SerializeField] GameObject sellingConsumableItemSlotsParent;
 	[SerializeField] GameObject sellingWeaponItemSlotsParent;
@@ -102,6 +115,8 @@ public class Shop : MonoBehaviour
 
 		}
 
+		ResetTabs();
+
 		if(sellingItemsCategory.activeSelf || sellingGearCategory.activeSelf)
 		{
 
@@ -131,6 +146,21 @@ public class Shop : MonoBehaviour
 		itemInfoBox.gameObject.SetActive(false);
 
 		sellSubMenu.SetActive(false);
+	}
+
+	void ResetTabs()
+	{
+		junkItemsCategory.SetActive(true);
+		consumableItemsCategory.SetActive(false);
+
+		sellingJunkItemsCategory.SetActive(true);
+		sellingConsumableItemsCategory.SetActive(false);
+
+		weaponItemsCategory.SetActive(true);
+		armorItemsCategory.SetActive(false);
+
+		sellingWeaponItemsCategory.SetActive(true);
+		sellingArmorItemsCategory.SetActive(false);
 	}
 
 	public void GoToCategory(GameObject categoryToOpen)

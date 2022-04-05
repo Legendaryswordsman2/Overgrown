@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47174506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 47174506, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &74376903
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +194,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &158226248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 158226248, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &236992960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1280,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &798872648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 798872648, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &839965586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 128169184, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842447668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1752,11 @@ Transform:
   m_Father: {fileID: 265091049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1493386150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1155179630, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504886193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2128,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1761252302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1518837057, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1775105385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2242,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1781656554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1781656554, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914330204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,6 +2743,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1987320833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 122981154, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+  m_PrefabInstance: {fileID: 2095412842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2007608265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2972,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: junkItemsCategory
+      value: 
+      objectReference: {fileID: 1493386150}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: armorItemsCategory
+      value: 
+      objectReference: {fileID: 839965586}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: weaponItemsCategory
+      value: 
+      objectReference: {fileID: 1987320833}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: consumableItemsCategory
+      value: 
+      objectReference: {fileID: 1761252302}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: sellingJunkItemsCategory
+      value: 
+      objectReference: {fileID: 158226248}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: sellingArmorItemsCategory
+      value: 
+      objectReference: {fileID: 798872648}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: sellingWeaponItemsCategory
+      value: 
+      objectReference: {fileID: 1781656554}
+    - target: {fileID: 2095412847, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: sellingConsumableItemsCategory
+      value: 
+      objectReference: {fileID: 47174506}
+    - target: {fileID: 1814121417821419934, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base
