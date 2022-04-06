@@ -35,11 +35,13 @@ public class Grow : MonoBehaviour
 
 
 		stageIntervals = new float[chosenGrowingPlant.plantGrowthStages.Length - 1];
-		for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length - 1; i++)
+		for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length - 2; i++)
 		{
+
 			if (i == 0) stageIntervals[i] = stageGrowthTime;
 			else stageIntervals[i] = stageIntervals[i - 1] + stageGrowthTime;
 		}
+		stageIntervals[stageIntervals.Length - 1] = totalGrowTime;
 
 		progressBar.max = totalGrowTime;
 		progressBar.current = 0;
