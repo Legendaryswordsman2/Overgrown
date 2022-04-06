@@ -11,19 +11,24 @@ public class Grow : MonoBehaviour
 	[SerializeField] SpriteRenderer plant;
 	[SerializeField] ProgressBar progressBar;
 
-	[Space]
+	[field: Space]
 
-	[SerializeField] SOGrowingPlant chosenGrowingPlant;
+	[field: SerializeField] public SOGrowingPlant chosenGrowingPlant { get; private set; }
 
 	// Growing
-	[SerializeField] int totalGrowTime;
-	[SerializeField] float stageGrowthTime;
-	[SerializeField, ReadOnlyInspector] int elapsedTime = 0;
+	[field: SerializeField] public int totalGrowTime { get; private set; }
+	[field: SerializeField] public float stageGrowthTime { get; private set; }
+	[field: SerializeField, ReadOnlyInspector] public int elapsedTime { get; private set; } = 0;
 
-	[SerializeField, ReadOnlyInspector] int currentGrowthStageIndex = 0;
+	[field: SerializeField, ReadOnlyInspector] public int currentGrowthStageIndex { get; private set; } = 0;
 
-	[SerializeField] float[] stageIntervals;
+	[field: SerializeField] public float[] stageIntervals { get; private set; }
 
+	private void Awake()
+	{
+		SaveManager.instance.OnSavingGame += SaveManager_OnSavingGame;
+		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
+	}
 	public void StartGrowing()
 	{
 		plant.sprite = chosenGrowingPlant.plantGrowthStages[0];
@@ -69,5 +74,41 @@ public class Grow : MonoBehaviour
 		{
 		StartCoroutine(Timer());
 		}
+	}
+	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
+	{
+		if (chosenGrowingPlant == null) return;
+
+		SaveSystem.SaveFile("/Misc/CurrentlyGrowingPlants", "/GrowingPlant1.json", new GrowSaveData(this));
+	}
+	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
+	{
+		GrowSaveData growingPlantSaveData = SaveSystem.LoadFile<GrowSaveData>("/Misc/CurrentlyGrowingPlants/GrowingPlant1.json");
+
+		if (growingPlantSaveData == null) return;
+
+		chosenGrowingPlant = GameManager.instance.Database.GetGrowingPlant(growingPlantSaveData.chosenGrowingPlantID);
+
+		totalGrowTime = growingPlantSaveData.totalGrowTime;
+		stageGrowthTime = growingPlantSaveData.stageGrowthTime;
+		elapsedTime = growingPlantSaveData.elapsedTime;
+
+		currentGrowthStageIndex = growingPlantSaveData.currentGrowthStageIndex;
+
+		stageIntervals = growingPlantSaveData.stageIntervals;
+
+		StartGrowingFromLastPoint();
+	}
+
+	void StartGrowingFromLastPoint()
+	{
+		plant.sprite = chosenGrowingPlant.plantGrowthStages[currentGrowthStageIndex - 1];
+
+		progressBar.max = totalGrowTime;
+		progressBar.current = elapsedTime;
+
+		progressBar.gameObject.SetActive(true);
+
+		StartCoroutine(Timer());
 	}
 }

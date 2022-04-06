@@ -36016,14 +36016,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 636977076726505123, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406020429382006015, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base
@@ -36099,6 +36091,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3089738350370918753, guid: e669f09d210f50047ac5f0bf0ee688d8, type: 3}
       propertyPath: chosenGrowingPlant
+      value: 
+      objectReference: {fileID: 11400000, guid: 53551e4031a9b384ea14c3ff05eb5ccd, type: 2}
+    - target: {fileID: 3089738350370918753, guid: e669f09d210f50047ac5f0bf0ee688d8, type: 3}
+      propertyPath: <chosenGrowingPlant>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 53551e4031a9b384ea14c3ff05eb5ccd, type: 2}
     - target: {fileID: 3089738350370918754, guid: e669f09d210f50047ac5f0bf0ee688d8, type: 3}

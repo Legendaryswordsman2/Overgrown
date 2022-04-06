@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     [field: Header("Allowed Actions")]
     [field: SerializeField] public bool allowedToWalk { get; private set; } = true;
 
+    [field: Space]
+
+    [field: SerializeField] public Database Database { get; private set; }
+
 
     // Hidden Variables
 

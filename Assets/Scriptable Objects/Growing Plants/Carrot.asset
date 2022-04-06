@@ -20,5 +20,5 @@ MonoBehaviour:
   - {fileID: -2678459504661149852, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
   - {fileID: 6971003129705878298, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
   - {fileID: -3130013708998481206, guid: cf65b08e32abc9d40a166250062d678c, type: 3}
-  plantGrowTime: 24
+  plantGrowTime: 60
   plant: {fileID: 11400000, guid: 73fee1c37710d984c8cfe7cbded002fe, type: 2}

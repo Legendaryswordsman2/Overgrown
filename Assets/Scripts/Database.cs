@@ -65,6 +65,17 @@ public class Database : ScriptableObject
 		}
 		return null;
 	}
+	public SOGrowingPlant GetGrowingPlant(string plantID)
+	{
+		foreach (SOGrowingPlant plant in growingPlants)
+		{
+			if (plant.id == plantID)
+			{
+				return plant;
+			}
+		}
+		return null;
+	}
 	public MeleeWeapon GetMeleeWeaponItem(string itemID)
 	{
 		foreach (MeleeWeapon item in meleeWeaponItems)
