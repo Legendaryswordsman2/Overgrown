@@ -42,35 +42,30 @@ public class Grow : MonoBehaviour
 		}
 
 		progressBar.max = totalGrowTime;
+		progressBar.current = 0;
 
 		plantIcon.SetActive(false);
 
 		progressBar.gameObject.SetActive(true);
 
-		StartCoroutine(NextGrowthStage());
 		StartCoroutine(Timer());
 	}
 
-    IEnumerator NextGrowthStage()
+    void GoToNextGrowthStage()
 	{
-		yield return new WaitForSeconds(stageGrowthTime);
 		plant.sprite = chosenGrowingPlant.plantGrowthStages[currentGrowthStageIndex];
 		currentGrowthStageIndex++;
-
-		if (currentGrowthStageIndex == chosenGrowingPlant.plantGrowthStages.Length)
-		{
-			Debug.Log("Finished Growing");
-		}
-		else
-		{
-			StartCoroutine(NextGrowthStage());
-		}
 	}
 	IEnumerator Timer()
 	{
 		yield return new WaitForSeconds(1);
 		elapsedTime++;
 		progressBar.current = elapsedTime;
+
+		if (stageIntervals[currentGrowthStageIndex - 1] <= elapsedTime)
+		{
+			GoToNextGrowthStage();
+		}
 
 		if (elapsedTime < totalGrowTime)
 		{
