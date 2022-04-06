@@ -5,15 +5,12 @@ using System;
 
 public class Startup : MonoBehaviour
 {
-    [SerializeField]
-    Transform saveSlotOne, saveSlotTwo, saveSlotThree;
+    public Transform saveSlotOne, saveSlotTwo, saveSlotThree;
     private void Awake()
     {
         SaveSystem.saveSubLocation = SaveSubLocation.MainSave;
         DeleteTempSaves();
         InitializeSaveSlots();
-
-        Bed.playerhasSleptBefore = false;
     }
 
 	private void DeleteTempSaves()
@@ -31,9 +28,6 @@ public class Startup : MonoBehaviour
 
 	void InitializeSaveSlots()
 	{
-        //Directory.CreateDirectory(SaveSystem.savesFolder + "/SaveOne");
-        //Directory.CreateDirectory(SaveSystem.savesFolder + "/SaveTwo");
-        //Directory.CreateDirectory(SaveSystem.savesFolder + "/SaveThree");
 
         SaveSystem.saveSubLocation = SaveSubLocation.MainSave;
 
