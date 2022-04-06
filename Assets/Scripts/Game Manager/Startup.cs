@@ -6,6 +6,9 @@ using System;
 public class Startup : MonoBehaviour
 {
     public Transform saveSlotOne, saveSlotTwo, saveSlotThree;
+
+    [Space]
+    [SerializeField] Transform deleteSaveButtonsParent;
     private void Awake()
     {
         SaveSystem.saveSubLocation = SaveSubLocation.MainSave;
@@ -38,6 +41,8 @@ public class Startup : MonoBehaviour
             saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveOne.playerLevel.ToString();
             saveSlotOne.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveOne.xpToLevelUp;
             saveSlotOne.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveOne.xp;
+
+            deleteSaveButtonsParent.GetChild(0).gameObject.SetActive(true);
         }
 
         if (File.Exists(SaveSystem.saveTwoLocation + "/MainSave/Player/PlayerLevel&XP.json"))
@@ -47,6 +52,8 @@ public class Startup : MonoBehaviour
             saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveTwo.playerLevel.ToString();
             saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveTwo.xpToLevelUp;
             saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveTwo.xp;
+
+            deleteSaveButtonsParent.GetChild(1).gameObject.SetActive(true);
         }
 
         if (File.Exists(SaveSystem.saveThreeLocation + "/MainSave/Player/PlayerLevel&XP.json"))
@@ -56,6 +63,8 @@ public class Startup : MonoBehaviour
             saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveThree.playerLevel.ToString();
             saveSlotThree.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveThree.xpToLevelUp;
             saveSlotThree.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveThree.xp;
+
+            deleteSaveButtonsParent.GetChild(2).gameObject.SetActive(true);
         }
 	}
 }
