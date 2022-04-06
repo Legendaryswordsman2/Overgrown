@@ -13,7 +13,7 @@ public class PlayerLevel : MonoBehaviour
     [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
 
     [field: Header("Money"), Range(0, 1000000)]
-    [field: ReadOnlyInspector] public int money { get; private set; } = 0;
+    [field: ReadOnlyInspector, SerializeField] public int money { get; private set; } = 0;
 
     [Header("References")]
     [SerializeField] TMP_Text levelText;
@@ -47,13 +47,17 @@ public class PlayerLevel : MonoBehaviour
         }
     }
 
-    public void GiveMoney(int amount)
+    public bool GiveMoney(int amount)
 	{
+        if (money + amount > 1000000) return false;
+
         money += amount;
         if(moneyText != null)
         moneyText.text = "$" + money.ToString("#,#");
         if(shopMoneyText != null)
         shopMoneyText.text = "$" + money.ToString("#,#");
+
+        return true;
     }
     public void TakeMoney(int amount)
 	{
