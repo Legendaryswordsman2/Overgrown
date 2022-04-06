@@ -52,4 +52,10 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		if(interactable)
 		targetGraphic.sprite = highlightedSprite;
 	}
+
+	private void OnValidate()
+	{
+		if (targetGraphic == null)
+			targetGraphic = GetComponent<Image>();
+	}
 }
