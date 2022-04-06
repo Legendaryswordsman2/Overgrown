@@ -42,7 +42,10 @@ public class ChangeSceneOnClick : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isInRange = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = false;
         if (changeSceneIcon != null) changeSceneIcon.SetActive(false);
+        }
     }
 }

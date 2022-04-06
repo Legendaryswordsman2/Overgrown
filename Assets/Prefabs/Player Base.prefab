@@ -3568,7 +3568,7 @@ GameObject:
   - component: {fileID: 848538422}
   - component: {fileID: 848538423}
   - component: {fileID: 848538424}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walk Sound Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8266,6 +8266,7 @@ MonoBehaviour:
   xpToLevelUp: 100
   xpIncreaseOnLevelUp: 100
   xpIncreaseIncreaseOnLevelUp: 20
+  <money>k__BackingField: 0
   levelText: {fileID: 7809169511721064719}
   levelProgressBar: {fileID: 7809169512008265565}
   moneyText: {fileID: 7809169510884963780}
