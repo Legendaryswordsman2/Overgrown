@@ -36,6 +36,9 @@ public class GrowingManager : MonoBehaviour
 		{
 			GameManager.OpenOverlay(plantUiMenu);
 		}
+
+		if(Input.GetKeyDown(KeyCode.Escape) && GameManager.currentlyOpenOverlay == plantUiMenu)
+			GameManager.CloseOverlay(plantUiMenu);
 	}
 
 	public void StartPlanting(SOGrowingPlant growingPlantSO)
