@@ -14,6 +14,8 @@ public class TitleManager : MonoBehaviour
 	[Space]
 
 	[SerializeField] Startup startupScript;
+
+	int deletionIndex = 1;
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -23,9 +25,13 @@ public class TitleManager : MonoBehaviour
 			selectSaveMenu.SetActive(false);
 		}
 	}
-	public void DeleteSaveSlot(int saveSlotIndex)
+	public void SetDeletionIndex(int index)
 	{
-		if (saveSlotIndex == 1 && Directory.Exists(SaveSystem.saveOneLocation + "/MainSave"))
+		deletionIndex = index;
+	}
+	public void DeleteSaveSlot()
+	{
+		if (deletionIndex == 1 && Directory.Exists(SaveSystem.saveOneLocation + "/MainSave"))
 		{
 			Directory.Delete(SaveSystem.saveOneLocation + "/MainSave", true);
 			startupScript.saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: 1";
@@ -34,7 +40,7 @@ public class TitleManager : MonoBehaviour
 			levelProgressBar.current = 0;
 		}
 
-		if (saveSlotIndex == 2 && Directory.Exists(SaveSystem.saveTwoLocation + "/MainSave"))
+		if (deletionIndex == 2 && Directory.Exists(SaveSystem.saveTwoLocation + "/MainSave"))
 		{
 			Directory.Delete(SaveSystem.saveTwoLocation + "/MainSave", true);
 			startupScript.saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: 1";
@@ -43,7 +49,7 @@ public class TitleManager : MonoBehaviour
 			levelProgressBar.current = 0;
 		}
 
-		if (saveSlotIndex == 3 && Directory.Exists(SaveSystem.saveThreeLocation + "/MainSave"))
+		if (deletionIndex == 3 && Directory.Exists(SaveSystem.saveThreeLocation + "/MainSave"))
 		{
 			Directory.Delete(SaveSystem.saveThreeLocation + "/MainSave", true);
 			startupScript.saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: 1";
@@ -52,5 +58,6 @@ public class TitleManager : MonoBehaviour
 			levelProgressBar.current = 0;
 		}
 
+		startupScript.deleteSaveButtonsParent.GetChild(deletionIndex - 1).gameObject.SetActive(false);
 	}
 }

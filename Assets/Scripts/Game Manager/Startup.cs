@@ -7,8 +7,8 @@ public class Startup : MonoBehaviour
 {
     public Transform saveSlotOne, saveSlotTwo, saveSlotThree;
 
-    [Space]
-    [SerializeField] Transform deleteSaveButtonsParent;
+    [field: Space]
+    [field: SerializeField] public Transform deleteSaveButtonsParent { get; private set; }
     private void Awake()
     {
         SaveSystem.saveSubLocation = SaveSubLocation.MainSave;
