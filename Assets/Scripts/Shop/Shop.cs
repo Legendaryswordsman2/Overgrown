@@ -80,10 +80,10 @@ public class Shop : MonoBehaviour
 				Instantiate(shopItemSlotPrefab, sellingConsumableItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.consumableItems[i], ShopItemSlotMode.Selling);
 		}
 
-		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
+		for (int i = 0; i < inventory.weaponItems.Count; i++)
 		{
-			if (inventory.meleeWeaponItems[i].Sellable == true)
-				Instantiate(shopItemSlotPrefab, sellingWeaponItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.meleeWeaponItems[i], ShopItemSlotMode.Selling);
+			if (inventory.weaponItems[i].Sellable == true)
+				Instantiate(shopItemSlotPrefab, sellingWeaponItemSlotsParent.transform).GetComponent<ShopItemSlot>().SetSlot(inventory.weaponItems[i], ShopItemSlotMode.Selling);
 		}
 
 		for (int i = 0; i < inventory.armorItems.Count; i++)

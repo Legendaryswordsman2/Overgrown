@@ -5,14 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class StatisticsData
 {
-	public int playerKills;
-	public int plantsPlanted;
-	public int playerDeaths;
+    public int battleWins;
+    public int numberOfTimesSlept;
 
-    public StatisticsData(Statistics stats)
+    public StatisticsData()
     {
-        playerKills = stats.playerKills;
-        plantsPlanted = stats.plantsPlanted;
-        playerDeaths = stats.playerDeaths;
+        battleWins = Statistics.battleWins;
+        numberOfTimesSlept = Statistics.numberOfTimesSlept;
     }
 }

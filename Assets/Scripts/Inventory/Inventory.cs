@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
 	public List<EquipablePlantItem> equippablePlantItems;
 
 	[Header("Gear")]
-	public List<MeleeWeapon> meleeWeaponItems;
+	public List<MeleeWeapon> weaponItems;
 	public List<Armor> armorItems;
 
 	[Header("Parents")]
@@ -180,10 +180,10 @@ public class Inventory : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		for (int i = 0; i < weaponItems.Count; i++)
 		{
 			var ItemSlot = Instantiate(itemSlotPrefab, meleeWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
-			ItemSlot.SetSlot(meleeWeaponItems[i]);
+			ItemSlot.SetSlot(weaponItems[i]);
 			meleeWeaponItemSlots.Add(ItemSlot);
 
 			if (ItemSlot.item is MeleeWeapon c)
@@ -238,10 +238,10 @@ public class Inventory : MonoBehaviour
 				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
 			}
 		}
-		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		for (int i = 0; i < weaponItems.Count; i++)
 		{
-			meleeWeaponItems[i] = Instantiate(meleeWeaponItems[i]);
-			if(meleeWeaponItemsSave.Count != 0) meleeWeaponItems[i].isEquipped = meleeWeaponItemsSave[i].isEquipped;
+			weaponItems[i] = Instantiate(weaponItems[i]);
+			if(meleeWeaponItemsSave.Count != 0) weaponItems[i].isEquipped = meleeWeaponItemsSave[i].isEquipped;
 
 		}
 
@@ -288,10 +288,10 @@ public class Inventory : MonoBehaviour
 				}
 		}
 
-		for (int i = 0; i < meleeWeaponItems.Count; i++)
+		for (int i = 0; i < weaponItems.Count; i++)
 		{
 			var ItemSlot = Instantiate(itemSlotPrefab, meleeWeaponItemSlotParent.transform).GetComponent<ItemSlot>();
-			ItemSlot.SetSlot(meleeWeaponItems[i]);
+			ItemSlot.SetSlot(weaponItems[i]);
 			meleeWeaponItemSlots.Add(ItemSlot);
 
 			if (ItemSlot.item is MeleeWeapon c)
@@ -386,7 +386,7 @@ public class Inventory : MonoBehaviour
 		}
 		else if (item is MeleeWeapon meleeWeapon)
 		{
-			meleeWeaponItems.Add(meleeWeapon);
+			weaponItems.Add(meleeWeapon);
 			RefreshMeleeWeaponItemSlots();
 		}
 		else if (item is Armor armor)
@@ -415,7 +415,7 @@ public class Inventory : MonoBehaviour
 		}
 		else if(item is MeleeWeapon meleeWeapon)
 		{
-			meleeWeaponItems.Remove(meleeWeapon);
+			weaponItems.Remove(meleeWeapon);
 			//RefreshMeleeWeaponItemSlots();
 		}
 		else if(item is Armor armorItem)

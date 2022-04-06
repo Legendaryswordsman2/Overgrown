@@ -1,23 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Statistics : MonoBehaviour
+public static class Statistics
 {
-	[field: SerializeField, ReadOnlyInspector] public int playerKills { get; set; }
-	[field: SerializeField, ReadOnlyInspector] public int plantsPlanted { get; set; }
-	[field: SerializeField, ReadOnlyInspector] public int playerDeaths { get; set; }
+	public static int battleWins { get; private set; }
+	public static int numberOfTimesSlept { get; private set; }
+	public static void Initialize()
+	{
+		SaveManager.instance.OnSavingGame += SaveManager_OnSavingGame;
+		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
+	}
+	private static void SaveManager_OnSavingGame(object sender, System.EventArgs e)
+	{
+		SaveSystem.SaveFile("/Player", "/Statistics.json", new StatisticsData());
+	}
+	private static void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
+	{
+		StatisticsData stats = SaveSystem.LoadFile<StatisticsData>("/Player/Statistics.json");
 
-	public void IncreasePlayerKills()
-	{
-		playerKills++;
+		if (stats == null) return;
+
+		battleWins = stats.battleWins;
+		numberOfTimesSlept = stats.numberOfTimesSlept;
 	}
-	public void IncreasePlantsPlanted()
+
+	public static void IncreaseBattleWins()
 	{
-		plantsPlanted++;
+		battleWins++;
 	}
-	public void IncreasePlayerDeaths()
+	public static void IncreaseNumberOfTimesSlept()
 	{
-		playerDeaths++;
+		numberOfTimesSlept++;
 	}
+
 }

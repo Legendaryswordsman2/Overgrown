@@ -19,6 +19,8 @@ public class SaveManager : MonoBehaviour
 			Destroy(this);
 		else
 			instance = this;
+
+		Statistics.Initialize();
 	}
 
 	private void Start() // Load Game

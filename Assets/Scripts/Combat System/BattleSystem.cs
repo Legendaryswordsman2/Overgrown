@@ -148,6 +148,7 @@ public class BattleSystem : MonoBehaviour
 
 	public void ContinueAfterWinning()
 	{
+		Statistics.IncreaseBattleWins();
 		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex, BattleSetupData.playerPosition));
 	}
 

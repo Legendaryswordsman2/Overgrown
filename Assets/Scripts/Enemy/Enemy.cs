@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     AIPath aiPath;
     Player player;
-    Statistics gameStats;
 
     bool canAttack = true;
     void Start()
@@ -32,7 +31,6 @@ public class Enemy : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        gameStats = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<Statistics>();
     }
 
     private void Update()

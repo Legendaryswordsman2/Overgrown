@@ -36059,6 +36059,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.5799999
       objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: weaponItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: weaponItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e13d942095e1684f90676f596d67e05, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: weaponItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b32b56c1f61e6f488dadcf182e0e900, type: 2}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base

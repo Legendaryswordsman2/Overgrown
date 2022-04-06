@@ -30,10 +30,6 @@ public abstract class BaseUnit : MonoBehaviour
 
 
 	[HideInInspector] public CurrentMode currentMode = CurrentMode.Null;
-
-	// To be implemented
-
-
 	private void Awake()
 	{
 		Setup();

@@ -92,9 +92,9 @@ public class InventorySaveSystem : MonoBehaviour
 	{
 		List<GearSaveData> meleeWeaponItems = new List<GearSaveData>();
 
-		for (int i = 0; i < inventory.meleeWeaponItems.Count; i++)
+		for (int i = 0; i < inventory.weaponItems.Count; i++)
 		{
-			meleeWeaponItems.Add(new GearSaveData(inventory.meleeWeaponItems[i].ID, inventory.meleeWeaponItems[i].isEquipped));
+			meleeWeaponItems.Add(new GearSaveData(inventory.weaponItems[i].ID, inventory.weaponItems[i].isEquipped));
 		}
 		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItems);
 	}
@@ -163,11 +163,11 @@ public class InventorySaveSystem : MonoBehaviour
 		List<GearSaveData> meleeWeaponItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
 		if (meleeWeaponItems == null) return;
 
-		inventory.meleeWeaponItems.Clear();
+		inventory.weaponItems.Clear();
 
 		foreach (GearSaveData item in meleeWeaponItems)
 		{
-			inventory.meleeWeaponItems.Add(database.GetMeleeWeaponItem(item.itemID));
+			inventory.weaponItems.Add(database.GetMeleeWeaponItem(item.itemID));
 		}
 		inventory.meleeWeaponItemsSave = meleeWeaponItems;
 	}

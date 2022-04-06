@@ -60,8 +60,6 @@ public class Bed : MonoBehaviour
 			TimeSpan timeSpan = DateTime.Now - lastTimeSlept;
 			Debug.Log((int)timeSpan.TotalMinutes + " minute(s), " + timeSpan.Seconds + " seconds since last sleep");
 
-			//Debug.Log(timeSpan.Minutes);
-
 			if (timeSpan.TotalMinutes < timeUntilCanSleepAgain)
 			{
 				popupText.SetPopup(cantSleepText, 1, true);
@@ -71,6 +69,8 @@ public class Bed : MonoBehaviour
 
 		lastTimeSlept = DateTime.Now;
 		playerhasSleptBefore = true;
+
+		Statistics.IncreaseNumberOfTimesSlept();
 
 		GameManager gameManager = GameManager.instance;
 		gameManager.player.GetComponent<PlayerStats>().Sleep();

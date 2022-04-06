@@ -50,7 +50,9 @@ public class PlayerLevel : MonoBehaviour
     public void GiveMoney(int amount)
 	{
         money += amount;
+        if(moneyText != null)
         moneyText.text = "$" + money.ToString("#,#");
+        if(shopMoneyText != null)
         shopMoneyText.text = "$" + money.ToString("#,#");
     }
     public void TakeMoney(int amount)
