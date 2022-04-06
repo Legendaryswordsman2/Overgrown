@@ -36,16 +36,16 @@ public class ChangeSceneOnClick : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(changeSceneIcon != null) changeSceneIcon.SetActive(true);
-            isInRange = true;
-        }
+			if (changeSceneIcon != null) changeSceneIcon.SetActive(true);
+			isInRange = true;
+		}
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            isInRange = false;
-        if (changeSceneIcon != null) changeSceneIcon.SetActive(false);
-        }
+			isInRange = false;
+			if (changeSceneIcon != null) changeSceneIcon.SetActive(false);
+		}
     }
 }
