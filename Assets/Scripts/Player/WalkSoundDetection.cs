@@ -11,9 +11,9 @@ public class WalkSoundDetection : MonoBehaviour
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<ChangeWalkSound>())
+        if (collision.TryGetComponent(out ChangeWalkSound newWalkSound))
         {
-            player.walkSounds = collision.GetComponent<ChangeWalkSound>().walkSounds;
+            player.walkSounds = newWalkSound.walkSounds;
         }
     }
 }
