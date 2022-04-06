@@ -27,7 +27,7 @@ public abstract class Item : ScriptableObject
 
 	[Space]
 
-	public ItemSlot itemSlotReference;
+	[ReadOnlyInspector] public ItemSlot itemSlotReference;
 
 	bool canStack;
 

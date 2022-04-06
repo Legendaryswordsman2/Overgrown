@@ -29,8 +29,10 @@ public class Grow : MonoBehaviour
 		SaveManager.instance.OnSavingGame += SaveManager_OnSavingGame;
 		SaveManager.instance.OnLoadingGame += SaveManager_OnLoadingGame;
 	}
-	public void StartGrowing()
+	public void StartGrowing(SOGrowingPlant plantToGrow)
 	{
+		chosenGrowingPlant = plantToGrow;
+
 		plant.sprite = chosenGrowingPlant.plantGrowthStages[0];
 		currentGrowthStageIndex++;
 

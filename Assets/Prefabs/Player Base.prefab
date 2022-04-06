@@ -11457,10 +11457,10 @@ RectTransform:
   m_Father: {fileID: 2406020428989637882}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.5, y: -406.435}
+  m_SizeDelta: {x: 291, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2406020428641116572
 CanvasRenderer:
@@ -11544,25 +11544,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2406020429186786924}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 101289276}
+        m_TargetAssemblyTypeName: GrowingManager, Assembly-CSharp
         m_MethodName: StartPlanting
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 25c95c2f4b1eb8148a0586ca6c3e0920, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PlantData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1878133615}
-        m_TargetAssemblyTypeName: PlantMenu, Assembly-CSharp
-        m_MethodName: plant
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: SOGrowingPlant, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11682,10 +11670,10 @@ RectTransform:
   m_Father: {fileID: 2406020428989637882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.5, y: -234.435}
+  m_SizeDelta: {x: 291, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2406020429319446102
 CanvasRenderer:
@@ -11769,25 +11757,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2406020429186786924}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 101289276}
+        m_TargetAssemblyTypeName: GrowingManager, Assembly-CSharp
         m_MethodName: StartPlanting
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 53551e4031a9b384ea14c3ff05eb5ccd, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PlantData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2511071}
-        m_TargetAssemblyTypeName: PlantMenu, Assembly-CSharp
-        m_MethodName: plant
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: SOGrowingPlant, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12272,7 +12248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2406020429854436411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12290,10 +12266,10 @@ RectTransform:
   m_Father: {fileID: 2406020428989637882}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.5, y: -492.435}
+  m_SizeDelta: {x: 291, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2406020429854436390
 CanvasRenderer:
@@ -12432,7 +12408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2406020429932687447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12450,10 +12426,10 @@ RectTransform:
   m_Father: {fileID: 2406020428989637882}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.5, y: -234.435}
+  m_SizeDelta: {x: 291, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2406020429932687442
 CanvasRenderer:
@@ -13012,10 +12988,10 @@ RectTransform:
   m_Father: {fileID: 2406020428989637882}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.5, y: -578.435}
+  m_SizeDelta: {x: 291, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2406020430476909195
 CanvasRenderer:
@@ -13099,25 +13075,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2406020429186786924}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 101289276}
+        m_TargetAssemblyTypeName: GrowingManager, Assembly-CSharp
         m_MethodName: StartPlanting
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: e671372b1d2698a4d93f34354b9652d6, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PlantData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1326258726}
-        m_TargetAssemblyTypeName: PlantMenu, Assembly-CSharp
-        m_MethodName: plant
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: SOGrowingPlant, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
