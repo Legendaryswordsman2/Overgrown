@@ -100,19 +100,6 @@ public class PlayerUnit : BaseUnit
 		anim.Play("Walk Animation");
 		currentMode = CurrentMode.Attacking;
 	}
-	void RangedAttack()
-	{
-		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
-		{
-			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
-		}
-
-		locationToAttackTarget = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(2).position;
-		ArrowLerp arrow = Instantiate(battleSystem.arrowPrefab, this.transform).GetComponent<ArrowLerp>();
-		arrow.selectionIndex = battleSystem.enemySelectionIndex;
-		arrow.playerUnit = this;
-		arrow.endPosition = battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.position;
-	}
 	public override void Block()
 	{
 		battleSystem.playerChoices.SetActive(false);
