@@ -36096,7 +36096,7 @@ PrefabInstance:
     - target: {fileID: 3089738350370918753, guid: e669f09d210f50047ac5f0bf0ee688d8, type: 3}
       propertyPath: <chosenGrowingPlant>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 53551e4031a9b384ea14c3ff05eb5ccd, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3089738350370918754, guid: e669f09d210f50047ac5f0bf0ee688d8, type: 3}
       propertyPath: m_RootOrder
       value: 12
