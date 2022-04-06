@@ -73,11 +73,6 @@ public static class SaveSystem
         }
     }
 
-    public static void InitializeSaveSlot()
-	{
-        Directory.CreateDirectory(currentSaveLocation + "MainSave");
-	}
-
     public static void CreateAppID()
 	{
         var path = "steam_appid.txt";
