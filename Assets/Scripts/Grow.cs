@@ -30,18 +30,14 @@ public class Grow : MonoBehaviour
 		currentGrowthStageIndex++;
 
 		totalGrowTime = chosenGrowingPlant.plantGrowTime;
-
-		stageGrowthTime = totalGrowTime / (float)chosenGrowingPlant.plantGrowthStages.Length + 1;
-
+		stageGrowthTime = totalGrowTime / (float)(chosenGrowingPlant.plantGrowthStages.Length - 1);
 
 		stageIntervals = new float[chosenGrowingPlant.plantGrowthStages.Length - 1];
-		for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length - 2; i++)
+		for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length - 1; i++)
 		{
-
 			if (i == 0) stageIntervals[i] = stageGrowthTime;
 			else stageIntervals[i] = stageIntervals[i - 1] + stageGrowthTime;
 		}
-		stageIntervals[stageIntervals.Length - 1] = totalGrowTime;
 
 		progressBar.max = totalGrowTime;
 		progressBar.current = 0;
