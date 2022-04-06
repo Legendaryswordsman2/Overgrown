@@ -22,7 +22,7 @@ public class Grow : MonoBehaviour
 
 	[SerializeField, ReadOnlyInspector] int currentGrowthStageIndex = 0;
 
-	[SerializeField] int[] stageIntervals;
+	[SerializeField] float[] stageIntervals;
 
 	public void StartGrowing()
 	{
@@ -32,6 +32,14 @@ public class Grow : MonoBehaviour
 		totalGrowTime = chosenGrowingPlant.plantGrowTime;
 
 		stageGrowthTime = totalGrowTime / (float)chosenGrowingPlant.plantGrowthStages.Length;
+
+
+		stageIntervals = new float[chosenGrowingPlant.plantGrowthStages.Length];
+		for (int i = 0; i < chosenGrowingPlant.plantGrowthStages.Length; i++)
+		{
+			if (i == 0) stageIntervals[i] = stageGrowthTime;
+			else stageIntervals[i] = stageIntervals[i - 1] + stageGrowthTime;
+		}
 
 		progressBar.max = totalGrowTime;
 
