@@ -541,7 +541,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'ALPHA
 
-    V1.7.4'
+    V1.8.2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2654,7 +2654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1033977937
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4226,8 +4226,9 @@ GameObject:
   - component: {fileID: 1414734239}
   - component: {fileID: 1414734238}
   - component: {fileID: 1414734240}
+  - component: {fileID: 1414734241}
   m_Layer: 0
-  m_Name: Settings Manager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4247,7 +4248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d7ba264db5be622479002c5cca2dff64, type: 2}
   resolutionDropdown: {fileID: 1633603317}
-  volumeSlider: {fileID: 0}
   fullscreenToggle: {fileID: 880463322}
   TvVolume: {fileID: 2114706999}
   volumeStages:
@@ -4373,6 +4373,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1414734241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414734237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89131e9c5e39f244a8857a6b3572959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1728462766}
+  optionsMenu: {fileID: 212336759}
+  selectSaveMenu: {fileID: 864273040}
 --- !u!1 &1427036008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4810,7 +4825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b4ae0c4bfc36a4a9242f875c77bd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 100
+  max: 100
   current: 0
   mask: {fileID: 1262688499}
 --- !u!114 &1562223188
@@ -5868,7 +5883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b4ae0c4bfc36a4a9242f875c77bd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 100
+  max: 100
   current: 0
   mask: {fileID: 1263235060}
 --- !u!114 &1975019370
@@ -6087,7 +6102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b4ae0c4bfc36a4a9242f875c77bd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 100
+  max: 100
   current: 0
   mask: {fileID: 244473544}
 --- !u!114 &2026467148
