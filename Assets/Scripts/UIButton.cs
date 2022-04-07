@@ -19,6 +19,8 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	[SerializeField] UnityEvent onClick;
 
+	bool mouseIsOverImage = false;
+
 	// Private
 	Sprite defaultSprite;
 	private void Awake()
@@ -27,11 +29,15 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	}
 	public void OnPointerEnter(PointerEventData eventData)
 	{
+		mouseIsOverImage = true;
+
 		if(interactable)
 		targetGraphic.sprite = highlightedSprite;
 	}
 	public void OnPointerExit(PointerEventData eventData)
 	{
+		mouseIsOverImage = false;
+
 		if(interactable)
 		targetGraphic.sprite = defaultSprite;
 	}
@@ -49,8 +55,17 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void OnPointerUp(PointerEventData eventData)
 	{
-		if(interactable)
-		targetGraphic.sprite = highlightedSprite;
+		if (!interactable) return;
+
+		if (mouseIsOverImage)
+			targetGraphic.sprite = highlightedSprite;
+		else
+			targetGraphic.sprite = defaultSprite;
+	}
+
+	private void OnDisable()
+	{
+		mouseIsOverImage = false;
 	}
 
 	private void OnValidate()
