@@ -15,6 +15,10 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	[Tooltip("The sprite of the image when the button is pressed (Leave blank to use default sprite)")]
 	[SerializeField] Sprite pressedSprite;
 
+	//[SerializeField] float tweenTime;
+
+	//[SerializeField] LeanTweenType easeType;
+
 	[Space]
 
 	[SerializeField] UnityEvent onClick;
@@ -31,8 +35,16 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
 		mouseIsOverImage = true;
 
-		if(interactable)
+		if (!interactable) return;
+
 		targetGraphic.sprite = highlightedSprite;
+
+		//LeanTween.cancel(gameObject);
+
+		//transform.localScale = Vector3.one;
+
+		//LeanTween.scale(gameObject, Vector3.one * 1.1f, tweenTime)
+		//	.setEase(easeType);
 	}
 	public void OnPointerExit(PointerEventData eventData)
 	{
