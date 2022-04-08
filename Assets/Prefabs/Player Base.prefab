@@ -6848,6 +6848,7 @@ MonoBehaviour:
   targetGraphic: {fileID: 1869365999}
   highlightedSprite: {fileID: -2567477066349301821, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
+  animationMode: 1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -9133,6 +9134,7 @@ MonoBehaviour:
   targetGraphic: {fileID: 1226180916757045898}
   highlightedSprite: {fileID: -2567477066349301821, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
+  animationMode: 1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -9853,6 +9855,7 @@ MonoBehaviour:
   targetGraphic: {fileID: 1226180917395449214}
   highlightedSprite: {fileID: -2932257281760155851, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
+  animationMode: 1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -10226,6 +10229,7 @@ MonoBehaviour:
   targetGraphic: {fileID: 1226180917576969941}
   highlightedSprite: {fileID: -83565330353265594, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
+  animationMode: 1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -10858,6 +10862,7 @@ MonoBehaviour:
   targetGraphic: {fileID: 1226180918518393833}
   highlightedSprite: {fileID: -2567477066349301821, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
+  animationMode: 1
   onClick:
     m_PersistentCalls:
       m_Calls:

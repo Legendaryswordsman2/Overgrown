@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
+enum AnimationMode { None, ScaleWithPunch}
 public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
 	[SerializeField] bool interactable = true;
@@ -15,9 +16,9 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	[Tooltip("The sprite of the image when the button is pressed (Leave blank to use default sprite)")]
 	[SerializeField] Sprite pressedSprite;
 
-	//[SerializeField] float tweenTime;
+	[Space]
 
-	//[SerializeField] LeanTweenType easeType;
+	[SerializeField] AnimationMode animationMode = AnimationMode.None;
 
 	[Space]
 
@@ -39,12 +40,18 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 		targetGraphic.sprite = highlightedSprite;
 
-		//LeanTween.cancel(gameObject);
+		if(animationMode == AnimationMode.ScaleWithPunch)
+		{
+			LeanTween.cancel(gameObject);
 
-		//transform.localScale = Vector3.one;
+			transform.localScale = Vector3.one;
 
-		//LeanTween.scale(gameObject, Vector3.one * 1.1f, tweenTime)
-		//	.setEase(easeType);
+			LeanTween.scale(gameObject, Vector3.one * 1.1f, 0.5f)
+				.setEasePunch()
+				.setIgnoreTimeScale(true);
+		}
+
+
 	}
 	public void OnPointerExit(PointerEventData eventData)
 	{
