@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public GameObject plantUiMenu { get; private set; }
     [field: SerializeField] public GameObject playerHealthBar { get; private set; }
     [field: SerializeField] public GameObject player { get; private set; }
+    [field: SerializeField] public GameObject playerLevelUpScreen { get; private set; }
 
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;
@@ -68,6 +69,12 @@ public class GameManager : MonoBehaviour
                 CloseInventory();
             else
                 OpenInventory();
+
+        if (Input.GetKeyDown(KeyCode.M))
+            if (currentlyOpenOverlay == playerLevelUpScreen)
+                CloseOverlay(playerLevelUpScreen);
+            else
+                OpenOverlay(playerLevelUpScreen);
     }
 
     public static bool OpenOverlay(GameObject overlayToOpen, bool stopTime = true)
