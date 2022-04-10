@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
-	[Header("Starting Stats")]
-	public int maxHealth = 100;
+	public static PlayerStats instance;
+
+	[field: Header("Starting Stats")]
+	[field: SerializeField] public int maxHealth { get; private set; } = 100;
 	[field: ReadOnlyInspector, SerializeField] public int currentHealth { get; set; } = 0;
-	public int damage = 10;
-	public int defense = 0;
-	public int critChance = 0;
+	[field: SerializeField] public int damage { get; private set; } = 10;
+	[field: SerializeField] public int defense { get; private set; } = 0;
+	[field: SerializeField] public int critChance { get; private set; } = 0;
 
 	[Header("Equipped Items")]
 	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
@@ -21,6 +23,7 @@ public class PlayerStats : MonoBehaviour
 	[Header("Stats Refernces")]
 	[SerializeField] ProgressBar playerHealthBar;
 	[SerializeField] TMP_Text playerHealthText;
+	[SerializeField] PlayerLevelUpScreen playerLevelUpScreen;
 
 	[Space]
 
@@ -34,6 +37,8 @@ public class PlayerStats : MonoBehaviour
 
 	private void Awake()
 	{
+		instance = this;
+
 		saveManager = SaveManager.instance;
 
 		saveManager.OnSavingGame += SaveManager_OnSavingGame;
@@ -115,6 +120,15 @@ public class PlayerStats : MonoBehaviour
 		critChance = statsData.critChance;
 	}
 
+	public void IncreaseStatsFromLevelUp(int[] statIncreases)
+	{
+		playerLevelUpScreen.SetLevelUpScreen(this, statIncreases);
+
+		maxHealth += statIncreases[0];
+		damage += statIncreases[1];
+		defense += statIncreases[2];
+		critChance += statIncreases[3];
+	}
 	public void Sleep()
 	{
 		Debug.Log("Plaher Slet");

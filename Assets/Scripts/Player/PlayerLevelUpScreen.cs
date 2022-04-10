@@ -5,6 +5,8 @@ using TMPro;
 
 public class PlayerLevelUpScreen : MonoBehaviour
 {
+	[SerializeField] GameObject levelupParent;
+
 	[Header("Player Stats")]
 	[SerializeField] TMP_Text healthTextStat;
 	[SerializeField] TMP_Text damageTextStat;
@@ -17,25 +19,19 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	[SerializeField] TMP_Text defenseTextStatIncrease;
 	[SerializeField] TMP_Text critChanceTextStatIncrease;
 
-	Vector3 healthStatIncreaseDefaultPOS;
-	Vector3 damageStatIncreaseDefaultPOS;
-	Vector3 defenseStatIncreaseDefaultPOS;
-	Vector3 critChanceStatIncreaseDefaultPOS;
+	public void SetLevelUpScreen(PlayerStats playerStats, int[] statIncreases)
+	{
+		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
+		damageTextStat.text = "DAMAGE: " + playerStats.damage;
+		defenseTextStat.text = "DEFENSE: " + playerStats.defense;
+		critChanceTextStat.text = "CRIT: " + playerStats.critChance;
 
-	private void Awake()
-	{
-		healthStatIncreaseDefaultPOS = healthTextStatIncrease.transform.position;
-		damageStatIncreaseDefaultPOS = damageTextStatIncrease.transform.position;
-		defenseStatIncreaseDefaultPOS = defenseTextStatIncrease.transform.position;
-		critChanceStatIncreaseDefaultPOS = critChanceTextStatIncrease.transform.position;
-	}
+		healthTextStatIncrease.text = "+ " + statIncreases[0];
+		damageTextStatIncrease.text = "+ " + statIncreases[1];
+		defenseTextStatIncrease.text = "+ " + statIncreases[2];
+		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-	public void MergePlayerStats()
-	{
-		LeanTween.moveX(healthTextStatIncrease.gameObject, 1075, 0.1f);
-	}
-	public void ResetLevelUpScreen()
-	{
-		healthTextStatIncrease.transform.position = healthStatIncreaseDefaultPOS;
+		levelupParent.SetActive(true);
+		gameObject.SetActive(true);
 	}
 }

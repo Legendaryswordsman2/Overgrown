@@ -30,7 +30,12 @@ public class PlayerLevel : MonoBehaviour
         saveManager.OnSavingGame += SaveManager_OnSavingGame;
         saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
     }
-    public void GiveXp(int xpAmount)
+
+	private void Update()
+	{
+        if (Input.GetKeyDown(KeyCode.L)) LevelUp();
+	}
+	public void GiveXp(int xpAmount)
     {
         xp += xpAmount;
 
@@ -74,6 +79,9 @@ public class PlayerLevel : MonoBehaviour
         if(levelText != null) levelText.text = "LV: " + playerLevel;
 
         xp -= xpToLevelUp;
+
+        if (xp < 0) xp = 0;
+
         xpToLevelUp += xpIncreaseOnLevelUp;
         xpIncreaseOnLevelUp += xpIncreaseIncreaseOnLevelUp;
 
@@ -83,18 +91,28 @@ public class PlayerLevel : MonoBehaviour
             levelProgressBar.current = xp;
 		}
 
+        int[] statIncreases = new int[4];
+
+		for (int i = 0; i < statIncreases.Length; i++)
+		{
+            statIncreases[i] = UnityEngine.Random.Range(1, 5);
+		}
+
+        PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
+
         OnLevelUp?.Invoke(this, EventArgs.Empty);
 
-        TestIfCanLevelUpAgain();
+        //TestIfCanLevelUpAgain();
     }
-    void TestIfCanLevelUpAgain()
-    {
-        if (xp >= xpToLevelUp)
-        {
-            LevelUp();
-        }
-    }
-    public void RefreshValues()
+
+	//void TestIfCanLevelUpAgain()
+	//{
+	//    if (xp >= xpToLevelUp)
+	//    {
+	//        LevelUp();
+	//    }
+	//}
+	public void RefreshValues()
     {
         if (levelProgressBar != null)
         {
