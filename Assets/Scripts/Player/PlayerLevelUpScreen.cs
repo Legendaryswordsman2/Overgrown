@@ -5,7 +5,9 @@ using TMPro;
 
 public class PlayerLevelUpScreen : MonoBehaviour
 {
-	[SerializeField] GameObject levelupParent;
+	[SerializeField] GameObject levelUpParent;
+	[SerializeField] GameObject pressKeyToContinueText;
+	[SerializeField] TMP_Text leveledUpText;
 
 	[Header("Player Stats")]
 	[SerializeField] TMP_Text healthTextStat;
@@ -50,9 +52,11 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		defenseTextStatIncrease.text = "+ " + statIncreases[2];
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
+		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.GetComponent<PlayerLevel>().playerLevel;
+
 		hasIncreasedStats = false;
 
-		GameManager.OpenOverlay(levelupParent);
+		GameManager.OpenOverlay(levelUpParent);
 		//levelupParent.SetActive(true);
 		gameObject.SetActive(true);
 	}
@@ -122,7 +126,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
 		{
-			Debug.Log("Space Clicked");
+			pressKeyToContinueText.SetActive(false);
 			StartCoroutine(AddStats());
 			hasIncreasedStats = true;
 		}
