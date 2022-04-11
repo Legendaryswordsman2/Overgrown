@@ -29,7 +29,10 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	PlayerStats playerStats;
 	int[] statIncreases;
 
+	int selectionIndex = 0;
+
 	bool hasIncreasedStats = false;
+	bool choosingStat = false;
 
 	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
@@ -128,10 +131,22 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			critChanceTextStat.text = "CRIT CHANCE: " + previousCritChance;
 			critChanceTextStatIncrease.text = "+ " + statIncreaseNumber;
 
-			if (previousCritChance >= playerStats.critChance) yield break;
+			if (previousCritChance >= playerStats.critChance) break;
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
+
+		if (choosingStat) yield break;
+
+		yield return new WaitForSecondsRealtime(1);
+
+		selectionIndex = 0;
+		healthTextStatIncrease.gameObject.SetActive(true);
+		damageTextStatIncrease.gameObject.SetActive(false);
+		defenseTextStatIncrease.gameObject.SetActive(false);
+		critChanceTextStatIncrease.gameObject.SetActive(false);
+
+		choosingStat = true;
 	}
 
 	private void Update()
@@ -141,6 +156,68 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			pressKeyToContinueText.SetActive(false);
 			StartCoroutine(AddStats());
 			hasIncreasedStats = true;
+		}
+
+		if (choosingStat) ChooseStat();
+	}
+
+	void ChooseStat()
+	{
+		if (Input.GetKeyDown(KeyCode.Return))
+		{
+			switch (selectionIndex)
+			{
+				case (0):
+					healthTextStatIncrease.gameObject.SetActive(true);
+					break;
+				case (1):
+					damageTextStatIncrease.gameObject.SetActive(true);
+					break;
+				case (2):
+					defenseTextStatIncrease.gameObject.SetActive(true);
+					break;
+				case (3):
+					critChanceTextStatIncrease.gameObject.SetActive(true);
+					break;
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			if (selectionIndex <= 0) return;
+			selectionIndex--;
+			HighlightStat();
+		}
+
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			if (selectionIndex >= 3) return;
+			selectionIndex++;
+			HighlightStat();
+		}
+	}
+
+	void HighlightStat()
+	{
+		healthTextStatIncrease.gameObject.SetActive(false);
+		damageTextStatIncrease.gameObject.SetActive(false);
+		defenseTextStatIncrease.gameObject.SetActive(false);
+		critChanceTextStatIncrease.gameObject.SetActive(false);
+
+		switch (selectionIndex)
+		{
+			case (0):
+				healthTextStatIncrease.gameObject.SetActive(true);
+				break;
+			case (1):
+				damageTextStatIncrease.gameObject.SetActive(true);
+				break;
+			case (2):
+				defenseTextStatIncrease.gameObject.SetActive(true);
+				break;
+			case (3):
+				critChanceTextStatIncrease.gameObject.SetActive(true);
+				break;
 		}
 	}
 }
