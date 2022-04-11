@@ -165,21 +165,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			switch (selectionIndex)
-			{
-				case (0):
-					healthTextStatIncrease.gameObject.SetActive(true);
-					break;
-				case (1):
-					damageTextStatIncrease.gameObject.SetActive(true);
-					break;
-				case (2):
-					defenseTextStatIncrease.gameObject.SetActive(true);
-					break;
-				case (3):
-					critChanceTextStatIncrease.gameObject.SetActive(true);
-					break;
-			}
+			StartCoroutine(ConfirmChosenStat());
 		}
 
 		if (Input.GetKeyDown(KeyCode.W))
@@ -208,6 +194,28 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		{
 			case (0):
 				healthTextStatIncrease.gameObject.SetActive(true);
+				break;
+			case (1):
+				damageTextStatIncrease.gameObject.SetActive(true);
+				break;
+			case (2):
+				defenseTextStatIncrease.gameObject.SetActive(true);
+				break;
+			case (3):
+				critChanceTextStatIncrease.gameObject.SetActive(true);
+				break;
+		}
+	}
+	IEnumerator ConfirmChosenStat()
+	{
+		switch (selectionIndex)
+		{
+			case (0):
+				statIncreases[0] = Random.Range(1, 5);
+				playerStats.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
+				healthTextStatIncrease.text = "+ " + statIncreases[0];
+				yield return new WaitForSecondsRealtime(0.5f);
+				StartCoroutine(ApplyStatIncreaseToHealthStat());
 				break;
 			case (1):
 				damageTextStatIncrease.gameObject.SetActive(true);

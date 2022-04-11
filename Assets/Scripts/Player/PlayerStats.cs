@@ -129,6 +129,10 @@ public class PlayerStats : MonoBehaviour
 		defense += statIncreases[2];
 		critChance += statIncreases[3];
 	}
+	public void IncreaseHealthFromChosenLevelUpStat(int amount)
+	{
+		maxHealth += amount;
+	}
 	public void Sleep()
 	{
 		Debug.Log("Plaher Slet");
