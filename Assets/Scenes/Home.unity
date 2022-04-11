@@ -36098,6 +36098,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 736520431, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 319
+      objectReference: {fileID: 0}
     - target: {fileID: 1442832826, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -36115,12 +36119,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1860056728, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1165.1985
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860056728, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 582.59924
       objectReference: {fileID: 0}
     - target: {fileID: 1860056728, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860056729, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_text
+      value: 'CRIT CHANCE: 5'
       objectReference: {fileID: 0}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name

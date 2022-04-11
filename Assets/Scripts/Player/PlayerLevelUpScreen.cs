@@ -43,7 +43,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
 		damageTextStat.text = "DAMAGE: " + playerStats.damage;
 		defenseTextStat.text = "DEFENSE: " + playerStats.defense;
-		critChanceTextStat.text = "CRIT: " + playerStats.critChance;
+		critChanceTextStat.text = "CRIT CHANCE: " + playerStats.critChance;
 
 		healthTextStatIncrease.text = "+ " + statIncreases[0];
 		damageTextStatIncrease.text = "+ " + statIncreases[1];
@@ -56,15 +56,19 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		//levelupParent.SetActive(true);
 		gameObject.SetActive(true);
 	}
-	void AddStats()
+	IEnumerator AddStats()
 	{
 		StartCoroutine(ApplyStatIncreaseToHealthStat());
+		yield return new WaitForSecondsRealtime(0.1f);
+		StartCoroutine(ApplyStatIncreaseToDamageStat());
+		yield return new WaitForSecondsRealtime(0.1f);
+		StartCoroutine(ApplyStatIncreaseToDefenseStat());
+		yield return new WaitForSecondsRealtime(0.1f);
+		StartCoroutine(ApplyStatIncreaseToCritChanceStat());
 	}
 
 	IEnumerator ApplyStatIncreaseToHealthStat()
 	{
-		if (previousHealth >= playerStats.maxHealth) yield break;
-
 		for (int i = 0; i < statIncreases[0]; i++)
 		{
 			previousHealth++;
@@ -75,13 +79,51 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
 	}
+	IEnumerator ApplyStatIncreaseToDamageStat()
+	{
+		for (int i = 0; i < statIncreases[1]; i++)
+		{
+			previousDamage++;
+			damageTextStat.text = "DAMAGE: " + previousDamage;
+
+			if (previousDamage >= playerStats.damage) yield break;
+
+			yield return new WaitForSecondsRealtime(0.1f);
+		}
+	}
+
+	IEnumerator ApplyStatIncreaseToDefenseStat()
+	{
+		for (int i = 0; i < statIncreases[2]; i++)
+		{
+			previousDefense++;
+			defenseTextStat.text = "DEFENSE: " + previousDefense;
+
+			if (previousDefense >= playerStats.defense) yield break;
+
+			yield return new WaitForSecondsRealtime(0.1f);
+		}
+	}
+
+	IEnumerator ApplyStatIncreaseToCritChanceStat()
+	{
+		for (int i = 0; i < statIncreases[3]; i++)
+		{
+			previousCritChance++;
+			critChanceTextStat.text = "CRIT CHANCE: " + previousCritChance;
+
+			if (previousCritChance >= playerStats.critChance) yield break;
+
+			yield return new WaitForSecondsRealtime(0.1f);
+		}
+	}
 
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
 		{
 			Debug.Log("Space Clicked");
-			AddStats();
+			StartCoroutine(AddStats());
 			hasIncreasedStats = true;
 		}
 	}
