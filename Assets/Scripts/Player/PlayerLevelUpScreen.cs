@@ -73,10 +73,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	IEnumerator ApplyStatIncreaseToHealthStat()
 	{
+		int statIncreaseNumber = statIncreases[0];
 		for (int i = 0; i < statIncreases[0]; i++)
 		{
 			previousHealth++;
+			statIncreaseNumber--;
 			healthTextStat.text = "HEALTH: " + previousHealth;
+			healthTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			if (previousHealth >= playerStats.maxHealth) yield break;
 
@@ -85,10 +88,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	}
 	IEnumerator ApplyStatIncreaseToDamageStat()
 	{
+		int statIncreaseNumber = statIncreases[1];
 		for (int i = 0; i < statIncreases[1]; i++)
 		{
 			previousDamage++;
+			statIncreaseNumber--;
 			damageTextStat.text = "DAMAGE: " + previousDamage;
+			damageTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			if (previousDamage >= playerStats.damage) yield break;
 
@@ -98,10 +104,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	IEnumerator ApplyStatIncreaseToDefenseStat()
 	{
+		int statIncreaseNumber = statIncreases[2];
 		for (int i = 0; i < statIncreases[2]; i++)
 		{
 			previousDefense++;
+			statIncreaseNumber--;
 			defenseTextStat.text = "DEFENSE: " + previousDefense;
+			defenseTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			if (previousDefense >= playerStats.defense) yield break;
 
@@ -111,10 +120,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	IEnumerator ApplyStatIncreaseToCritChanceStat()
 	{
+		int statIncreaseNumber = statIncreases[3];
 		for (int i = 0; i < statIncreases[3]; i++)
 		{
 			previousCritChance++;
+			statIncreaseNumber--;
 			critChanceTextStat.text = "CRIT CHANCE: " + previousCritChance;
+			critChanceTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			if (previousCritChance >= playerStats.critChance) yield break;
 
