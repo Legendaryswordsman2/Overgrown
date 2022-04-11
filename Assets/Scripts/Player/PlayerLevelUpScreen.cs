@@ -27,6 +27,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	PlayerStats playerStats;
 	int[] statIncreases;
 
+	bool hasIncreasedStats = false;
+
 	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
 		playerStats = _playerStats;
@@ -48,7 +50,10 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		defenseTextStatIncrease.text = "+ " + statIncreases[2];
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-		levelupParent.SetActive(true);
+		hasIncreasedStats = false;
+
+		GameManager.OpenOverlay(levelupParent);
+		//levelupParent.SetActive(true);
 		gameObject.SetActive(true);
 	}
 	void AddStats()
@@ -58,26 +63,26 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	IEnumerator ApplyStatIncreaseToHealthStat()
 	{
-		previousHealth++;
-		healthTextStat.text = "HEALTH: " + previousHealth;
+		if (previousHealth >= playerStats.maxHealth) yield break;
 
-		if (previousHealth >= playerStats.maxHealth) 
+		for (int i = 0; i < statIncreases[0]; i++)
 		{
-			yield break;
+			previousHealth++;
+			healthTextStat.text = "HEALTH: " + previousHealth;
+
+			if (previousHealth >= playerStats.maxHealth) yield break;
+
+			yield return new WaitForSecondsRealtime(0.1f);
 		}
-
-		//Debug.Log("Added One");
-		yield return new WaitForSeconds(0.1f);
-
-		StartCoroutine(ApplyStatIncreaseToHealthStat());
 	}
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
 		{
 			Debug.Log("Space Clicked");
 			AddStats();
+			hasIncreasedStats = true;
 		}
 	}
 }
