@@ -19,8 +19,25 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	[SerializeField] TMP_Text defenseTextStatIncrease;
 	[SerializeField] TMP_Text critChanceTextStatIncrease;
 
-	public void SetLevelUpScreen(PlayerStats playerStats, int[] statIncreases)
+	int previousHealth;
+	int previousDamage;
+	int previousDefense;
+	int previousCritChance;
+
+	PlayerStats playerStats;
+	int[] statIncreases;
+
+	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
+		playerStats = _playerStats;
+
+		statIncreases = _statIncreases;
+
+		previousHealth = playerStats.maxHealth;
+		previousDamage = playerStats.damage;
+		previousDefense = playerStats.defense;
+		previousCritChance = playerStats.critChance;
+
 		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
 		damageTextStat.text = "DAMAGE: " + playerStats.damage;
 		defenseTextStat.text = "DEFENSE: " + playerStats.defense;
@@ -33,5 +50,34 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 		levelupParent.SetActive(true);
 		gameObject.SetActive(true);
+	}
+	void AddStats()
+	{
+		StartCoroutine(ApplyStatIncreaseToHealthStat());
+	}
+
+	IEnumerator ApplyStatIncreaseToHealthStat()
+	{
+		previousHealth++;
+		healthTextStat.text = "HEALTH: " + previousHealth;
+
+		if (previousHealth >= playerStats.maxHealth) 
+		{
+			yield break;
+		}
+
+		//Debug.Log("Added One");
+		yield return new WaitForSeconds(0.1f);
+
+		StartCoroutine(ApplyStatIncreaseToHealthStat());
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Debug.Log("Space Clicked");
+			AddStats();
+		}
 	}
 }
