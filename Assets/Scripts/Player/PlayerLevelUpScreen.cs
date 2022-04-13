@@ -15,11 +15,17 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	[SerializeField] TMP_Text defenseTextStat;
 	[SerializeField] TMP_Text critChanceTextStat;
 
-	[Header("Increase Stats")]
+	[Header("Increase Stat Texts")]
 	[SerializeField] TMP_Text healthTextStatIncrease;
 	[SerializeField] TMP_Text damageTextStatIncrease;
 	[SerializeField] TMP_Text defenseTextStatIncrease;
 	[SerializeField] TMP_Text critChanceTextStatIncrease;
+
+	//[Header("Increase Stat Parents")]
+	//[SerializeField] GameObject healthStatIncrease;
+	//[SerializeField] GameObject damageStatIncrease;
+	//[SerializeField] GameObject defenseStatIncrease;
+	//[SerializeField] GameObject critChanceStatIncrease;
 
 	int previousHealth;
 	int previousDamage;
@@ -36,6 +42,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
+		choosingStat = false;
+
 		playerStats = _playerStats;
 
 		statIncreases = _statIncreases;
@@ -56,6 +64,11 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
 		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.GetComponent<PlayerLevel>().playerLevel;
+
+		healthTextStatIncrease.gameObject.SetActive(true);
+		damageTextStatIncrease.gameObject.SetActive(true);
+		defenseTextStatIncrease.gameObject.SetActive(true);
+		critChanceTextStatIncrease.gameObject.SetActive(true);
 
 		hasIncreasedStats = false;
 
@@ -216,18 +229,30 @@ public class PlayerLevelUpScreen : MonoBehaviour
 				healthTextStatIncrease.text = "+ " + statIncreases[0];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToHealthStat());
-				yield return new WaitForSecondsRealtime(0.5f);
-				GameManager.CloseOverlay(levelUpParent);
 				break;
 			case (1):
-				damageTextStatIncrease.gameObject.SetActive(true);
+				statIncreases[1] = Random.Range(1, 5);
+				playerStats.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
+				damageTextStatIncrease.text = "+ " + statIncreases[1];
+				yield return new WaitForSecondsRealtime(0.5f);
+				StartCoroutine(ApplyStatIncreaseToDamageStat());
 				break;
 			case (2):
-				defenseTextStatIncrease.gameObject.SetActive(true);
+				statIncreases[2] = Random.Range(1, 5);
+				playerStats.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
+				defenseTextStatIncrease.text = "+ " + statIncreases[2];
+				yield return new WaitForSecondsRealtime(0.5f);
+				StartCoroutine(ApplyStatIncreaseToDefenseStat());
 				break;
 			case (3):
-				critChanceTextStatIncrease.gameObject.SetActive(true);
+				statIncreases[3] = Random.Range(1, 5);
+				playerStats.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
+				critChanceTextStatIncrease.text = "+ " + statIncreases[3];
+				yield return new WaitForSecondsRealtime(0.5f);
+				StartCoroutine(ApplyStatIncreaseToCritChanceStat());
 				break;
 		}
+				yield return new WaitForSecondsRealtime(0.5f);
+				GameManager.CloseOverlay(levelUpParent);
 	}
 }

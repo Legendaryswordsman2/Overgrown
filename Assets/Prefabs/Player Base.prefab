@@ -2204,13 +2204,13 @@ MonoBehaviour:
   pressKeyToContinueText: {fileID: 460513342}
   leveledUpText: {fileID: 1870821419}
   healthTextStat: {fileID: 1897409177}
-  damageTextStat: {fileID: 0}
-  defenseTextStat: {fileID: 0}
-  critChanceTextStat: {fileID: 0}
+  damageTextStat: {fileID: 8222238702882531363}
+  defenseTextStat: {fileID: 8494944196764753095}
+  critChanceTextStat: {fileID: 4334934574076261515}
   healthTextStatIncrease: {fileID: 1860942752}
-  damageTextStatIncrease: {fileID: 0}
-  defenseTextStatIncrease: {fileID: 0}
-  critChanceTextStatIncrease: {fileID: 0}
+  damageTextStatIncrease: {fileID: 5330464829964686821}
+  defenseTextStatIncrease: {fileID: 7528487052280254557}
+  critChanceTextStatIncrease: {fileID: 1267710857695998078}
 --- !u!1 &439797040
 GameObject:
   m_ObjectHideFlags: 0
@@ -12391,7 +12391,7 @@ GameObject:
   - component: {fileID: 8816166500026511384}
   - component: {fileID: 7528487052280254557}
   m_Layer: 5
-  m_Name: Health Stat Increase Text
+  m_Name: Defense Stat Increase Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15811,7 +15811,7 @@ GameObject:
   - component: {fileID: 6058546109116924539}
   - component: {fileID: 4334934574076261515}
   m_Layer: 5
-  m_Name: Health Stat Text
+  m_Name: Crit Chance Stat Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
