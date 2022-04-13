@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpParent: {fileID: 165046953}
-  pressKeyToContinueText: {fileID: 460513342}
+  popupText: {fileID: 460513344}
   leveledUpText: {fileID: 1870821419}
   healthTextStat: {fileID: 1897409177}
   damageTextStat: {fileID: 8222238702882531363}

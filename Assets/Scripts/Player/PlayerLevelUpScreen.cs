@@ -8,7 +8,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	[SerializeField] GameObject levelUpParent;
 	
 	[Header("Popup Texts")]
-	[SerializeField] GameObject pressKeyToContinueText;
+	[SerializeField] TMP_Text popupText;
 	[SerializeField] TMP_Text leveledUpText;
 
 	[Header("Player Stats")]
@@ -72,7 +72,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		defenseTextStatIncrease.gameObject.SetActive(true);
 		critChanceTextStatIncrease.gameObject.SetActive(true);
 
-		pressKeyToContinueText.SetActive(true);
+		popupText.text = "PRESS SPACE TO CONTINUE...";
+		popupText.gameObject.SetActive(true);
 
 		hasIncreasedStats = false;
 
@@ -170,7 +171,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
 		{
-			pressKeyToContinueText.SetActive(false);
+			popupText.gameObject.SetActive(false);
 			StartCoroutine(AddStats());
 			hasIncreasedStats = true;
 		}
