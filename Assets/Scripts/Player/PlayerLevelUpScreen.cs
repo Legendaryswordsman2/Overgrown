@@ -41,10 +41,12 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	bool hasIncreasedStats = false;
 	bool choosingStat = false;
+	bool finishedLevelUp = false;
 
 	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
 		choosingStat = false;
+		finishedLevelUp = false;
 
 		playerStats = _playerStats;
 
@@ -164,6 +166,9 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		defenseTextStatIncrease.gameObject.SetActive(false);
 		critChanceTextStatIncrease.gameObject.SetActive(false);
 
+		popupText.text = "CHOOSE STAT BONUS...";
+		popupText.gameObject.SetActive(true);
+
 		choosingStat = true;
 	}
 
@@ -171,9 +176,16 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
 		{
+			if (finishedLevelUp)
+			{
+				GameManager.CloseOverlay(levelUpParent);
+			}
+			else if (!hasIncreasedStats)
+			{
 			popupText.gameObject.SetActive(false);
 			StartCoroutine(AddStats());
 			hasIncreasedStats = true;
+			}
 		}
 
 		if (choosingStat) ChooseStat();
@@ -226,6 +238,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	}
 	IEnumerator ConfirmChosenStat()
 	{
+		popupText.gameObject.SetActive(false);
 		switch (selectionIndex)
 		{
 			case (0):
@@ -257,7 +270,9 @@ public class PlayerLevelUpScreen : MonoBehaviour
 				StartCoroutine(ApplyStatIncreaseToCritChanceStat());
 				break;
 		}
-				yield return new WaitForSecondsRealtime(0.5f);
-				GameManager.CloseOverlay(levelUpParent);
+		finishedLevelUp = true;
+		//hasIncreasedStats = false;
+		popupText.text = "PRESS SPACE TO CONTINUE...";
+		popupText.gameObject.SetActive(true);
 	}
 }
