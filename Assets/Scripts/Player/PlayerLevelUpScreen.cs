@@ -216,6 +216,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 				healthTextStatIncrease.text = "+ " + statIncreases[0];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToHealthStat());
+				yield return new WaitForSecondsRealtime(0.5f);
+				GameManager.CloseOverlay(levelUpParent);
 				break;
 			case (1):
 				damageTextStatIncrease.gameObject.SetActive(true);
