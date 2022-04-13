@@ -6,6 +6,8 @@ using TMPro;
 public class PlayerLevelUpScreen : MonoBehaviour
 {
 	[SerializeField] GameObject levelUpParent;
+	
+	[Header("Popup Texts")]
 	[SerializeField] GameObject pressKeyToContinueText;
 	[SerializeField] TMP_Text leveledUpText;
 
@@ -69,6 +71,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		damageTextStatIncrease.gameObject.SetActive(true);
 		defenseTextStatIncrease.gameObject.SetActive(true);
 		critChanceTextStatIncrease.gameObject.SetActive(true);
+
+		pressKeyToContinueText.SetActive(true);
 
 		hasIncreasedStats = false;
 
