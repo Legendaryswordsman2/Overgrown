@@ -180,7 +180,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			{
 				GameManager.CloseOverlay(levelUpParent);
 			}
-			else if (!hasIncreasedStats)
+			else
 			{
 			popupText.gameObject.SetActive(false);
 			StartCoroutine(AddStats());
@@ -271,7 +271,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 				break;
 		}
 		finishedLevelUp = true;
-		//hasIncreasedStats = false;
+		hasIncreasedStats = false;
+		choosingStat = false;
 		popupText.text = "PRESS SPACE TO CONTINUE...";
 		popupText.gameObject.SetActive(true);
 	}
