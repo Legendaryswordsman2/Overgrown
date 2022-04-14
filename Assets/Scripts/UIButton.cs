@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-enum AnimationMode { None, ScaleWithPunch}
+enum AnimationMode { None, Basic, ScaleWithPunch, ScaleWithShake, ScaleWithSpring, ScaleWithElastic}
 public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
 	[SerializeField] bool interactable = true;
@@ -19,6 +19,10 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	[Space]
 
 	[SerializeField] AnimationMode animationMode = AnimationMode.None;
+	[SerializeField] float duration = 0.5f;
+	[SerializeField] float scaleSize = 1.1f;
+	[Tooltip("NOTE: NOT APPLICABLE TO SOME ANIMATIONS")]
+	[SerializeField] float delayBeforeRevertingSize = 0.2f;
 
 	[Space]
 
@@ -26,11 +30,15 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	bool mouseIsOverImage = false;
 
+	[SerializeField] LeanTweenType easeType;
+
 	// Private
 	Sprite defaultSprite;
+	Vector3 defaultScale;
 	private void Awake()
 	{
 		defaultSprite = targetGraphic.sprite;
+		defaultScale = targetGraphic.gameObject.transform.localScale;
 	}
 	public void OnPointerEnter(PointerEventData eventData)
 	{
@@ -39,19 +47,7 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		if (!interactable) return;
 
 		targetGraphic.sprite = highlightedSprite;
-
-		if(animationMode == AnimationMode.ScaleWithPunch)
-		{
-			LeanTween.cancel(gameObject);
-
-			transform.localScale = Vector3.one;
-
-			LeanTween.scale(gameObject, Vector3.one * 1.1f, 0.5f)
-				.setEasePunch()
-				.setIgnoreTimeScale(true);
-		}
-
-
+		StartCoroutine(PlayAnimation());
 	}
 	public void OnPointerExit(PointerEventData eventData)
 	{
@@ -80,6 +76,60 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 			targetGraphic.sprite = highlightedSprite;
 		else
 			targetGraphic.sprite = defaultSprite;
+	}
+
+	IEnumerator PlayAnimation()
+	{
+		LeanTween.cancel(gameObject);
+		transform.localScale = defaultScale;
+
+		switch (animationMode)
+		{
+			case AnimationMode.None:
+				break;
+			case AnimationMode.Basic:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration / 2)
+				.setIgnoreTimeScale(true);
+
+				yield return new WaitForSecondsRealtime(delayBeforeRevertingSize);
+
+				LeanTween.scale(targetGraphic.gameObject, defaultScale, duration / 2)
+				.setIgnoreTimeScale(true);
+				break;
+			case AnimationMode.ScaleWithPunch:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration)
+				//.setEasePunch()
+				.setEase(easeType)
+				.setIgnoreTimeScale(true);
+				break;
+			case AnimationMode.ScaleWithShake:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration)
+				.setEaseShake()
+				.setIgnoreTimeScale(true);
+				break;
+			case AnimationMode.ScaleWithSpring:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration / 2)
+				.setEaseSpring()
+				.setIgnoreTimeScale(true);
+
+				yield return new WaitForSecondsRealtime(delayBeforeRevertingSize);
+
+				LeanTween.scale(targetGraphic.gameObject, defaultScale, duration / 2)
+				.setEaseSpring()
+				.setIgnoreTimeScale(true);
+				break;
+			case AnimationMode.ScaleWithElastic:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration / 2)
+				.setEaseOutElastic()
+				.setIgnoreTimeScale(true);
+
+				yield return new WaitForSecondsRealtime(delayBeforeRevertingSize);
+
+				LeanTween.scale(targetGraphic.gameObject, defaultScale, duration / 2)
+				.setEaseInElastic()
+				.setIgnoreTimeScale(true);
+				break;
+		}
 	}
 
 	private void OnDisable()

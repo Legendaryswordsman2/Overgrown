@@ -388,6 +388,8 @@ MonoBehaviour:
   highlightedSprite: {fileID: -2932257281760155851, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
   animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -415,6 +417,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  easeType: 0
 --- !u!1 &114796541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,9 +1487,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   targetGraphic: {fileID: 342047111}
-  highlightedSprite: {fileID: -2377220807810611120, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+  highlightedSprite: {fileID: 351873560117742261, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
   animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -1526,6 +1531,7 @@ MonoBehaviour:
           m_StringArgument: Home
           m_BoolArgument: 1
         m_CallState: 2
+  easeType: 34
 --- !u!1 &349762780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,9 +2107,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   targetGraphic: {fileID: 441806102}
-  highlightedSprite: {fileID: -3047018070302559869, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+  highlightedSprite: {fileID: -5652939182684387322, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
-  animationMode: 1
+  animationMode: 5
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -2155,6 +2163,7 @@ MonoBehaviour:
           m_StringArgument: Home
           m_BoolArgument: 0
         m_CallState: 2
+  easeType: 31
 --- !u!1 &519831500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,9 +2463,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   targetGraphic: {fileID: 661488368}
-  highlightedSprite: {fileID: 5234076213473386470, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+  highlightedSprite: {fileID: -7380087767416289086, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
-  animationMode: 1
+  animationMode: 5
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -2508,6 +2519,7 @@ MonoBehaviour:
           m_StringArgument: Home
           m_BoolArgument: 0
         m_CallState: 2
+  easeType: 31
 --- !u!114 &661488368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2945,7 +2957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &864273041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3900,9 +3912,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   targetGraphic: {fileID: 1108942631}
-  highlightedSprite: {fileID: -3242226755293709199, guid: 143694918aff8f443ab8204d820ec605, type: 3}
+  highlightedSprite: {fileID: 5307979427446768364, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
-  animationMode: 1
+  animationMode: 5
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -3954,6 +3968,7 @@ MonoBehaviour:
           m_StringArgument: Home
           m_BoolArgument: 0
         m_CallState: 2
+  easeType: 31
 --- !u!1 &1149969286
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,6 +4206,8 @@ MonoBehaviour:
   highlightedSprite: {fileID: -2567477066349301821, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
   animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -4230,6 +4247,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  easeType: 0
 --- !u!1 &1233703295
 GameObject:
   m_ObjectHideFlags: 0
@@ -6339,7 +6357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1687572709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6375,7 +6393,9 @@ MonoBehaviour:
   targetGraphic: {fileID: 1687572712}
   highlightedSprite: {fileID: 21300000, guid: 8a06e91effac59f488c2bbf59fb69856, type: 3}
   pressedSprite: {fileID: 21300000, guid: fb777a6abefb2d54eb3a2a0257a72caa, type: 3}
-  animationMode: 0
+  animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -6403,6 +6423,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  easeType: 0
 --- !u!114 &1687572712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6456,7 +6477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1728462767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6776,7 +6797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1848476381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6812,7 +6833,9 @@ MonoBehaviour:
   targetGraphic: {fileID: 1848476384}
   highlightedSprite: {fileID: 21300000, guid: 8a06e91effac59f488c2bbf59fb69856, type: 3}
   pressedSprite: {fileID: 21300000, guid: fb777a6abefb2d54eb3a2a0257a72caa, type: 3}
-  animationMode: 0
+  animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -6840,6 +6863,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  easeType: 0
 --- !u!114 &1848476384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7491,6 +7515,8 @@ MonoBehaviour:
   highlightedSprite: {fileID: -83565330353265594, guid: 143694918aff8f443ab8204d820ec605, type: 3}
   pressedSprite: {fileID: 0}
   animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -7530,6 +7556,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  easeType: 0
 --- !u!1 &2114706997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7623,7 +7650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2134526359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7697,7 +7724,9 @@ MonoBehaviour:
   targetGraphic: {fileID: 2134526360}
   highlightedSprite: {fileID: 21300000, guid: 8a06e91effac59f488c2bbf59fb69856, type: 3}
   pressedSprite: {fileID: 21300000, guid: fb777a6abefb2d54eb3a2a0257a72caa, type: 3}
-  animationMode: 0
+  animationMode: 1
+  duration: 0.5
+  scaleSize: 1.1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -7725,3 +7754,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  easeType: 0
