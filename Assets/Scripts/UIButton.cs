@@ -38,6 +38,7 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	private void Awake()
 	{
 		defaultSprite = targetGraphic.sprite;
+		if (highlightedSprite == null) highlightedSprite = defaultSprite;
 		defaultScale = targetGraphic.gameObject.transform.localScale;
 	}
 	public void OnPointerEnter(PointerEventData eventData)
