@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-enum AnimationMode { None, Basic, ScaleWithPunch, ScaleWithShake, ScaleWithSpring, ScaleWithElastic}
+enum AnimationMode { None, Basic, ScaleWithPunch, ScaleWithShake, ScaleWithSpring, ScaleInOutElastic, ScaleInOutBack, ScaleInOutBounce}
 public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
 	[SerializeField] bool interactable = true;
@@ -98,8 +98,7 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 				break;
 			case AnimationMode.ScaleWithPunch:
 				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration)
-				//.setEasePunch()
-				.setEase(easeType)
+				.setEasePunch()
 				.setIgnoreTimeScale(true);
 				break;
 			case AnimationMode.ScaleWithShake:
@@ -118,7 +117,7 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 				.setEaseSpring()
 				.setIgnoreTimeScale(true);
 				break;
-			case AnimationMode.ScaleWithElastic:
+			case AnimationMode.ScaleInOutElastic:
 				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration / 2)
 				.setEaseOutElastic()
 				.setIgnoreTimeScale(true);
@@ -127,6 +126,28 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 				LeanTween.scale(targetGraphic.gameObject, defaultScale, duration / 2)
 				.setEaseInElastic()
+				.setIgnoreTimeScale(true);
+				break;
+			case AnimationMode.ScaleInOutBack:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration / 2)
+				.setEaseOutBack()
+				.setIgnoreTimeScale(true);
+
+				yield return new WaitForSecondsRealtime(delayBeforeRevertingSize);
+
+				LeanTween.scale(targetGraphic.gameObject, defaultScale, duration / 2)
+				.setEaseInBack()
+				.setIgnoreTimeScale(true);
+				break;
+			case AnimationMode.ScaleInOutBounce:
+				LeanTween.scale(targetGraphic.gameObject, transform.localScale * scaleSize, duration / 2)
+				.setEaseOutBounce()
+				.setIgnoreTimeScale(true);
+
+				yield return new WaitForSecondsRealtime(delayBeforeRevertingSize);
+
+				LeanTween.scale(targetGraphic.gameObject, defaultScale, duration / 2)
+				.setEaseInBounce()
 				.setIgnoreTimeScale(true);
 				break;
 		}
