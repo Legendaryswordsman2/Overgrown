@@ -36047,6 +36047,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 219409437, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219409437, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 05161affea9e11e4983c21f478b47863, type: 2}
