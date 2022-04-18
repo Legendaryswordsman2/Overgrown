@@ -43,6 +43,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	bool choosingStat = false;
 	bool finishedLevelUp = false;
 
+	GameObject chosenBonusStat;
+
+	private void Awake()
+	{
+		chosenBonusStat = healthTextStatIncrease.gameObject;
+	}
+
 	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
 		choosingStat = false;
@@ -169,6 +176,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		popupText.text = "CHOOSE STAT BONUS...";
 		popupText.gameObject.SetActive(true);
 
+		chosenBonusStat = healthTextStatIncrease.gameObject;
+
 		choosingStat = true;
 	}
 
@@ -215,26 +224,25 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	void HighlightStat()
 	{
-		healthTextStatIncrease.gameObject.SetActive(false);
-		damageTextStatIncrease.gameObject.SetActive(false);
-		defenseTextStatIncrease.gameObject.SetActive(false);
-		critChanceTextStatIncrease.gameObject.SetActive(false);
+		if (chosenBonusStat != null) chosenBonusStat.SetActive(false);
 
 		switch (selectionIndex)
 		{
 			case (0):
-				healthTextStatIncrease.gameObject.SetActive(true);
+				chosenBonusStat = healthTextStatIncrease.gameObject;
 				break;
 			case (1):
-				damageTextStatIncrease.gameObject.SetActive(true);
+				chosenBonusStat = damageTextStatIncrease.gameObject;
 				break;
 			case (2):
-				defenseTextStatIncrease.gameObject.SetActive(true);
+				chosenBonusStat = defenseTextStatIncrease.gameObject;
 				break;
 			case (3):
-				critChanceTextStatIncrease.gameObject.SetActive(true);
+				chosenBonusStat = critChanceTextStatIncrease.gameObject;
 				break;
 		}
+
+		if (chosenBonusStat != null) chosenBonusStat.SetActive(true);
 	}
 	IEnumerator ConfirmChosenStat()
 	{
