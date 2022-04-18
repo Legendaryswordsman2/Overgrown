@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyUnit : BaseUnit
 {
@@ -54,6 +55,8 @@ public class EnemyUnit : BaseUnit
 		Debug.Log(enemyLevel);
 		Debug.Log(playerLevel);
 		level = enemyLevel;
+
+		transform.GetChild(0).GetChild(2).GetComponent<TMP_Text>().text = "LV: " + level;
 
 		// Scale Stats
 	}
