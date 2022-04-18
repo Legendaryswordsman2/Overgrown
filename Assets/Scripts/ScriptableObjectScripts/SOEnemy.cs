@@ -45,7 +45,10 @@ public class SOEnemy : ScriptableObject
 	[Header("Leveling")]
 	public int healthIncreasePerLevelUp = 10;
 	public int damageIncreasePerLevelUp = 2;
-	public int xpIncreasePerLevelUp = 10;
+	public int defenseIncreasePerLevelUp = 2;
+	public int critChanceIncreasePerLevelUp = 2;
+	public int minXpIncreasePerLevelUp = 10;
+	public int maxXpIncreasePerLevelUp = 10;
 
 	private void Awake()
 	{

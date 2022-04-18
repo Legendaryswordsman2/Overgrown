@@ -331,6 +331,7 @@ MonoBehaviour:
   isBlocking: 0
   currentMode: 0
   <enemySO>k__BackingField: {fileID: 0}
+  level: 1
 --- !u!95 &2565244481164499032
 Animator:
   serializedVersion: 3

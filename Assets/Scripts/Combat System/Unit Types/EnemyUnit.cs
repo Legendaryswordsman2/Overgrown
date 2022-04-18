@@ -7,9 +7,19 @@ public class EnemyUnit : BaseUnit
 	 [field: Header("Refernces")]
 	 [field: SerializeField, ReadOnlyInspector] public SOEnemy enemySO { get; set; }
 
+	[Space]
+
+	[SerializeField, ReadOnlyInspector] int level = 1;
+
 	ProgressBar healthBar;
 
 	BaseUnit target;
+
+	private void Start()
+	{
+		ScaleLevel();
+	}
+
 
 	public void SetupEnemy()
 	{
@@ -29,6 +39,23 @@ public class EnemyUnit : BaseUnit
 		healthBar.current = maxHealth;
 
 		gameObject.SetActive(true);
+	}
+
+	void ScaleLevel()
+	{
+		int playerLevel = PlayerStats.instance.GetComponent<PlayerLevel>().playerLevel;
+
+		int enemyLevel;
+		do
+		{
+			enemyLevel = Random.Range(playerLevel - 2, playerLevel + 2);
+		} while (enemyLevel <= 0);
+
+		Debug.Log(enemyLevel);
+		Debug.Log(playerLevel);
+		level = enemyLevel;
+
+		// Scale Stats
 	}
 
 	public override void ChooseAction()
