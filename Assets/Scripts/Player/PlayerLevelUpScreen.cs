@@ -260,7 +260,11 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	}
 	IEnumerator ConfirmChosenStat()
 	{
+		choosingStat = false;
+
 		popupText.gameObject.SetActive(false);
+		//yield return new WaitForSecondsRealtime(2);
+
 		switch (selectionIndex)
 		{
 			case (0):
@@ -294,7 +298,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		}
 		finishedLevelUp = true;
 		hasIncreasedStats = false;
-		choosingStat = false;
 		popupText.text = "PRESS SPACE TO CONTINUE...";
 		popupText.gameObject.SetActive(true);
 	}
