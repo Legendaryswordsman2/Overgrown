@@ -201,6 +201,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
+			StopAllCoroutines();
 			StartCoroutine(ConfirmChosenStat());
 		}
 
@@ -221,6 +222,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	IEnumerator RotateChosenStatNumbers()
 	{
+		if (!choosingStat) yield break;
+
 		yield return new WaitForSecondsRealtime(0.05f);
 		if (rotationIndex == 4)
 		{
@@ -263,7 +266,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		choosingStat = false;
 
 		popupText.gameObject.SetActive(false);
-		//yield return new WaitForSecondsRealtime(2);
 
 		switch (selectionIndex)
 		{
