@@ -175,7 +175,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		chosenBonusStat = healthTextStatIncrease;
 
 		choosingStat = true;
-		StartCoroutine(rotateChosenStatNumbers());
+		StartCoroutine(RotateChosenStatNumbers());
 	}
 
 	private void Update()
@@ -219,7 +219,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		}
 	}
 
-	IEnumerator rotateChosenStatNumbers()
+	IEnumerator RotateChosenStatNumbers()
 	{
 		yield return new WaitForSecondsRealtime(0.05f);
 		if (rotationIndex == 4)
@@ -233,7 +233,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			chosenBonusStat.text = "+ " + rotationIndex;
 		}
 
-		if (choosingStat) StartCoroutine(rotateChosenStatNumbers());
+		if (choosingStat) StartCoroutine(RotateChosenStatNumbers());
 	}
 
 	void HighlightStat()

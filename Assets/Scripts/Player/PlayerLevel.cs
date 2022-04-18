@@ -74,8 +74,6 @@ public class PlayerLevel : MonoBehaviour
     {
         playerLevel++;
 
-        Debug.Log("You Leveled up to level " + playerLevel);
-
         if(levelText != null) levelText.text = "LV: " + playerLevel;
 
         xp -= xpToLevelUp;
