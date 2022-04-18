@@ -23,12 +23,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	[SerializeField] TMP_Text defenseTextStatIncrease;
 	[SerializeField] TMP_Text critChanceTextStatIncrease;
 
-	//[Header("Increase Stat Parents")]
-	//[SerializeField] GameObject healthStatIncrease;
-	//[SerializeField] GameObject damageStatIncrease;
-	//[SerializeField] GameObject defenseStatIncrease;
-	//[SerializeField] GameObject critChanceStatIncrease;
-
 	int previousHealth;
 	int previousDamage;
 	int previousDefense;
@@ -43,11 +37,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	bool choosingStat = false;
 	bool finishedLevelUp = false;
 
-	GameObject chosenBonusStat;
+	TMP_Text chosenBonusStat;
+
+	int rotationIndex = 1;
 
 	private void Awake()
 	{
-		chosenBonusStat = healthTextStatIncrease.gameObject;
+		chosenBonusStat = healthTextStatIncrease;
 	}
 
 	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
@@ -176,9 +172,10 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		popupText.text = "CHOOSE STAT BONUS...";
 		popupText.gameObject.SetActive(true);
 
-		chosenBonusStat = healthTextStatIncrease.gameObject;
+		chosenBonusStat = healthTextStatIncrease;
 
 		choosingStat = true;
+		StartCoroutine(rotateChosenStatNumbers());
 	}
 
 	private void Update()
@@ -222,27 +219,44 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		}
 	}
 
+	IEnumerator rotateChosenStatNumbers()
+	{
+		yield return new WaitForSecondsRealtime(0.05f);
+		if (rotationIndex == 4)
+		{
+			chosenBonusStat.text = "+ " + 1;
+			rotationIndex = 1;
+		}
+		else
+		{
+			rotationIndex++;
+			chosenBonusStat.text = "+ " + rotationIndex;
+		}
+
+		if (choosingStat) StartCoroutine(rotateChosenStatNumbers());
+	}
+
 	void HighlightStat()
 	{
-		if (chosenBonusStat != null) chosenBonusStat.SetActive(false);
+		chosenBonusStat.gameObject.SetActive(false);
 
 		switch (selectionIndex)
 		{
 			case (0):
-				chosenBonusStat = healthTextStatIncrease.gameObject;
+				chosenBonusStat = healthTextStatIncrease;
 				break;
 			case (1):
-				chosenBonusStat = damageTextStatIncrease.gameObject;
+				chosenBonusStat = damageTextStatIncrease;
 				break;
 			case (2):
-				chosenBonusStat = defenseTextStatIncrease.gameObject;
+				chosenBonusStat = defenseTextStatIncrease;
 				break;
 			case (3):
-				chosenBonusStat = critChanceTextStatIncrease.gameObject;
+				chosenBonusStat = critChanceTextStatIncrease;
 				break;
 		}
 
-		if (chosenBonusStat != null) chosenBonusStat.SetActive(true);
+		chosenBonusStat.gameObject.SetActive(true);
 	}
 	IEnumerator ConfirmChosenStat()
 	{
