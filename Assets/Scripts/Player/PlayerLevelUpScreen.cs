@@ -184,6 +184,9 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		{
 			if (finishedLevelUp)
 			{
+				if (BattleSystem.instance != null)
+					BattleSystem.instance.ChangeSceneAfterWinning();
+				else
 				GameManager.CloseOverlay(levelUpParent);
 			}
 			else

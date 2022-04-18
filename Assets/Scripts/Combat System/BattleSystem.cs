@@ -148,6 +148,11 @@ public class BattleSystem : MonoBehaviour
 
 	public void ContinueAfterWinning()
 	{
+		GetComponent<PlayerLevel>().GiveXp(xpGiven);
+		GetComponent<PlayerLevel>().GiveMoney(moneyGiven);
+	}
+	public void ChangeSceneAfterWinning()
+	{
 		Statistics.IncreaseBattleWins();
 		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", BattleSetupData.sceneIndex, BattleSetupData.playerPosition));
 	}

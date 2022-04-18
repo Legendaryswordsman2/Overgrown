@@ -192,9 +192,6 @@ public abstract class BaseUnit : MonoBehaviour
 			battleSystem.xpGainedText.text += " " + battleSystem.xpGiven;
 			battleSystem.moneyGainedText.text += " " + battleSystem.moneyGiven;
 
-			battleSystem.GetComponent<PlayerLevel>().GiveXp(battleSystem.xpGiven);
-			battleSystem.GetComponent<PlayerLevel>().GiveMoney(battleSystem.moneyGiven);
-
 			battleSystem.battleWonScreen.SetActive(true);
 			battleSystem.gameOverScreen.SetActive(true);
 			GameManager.StopTime();

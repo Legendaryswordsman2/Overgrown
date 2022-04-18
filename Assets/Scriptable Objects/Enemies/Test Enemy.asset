@@ -15,18 +15,18 @@ MonoBehaviour:
   id: 778083b234f55554a8ddf299bc5c3bb2
   enemyName: Test Enemy
   defaultHealth: 50
-  meleeDamage: 10
+  damage: 10
   defense: 0
   critChance: 0
   animatorControllers:
   - {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
   chosenAnimatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
-  minXPOnDeath: 5
-  maxXPOnDeath: 15
-  XPOnDeath: 5
+  minXPOnDeath: 184
+  maxXPOnDeath: 344
+  XPOnDeath: 6
   minMoneyOnDeath: 2
   maxMoneyOnDeath: 10
-  MoneyOnDeath: 2
+  MoneyOnDeath: 4
   attackRange: 0.5
   enemiesToFight: []
   attackWalkSpeed: 5
