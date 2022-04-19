@@ -103,4 +103,12 @@ public class EquipablePlantItem : Item
 	{
 		throw new System.NotImplementedException();
 	}
+
+	public void HealPlant(int amount)
+    {
+		if (plantSO.currentHealth + amount == plantSO.defaultHealth)
+			plantSO.currentHealth = plantSO.defaultHealth;
+		else
+			plantSO.currentHealth += amount;
+    }
 }

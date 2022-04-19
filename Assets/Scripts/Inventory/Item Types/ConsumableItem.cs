@@ -11,7 +11,12 @@ public class ConsumableItem : Item
 	{
 		BattleSystem battleSystem = BattleSystem.instance;
 
-		if (battleSystem == null) return;
+		if (battleSystem == null)
+        {
+			UseableItemManager.instance.currentItemToBeUsed = this;
+			Inventory.instance.GoToCategory(Inventory.instance.useItemScreen.gameObject);
+            return;
+		}
 
 		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
 		Inventory.instance.plantInfoBox.gameObject.SetActive(false);

@@ -125,30 +125,79 @@ public class PlayerStats : MonoBehaviour
 		playerLevelUpScreen.SetLevelUpScreen(this, statIncreases);
 
 		maxHealth += statIncreases[0];
+		currentHealth += statIncreases[0];
 		damage += statIncreases[1];
 		defense += statIncreases[2];
 		critChance += statIncreases[3];
+
+		healthTextStat.text += " " + maxHealth;
+
+		if (meleeWeapon != null)
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+		else
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
+
+		if (armor != null)
+			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+		else
+			defenseTextStat.text = "DEFENSE: " + defense;
+
+		critChanceTextStat.text += " " + critChance;
+
+		playerHealthBar.max = maxHealth;
+		playerHealthBar.current = currentHealth;
 	}
 	public void IncreaseHealthFromChosenLevelUpStat(int amount)
 	{
 		maxHealth += amount;
+		currentHealth += amount;
+
+		healthTextStat.text += " " + maxHealth;
+
+		if (meleeWeapon != null)
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+		else
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
+
+		playerHealthBar.max = maxHealth;
+		playerHealthBar.current = currentHealth;
 	}
 	public void IncreaseDamageFromChosenLevelUpStat(int amount)
 	{
 		damage += amount;
+
+		if (meleeWeapon != null)
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+		else
+			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
 	}
 	public void IncreaseDefenseFromChosenLevelUpStat(int amount)
 	{
 		defense += amount;
+
+		if (armor != null)
+			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+		else
+			defenseTextStat.text = "DEFENSE: " + defense;
 	}
 	public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
 	{
 		critChance += amount;
+
+		critChanceTextStat.text += " " + critChance;
 	}
 	public void Sleep()
 	{
 		currentHealth = maxHealth;
 	}
+
+	public void heal(int amount)
+    {
+		if (currentHealth + amount >= maxHealth)
+			currentHealth = maxHealth;
+		else
+			currentHealth += amount;
+    }
 
 	public void EquipMeleeWeapon(MeleeWeapon _meleeWeapon)
 	{

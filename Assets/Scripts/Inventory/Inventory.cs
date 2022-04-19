@@ -40,6 +40,8 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject weaponItemsCategory;
 	[SerializeField] GameObject armorItemsCategory;
 
+	[field: SerializeField] public UseableItemManager useItemScreen { get; private set; }
+
 
 	[Header("Item Slots")]
 	[SerializeField] List<ItemSlot> equippablePlantItemSlots = new List<ItemSlot>();
@@ -79,6 +81,8 @@ public class Inventory : MonoBehaviour
 			child.gameObject.SetActive(false);
 		}
 		categoryButtonsParent.SetActive(false);
+
+		useItemScreen.gameObject.SetActive(false);
 
 		categoryToOpen.SetActive(true);
 	}
