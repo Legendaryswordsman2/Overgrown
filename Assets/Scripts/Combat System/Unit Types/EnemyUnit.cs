@@ -22,22 +22,17 @@ public class EnemyUnit : BaseUnit
 	}
 
 
-	public void SetupEnemy()
+	public void SetupEnemy(SOEnemy _enemySO)
 	{
-		if (enemySO == null) return;
+		if (_enemySO == null) return;
+
+		enemySO = _enemySO;
 
 		unitName = enemySO.enemyName;
 		name = unitName;
-		maxHealth = enemySO.defaultHealth;
-		damage = enemySO.damage;
-		defense = enemySO.defense;
-		critChance = enemySO.critChance;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = enemySO.chosenAnimatorController;
 
 		healthBar = transform.GetChild(0).GetChild(0).GetComponent<ProgressBar>();
-
-		healthBar.max = maxHealth;
-		healthBar.current = maxHealth;
 
 		gameObject.SetActive(true);
 	}
@@ -59,6 +54,25 @@ public class EnemyUnit : BaseUnit
 		transform.GetChild(0).GetChild(2).GetComponent<TMP_Text>().text = "LV: " + level;
 
 		// Scale Stats
+
+		enemyLevel--;
+
+        for (int i = 0; i < enemyLevel; i++)
+        {
+            enemySO.defaultHealth += enemySO.healthIncreasePerLevelUp;
+            enemySO.damage += enemySO.damageIncreasePerLevelUp;
+            enemySO.defense += enemySO.defenseIncreasePerLevelUp;
+            enemySO.critChance += enemySO.critChanceIncreasePerLevelUp;
+        }
+
+        maxHealth = enemySO.defaultHealth;
+		currentHealth = maxHealth;
+        damage = enemySO.damage;
+        defense = enemySO.defense;
+        critChance = enemySO.critChance;
+
+		healthBar.max = maxHealth;
+		healthBar.current = maxHealth;
 	}
 
 	public override void ChooseAction()

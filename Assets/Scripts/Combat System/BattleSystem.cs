@@ -67,8 +67,7 @@ public class BattleSystem : MonoBehaviour
 		// Assign New Enemies
 		for (int i = 0; i < BattleSetupData._enemies.Length; i++)
 		{
-			enemies[i].enemySO = BattleSetupData._enemies[i];
-			enemies[i].SetupEnemy();
+			enemies[i].SetupEnemy(BattleSetupData._enemies[i]);
 		}
 
 		EnemyUnit[] tempActiveEnemies = enemyParent.GetComponentsInChildren<EnemyUnit>();
