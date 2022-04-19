@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -244,6 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      grass_waving_spritesheet_0: 4644546801942375124
+      grass_waving_spritesheet_5: 5195234547171636810
+      grass_waving_spritesheet_3: 1908349683902773906
+      grass_waving_spritesheet_4: 8161572214826746772
+      grass_waving_spritesheet_2: 616752148142112754
+      grass_waving_spritesheet_1: -2724430954135167504
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

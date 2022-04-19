@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -244,6 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      carrot_growing_spritesheet_3: -2678459504661149852
+      carrot_growing_spritesheet_0: -5442058538944839945
+      carrot_growing_spritesheet_4: 6971003129705878298
+      carrot_growing_spritesheet_5: -3130013708998481206
+      carrot_growing_spritesheet_1: 2200300883934704177
+      carrot_growing_spritesheet_2: 1487943367133937888
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

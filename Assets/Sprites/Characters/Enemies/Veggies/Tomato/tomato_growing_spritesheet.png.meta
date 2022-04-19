@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -244,6 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spring_onion_growing_spritesheet_0: -4832571376610259945
+      spring_onion_growing_spritesheet_3: 4302298583479691686
+      spring_onion_growing_spritesheet_2: 1215901161520242133
+      spring_onion_growing_spritesheet_4: 1786851682426998090
+      spring_onion_growing_spritesheet_1: -8890486001880264371
+      spring_onion_growing_spritesheet_5: 3052806394412414338
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -75,21 +75,17 @@ public class SettingsManager : MonoBehaviour
 	{
         if(volumeIndex <= 0)
 		{
-            Debug.Log("At min volume already");
             return;
 		}
 		else if(volumeIndex == 1)
 		{
             volumeIndex--;
             PlayerPrefs.SetInt("Volume Index", volumeIndex);
-            Debug.Log(volumeIndex);
             audioMixer.SetFloat("Volume", -80);
             TvVolume.sprite = volumeStages[volumeIndex];
             return;
         }
-        volumeIndex--;
         PlayerPrefs.SetInt("Volume Index", volumeIndex);
-        Debug.Log(volumeIndex);
         if (audioMixer.GetFloat("Volume", out float volumeValue))
         {
             audioMixer.SetFloat("Volume", volumeValue - 3);

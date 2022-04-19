@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -220,6 +221,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      fencing_tileset_0: 6941709490090831867
+      fencing_tileset_1: -7126498051023688571
+      fencing_tileset_2: 7312635616691304188
+      fencing_tileset_3: 3645414918026778067
+      fencing_tileset_4: 8318553003746329591
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

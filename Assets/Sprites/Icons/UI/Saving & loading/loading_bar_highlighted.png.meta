@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1252,6 +1253,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      loading_bar_highlighted_22: 3635633034361146640
+      loading_bar_highlighted_47: -8350676518942496428
+      loading_bar_highlighted_8: 5254762652666234689
+      loading_bar_highlighted_31: -6062777086067780402
+      loading_bar_highlighted_17: 2369539326169606574
+      loading_bar_highlighted_0: 9156183657022026658
+      loading_bar_highlighted_20: 8739833635478939005
+      loading_bar_highlighted_36: -2369453071704408528
+      loading_bar_highlighted_9: -2643394775581167668
+      loading_bar_highlighted_45: 7991123155465336639
+      loading_bar_highlighted_12: -8247486618513267332
+      loading_bar_highlighted_27: -6203792720868919840
+      loading_bar_highlighted_24: 1800892351291912587
+      loading_bar_highlighted_10: 5481578665391924875
+      loading_bar_highlighted_4: 3842636962330233336
+      loading_bar_highlighted_30: 4917903033559041686
+      loading_bar_highlighted_41: 1976939047405512416
+      loading_bar_highlighted_43: 7390917428068822314
+      loading_bar_highlighted_16: -6611198675369995880
+      loading_bar_highlighted_32: 278587238287974683
+      loading_bar_highlighted_26: 3197630094559353791
+      loading_bar_highlighted_19: -4427889370810084337
+      loading_bar_highlighted_39: -8742218099640539277
+      loading_bar_highlighted_23: 6947429064566642007
+      loading_bar_highlighted_33: 3339241607337597519
+      loading_bar_highlighted_21: 2606643567475206900
+      loading_bar_highlighted_3: -6857327970757539003
+      loading_bar_highlighted_15: 2061203149708871297
+      loading_bar_highlighted_13: -625888724109500815
+      loading_bar_highlighted_38: -818567944531135664
+      loading_bar_highlighted_25: -7768302948913031839
+      loading_bar_highlighted_28: -1726800233935284881
+      loading_bar_highlighted_1: -7367199959387476490
+      loading_bar_highlighted_44: 8105078859614924704
+      loading_bar_highlighted_35: 8335762523380250400
+      loading_bar_highlighted_34: 4384473535902307325
+      loading_bar_highlighted_14: 4942701615850415072
+      loading_bar_highlighted_11: -1833407490881565964
+      loading_bar_highlighted_5: 1536069443662992958
+      loading_bar_highlighted_37: 5009731328064616610
+      loading_bar_highlighted_46: -2406844790444627656
+      loading_bar_highlighted_6: -3757071039495319455
+      loading_bar_highlighted_2: -6457247444753929427
+      loading_bar_highlighted_40: -4651435847555068119
+      loading_bar_highlighted_42: 4724575178950841331
+      loading_bar_highlighted_18: -5334618249897159711
+      loading_bar_highlighted_29: 8902764986541587750
+      loading_bar_highlighted_7: -2189373388145697841
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

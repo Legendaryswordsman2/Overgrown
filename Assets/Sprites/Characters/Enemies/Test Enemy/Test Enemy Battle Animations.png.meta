@@ -111,6 +111,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -796,6 +797,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Attacking Frame 1: 4506528923731742857
+      Walking Frame 3: -8112762851573657206
+      Stunned Frame 1: -655650754256505242
+      Hurt: -2559650288749729885
+      Use Item Frame 6: -3187968673043610733
+      Walking Frame 2: -2346103900896711145
+      Attacking Frame 2: 7427115493636359079
+      Use Item Frame 9: -7711350166023903697
+      Idle Frame 2: 8273801671769082149
+      Use Item Frame 10: -3329958068765654384
+      Blocking Frame 1: -839859186829070276
+      Attacking Frame 6: 1069884266770196549
+      Idle Frame 1: 3112801437585409821
+      Use Item Frame 4: -5070086804325933283
+      Use Item Frame 7: -6543941546689495424
+      Use Item Frame 8: -7513486258391617853
+      Use Item Frame 1: 5562157807144441081
+      Stunned Frame 2: -2220990477437760547
+      Use Item Frame 5: 3377983833607163268
+      Attacking Frame 4: 6387934511267995306
+      Walking Frame 1: -7151774373727705447
+      Attacking Frame 5: 122519130032046405
+      Walking Frame 4: -2531007592229840522
+      Attacking Frame 3: -4170793878792188957
+      Blocking Frame 2: 2722192126148225415
+      Use Item Frame 2: 921907804168416105
+      Stunned Frame 3: 5917283424128270344
+      Attacking Frame 7: -1271103452322378679
+      Use Item Frame 3: 1193778019498585446
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

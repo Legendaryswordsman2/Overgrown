@@ -60,6 +60,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -388,6 +389,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      monster_loot_4_spritesheet_11: -3908853854351511526
+      monster_loot_4_spritesheet_6: -2185397806471445595
+      monster_loot_4_spritesheet_5: -5637175619008052095
+      monster_loot_4_spritesheet_4: 6881741986233758007
+      monster_loot_4_spritesheet_7: -846843138948563822
+      monster_loot_4_spritesheet_8: -6269694390418433151
+      monster_loot_4_spritesheet_9: 1339298286593867244
+      monster_loot_4_spritesheet_1: 96898930069161680
+      monster_loot_4_spritesheet_0: 1739323099948501492
+      monster_loot_4_spritesheet_2: -7411046341816591213
+      monster_loot_4_spritesheet_3: -4177499093992010343
+      monster_loot_4_spritesheet_10: -994773866486940573
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

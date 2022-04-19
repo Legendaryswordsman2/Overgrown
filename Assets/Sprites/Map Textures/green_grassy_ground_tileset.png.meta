@@ -147,6 +147,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -937,6 +938,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      green_grassy_ground_tileset_8: -1159802772785189380
+      green_grassy_ground_tileset_16: -4827299909844995734
+      green_grassy_ground_tileset_15: -3533297384859676427
+      green_grassy_ground_tileset_31: -4631713121409363587
+      green_grassy_ground_tileset_2: -4763701995249059610
+      green_grassy_ground_tileset_23: 6404444596077510901
+      green_grassy_ground_tileset_13: 8382308674110265412
+      green_grassy_ground_tileset_6: -4063514476524681077
+      green_grassy_ground_tileset_24: -4289451354173985977
+      green_grassy_ground_tileset_12: 5432327133646639847
+      green_grassy_ground_tileset_21: -7420790975612984823
+      green_grassy_ground_tileset_4: -3447010706499809648
+      green_grassy_ground_tileset_0: -498070280176686343
+      green_grassy_ground_tileset_17: 2067266461992988612
+      green_grassy_ground_tileset_33: 8177682719668227789
+      green_grassy_ground_tileset_19: -4595713929681989280
+      green_grassy_ground_tileset_20: -4405741364885391090
+      green_grassy_ground_tileset_14: 3531269891510291755
+      green_grassy_ground_tileset_5: 3862458983351104998
+      green_grassy_ground_tileset_7: -3372700502756910272
+      green_grassy_ground_tileset_25: 810741038870963321
+      green_grassy_ground_tileset_40: -4858973186927540151
+      green_grassy_ground_tileset_22: -3735213245960335887
+      green_grassy_ground_tileset_3: -7369998742951508979
+      green_grassy_ground_tileset_1: 2033624795325985553
+      green_grassy_ground_tileset_32: 3235814756195518039
+      green_grassy_ground_tileset_39: -9061345321644257157
+      green_grassy_ground_tileset_10: 6913072017753221097
+      green_grassy_ground_tileset_11: -1619906142107015401
+      green_grassy_ground_tileset_9: 3147295316475788985
+      green_grassy_ground_tileset_18: 1781832113114385187
+      green_grassy_ground_tileset_29: 3188293263382655141
+      green_grassy_ground_tileset_34: 5522678767391046248
+      green_grassy_ground_tileset_30: 2201324360847633756
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

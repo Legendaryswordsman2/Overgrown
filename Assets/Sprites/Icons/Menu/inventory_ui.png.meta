@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -379,6 +380,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      inventory_ui_1: -3741929500859101619
+      inventory_ui_3: 1629717224958967332
+      inventory_ui_4: 4310319153320413555
+      inventory_ui_5: 8204473289137372553
+      inventory_ui_7: -2962697195362462728
+      inventory_ui_0: -4109550244328643852
+      inventory_ui_11: -2074983478935821584
+      inventory_ui_2: 8235815228836390638
+      inventory_ui_8: 4209409654343076928
+      inventory_ui_9: 7051914717707127100
+      inventory_ui_10: 7530312205471595024
+      inventory_ui_6: -5134773831961470654
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

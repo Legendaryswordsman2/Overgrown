@@ -36,6 +36,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -196,6 +197,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      carrot_walking_spritesheet_3: -5582489673898809700
+      carrot_walking_spritesheet_0: -2715321998695331703
+      carrot_walking_spritesheet_1: -6101365790168081253
+      carrot_walking_spritesheet_2: -6782697130985876719
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

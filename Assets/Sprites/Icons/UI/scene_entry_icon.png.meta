@@ -66,6 +66,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -436,6 +437,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      interior_entry_icon_9: -5108467125829289071
+      interior_entry_icon_0: -4227106438945030677
+      interior_entry_icon_1: 316277127080140765
+      interior_entry_icon_8: 381749936444964875
+      interior_entry_icon_10: -5073803351506213592
+      interior_entry_icon_11: 4781390927884829508
+      interior_entry_icon_7: -7788195513432524108
+      interior_entry_icon_4: 7088321810530361144
+      interior_entry_icon_6: 1142243863473307303
+      interior_entry_icon_5: -4896297192332203817
+      interior_entry_icon_2: -7826982512176017964
+      interior_entry_icon_13: 1847609967646245213
+      interior_entry_icon_3: -8234182398075473358
+      interior_entry_icon_12: -9136830210880958138
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

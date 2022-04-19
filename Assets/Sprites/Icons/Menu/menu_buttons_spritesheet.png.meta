@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -925,6 +926,42 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Menu Buttons_14: -9042423279021791028
+      menu_buttons_spritesheet_1: 7088630968354764708
+      menu_buttons_spritesheet_9: 6121911592868711683
+      Menu Buttons_10: 6171537295390068678
+      menu_buttons_spritesheet_13: 7167070967730158044
+      menu_buttons_spritesheet_17: 3156406577989684217
+      Menu Buttons_12: -6630134826041653360
+      menu_buttons_spritesheet_6: 6649719647477156359
+      menu_buttons_spritesheet_22: 1675148805721279267
+      menu_buttons_spritesheet_4: -4672338175019457325
+      menu_buttons_spritesheet_18: -3800264351310734106
+      Menu Buttons_8: 9176070131236104477
+      Menu Buttons_4: -7380087767416289086
+      Menu Buttons_16: 9183207080794462530
+      menu_buttons_spritesheet_2: -4093416920440269342
+      menu_buttons_spritesheet_19: -3100480105601499812
+      menu_buttons_spritesheet_10: -4558486438496740812
+      menu_buttons_spritesheet_21: 5548789938343600767
+      Menu Buttons_2: 5307979427446768364
+      menu_buttons_spritesheet_16: -5702144341798217380
+      menu_buttons_spritesheet_25: -8329625056073498555
+      menu_buttons_spritesheet_7: -2569269330586460701
+      menu_buttons_spritesheet_15: -2136205023214236810
+      Menu Buttons_6: 351873560117742261
+      menu_buttons_spritesheet_11: -3920209689556810202
+      menu_buttons_spritesheet_26: 8148244456821781735
+      menu_buttons_spritesheet_14: 5352169268128435904
+      menu_buttons_spritesheet_24: -681307680810837720
+      menu_buttons_spritesheet_20: -1918309106959383672
+      menu_buttons_spritesheet_3: 5384720132916586409
+      menu_buttons_spritesheet_23: 1780030666945119185
+      menu_buttons_spritesheet_12: 1629977348368395944
+      menu_buttons_spritesheet_0: 69323222678154867
+      Menu Buttons_0: -5652939182684387322
+      menu_buttons_spritesheet_8: 3903519904421908653
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

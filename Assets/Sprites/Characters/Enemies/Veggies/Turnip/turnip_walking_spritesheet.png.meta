@@ -36,6 +36,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -196,6 +197,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spring_onion_walking_spritesheet_0: -2497675995910468150
+      spring_onion_walking_spritesheet_3: -990548270053922730
+      spring_onion_walking_spritesheet_2: 5958174538293452259
+      spring_onion_walking_spritesheet_1: -7888974634342392696
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

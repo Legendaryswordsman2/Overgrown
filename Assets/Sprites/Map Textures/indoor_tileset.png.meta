@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -220,6 +221,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      indoor_tileset_2: 6473313825728019588
+      indoor_tileset_4: -7517186257367068938
+      indoor_tileset_0: -2067209433239694317
+      indoor_tileset_3: -5487295301694508806
+      indoor_tileset_1: -1365855600856132535
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
