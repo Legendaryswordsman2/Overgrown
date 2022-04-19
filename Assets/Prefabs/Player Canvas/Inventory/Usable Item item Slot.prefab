@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606483eeee2f79741b66f7ba0542e659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <item>k__BackingField: {fileID: 11400000, guid: ddda0ca78d75a9346a2bddd0f34f7554, type: 2}
+  <item>k__BackingField: {fileID: 0}
   icon: {fileID: 8202397823750314226}
   nameText: {fileID: 8202397823428521481}
 --- !u!114 &7196286161068046852
@@ -389,9 +389,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
-        m_MethodName: ItemSelected
+      - m_Target: {fileID: 6710610035269816277}
+        m_TargetAssemblyTypeName: UseItemItemSlot, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carrot
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 94.75
+  m_fontSize: 100
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202397823750314228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

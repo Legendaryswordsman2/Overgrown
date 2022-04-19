@@ -154,11 +154,6 @@ public class PlayerStats : MonoBehaviour
 
 		healthTextStat.text += " " + maxHealth;
 
-		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
-		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
-
 		playerHealthBar.max = maxHealth;
 		playerHealthBar.current = currentHealth;
 	}
@@ -191,13 +186,15 @@ public class PlayerStats : MonoBehaviour
 		currentHealth = maxHealth;
 	}
 
-	public void heal(int amount)
+	public void Heal(int amount)
     {
 		if (currentHealth + amount >= maxHealth)
 			currentHealth = maxHealth;
 		else
 			currentHealth += amount;
-    }
+
+		playerHealthBar.current = currentHealth;
+	}
 
 	public void EquipMeleeWeapon(MeleeWeapon _meleeWeapon)
 	{

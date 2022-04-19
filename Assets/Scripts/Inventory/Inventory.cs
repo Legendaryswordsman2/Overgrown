@@ -34,13 +34,14 @@ public class Inventory : MonoBehaviour
 	[field: SerializeField] public PlantInfoBox plantInfoBox { get; private set; }
 	[field: SerializeField] public TextPopup textPopup { get; private set; }
 
-	[SerializeField] GameObject junkItemsCategory;
-	[SerializeField] GameObject consumableItemsCategory;
-	[SerializeField] GameObject questItemsCategory;
-	[SerializeField] GameObject weaponItemsCategory;
-	[SerializeField] GameObject armorItemsCategory;
+	[SerializeField] public GameObject junkItemsCategory;
+	[SerializeField] public GameObject consumableItemsCategory;
+	[SerializeField] public GameObject questItemsCategory;
+	[SerializeField] public GameObject weaponItemsCategory;
+	[SerializeField] public GameObject armorItemsCategory;
 
 	[field: SerializeField] public UseableItemManager useItemScreen { get; private set; }
+	[field: SerializeField] public GameObject ItemsCategory { get; private set; }
 
 
 	[Header("Item Slots")]

@@ -10,7 +10,7 @@ public class UseableItemManager : MonoBehaviour
 
     [Space]
 
-    [SerializeField] GameObject itemSlotPefab;
+    [SerializeField] GameObject itemSlotPrefab;
 
     [SerializeField] PlayerItem playerItem;
 
@@ -23,6 +23,7 @@ public class UseableItemManager : MonoBehaviour
 
     private void Start()
     {
-        
+        UseItemItemSlot itemSlot = Instantiate(itemSlotPrefab, itemSlotsParent.transform).GetComponent<UseItemItemSlot>();
+        itemSlot.SetSlot(playerItem);
     }
 }

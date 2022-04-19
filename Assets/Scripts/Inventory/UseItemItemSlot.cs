@@ -23,10 +23,15 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
 			plantItem.HealPlant(healthEffect.healAmount);
         }
-		else if(item is PlayerItem playerItem && UseableItemManager.instance.currentItemToBeUsed.effects[0] is HealthItemEffect healEffect)
+		else if(item is PlayerItem && UseableItemManager.instance.currentItemToBeUsed.effects[0] is HealthItemEffect healEffect)
         {
-			PlayerStats.instance.heal(healEffect.healAmount);
+			PlayerStats.instance.Heal(healEffect.healAmount);
         }
+		Inventory inventory = Inventory.instance;
+		inventory.junkItemsCategory.SetActive(false);
+		inventory.questItemsCategory.SetActive(false);
+		inventory.consumableItemsCategory.SetActive(true);
+		inventory.GoToCategory(Inventory.instance.ItemsCategory);
 	}
 
 	private void OnValidate()
