@@ -36164,6 +36164,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 222167503, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 439948738, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 476754868, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102163437, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486735865, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534956261, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675742497, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788858940, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003185690, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: animationMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base
