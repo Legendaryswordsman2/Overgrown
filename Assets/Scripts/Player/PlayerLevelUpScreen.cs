@@ -159,7 +159,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
 
-		if (choosingStat) yield break;
+		if (choosingStat || finishedLevelUp) yield break;
 
 		yield return new WaitForSecondsRealtime(1);
 
