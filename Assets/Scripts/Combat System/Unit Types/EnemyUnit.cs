@@ -47,8 +47,6 @@ public class EnemyUnit : BaseUnit
 			enemyLevel = Random.Range(playerLevel - 2, playerLevel + 2);
 		} while (enemyLevel <= 0);
 
-		Debug.Log(enemyLevel);
-		Debug.Log(playerLevel);
 		level = enemyLevel;
 
 		transform.GetChild(0).GetChild(2).GetComponent<TMP_Text>().text = "LV: " + level;

@@ -147,8 +147,11 @@ public class BattleSystem : MonoBehaviour
 
 	public void ContinueAfterWinning()
 	{
-		GetComponent<PlayerLevel>().GiveXp(xpGiven);
+		bool temp = GetComponent<PlayerLevel>().GiveXp(xpGiven);
 		GetComponent<PlayerLevel>().GiveMoney(moneyGiven);
+
+		if (temp == false)
+			ChangeSceneAfterWinning();
 	}
 	public void ChangeSceneAfterWinning()
 	{

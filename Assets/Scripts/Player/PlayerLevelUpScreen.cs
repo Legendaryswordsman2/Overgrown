@@ -184,10 +184,15 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		{
 			if (finishedLevelUp)
 			{
-				if (BattleSystem.instance != null)
-					BattleSystem.instance.ChangeSceneAfterWinning();
-				else
-				GameManager.CloseOverlay(levelUpParent);
+				bool succesfulyLevelUp = playerStats.GetComponent<PlayerLevel>().TryToLevelUp();
+
+				if (succesfulyLevelUp == false)
+                {
+					if (BattleSystem.instance != null)
+						BattleSystem.instance.ChangeSceneAfterWinning();
+					else
+						GameManager.CloseOverlay(levelUpParent);
+                }
 			}
 			else
 			{

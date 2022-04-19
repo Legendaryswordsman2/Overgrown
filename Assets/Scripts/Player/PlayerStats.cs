@@ -147,7 +147,6 @@ public class PlayerStats : MonoBehaviour
 	}
 	public void Sleep()
 	{
-		Debug.Log("Plaher Slet");
 		currentHealth = maxHealth;
 	}
 

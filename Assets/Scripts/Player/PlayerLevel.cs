@@ -30,7 +30,7 @@ public class PlayerLevel : MonoBehaviour
         saveManager.OnSavingGame += SaveManager_OnSavingGame;
         saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
     }
-	public void GiveXp(int xpAmount)
+	public bool GiveXp(int xpAmount)
     {
         xp += xpAmount;
 
@@ -44,7 +44,10 @@ public class PlayerLevel : MonoBehaviour
         if (xp >= xpToLevelUp)
         {
             LevelUp();
+            return true;
         }
+        else
+            return false;
     }
 
     public bool GiveMoney(int amount)
@@ -98,14 +101,17 @@ public class PlayerLevel : MonoBehaviour
         //TestIfCanLevelUpAgain();
     }
 
-	//void TestIfCanLevelUpAgain()
-	//{
-	//    if (xp >= xpToLevelUp)
-	//    {
-	//        LevelUp();
-	//    }
-	//}
-	public void RefreshValues()
+    public bool TryToLevelUp()
+    {
+        if (xp >= xpToLevelUp)
+        {
+            LevelUp();
+            return true;
+        }
+        else
+            return false;
+    }
+    public void RefreshValues()
     {
         if (levelProgressBar != null)
         {
