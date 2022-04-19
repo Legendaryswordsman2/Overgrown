@@ -43,10 +43,18 @@ public class SOEnemy : ScriptableObject
 	public int maxWanderWaitTime = 10;
 
 	[Header("Leveling")]
-	public int healthIncreasePerLevelUp = 10;
-	public int damageIncreasePerLevelUp = 2;
-	public int defenseIncreasePerLevelUp = 2;
-	public int critChanceIncreasePerLevelUp = 2;
+	public int minHealthIncreasePerLevelUp = 2;
+	public int maxHealthIncreasePerLevelUp = 5;
+	[Space]
+	public int minDamageIncreasePerLevelUp = 2;
+	public int maxDamageIncreasePerLevelUp = 5;
+	[Space]
+	public int minDefenseIncreasePerLevelUp = 2;
+	public int maxDefenseIncreasePerLevelUp = 4;
+	[Space]
+	public int minCritChanceIncreasePerLevelUp = 1;
+	public int maxCritChanceIncreasePerLevelUp = 3;
+	[Space]
 	public int minXpIncreasePerLevelUp = 10;
 	public int maxXpIncreasePerLevelUp = 10;
 

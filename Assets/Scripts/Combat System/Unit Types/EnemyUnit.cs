@@ -57,11 +57,11 @@ public class EnemyUnit : BaseUnit
 
         for (int i = 0; i < enemyLevel; i++)
         {
-            enemySO.defaultHealth += enemySO.healthIncreasePerLevelUp;
-            enemySO.damage += enemySO.damageIncreasePerLevelUp;
-            enemySO.defense += enemySO.defenseIncreasePerLevelUp;
-            enemySO.critChance += enemySO.critChanceIncreasePerLevelUp;
-        }
+			enemySO.defaultHealth += Random.Range(enemySO.minHealthIncreasePerLevelUp, enemySO.maxHealthIncreasePerLevelUp + 1);
+            enemySO.damage += Random.Range(enemySO.minDamageIncreasePerLevelUp, enemySO.maxDamageIncreasePerLevelUp + 1);
+			enemySO.defense += Random.Range(enemySO.minDefenseIncreasePerLevelUp, enemySO.maxDefenseIncreasePerLevelUp + 1);
+			enemySO.critChance += Random.Range(enemySO.minCritChanceIncreasePerLevelUp, enemySO.maxCritChanceIncreasePerLevelUp + 1);
+		}
 
         maxHealth = enemySO.defaultHealth;
 		currentHealth = maxHealth;
