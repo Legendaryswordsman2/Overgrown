@@ -130,6 +130,8 @@ public class PlayerStats : MonoBehaviour
 		defense += statIncreases[2];
 		critChance += statIncreases[3];
 
+		if (BattleSystem.instance != null) return;
+
 		healthTextStat.text += " " + maxHealth;
 
 		if (meleeWeapon != null)

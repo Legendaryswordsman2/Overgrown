@@ -30,7 +30,11 @@ public class PlayerLevel : MonoBehaviour
         saveManager.OnSavingGame += SaveManager_OnSavingGame;
         saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
     }
-	public bool GiveXp(int xpAmount)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) LevelUp();
+    }
+    public bool GiveXp(int xpAmount)
     {
         xp += xpAmount;
 
