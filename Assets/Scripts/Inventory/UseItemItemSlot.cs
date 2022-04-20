@@ -27,7 +27,7 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 			if (!success)
 			{
-				inventory.textPopup.SetPopup("PLANT ALREADY HAS FULL HEALTH", 0.5f);
+				inventory.textPopup.SetPopup("PLANT ALREADY HAS FULL HEALTH", 0.5f, false, Color.red);
 				return;
 			} 
         }
@@ -37,10 +37,12 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 			if (!success)
 			{
-				inventory.textPopup.SetPopup("PLAYER ALREADY HAS FULL HEALTH", 0.5f);
+				inventory.textPopup.SetPopup("PLAYER ALREADY HAS FULL HEALTH", 0.5f, false, Color.red);
 				return;
 			}
 		}
+		inventory.textPopup.SetPopup("ITEM USED", 0.5f);
+		inventory.RemoveItem(inventory.useItemScreen.currentItemToBeUsed);
 		inventory.junkItemsCategory.SetActive(false);
 		inventory.questItemsCategory.SetActive(false);
 		inventory.consumableItemsCategory.SetActive(true);

@@ -23,19 +23,23 @@ MonoBehaviour:
   chosenAnimatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
   minXPOnDeath: 184
   maxXPOnDeath: 344
-  XPOnDeath: 314
+  XPOnDeath: 309
   minMoneyOnDeath: 2
   maxMoneyOnDeath: 10
-  MoneyOnDeath: 10
+  MoneyOnDeath: 4
   attackRange: 0.5
   enemiesToFight: []
   attackWalkSpeed: 5
   wanderSpeed: 3
   minWanderWaitTime: 2
   maxWanderWaitTime: 10
-  healthIncreasePerLevelUp: 3
-  damageIncreasePerLevelUp: 2
-  defenseIncreasePerLevelUp: 2
-  critChanceIncreasePerLevelUp: 1
-  minXpIncreasePerLevelUp: 10
+  minHealthIncreasePerLevelUp: 2
+  maxHealthIncreasePerLevelUp: 5
+  minDamageIncreasePerLevelUp: 2
+  maxDamageIncreasePerLevelUp: 5
+  minDefenseIncreasePerLevelUp: 2
+  maxDefenseIncreasePerLevelUp: 4
+  minCritChanceIncreasePerLevelUp: 1
+  maxCritChanceIncreasePerLevelUp: 3
+  minXpIncreasePerLevelUp: 5
   maxXpIncreasePerLevelUp: 10

@@ -135,6 +135,7 @@ public class Inventory : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
+		consumableItemSlots.Clear();
 		for (int i = 0; i < consumableItems.Count; i++)
 		{
 			var itemSlot = Instantiate(itemSlotPrefab, consumableItemSlotParent.transform).GetComponent<ItemSlot>();
@@ -403,6 +404,7 @@ public class Inventory : MonoBehaviour
 
 	public void RemoveItem(Item item)
 	{
+		Debug.Log("Removing Item");
 		if(item is JunkItem junkItem)
 		{
 			junkItems.Remove(junkItem);
@@ -411,7 +413,7 @@ public class Inventory : MonoBehaviour
 		else if (item is ConsumableItem consumableItem)
 		{
 			consumableItems.Remove(consumableItem);
-			//RefreshConsumableItemSlots();
+			RefreshConsumableItemSlots();
 		}
 		else if (item is QuestItem questItem)
 		{
