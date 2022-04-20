@@ -3954,7 +3954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <currentItemToBeUsed>k__BackingField: {fileID: 0}
-  itemSlotPefab: {fileID: 8202397822862838812, guid: 3491a5bf796f09f4eab9c5e6aac2ab85, type: 3}
+  itemSlotPrefab: {fileID: 8202397822862838812, guid: 3491a5bf796f09f4eab9c5e6aac2ab85, type: 3}
   playerItem: {fileID: 11400000, guid: 406f720c3fd3a7f41bed110c137840ca, type: 2}
   itemSlotsParent: {fileID: 725911947}
 --- !u!1 &874803713
@@ -15782,6 +15782,10 @@ PrefabInstance:
       propertyPath: <textPopup>k__BackingField
       value: 
       objectReference: {fileID: 1077148836072648544}
+    - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: <ItemsCategory>k__BackingField
+      value: 
+      objectReference: {fileID: 2089238903}
     - target: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: <useItemScreen>k__BackingField
       value: 
