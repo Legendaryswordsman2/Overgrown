@@ -154,6 +154,8 @@ public class PlayerStats : MonoBehaviour
 		maxHealth += amount;
 		currentHealth += amount;
 
+		if (BattleSystem.instance != null) return;
+
 		healthTextStat.text += " " + maxHealth;
 
 		playerHealthBar.max = maxHealth;
@@ -162,6 +164,8 @@ public class PlayerStats : MonoBehaviour
 	public void IncreaseDamageFromChosenLevelUpStat(int amount)
 	{
 		damage += amount;
+
+		if (BattleSystem.instance != null) return;
 
 		if (meleeWeapon != null)
 			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
@@ -172,6 +176,8 @@ public class PlayerStats : MonoBehaviour
 	{
 		defense += amount;
 
+		if (BattleSystem.instance != null) return;
+
 		if (armor != null)
 			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
 		else
@@ -180,6 +186,8 @@ public class PlayerStats : MonoBehaviour
 	public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
 	{
 		critChance += amount;
+
+		if (BattleSystem.instance != null) return;
 
 		critChanceTextStat.text += " " + critChance;
 	}
