@@ -196,14 +196,19 @@ public class PlayerStats : MonoBehaviour
 		currentHealth = maxHealth;
 	}
 
-	public void Heal(int amount)
+	public bool Heal(int amount)
     {
+		if (currentHealth >= maxHealth) return false;
+
 		if (currentHealth + amount >= maxHealth)
 			currentHealth = maxHealth;
 		else
 			currentHealth += amount;
 
 		playerHealthBar.current = currentHealth;
+		playerHealthText.text = currentHealth + " / " + maxHealth;
+
+		return true;
 	}
 
 	public void EquipMeleeWeapon(MeleeWeapon _meleeWeapon)

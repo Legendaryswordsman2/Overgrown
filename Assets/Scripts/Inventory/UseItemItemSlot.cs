@@ -19,15 +19,28 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	}
 	public void Heal()
 	{
+		Inventory inventory = Inventory.instance;
+
 		if (item is EquipablePlantItem plantItem && UseableItemManager.instance.currentItemToBeUsed.effects[0] is HealthItemEffect healthEffect)
         {
-			plantItem.HealPlant(healthEffect.healAmount);
+			bool success = plantItem.HealPlant(healthEffect.healAmount);
+
+			if (!success)
+			{
+				inventory.textPopup.SetPopup("PLANT ALREADY HAS FULL HEALTH", 0.5f);
+				return;
+			} 
         }
 		else if(item is PlayerItem && UseableItemManager.instance.currentItemToBeUsed.effects[0] is HealthItemEffect healEffect)
         {
-			PlayerStats.instance.Heal(healEffect.healAmount);
-        }
-		Inventory inventory = Inventory.instance;
+			bool success = PlayerStats.instance.Heal(healEffect.healAmount);
+
+			if (!success)
+			{
+				inventory.textPopup.SetPopup("PLAYER ALREADY HAS FULL HEALTH", 0.5f);
+				return;
+			}
+		}
 		inventory.junkItemsCategory.SetActive(false);
 		inventory.questItemsCategory.SetActive(false);
 		inventory.consumableItemsCategory.SetActive(true);

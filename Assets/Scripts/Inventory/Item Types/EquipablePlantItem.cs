@@ -104,11 +104,15 @@ public class EquipablePlantItem : Item
 		throw new System.NotImplementedException();
 	}
 
-	public void HealPlant(int amount)
+	public bool HealPlant(int amount)
     {
+		if (plantSO.currentHealth >= plantSO.defaultHealth) return false;
+
 		if (plantSO.currentHealth + amount == plantSO.defaultHealth)
 			plantSO.currentHealth = plantSO.defaultHealth;
 		else
 			plantSO.currentHealth += amount;
+
+		return true;
     }
 }
