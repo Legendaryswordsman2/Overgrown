@@ -71,6 +71,13 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 			Inventory.instance.plantInfoBox.SetInfoBox(plantItem.plantSO);
 			return;
 		}
+
+		if (item is PlayerItem)
+		{
+			Inventory.instance.plantInfoBox.SetInfoBoxForPlayer(GameManager.instance.player.GetComponent<PlayerStats>());
+			return;
+		}
+
 		Inventory.instance.itemInfoBox.SetInfoBox(item.ItemName.ToUpper(), item.ItemDescription.ToUpper());
 	}
 
