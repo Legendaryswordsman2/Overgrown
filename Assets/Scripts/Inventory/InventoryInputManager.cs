@@ -28,6 +28,14 @@ public class InventoryInputManager : MonoBehaviour
 			return;
 		}
 
+        if (inventory.useItemScreen.gameObject.activeSelf)
+        {
+			inventory.GoToCategory(Inventory.instance.consumableItemsCategory);
+			inventory.ItemsCategory.SetActive(true);
+			return;
+			//inventory.useItemScreen.gameObject.SetActive(false);
+		}
+
 		inventory.ResetTabs();
 
 		foreach (Transform child in categories.transform)
