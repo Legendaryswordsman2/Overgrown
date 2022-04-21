@@ -148,6 +148,7 @@ public class BattleSystem : MonoBehaviour
 	public void ContinueAfterWinning()
 	{
 		bool temp = GetComponent<PlayerLevel>().GiveXp(xpGiven);
+		inventory.equippedPlantItem.plantSO.GiveXP(xpGiven);
 		GetComponent<PlayerLevel>().GiveMoney(moneyGiven);
 
 		if (temp == false)

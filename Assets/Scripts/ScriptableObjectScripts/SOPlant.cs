@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,6 +13,7 @@ public class SOPlant : ScriptableObject
 	public string ID { get { return id; } }
 	[Header("Unit Settings")]
 	public string unitName = "Some Random Plant";
+	[ReadOnlyInspector] public int level = 1;
 	public int defaultHealth = 100;
 	[ReadOnlyInspector] public int currentHealth = 0;
 	public int meleeDamage = 10;
@@ -20,13 +22,72 @@ public class SOPlant : ScriptableObject
 
 	public RuntimeAnimatorController animatorController;
 
+    [Space]
+
+    [Header("XP")]
+    [ReadOnlyInspector] public int xp = 0;
+    public int xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
+
 	private void Awake()
 	{
 		currentHealth = defaultHealth;
 	}
 
+	public bool GiveXP(int amount)
+    {
+        xp += amount;
+
+        //if (levelProgressBar != null)
+        //{
+        //    levelText.text = "LV: " + playerLevel;
+        //    levelProgressBar.current = xp;
+
+        //}
+
+        if (xp >= xpToLevelUp)
+        {
+            LevelUp();
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private void LevelUp()
+    {
+		Debug.Log(unitName + " leveled up!");
+
+        level++;
+
+        //if (levelText != null) levelText.text = "LV: " + playerLevel;
+
+        xp -= xpToLevelUp;
+
+        if (xp < 0) xp = 0;
+
+        xpToLevelUp += xpIncreaseOnLevelUp;
+        xpIncreaseOnLevelUp += xpIncreaseIncreaseOnLevelUp;
+
+        //if (levelProgressBar != null)
+        //{
+        //    levelProgressBar.max = xpToLevelUp;
+        //    levelProgressBar.current = xp;
+        //}
+
+        //int[] statIncreases = new int[4];
+
+        //for (int i = 0; i < statIncreases.Length; i++)
+        //{
+        //    statIncreases[i] = UnityEngine.Random.Range(1, 5);
+        //}
+
+        //PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
+
+        //TestIfCanLevelUpAgain();
+    }
+
 #if UNITY_EDITOR
-	protected virtual void OnValidate()
+    protected virtual void OnValidate()
 	{
 		string path = AssetDatabase.GetAssetPath(this);
 		id = AssetDatabase.AssetPathToGUID(path);

@@ -18,6 +18,7 @@ public class EquipablePlantItem : Item
 		if (isEquipped)
 		{
 			isEquipped = false;
+			inventory.equippedPlantItem = null;
 			BattleSetupData.plantSO = null;
 
 			equippedCheckmark = itemSlot.equippedCheckmark;
@@ -49,6 +50,7 @@ public class EquipablePlantItem : Item
 		inventory.OnPlantItemSelected += UnequipPlantItem;
 
 		isEquipped = true;
+		inventory.equippedPlantItem = this;
 		BattleSetupData.plantSO = plantSO;
 		equippedCheckmark = itemSlot.equippedCheckmark;
 		equippedCheckmark.enabled = true;

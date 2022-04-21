@@ -66,6 +66,10 @@ public class Inventory : MonoBehaviour
 	[HideInInspector] public List<GearSaveData> meleeWeaponItemsSave;
 	[HideInInspector] public List<GearSaveData> armorItemsSave;
 
+	[Space]
+
+	[ReadOnlyInspector] public EquipablePlantItem equippedPlantItem;
+
 	private void Awake()
 	{
 		instance = this;
@@ -222,6 +226,7 @@ public class Inventory : MonoBehaviour
 			equippablePlantItems[i].isEquipped = false;
 		}
 		BattleSetupData.plantSO = null;
+		equippedPlantItem = null;
 		RefreshEquippablePlantItemSlots();
 	}
 	public void CreateItemCopies()
@@ -237,11 +242,17 @@ public class Inventory : MonoBehaviour
 			for (int i = 0; i < equippablePlantItems.Count; i++)
 			{
 				equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
+				equippablePlantItems[i].plantSO.level = equippablePlantitemsSave[i].level;
 				equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
 				equippablePlantItems[i].plantSO.meleeDamage = equippablePlantitemsSave[i].meleeDamage;
 				equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
 				equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
 				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
+
+				equippablePlantItems[i].plantSO.xp = equippablePlantitemsSave[i].xp;
+				equippablePlantItems[i].plantSO.xpToLevelUp = equippablePlantitemsSave[i].xpToLevelUp;
+				equippablePlantItems[i].plantSO.xpIncreaseOnLevelUp = equippablePlantitemsSave[i].xpIncreaseOnLevelUp;
+				equippablePlantItems[i].plantSO.xpIncreaseIncreaseOnLevelUp = equippablePlantitemsSave[i].xpIncreaseIncreaseOnLevelUp;
 			}
 		}
 		for (int i = 0; i < weaponItems.Count; i++)
@@ -291,6 +302,7 @@ public class Inventory : MonoBehaviour
 				if (c.isEquipped)
 				{
 					c.EquipPlantOnSceneLoaded(ItemSlot);
+					equippedPlantItem = c;
 				}
 		}
 
