@@ -404,8 +404,8 @@ public class Inventory : MonoBehaviour
 
 	public void RemoveItem(Item item)
 	{
-		Debug.Log("Removing Item");
-		if(item is JunkItem junkItem)
+
+        if(item is JunkItem junkItem)
 		{
 			junkItems.Remove(junkItem);
 			//RefreshJunkItemSlots();

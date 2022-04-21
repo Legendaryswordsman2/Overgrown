@@ -18,6 +18,8 @@ public class UseableItemManager : MonoBehaviour
 
     Inventory inventory;
 
+    bool hasBeenInitialized = false;
+
     private void Awake()
     {
         instance = this;
@@ -32,6 +34,36 @@ public class UseableItemManager : MonoBehaviour
         UseItemItemSlot itemSlot = Instantiate(itemSlotPrefab, itemSlotsParent.transform).GetComponent<UseItemItemSlot>();
         itemSlot.SetSlot(playerItem);
 
+        SetPlantsInUseItemMenu();
+
+        hasBeenInitialized = true;
+    }
+
+    private void OnEnable()
+    {
+        if (hasBeenInitialized)
+        {
+            RefreshUseItemMenu();
+        }
+
+    }
+
+    public void RefreshUseItemMenu()
+    {
+        RemovePlantsFromUseItemMenu();
+        SetPlantsInUseItemMenu();
+    }
+    void RemovePlantsFromUseItemMenu()
+    {
+        foreach (Transform child in itemSlotsParent.transform)
+        {
+            if (child.GetComponent<UseItemItemSlot>().item is not PlayerItem)
+            Destroy(child.gameObject);
+        }
+    }
+
+    void SetPlantsInUseItemMenu()
+    {
         for (int i = 0; i < inventory.equippablePlantItems.Count; i++)
         {
             var ItemSlot = Instantiate(itemSlotPrefab, itemSlotsParent.transform).GetComponent<UseItemItemSlot>();

@@ -47,6 +47,7 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 		inventory.questItemsCategory.SetActive(false);
 		inventory.consumableItemsCategory.SetActive(true);
 		inventory.GoToCategory(Inventory.instance.ItemsCategory);
+		//UseableItemManager.instance.RefreshUseItemMenu();
 	}
 
 	private void OnValidate()
