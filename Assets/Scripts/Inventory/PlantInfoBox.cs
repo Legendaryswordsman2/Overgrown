@@ -7,7 +7,11 @@ public class PlantInfoBox : MonoBehaviour
 {
 	[SerializeField] TMP_Text plantName;
 	[SerializeField] ProgressBar plantHealthBar;
+	[SerializeField] ProgressBar plantXPBar;
 
+	[Space]
+
+	[SerializeField] TMP_Text levelTextStat;
 	[SerializeField] TMP_Text healthTextStat;
 	[SerializeField] TMP_Text damageTextStat;
 	[SerializeField] TMP_Text defenseTextStat;
@@ -19,6 +23,10 @@ public class PlantInfoBox : MonoBehaviour
 		plantHealthBar.max = plantSO.defaultHealth;
 		plantHealthBar.current = plantSO.currentHealth;
 
+		plantXPBar.max = plantSO.xpToLevelUp;
+		plantXPBar.current = plantSO.xp;
+
+		levelTextStat.text = "Level: " + plantSO.level;
 		healthTextStat.text = "Health: " + plantSO.currentHealth + " / " + plantSO.defaultHealth;
 		damageTextStat.text = "Damage: " + plantSO.meleeDamage;
 		defenseTextStat.text = "Defense: " + plantSO.defense;
