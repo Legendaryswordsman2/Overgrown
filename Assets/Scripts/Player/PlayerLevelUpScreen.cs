@@ -23,6 +23,10 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	[SerializeField] TMP_Text defenseTextStatIncrease;
 	[SerializeField] TMP_Text critChanceTextStatIncrease;
 
+	[Space]
+
+	[SerializeField, ReadOnlyInspector] SOPlant plantToLevelUp;
+
 	int previousHealth;
 	int previousDamage;
 	int previousDefense;
@@ -46,7 +50,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		chosenBonusStat = healthTextStatIncrease;
 	}
 
-	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
+	public void SetPlayerLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
 		choosingStat = false;
 		finishedLevelUp = false;
@@ -59,6 +63,46 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		previousDamage = playerStats.damage;
 		previousDefense = playerStats.defense;
 		previousCritChance = playerStats.critChance;
+
+		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
+		damageTextStat.text = "DAMAGE: " + playerStats.damage;
+		defenseTextStat.text = "DEFENSE: " + playerStats.defense;
+		critChanceTextStat.text = "CRIT CHANCE: " + playerStats.critChance;
+
+		healthTextStatIncrease.text = "+ " + statIncreases[0];
+		damageTextStatIncrease.text = "+ " + statIncreases[1];
+		defenseTextStatIncrease.text = "+ " + statIncreases[2];
+		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
+
+		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.GetComponent<PlayerLevel>().playerLevel;
+
+		healthTextStatIncrease.gameObject.SetActive(true);
+		damageTextStatIncrease.gameObject.SetActive(true);
+		defenseTextStatIncrease.gameObject.SetActive(true);
+		critChanceTextStatIncrease.gameObject.SetActive(true);
+
+		popupText.text = "PRESS SPACE TO CONTINUE...";
+		popupText.gameObject.SetActive(true);
+
+		hasIncreasedStats = false;
+
+		GameManager.OpenOverlay(levelUpParent);
+		//levelupParent.SetActive(true);
+		gameObject.SetActive(true);
+	}
+	public void SetPlantLevelUpScreen(SOPlant plant, int[] _statIncreases)
+	{
+		choosingStat = false;
+		finishedLevelUp = false;
+
+		plantToLevelUp = plant;
+
+		statIncreases = _statIncreases;
+
+		//previousHealth = plant..maxHealth;
+		//previousDamage = plant..damage;
+		//previousDefense = plant..defense;
+		//previousCritChance = plant..critChance;
 
 		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
 		damageTextStat.text = "DAMAGE: " + playerStats.damage;

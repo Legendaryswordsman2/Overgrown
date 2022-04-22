@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
 	[Header("Stats Refernces")]
 	[SerializeField] ProgressBar playerHealthBar;
 	[SerializeField] TMP_Text playerHealthText;
-	[SerializeField] PlayerLevelUpScreen playerLevelUpScreen;
+	[SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
 
 	[Space]
 
@@ -122,7 +122,7 @@ public class PlayerStats : MonoBehaviour
 
 	public void IncreaseStatsFromLevelUp(int[] statIncreases)
 	{
-		playerLevelUpScreen.SetLevelUpScreen(this, statIncreases);
+		playerLevelUpScreen.SetPlayerLevelUpScreen(this, statIncreases);
 
 		maxHealth += statIncreases[0];
 		currentHealth += statIncreases[0];

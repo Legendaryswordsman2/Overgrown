@@ -16,7 +16,7 @@ public class SOPlant : ScriptableObject
 	[ReadOnlyInspector] public int level = 1;
 	public int defaultHealth = 100;
 	[ReadOnlyInspector] public int currentHealth = 0;
-	public int meleeDamage = 10;
+	public int damage = 10;
 	public int defense = 0;
 	public int critChance = 0;
 
@@ -67,6 +67,21 @@ public class SOPlant : ScriptableObject
 
         xpToLevelUp += xpIncreaseOnLevelUp;
         xpIncreaseOnLevelUp += xpIncreaseIncreaseOnLevelUp;
+
+        int[] statIncreases = new int[4];
+
+        for (int i = 0; i < statIncreases.Length; i++)
+        {
+            statIncreases[i] = UnityEngine.Random.Range(1, 5);
+        }
+
+        PlayerStats.instance.playerLevelUpScreen.SetPlantLevelUpScreen(this, statIncreases);
+
+        defaultHealth += statIncreases[0];
+        currentHealth += statIncreases[0];
+        damage += statIncreases[1];
+        defense += statIncreases[2];
+        critChance += statIncreases[3];
 
         //if (levelProgressBar != null)
         //{

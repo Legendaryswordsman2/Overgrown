@@ -6,7 +6,7 @@ public class PlantItemSaveData
 	public int defaultHealth = 100;
 	public int level = 1;
 	public int currentHealth = 0;
-	public int meleeDamage = 10;
+	public int damage = 10;
 	public int defense = 0;
 	public int critChance = 0;
 
@@ -23,7 +23,7 @@ public class PlantItemSaveData
 		defaultHealth = plantItem.plantSO.defaultHealth;
 		level = plantItem.plantSO.level;
 		currentHealth = plantItem.plantSO.currentHealth;
-		meleeDamage = plantItem.plantSO.meleeDamage;
+		damage = plantItem.plantSO.damage;
 		defense = plantItem.plantSO.defense;
 		critChance = plantItem.plantSO.critChance;
 

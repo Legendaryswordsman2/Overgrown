@@ -15,7 +15,7 @@ public class PlayerPlantUnit : BaseUnit
 		unitName = plantSO.unitName;
 		maxHealth = plantSO.defaultHealth;
 		currentHealth = plantSO.currentHealth;
-		damage = plantSO.meleeDamage;
+		damage = plantSO.damage;
 		defense = plantSO.defense;
 		critChance = plantSO.critChance;
 		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;

@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 180e7101e122d5542902f1f59e589765
   unitName: Tomato
+  level: 1
   defaultHealth: 200
-  currentHealth: 400
-  meleeDamage: 5
+  currentHealth: 200
+  damage: 5
   defense: 20
   critChance: 5
   animatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
+  xp: 0
+  xpToLevelUp: 100
+  xpIncreaseOnLevelUp: 100
+  xpIncreaseIncreaseOnLevelUp: 20

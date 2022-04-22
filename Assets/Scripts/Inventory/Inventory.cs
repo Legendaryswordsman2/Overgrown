@@ -244,7 +244,7 @@ public class Inventory : MonoBehaviour
 				equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
 				equippablePlantItems[i].plantSO.level = equippablePlantitemsSave[i].level;
 				equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
-				equippablePlantItems[i].plantSO.meleeDamage = equippablePlantitemsSave[i].meleeDamage;
+				equippablePlantItems[i].plantSO.damage = equippablePlantitemsSave[i].damage;
 				equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
 				equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
 				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;

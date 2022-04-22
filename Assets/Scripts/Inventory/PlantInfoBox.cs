@@ -28,7 +28,7 @@ public class PlantInfoBox : MonoBehaviour
 
 		levelTextStat.text = "Level: " + plantSO.level;
 		healthTextStat.text = "Health: " + plantSO.currentHealth + " / " + plantSO.defaultHealth;
-		damageTextStat.text = "Damage: " + plantSO.meleeDamage;
+		damageTextStat.text = "Damage: " + plantSO.damage;
 		defenseTextStat.text = "Defense: " + plantSO.defense;
 		critChanceTextStat.text = "Crit: " + plantSO.critChance;
 
