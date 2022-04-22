@@ -577,6 +577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: {fileID: 1328235273}
   plantHealthBar: {fileID: 1800772468}
+  plantXPBar: {fileID: 688227803}
+  levelTextStat: {fileID: 15675869}
   healthTextStat: {fileID: 3674928460219755469}
   damageTextStat: {fileID: 981399354}
   defenseTextStat: {fileID: 1847547945}
