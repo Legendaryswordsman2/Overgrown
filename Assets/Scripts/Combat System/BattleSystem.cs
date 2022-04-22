@@ -147,12 +147,15 @@ public class BattleSystem : MonoBehaviour
 
 	public void ContinueAfterWinning()
 	{
-		bool temp = GetComponent<PlayerLevel>().GiveXp(xpGiven);
-		inventory.equippedPlantItem.plantSO.GiveXP(xpGiven);
+		bool playerLeveledUp = GetComponent<PlayerLevel>().GiveXp(xpGiven);
 		GetComponent<PlayerLevel>().GiveMoney(moneyGiven);
 
-		if (temp == false)
-			ChangeSceneAfterWinning();
+		bool plantLeveledUp = false;
+		if (playerLeveledUp == false)
+		plantLeveledUp = inventory.equippedPlantItem.plantSO.GiveXP(xpGiven);
+
+		if(plantLeveledUp == false && playerLeveledUp == false)
+		ChangeSceneAfterWinning();
 	}
 	public void ChangeSceneAfterWinning()
 	{

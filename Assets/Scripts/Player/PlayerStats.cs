@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
 	[Header("Stats Refernces")]
 	[SerializeField] ProgressBar playerHealthBar;
 	[SerializeField] TMP_Text playerHealthText;
-	[SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
+	[field: SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
 
 	[Space]
 

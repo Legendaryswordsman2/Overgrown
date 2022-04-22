@@ -99,22 +99,22 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 		statIncreases = _statIncreases;
 
-		//previousHealth = plant..maxHealth;
-		//previousDamage = plant..damage;
-		//previousDefense = plant..defense;
-		//previousCritChance = plant..critChance;
+		previousHealth = plant.defaultHealth;
+        previousDamage = plant.damage;
+        previousDefense = plant.defense;
+        previousCritChance = plant.critChance;
 
-		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
-		damageTextStat.text = "DAMAGE: " + playerStats.damage;
-		defenseTextStat.text = "DEFENSE: " + playerStats.defense;
-		critChanceTextStat.text = "CRIT CHANCE: " + playerStats.critChance;
+        healthTextStat.text = "HEALTH: " + plant.defaultHealth;
+		damageTextStat.text = "DAMAGE: " + plant.damage;
+		defenseTextStat.text = "DEFENSE: " + plant.defense;
+		critChanceTextStat.text = "CRIT CHANCE: " + plant.critChance;
 
 		healthTextStatIncrease.text = "+ " + statIncreases[0];
 		damageTextStatIncrease.text = "+ " + statIncreases[1];
 		defenseTextStatIncrease.text = "+ " + statIncreases[2];
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.GetComponent<PlayerLevel>().playerLevel;
+		leveledUpText.text = plant.unitName + " LEVELED UP TO LEVEL " + plant.level;
 
 		healthTextStatIncrease.gameObject.SetActive(true);
 		damageTextStatIncrease.gameObject.SetActive(true);
@@ -127,7 +127,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		hasIncreasedStats = false;
 
 		GameManager.OpenOverlay(levelUpParent);
-		//levelupParent.SetActive(true);
 		gameObject.SetActive(true);
 	}
 	IEnumerator AddStats()
@@ -232,6 +231,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 				if (succesfulyLevelUp == false)
                 {
+					if(plantToLevelUp == null)
+                    {
+						bool plantLeveledUp = Inventory.instance.equippedPlantItem.plantSO.GiveXP(BattleSystem.instance.xpGiven);
+						
+						if (plantLeveledUp) return;
+					}
+
 					if (BattleSystem.instance != null)
 						BattleSystem.instance.ChangeSceneAfterWinning();
 					else
