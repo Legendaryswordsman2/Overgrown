@@ -55,11 +55,7 @@ public class SOPlant : ScriptableObject
 
     private void LevelUp()
     {
-		Debug.Log(unitName + " leveled up!");
-
         level++;
-
-        //if (levelText != null) levelText.text = "LV: " + playerLevel;
 
         xp -= xpToLevelUp;
 
@@ -99,6 +95,24 @@ public class SOPlant : ScriptableObject
         //PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
 
         //TestIfCanLevelUpAgain();
+    }
+
+    public void IncreaseHealthFromChosenLevelUpStat(int amount)
+    {
+        defaultHealth += amount;
+        currentHealth += amount;
+    }
+    public void IncreaseDamageFromChosenLevelUpStat(int amount)
+    {
+        damage += amount;
+    }
+    public void IncreaseDefenseFromChosenLevelUpStat(int amount)
+    {
+        defense += amount;
+    }
+    public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
+    {
+        critChance += amount;
     }
 
 #if UNITY_EDITOR

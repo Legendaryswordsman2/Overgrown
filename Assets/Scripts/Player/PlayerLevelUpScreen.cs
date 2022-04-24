@@ -150,7 +150,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			healthTextStat.text = "HEALTH: " + previousHealth;
 			healthTextStatIncrease.text = "+ " + statIncreaseNumber;
 
-			if (previousHealth >= playerStats.maxHealth) yield break;
+			int maxStat;
+			if (plantToLevelUp == null)
+				maxStat = playerStats.maxHealth;
+			else
+				maxStat = plantToLevelUp.defaultHealth;
+
+			if (previousHealth >= maxStat) yield break;
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
@@ -165,7 +171,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			damageTextStat.text = "DAMAGE: " + previousDamage;
 			damageTextStatIncrease.text = "+ " + statIncreaseNumber;
 
-			if (previousDamage >= playerStats.damage) yield break;
+			int maxStat;
+			if (plantToLevelUp == null)
+				maxStat = playerStats.damage;
+			else
+				maxStat = plantToLevelUp.damage;
+
+			if (previousDamage >= maxStat) yield break;
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
@@ -181,7 +193,13 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			defenseTextStat.text = "DEFENSE: " + previousDefense;
 			defenseTextStatIncrease.text = "+ " + statIncreaseNumber;
 
-			if (previousDefense >= playerStats.defense) yield break;
+			int maxStat;
+			if (plantToLevelUp == null)
+				maxStat = playerStats.defense;
+			else
+				maxStat = plantToLevelUp.defense;
+
+			if (previousDefense >= maxStat) yield break;
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
@@ -197,7 +215,14 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			critChanceTextStat.text = "CRIT CHANCE: " + previousCritChance;
 			critChanceTextStatIncrease.text = "+ " + statIncreaseNumber;
 
-			if (previousCritChance >= playerStats.critChance) break;
+			int maxStat;
+			if (plantToLevelUp == null)
+				maxStat = playerStats.critChance;
+			else
+				maxStat = plantToLevelUp.critChance;
+
+				if (previousCritChance >= maxStat) break;
+			
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
@@ -329,28 +354,40 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		{
 			case (0):
 				statIncreases[0] = Random.Range(1, 5);
-				playerStats.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
+				if (plantToLevelUp == null)
+					playerStats.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
+				else
+					plantToLevelUp.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
 				healthTextStatIncrease.text = "+ " + statIncreases[0];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToHealthStat());
 				break;
 			case (1):
 				statIncreases[1] = Random.Range(1, 5);
-				playerStats.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
+				if (plantToLevelUp == null)
+					playerStats.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
+				else
+					plantToLevelUp.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
 				damageTextStatIncrease.text = "+ " + statIncreases[1];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToDamageStat());
 				break;
 			case (2):
 				statIncreases[2] = Random.Range(1, 5);
-				playerStats.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
+				if (plantToLevelUp == null)
+					playerStats.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
+				else
+					plantToLevelUp.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
 				defenseTextStatIncrease.text = "+ " + statIncreases[2];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToDefenseStat());
 				break;
 			case (3):
 				statIncreases[3] = Random.Range(1, 5);
-				playerStats.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
+				if (plantToLevelUp == null)
+                    playerStats.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
+                else
+                    plantToLevelUp.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
 				critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToCritChanceStat());
