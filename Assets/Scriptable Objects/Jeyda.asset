@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Jeyda
   m_EditorClassIdentifier: 
   NPCName: Jeyda
-  dialogue: []
+  dialogue:
+  - HI IM a generic npc here to test the new dialogue system!
