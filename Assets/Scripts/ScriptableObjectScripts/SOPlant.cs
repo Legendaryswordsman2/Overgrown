@@ -78,23 +78,17 @@ public class SOPlant : ScriptableObject
         damage += statIncreases[1];
         defense += statIncreases[2];
         critChance += statIncreases[3];
+    }
 
-        //if (levelProgressBar != null)
-        //{
-        //    levelProgressBar.max = xpToLevelUp;
-        //    levelProgressBar.current = xp;
-        //}
-
-        //int[] statIncreases = new int[4];
-
-        //for (int i = 0; i < statIncreases.Length; i++)
-        //{
-        //    statIncreases[i] = UnityEngine.Random.Range(1, 5);
-        //}
-
-        //PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
-
-        //TestIfCanLevelUpAgain();
+    public bool TryToLevelUp()
+    {
+        if (xp >= xpToLevelUp)
+        {
+            LevelUp();
+            return true;
+        }
+        else
+            return false;
     }
 
     public void IncreaseHealthFromChosenLevelUpStat(int amount)

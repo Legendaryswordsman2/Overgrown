@@ -114,7 +114,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		defenseTextStatIncrease.text = "+ " + statIncreases[2];
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-		leveledUpText.text = plant.unitName + " LEVELED UP TO LEVEL " + plant.level;
+		leveledUpText.text = plant.unitName.ToUpper() + " LEVELED UP TO LEVEL " + plant.level;
 
 		healthTextStatIncrease.gameObject.SetActive(true);
 		damageTextStatIncrease.gameObject.SetActive(true);
@@ -256,11 +256,17 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 				if (succesfulyLevelUp == false)
                 {
-					if(plantToLevelUp == null)
-                    {
+					if (plantToLevelUp == null)
+					{
 						bool plantLeveledUp = Inventory.instance.equippedPlantItem.plantSO.GiveXP(BattleSystem.instance.xpGiven);
-						
+
 						if (plantLeveledUp) return;
+					}
+                    else
+                    {
+						bool plantLeveledUpAgain = Inventory.instance.equippedPlantItem.plantSO.TryToLevelUp();
+
+						if (plantLeveledUpAgain) return;
 					}
 
 					if (BattleSystem.instance != null)
