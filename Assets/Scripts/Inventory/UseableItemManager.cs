@@ -20,13 +20,11 @@ public class UseableItemManager : MonoBehaviour
 
     bool hasBeenInitialized = false;
 
-    private void Awake()
+    public void Init()
     {
         instance = this;
 
         inventory = Inventory.instance;
-
-        gameObject.SetActive(false);
     }
 
     private void Start()

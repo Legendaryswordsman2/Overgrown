@@ -74,6 +74,8 @@ public class Inventory : MonoBehaviour
 	{
 		instance = this;
 
+		useItemScreen.Init();
+
 		GetComponent<CanvasGroup>().alpha = 1;
 
 		ClearItemSlots();
