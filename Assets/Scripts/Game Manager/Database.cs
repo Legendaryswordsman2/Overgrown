@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(menuName = "Database", fileName = "DataBase")]
+[CreateAssetMenu(menuName = "Various/Database", fileName = "DataBase")]
 public class Database : ScriptableObject
 {
 	[SerializeField] SOEnemy[] enemies;

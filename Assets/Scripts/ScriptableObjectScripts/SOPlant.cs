@@ -6,7 +6,7 @@ using System;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(menuName = "Plant", fileName = "New Plant")]
+[CreateAssetMenu(menuName = "Various/Plant", fileName = "New Plant")]
 public class SOPlant : ScriptableObject
 {
 	[SerializeField, ReadOnlyInspector] string id;

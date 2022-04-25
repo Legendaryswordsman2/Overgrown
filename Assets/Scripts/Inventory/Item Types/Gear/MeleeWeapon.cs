@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "Items/Gear/Melee Weapon")]
+[CreateAssetMenu(menuName = "Items/Gear/Weapon")]
 public class MeleeWeapon : Item
 {
 	[Space]
