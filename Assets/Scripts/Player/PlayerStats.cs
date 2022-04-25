@@ -75,12 +75,12 @@ public class PlayerStats : MonoBehaviour
 		healthTextStat.text += " " + maxHealth;
 
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
 		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
+			meleeDamageTextStat.text = "DAMAGE: " + damage;
 
 		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
 		else
 			defenseTextStat.text = "DEFENSE: " + defense;
 
@@ -135,12 +135,12 @@ public class PlayerStats : MonoBehaviour
 		healthTextStat.text += " " + maxHealth;
 
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
 		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
+			meleeDamageTextStat.text = "DAMAGE: " + damage;
 
 		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
 		else
 			defenseTextStat.text = "DEFENSE: " + defense;
 
@@ -168,9 +168,9 @@ public class PlayerStats : MonoBehaviour
 		if (BattleSystem.instance != null) return;
 
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
 		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
+			meleeDamageTextStat.text = "DAMAGE: " + damage;
 	}
 	public void IncreaseDefenseFromChosenLevelUpStat(int amount)
 	{
@@ -179,7 +179,7 @@ public class PlayerStats : MonoBehaviour
 		if (BattleSystem.instance != null) return;
 
 		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
 		else
 			defenseTextStat.text = "DEFENSE: " + defense;
 	}
@@ -243,14 +243,14 @@ public class PlayerStats : MonoBehaviour
 	public void RefreshMeleeDamageStat()
 	{
 		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + (damage + meleeWeapon.meleeDamageModifier);
+			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
 		else
-			meleeDamageTextStat.text = "MELEE DAMAGE: " + damage;
+			meleeDamageTextStat.text = "DAMAGE: " + damage;
 	}
 	public void RefreshDefenseStat()
 	{
 		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + (defense + armor.defenseModifier);
+			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
 		else
 			defenseTextStat.text = "DEFENSE: " + defense;
 	}
