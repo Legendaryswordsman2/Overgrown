@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopStorefront : MonoBehaviour
 {
 
-	[Header("Items on sale")]
+	[Header("Items For Sale")]
 	[SerializeField] JunkItem[] junkItems;
 	[SerializeField] ConsumableItem[] consumableItems;
 	[SerializeField] MeleeWeapon[] weapons;
