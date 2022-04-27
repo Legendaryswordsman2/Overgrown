@@ -81,11 +81,11 @@ public class Grow : MonoBehaviour
 	{
 		if (chosenGrowingPlant == null) return;
 
-		SaveSystem.SaveFile("/Misc/CurrentlyGrowingPlants", "/GrowingPlant1.json", new GrowSaveData(this));
+		SaveSystem.SaveFile("/Misc/CurrentlyGrowingPlants", "/GrowingPlant1", new GrowSaveData(this));
 	}
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
-		GrowSaveData growingPlantSaveData = SaveSystem.LoadFile<GrowSaveData>("/Misc/CurrentlyGrowingPlants/GrowingPlant1.json");
+		GrowSaveData growingPlantSaveData = SaveSystem.LoadFile<GrowSaveData>("/Misc/CurrentlyGrowingPlants/GrowingPlant1");
 
 		if (growingPlantSaveData == null) return;
 

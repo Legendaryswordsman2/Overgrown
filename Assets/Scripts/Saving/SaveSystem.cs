@@ -27,7 +27,7 @@ public static class SaveSystem
         Directory.CreateDirectory(filePath);
         Debug.Log("File or folder does not exist, Creating directory: " + filePath);
 		}
-        using (Stream stream = File.Open(filePath + fileName, FileMode.Create))
+        using (Stream stream = File.Open(filePath + fileName + ".data", FileMode.Create))
         {
             var binaryFormatter = new BinaryFormatter();
             binaryFormatter.Serialize(stream, objectToWrite);
@@ -36,7 +36,7 @@ public static class SaveSystem
 
     public static T LoadFile<T>(string filePath)
     {
-        filePath = currentSaveLocation + saveSubLocation + filePath;
+        filePath = currentSaveLocation + saveSubLocation + filePath + ".data";
         if (!File.Exists(filePath))
         {
             return default(T);

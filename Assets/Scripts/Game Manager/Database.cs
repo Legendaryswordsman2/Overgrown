@@ -19,7 +19,7 @@ public class Database : ScriptableObject
 	[SerializeField] QuestItem[] questItems;
 	[Header("Gear")]
 	[SerializeField] Armor[] armorItems;
-	[SerializeField] MeleeWeapon[] meleeWeaponItems;
+	[SerializeField] MeleeWeapon[] weaponItems;
 
 	public JunkItem GetJunkItem(string itemID)
 	{
@@ -76,9 +76,9 @@ public class Database : ScriptableObject
 		}
 		return null;
 	}
-	public MeleeWeapon GetMeleeWeaponItem(string itemID)
+	public MeleeWeapon GetWeaponItem(string itemID)
 	{
-		foreach (MeleeWeapon item in meleeWeaponItems)
+		foreach (MeleeWeapon item in weaponItems)
 		{
 			if (item.ID == itemID)
 			{
@@ -132,7 +132,7 @@ public class Database : ScriptableObject
 
 		// Gear
 		armorItems = FindAssetsByType<Armor>("Assets/Scriptable Objects/Items/Gear/Armor");
-		meleeWeaponItems = FindAssetsByType<MeleeWeapon>("Assets/Scriptable Objects/Items/Gear/Melee Weapons");
+		weaponItems = FindAssetsByType<MeleeWeapon>("Assets/Scriptable Objects/Items/Gear/Weapons");
 	}
 
 	// Slightly modified version of this answer: http://answers.unity.com/answers/1216386/view.html

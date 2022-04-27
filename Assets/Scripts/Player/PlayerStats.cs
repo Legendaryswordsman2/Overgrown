@@ -100,12 +100,12 @@ public class PlayerStats : MonoBehaviour
 		}
 
 		var saveData = new PlayerStatsSaveData(this);
-		SaveSystem.SaveFile("/Player", "/PlayerStats.json", saveData);
+		SaveSystem.SaveFile("/Player", "/PlayerStats", saveData);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
-		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats.json");
+		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats");
 		if (statsData == null)
 		{
 			currentHealth = maxHealth;

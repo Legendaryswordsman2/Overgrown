@@ -12,11 +12,11 @@ public static class Statistics
 	}
 	private static void SaveManager_OnSavingGame(object sender, System.EventArgs e)
 	{
-		SaveSystem.SaveFile("/Player", "/Statistics.json", new StatisticsData());
+		SaveSystem.SaveFile("/Player", "/Statistics", new StatisticsData());
 	}
 	private static void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
-		StatisticsData stats = SaveSystem.LoadFile<StatisticsData>("/Player/Statistics.json");
+		StatisticsData stats = SaveSystem.LoadFile<StatisticsData>("/Player/Statistics");
 
 		if (stats == null) return;
 

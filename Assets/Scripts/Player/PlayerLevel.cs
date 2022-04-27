@@ -127,14 +127,14 @@ public class PlayerLevel : MonoBehaviour
         }
     }
 
-    private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
+    private void SaveManager_OnSavingGame(object sender, EventArgs e)
     {
         PlayerXPData xpData = new PlayerXPData(this);
-        SaveSystem.SaveFile("/Player", "/PlayerLevel&XP.json", xpData);
+        SaveSystem.SaveFile("/Player", "/PlayerLevel&XP", xpData);
     }
-    private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
+    private void SaveManager_OnLoadingGame(object sender, EventArgs e)
     {
-        PlayerXPData xpData = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP.json");
+        PlayerXPData xpData = SaveSystem.LoadFile<PlayerXPData>("/Player/PlayerLevel&XP");
         if (xpData == null) return;
 
         playerLevel = xpData.playerLevel;

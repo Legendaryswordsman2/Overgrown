@@ -30,7 +30,7 @@ public class InventorySaveSystem : MonoBehaviour
 
 		// Gear
 		SaveArmorItems();
-		SaveMeleeWeaponItems();
+		SaveWeaponItems();
 	}
 
 
@@ -40,7 +40,7 @@ public class InventorySaveSystem : MonoBehaviour
 		LoadJunkItems();
 		LoadConsumableItems();
 		LoadQuestItems();
-		LoadMeleeWeaponItems();
+		LoadWeaponItems();
 		LoadArmorItems();
 
 		inventory.CreateItemCopies();
@@ -56,7 +56,7 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			questItemIDs.Add(inventory.questItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/QuestItemData.json", questItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory", "/QuestItemData", questItemIDs);
 	}
 	private void SaveConsumableItems()
 	{
@@ -66,7 +66,7 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			consumableItemIDs.Add(inventory.consumableItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData.json", consumableItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory", "/ConsumableItemData", consumableItemIDs);
 	}
 	private void SaveJunkItems()
 	{
@@ -76,7 +76,7 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			junkItemIDs.Add(inventory.junkItems[i].ID);
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData.json", junkItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData", junkItemIDs);
 	}
 	private void SaveEquippablePlantItems()
 	{
@@ -86,17 +86,17 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			equippablePlantitemsSave.Add(new PlantItemSaveData(inventory.equippablePlantItems[i]));
 		}
-		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData.json", equippablePlantitemsSave);
+		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData", equippablePlantitemsSave);
 	}
-	private void SaveMeleeWeaponItems()
+	private void SaveWeaponItems()
 	{
-		List<GearSaveData> meleeWeaponItems = new List<GearSaveData>();
+		List<GearSaveData> weaponItems = new List<GearSaveData>();
 
 		for (int i = 0; i < inventory.weaponItems.Count; i++)
 		{
-			meleeWeaponItems.Add(new GearSaveData(inventory.weaponItems[i].ID, inventory.weaponItems[i].isEquipped));
+			weaponItems.Add(new GearSaveData(inventory.weaponItems[i].ID, inventory.weaponItems[i].isEquipped));
 		}
-		SaveSystem.SaveFile("/Player/Inventory/Gear", "/MeleeWeaponItemData.json", meleeWeaponItems);
+		SaveSystem.SaveFile("/Player/Inventory/Gear", "/WeaponItemData", weaponItems);
 	}
 	private void SaveArmorItems()
 	{
@@ -106,12 +106,12 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			armorItemIDs.Add(new GearSaveData(inventory.armorItems[i].ID, inventory.armorItems[i].isEquipped));
 		}
-		SaveSystem.SaveFile("/Player/Inventory/Gear", "/ArmorItemData.json", armorItemIDs);
+		SaveSystem.SaveFile("/Player/Inventory/Gear", "/ArmorItemData", armorItemIDs);
 	}
 
 	private void LoadQuestItems()
 	{
-		List<string> questItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/QuestItemData.json");
+		List<string> questItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/QuestItemData");
 		if (questItemIDs == null) return;
 
 		inventory.questItems.Clear();
@@ -123,7 +123,7 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadConsumableItems()
 	{
-		List<string> consumableItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/ConsumableItemData.json");
+		List<string> consumableItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/ConsumableItemData");
 		if (consumableItemIDs == null) return;
 
 		inventory.consumableItems.Clear();
@@ -135,7 +135,7 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadJunkItems()
 	{
-		List<string> junkItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/JunkItemData.json");
+		List<string> junkItemIDs = SaveSystem.LoadFile<List<string>>("/Player/Inventory/JunkItemData");
 		if (junkItemIDs == null) return;
 
 		inventory.junkItems.Clear();
@@ -147,7 +147,7 @@ public class InventorySaveSystem : MonoBehaviour
 	}
 	private void LoadEquippablePlantItems()
 	{
-		List<PlantItemSaveData> equippablePlantitemsSave = SaveSystem.LoadFile<List<PlantItemSaveData>>("/Player/Inventory/PlantItemData.json");
+		List<PlantItemSaveData> equippablePlantitemsSave = SaveSystem.LoadFile<List<PlantItemSaveData>>("/Player/Inventory/PlantItemData");
 		if (equippablePlantitemsSave == null) return;
 
 		inventory.equippablePlantItems.Clear();
@@ -159,22 +159,22 @@ public class InventorySaveSystem : MonoBehaviour
 
 		inventory.equippablePlantitemsSave = equippablePlantitemsSave;
 	}
-	private void LoadMeleeWeaponItems()
+	private void LoadWeaponItems()
 	{
-		List<GearSaveData> meleeWeaponItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/MeleeWeaponItemData.json");
-		if (meleeWeaponItems == null) return;
+		List<GearSaveData> weaponItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/WeaponItemData");
+		if (weaponItems == null) return;
 
 		inventory.weaponItems.Clear();
 
-		foreach (GearSaveData item in meleeWeaponItems)
+		foreach (GearSaveData item in weaponItems)
 		{
-			inventory.weaponItems.Add(database.GetMeleeWeaponItem(item.itemID));
+			inventory.weaponItems.Add(database.GetWeaponItem(item.itemID));
 		}
-		inventory.meleeWeaponItemsSave = meleeWeaponItems;
+		inventory.meleeWeaponItemsSave = weaponItems;
 	}
 	private void LoadArmorItems()
 	{
-		List<GearSaveData> armorItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/ArmorItemData.json");
+		List<GearSaveData> armorItems = SaveSystem.LoadFile<List<GearSaveData>>("/Player/Inventory/Gear/ArmorItemData");
 		if (armorItems == null) return;
 
 		inventory.armorItems.Clear();
