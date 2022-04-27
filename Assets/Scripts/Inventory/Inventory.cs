@@ -104,12 +104,6 @@ public class Inventory : MonoBehaviour
 		armorItemSlotParent.transform.position = new Vector3(armorItemSlotParent.transform.position.x, 0);
 	}
 
-	public void RefreshInventory()
-	{
-		ClearItemSlots();
-		CreateItemCopies();
-		SetItemSlots();
-	}
 	public void ResetTabs()
 	{
 		junkItemsCategory.SetActive(true);
@@ -120,8 +114,17 @@ public class Inventory : MonoBehaviour
 		armorItemsCategory.SetActive(false);
 	}
 
-	public void RefreshJunkItemSlots()
+    #region Refresh Inventory
+	public void RefreshInventory()
 	{
+		ClearItemSlots();
+		CreateItemCopies();
+		SetItemSlots();
+	}
+    public void RefreshJunkItemSlots()
+	{
+		junkItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		foreach (Transform child in junkItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -136,6 +139,8 @@ public class Inventory : MonoBehaviour
 	}
 	public void RefreshConsumableItemSlots()
 	{
+		consumableItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		foreach (Transform child in consumableItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -152,6 +157,8 @@ public class Inventory : MonoBehaviour
 
 	public void RefreshQuestItemSlots()
 	{
+		questItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		foreach (Transform child in questItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -167,6 +174,8 @@ public class Inventory : MonoBehaviour
 
 	public void RefreshEquippablePlantItemSlots()
 	{
+		equippablePlantItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		foreach (Transform child in EquipablePlantItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -185,8 +194,10 @@ public class Inventory : MonoBehaviour
 				}
 		}
 	}
-	public void RefreshMeleeWeaponItemSlots()
+	public void RefreshWeaponItemSlots()
 	{
+		weaponItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		foreach (Transform child in meleeWeaponItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -205,6 +216,8 @@ public class Inventory : MonoBehaviour
 	}
 	public void RefreshArmorItemSlots()
 	{
+		armorItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		foreach (Transform child in armorItemSlotParent.transform)
 		{
 			Destroy(child.gameObject);
@@ -221,7 +234,8 @@ public class Inventory : MonoBehaviour
 					c.EquipForNewScene(ItemSlot);
 		}
 	}
-	public void UnequipPlant()
+    #endregion
+    public void UnequipPlant()
 	{
 		for (int i = 0; i < equippablePlantItems.Count; i++)
 		{
@@ -271,8 +285,21 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
+	void SortItems()
+    {
+		consumableItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+		Debug.Log("Sorted Consumable Items");
+    }
+
 	public void SetItemSlots()
 	{
+		junkItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+		consumableItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+		questItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+		weaponItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+		armorItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+		equippablePlantItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
+
 		for (int i = 0; i < junkItems.Count; i++)
 		{
 			var itemSlot = Instantiate(itemSlotPrefab, junkItemSlotParent.transform).GetComponent<ItemSlot>();
@@ -407,7 +434,7 @@ public class Inventory : MonoBehaviour
 		else if (item is MeleeWeapon meleeWeapon)
 		{
 			weaponItems.Add(meleeWeapon);
-			RefreshMeleeWeaponItemSlots();
+			RefreshWeaponItemSlots();
 		}
 		else if (item is Armor armor)
 		{

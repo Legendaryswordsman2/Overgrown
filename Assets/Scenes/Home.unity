@@ -37321,6 +37321,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: consumableItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c79f34c24278c846a3666e960cb407a, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: consumableItems.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1aae9b5226c6b194096be12865fab6d9, type: 2}
+    - target: {fileID: 2406020429540395383, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: consumableItems.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c6a24b517e874446a0342dfe732565d, type: 2}
     - target: {fileID: 2406020429559582468, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_Name
       value: Player Base
