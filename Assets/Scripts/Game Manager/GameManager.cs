@@ -175,6 +175,8 @@ public class GameManager : MonoBehaviour
 
     void OpenInventory()
     {
+        try
+        {
 		inventoryInputManager.ResetInventoryView(false);
 		bool success = OpenOverlay(inventory.gameObject);
 
@@ -182,6 +184,12 @@ public class GameManager : MonoBehaviour
 
 		playerHealthBar.SetActive(false);
 		StopTime();
+        }
+        catch (NullReferenceException)
+        {
+            Debug.LogError("Inventory not set to an instance, set inventory to active outside of play mode to fix");
+            //throw;
+        }
 	}
 
     public void CloseInventory()

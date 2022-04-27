@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,14 +28,13 @@ public class InventoryInputManager : MonoBehaviour
 			GameManager.instance.CloseInventory();
 			return;
 		}
-
-        if (inventory.useItemScreen.gameObject.activeSelf)
-        {
-			inventory.GoToCategory(Inventory.instance.consumableItemsCategory);
-			inventory.ItemsCategory.SetActive(true);
-			return;
-			//inventory.useItemScreen.gameObject.SetActive(false);
-		}
+            if (inventory.useItemScreen.gameObject.activeSelf)
+            {
+                inventory.GoToCategory(Inventory.instance.consumableItemsCategory);
+                inventory.ItemsCategory.SetActive(true);
+                return;
+                //inventory.useItemScreen.gameObject.SetActive(false);
+            }
 
 		inventory.ResetTabs();
 
