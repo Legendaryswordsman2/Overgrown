@@ -45,6 +45,7 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 		inventory.RemoveItem(inventory.useItemScreen.currentItemToBeUsed);
 		inventory.junkItemsCategory.SetActive(false);
 		inventory.questItemsCategory.SetActive(false);
+		inventory.plantInfoBox.gameObject.SetActive(false);
 		inventory.consumableItemsCategory.SetActive(true);
 		inventory.GoToCategory(Inventory.instance.ItemsCategory);
     }
@@ -74,7 +75,7 @@ public class UseItemItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 		if (item is PlayerItem)
 		{
-			Inventory.instance.plantInfoBox.SetInfoBoxForPlayer(GameManager.instance.player.GetComponent<PlayerStats>());
+			Inventory.instance.plantInfoBox.SetInfoBoxForPlayer(GameManager.instance.player.GetComponent<PlayerStats>(), GameManager.instance.player.GetComponent<PlayerLevel>());
 			return;
 		}
 

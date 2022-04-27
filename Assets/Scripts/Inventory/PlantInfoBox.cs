@@ -35,11 +35,16 @@ public class PlantInfoBox : MonoBehaviour
 		gameObject.SetActive(true);
 	}
 
-	public void SetInfoBoxForPlayer(PlayerStats playerStats)
+	public void SetInfoBoxForPlayer(PlayerStats playerStats, PlayerLevel playerLevel)
     {
 		plantName.text = "PLAYER";
 		plantHealthBar.max = playerStats.maxHealth;
 		plantHealthBar.current = playerStats.currentHealth;
+
+		plantXPBar.max = playerLevel.xpToLevelUp;
+		plantXPBar.current = playerLevel.xp;
+
+		levelTextStat.text = "Level: " + playerLevel.playerLevel;
 
 		healthTextStat.text = "Health: " + playerStats.currentHealth + " / " + playerStats.maxHealth;
 		damageTextStat.text = "Damage: " + playerStats.damage;
