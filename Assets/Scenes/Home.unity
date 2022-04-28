@@ -37466,6 +37466,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -98.8012
       objectReference: {fileID: 0}
+    - target: {fileID: 1545981052, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_fontSize
+      value: 199.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545981052, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 199.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1587467404, guid: 37da4b798f9f6a24982458d1be8f0cf6, type: 3}
       propertyPath: m_IsActive
       value: 1
