@@ -23,7 +23,6 @@ public class BattleSystem : MonoBehaviour
 
 	[field: SerializeField] public GameObject playerChoices { get; private set; }
 	[field: SerializeField] public GameObject playerPlantChoices { get; private set; }
-	[field: SerializeField] public GameObject arrowPrefab { get; private set; }
 
 	[field: Header("Battle Over Screen Refernces")]
 	[field: SerializeField] public GameObject gameOverScreen { get; private set; }

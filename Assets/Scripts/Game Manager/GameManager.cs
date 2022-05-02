@@ -147,7 +147,13 @@ public class GameManager : MonoBehaviour
 
         EnemySaveData[] _enemiesAliveSaveData = enemySpawnManager.enemiesAliveSaveData.ToArray();
 
-        BattleSetupData.AssignVariables(enemies, SceneManager.GetActiveScene().buildIndex, player.transform.position, _enemiesAliveSaveData, playerStartsTurn);
+        BattleSetupData.AssignVariables(enemies,
+            SceneManager.GetActiveScene().buildIndex,
+            player.transform.position,
+            _enemiesAliveSaveData,
+            playerStartsTurn,
+            enemySpawnManager.MinEnemyLevel,
+            enemySpawnManager.MaxEnemyLevel);
 
         StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("Battle Start", "Battle", "Turn Based Combat"));
     }

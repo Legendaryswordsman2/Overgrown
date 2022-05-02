@@ -7,7 +7,7 @@ QualitySettings:
   m_CurrentQuality: 0
   m_QualitySettings:
   - serializedVersion: 2
-    name: Medium
+    name: Default
     pixelLightCount: 1
     shadows: 1
     shadowResolution: 0
@@ -40,13 +40,14 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: aebda38da89c0dd48bc00c2a4c1266c8, type: 2}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 0
     Lumin: 0
     Nintendo Switch: 0
     PS4: 0
+    Server: 0
     Stadia: 0
     Standalone: 0
     WebGL: 0

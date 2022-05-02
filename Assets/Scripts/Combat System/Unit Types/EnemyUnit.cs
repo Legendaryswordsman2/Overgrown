@@ -42,10 +42,17 @@ public class EnemyUnit : BaseUnit
 		int playerLevel = PlayerStats.instance.GetComponent<PlayerLevel>().playerLevel;
 
 		int enemyLevel;
+
 		do
 		{
 			enemyLevel = Random.Range(playerLevel - 2, playerLevel + 2);
 		} while (enemyLevel <= 0);
+
+		if (enemyLevel < BattleSetupData.minEnemyLevel)
+			enemyLevel = Random.Range(BattleSetupData.minEnemyLevel - 1, BattleSetupData.minEnemyLevel + 1);
+		else if (enemyLevel > BattleSetupData.maxEnemyLevel)
+			enemyLevel = Random.Range(BattleSetupData.maxEnemyLevel - 1, BattleSetupData.maxEnemyLevel + 1);
+
 
 		level = enemyLevel;
 

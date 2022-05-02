@@ -10,17 +10,25 @@ public static class BattleSetupData
 	public static bool playerStartsTurn = true;
 	public static EnemySaveData[] enemySaveData = new EnemySaveData[0];
 
+	public static int minEnemyLevel;
+	public static int maxEnemyLevel;
+
 	// After Combat
 	public static int xpToAwardPlayer;
 
 	public static SOPlant plantSO;
 
-	public static void AssignVariables(SOEnemy[] __enemies, int _sceneIndex, Vector3 _playerPosition, EnemySaveData[] _enemySaveData, bool _playerStartsTurn = true)
+	public static void AssignVariables(SOEnemy[] __enemies, int _sceneIndex, Vector3 _playerPosition, EnemySaveData[] _enemySaveData, bool _playerStartsTurn, int _minEnemyLevel, int _maxEnemyLevel)
 	{
 		_enemies = __enemies;
 		sceneIndex = _sceneIndex;
 		playerPosition = _playerPosition;
 		playerStartsTurn = _playerStartsTurn;
 		enemySaveData = _enemySaveData;
+
+		minEnemyLevel = _minEnemyLevel;
+		maxEnemyLevel = _maxEnemyLevel;
+
+		Debug.Log(minEnemyLevel + " " + maxEnemyLevel);
 	}
 }

@@ -24,6 +24,8 @@ public class PlayerPlantUnit : BaseUnit
 
 		BattleSystem.instance.playerHasPlant = true;
 
+		transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+
 		gameObject.SetActive(true);
 	}
 

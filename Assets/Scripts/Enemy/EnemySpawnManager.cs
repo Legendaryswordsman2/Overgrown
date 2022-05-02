@@ -9,6 +9,12 @@ using UnityEditor;
 public class EnemySpawnManager : MonoBehaviour
 {
 	public static EnemySpawnManager instance { get; private set; }
+
+	[field: Tooltip("Leave Blank For No Cap")]
+	[field: SerializeField] public int MinEnemyLevel{ get; private set; }
+
+	[field: Tooltip("Leave Blank For No Cap")]
+	[field: SerializeField] public int MaxEnemyLevel { get; private set; }
 	[field: SerializeField] public SOEnemy[] EnemySpawnPool { get; private set; }
 	[field: SerializeField, ReadOnlyInspector] public List<GameObject> enemiesAlive { get; set; }
 	[field: SerializeField, ReadOnlyInspector] public List<EnemySaveData> enemiesAliveSaveData { get; set; } = new List<EnemySaveData>();
@@ -18,7 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
 	[SerializeField] List<Transform> availableSpawnLocations;
 
 	public int NumberOfSpawns { get; set; }
-	public bool spawnEnemies { get; private set; } = true;
+	public bool canSpawnEnemies { get; private set; } = true;
 
 	int chosenNumberOfSpawns;
 
@@ -30,7 +36,7 @@ public class EnemySpawnManager : MonoBehaviour
 		gameManager = GameManager.instance;
 		if (BattleSetupData.enemySaveData.Length != 0)
 		{
-			spawnEnemies = false;
+			canSpawnEnemies = false;
 			SpawnEnemiesFromBeforeCombat();
 		}
 
@@ -39,7 +45,7 @@ public class EnemySpawnManager : MonoBehaviour
 			availableSpawnLocations.Add(child);
 		}
 
-		if (spawnEnemies)
+		if (canSpawnEnemies)
 		{
 			chosenNumberOfSpawns = Random.Range(MinSpawns, MaxSpawns + 1);
 			SpawnEnemies();
@@ -49,12 +55,12 @@ public class EnemySpawnManager : MonoBehaviour
 	void SpawnEnemies()
 	{
 
-			int chosenLocationIndex = Random.Range(0, availableSpawnLocations.Count);
-			enemiesAlive.Add(gameManager.SpawnEnemy(EnemySpawnPool[Random.Range(0, EnemySpawnPool.Length)], availableSpawnLocations[chosenLocationIndex].position));
-			availableSpawnLocations.RemoveAt(chosenLocationIndex);
-			NumberOfSpawns++;
+        int chosenSpawnLocationIndex = Random.Range(0, availableSpawnLocations.Count);
+        enemiesAlive.Add(gameManager.SpawnEnemy(EnemySpawnPool[Random.Range(0, EnemySpawnPool.Length)], availableSpawnLocations[chosenSpawnLocationIndex].position));
+        availableSpawnLocations.RemoveAt(chosenSpawnLocationIndex);
+        NumberOfSpawns++;
 
-		if(NumberOfSpawns < chosenNumberOfSpawns)
+        if (NumberOfSpawns < chosenNumberOfSpawns)
 			SpawnEnemies();
 	}
 	void SpawnEnemiesFromBeforeCombat()
