@@ -34,6 +34,10 @@ public class BattleSystem : MonoBehaviour
 
 	[field: Header("Adjustements")]
 	[field: SerializeField] public float walkSpeed { get; private set; } = 4;
+	[field: SerializeField] public float walkBackToBasePositionSpeed { get; private set; } = 7;
+
+	[field: Space]
+
 	[field: Tooltip("The delay before switching from the player team to the enemy team and vise versa")]
 	[field: SerializeField] public float DelayBeforeSwitchingTurn { get; private set; } = 2;
 	[field: SerializeField] public float backToBlockAnimationDelay { get; private set; } = 1;
@@ -46,7 +50,7 @@ public class BattleSystem : MonoBehaviour
 	// Private
 	[HideInInspector] public bool playerHasPlant = true;
 
-	public int enemySelectionIndex = 0;
+	[HideInInspector] public int enemySelectionIndex = 0;
 
 	// Rewards Given when battle won
 	[HideInInspector] public int xpGiven;

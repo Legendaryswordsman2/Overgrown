@@ -37548,13 +37548,13 @@ MonoBehaviour:
   <inventory>k__BackingField: {fileID: 1207812909}
   <playerChoices>k__BackingField: {fileID: 1006589390}
   <playerPlantChoices>k__BackingField: {fileID: 1330514159}
-  <arrowPrefab>k__BackingField: {fileID: 9212809993732800865, guid: c92dd7e951ca17a41939eb3e92b288cb, type: 3}
   <gameOverScreen>k__BackingField: {fileID: 1924017502}
   <battleLostScreen>k__BackingField: {fileID: 941888815}
   <battleWonScreen>k__BackingField: {fileID: 1553247436}
   <xpGainedText>k__BackingField: {fileID: 225850410}
   <moneyGainedText>k__BackingField: {fileID: 1130742919}
-  <walkSpeed>k__BackingField: 4
+  <walkSpeed>k__BackingField: 6
+  <walkBackToBasePositionSpeed>k__BackingField: 10
   <DelayBeforeSwitchingTurn>k__BackingField: 2
   <backToBlockAnimationDelay>k__BackingField: 1
   <AttackDuration>k__BackingField: 0.5
