@@ -37555,10 +37555,8 @@ MonoBehaviour:
   <moneyGainedText>k__BackingField: {fileID: 1130742919}
   <walkSpeed>k__BackingField: 6
   <walkBackToBasePositionSpeed>k__BackingField: 10
-  <DelayBeforeSwitchingTurn>k__BackingField: 2
-  <backToBlockAnimationDelay>k__BackingField: 1
-  <AttackDuration>k__BackingField: 0.5
-  <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 1
+  <backToBlockAnimationAfterHitDelay>k__BackingField: 1
+  <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 0.5
   <defensePercentagePerDefensePoint>k__BackingField: 0.4
   <critPercentagePerCritPoint>k__BackingField: 0.2
   <baseCritChancePercantage>k__BackingField: 20

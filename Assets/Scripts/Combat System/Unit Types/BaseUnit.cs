@@ -124,7 +124,7 @@ public abstract class BaseUnit : MonoBehaviour
 	IEnumerator HurtWhileBlocking()
 	{
 		anim.Play("Hurt Animation");
-		yield return new WaitForSeconds(battleSystem.backToBlockAnimationDelay);
+		yield return new WaitForSeconds(battleSystem.backToBlockAnimationAfterHitDelay);
 		anim.Play("Block Animation");
 	}
 
@@ -163,7 +163,7 @@ public abstract class BaseUnit : MonoBehaviour
 
 	IEnumerator ReturnToBasePOS()
 	{
-		yield return new WaitForSeconds(battleSystem.AttackDuration);
+		yield return new WaitForSeconds(0.5f);
 		FlipSprite();
 		currentMode = CurrentMode.ReturningHome;
 		anim.Play("Walk Animation");

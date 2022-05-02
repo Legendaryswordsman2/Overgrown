@@ -39,10 +39,12 @@ public class BattleSystem : MonoBehaviour
 	[field: Space]
 
 	[field: Tooltip("The delay before switching from the player team to the enemy team and vise versa")]
-	[field: SerializeField] public float DelayBeforeSwitchingTurn { get; private set; } = 2;
-	[field: SerializeField] public float backToBlockAnimationDelay { get; private set; } = 1;
-	[field: SerializeField] public float AttackDuration { get; private set; } = 1;
+	[field: Header("Delays")]
+	[field: SerializeField] public float backToBlockAnimationAfterHitDelay { get; private set; } = 1;
 	[field: SerializeField] public float delayBeforeNextEnemyActionAfterBlocking { get; private set; } = 1;
+
+	[field: Header("Stat Points")]
+	[field: SerializeField] public float AttackDamagePerAttackPoint { get; private set; } = 0.7f;
 	[field: SerializeField] public float defensePercentagePerDefensePoint { get; private set; } = 0.4f;
 	[field: SerializeField] public float critPercentagePerCritPoint { get; private set; } = 0.2f;
 	[field: SerializeField] public float baseCritChancePercantage { get; private set; } = 20;
@@ -114,7 +116,6 @@ public class BattleSystem : MonoBehaviour
 
 	public IEnumerator SwitchTurn()
 	{
-		yield return new WaitForSeconds(DelayBeforeSwitchingTurn);
 		if (state == BattleState.PlayerTurn || state == BattleState.PlayerPlantTurn)
 		{
 			playerChoices.SetActive(false);
