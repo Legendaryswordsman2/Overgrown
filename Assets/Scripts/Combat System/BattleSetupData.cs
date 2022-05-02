@@ -28,7 +28,5 @@ public static class BattleSetupData
 
 		minEnemyLevel = _minEnemyLevel;
 		maxEnemyLevel = _maxEnemyLevel;
-
-		Debug.Log(minEnemyLevel + " " + maxEnemyLevel);
 	}
 }
