@@ -32,7 +32,7 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public TMP_Text moneyGainedText { get; private set; }
 
 
-	[field: Header("Adjustements")]
+	[field: Header("Walk Speeds")]
 	[field: SerializeField] public float walkSpeed { get; private set; } = 4;
 	[field: SerializeField] public float walkBackToBasePositionSpeed { get; private set; } = 7;
 

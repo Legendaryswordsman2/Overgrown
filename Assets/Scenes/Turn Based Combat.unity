@@ -37557,6 +37557,7 @@ MonoBehaviour:
   <walkBackToBasePositionSpeed>k__BackingField: 10
   <backToBlockAnimationAfterHitDelay>k__BackingField: 1
   <delayBeforeNextEnemyActionAfterBlocking>k__BackingField: 0.5
+  <AttackDamagePerAttackPoint>k__BackingField: 0.7
   <defensePercentagePerDefensePoint>k__BackingField: 0.4
   <critPercentagePerCritPoint>k__BackingField: 0.2
   <baseCritChancePercantage>k__BackingField: 20
