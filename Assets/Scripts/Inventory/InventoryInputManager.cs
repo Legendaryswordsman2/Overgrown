@@ -13,14 +13,15 @@ public class InventoryInputManager : MonoBehaviour
 	private void Awake()
 	{
 		inventory = Inventory.instance;
+
+        GameManager.playerInputActions.Player.Back.performed += Back_performed;
 	}
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape) && inventory.selectionMode != SelectionMode.Sell)
-		{
-			ResetInventoryView();
-		}
-	}
+
+    private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+		if(GameManager.currentlyOpenOverlay == gameObject)
+		ResetInventoryView();
+    }
 	public void ResetInventoryView(bool canCloseInventory = true)
 	{
 		if (canCloseInventory && categoryButtons.activeSelf)
