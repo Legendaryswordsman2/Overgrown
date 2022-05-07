@@ -50,9 +50,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        horizontalMove = playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
-
-        //horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed;
+        horizontalMove = (int)playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
 
         if (canWalk && GameManager.timeActive)
         {
