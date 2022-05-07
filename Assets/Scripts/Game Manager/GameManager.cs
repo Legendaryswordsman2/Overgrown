@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+        if(playerInputActions != null)
+        playerInputActions.Player.Disable();
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 

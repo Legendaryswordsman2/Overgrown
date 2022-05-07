@@ -12,9 +12,14 @@ public class GenericNPC : MonoBehaviour
 
     bool isInRange;
 
-    private void Update()
+    private void Awake()
     {
-        if (isInRange && GameManager.timeActive && Input.GetKeyDown(KeyCode.E))
+        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
+    }
+
+    private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (isInRange && GameManager.timeActive)
         {
             highlightIcon.SetActive(false);
             dialogueSystem.Talk(npc);

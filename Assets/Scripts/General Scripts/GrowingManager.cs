@@ -11,9 +11,26 @@ public class GrowingManager : MonoBehaviour
 	private void Awake()
 	{
 		plantUiMenu = GameManager.instance.plantUiMenu;
+
+        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
+        GameManager.playerInputActions.Player.Back.performed += Back_performed;
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+		if (plantablePot != null)
+		{
+			GameManager.OpenOverlay(plantUiMenu);
+		}
+	}
+    private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+		if (GameManager.currentlyOpenOverlay == plantUiMenu)
+			GameManager.CloseOverlay(plantUiMenu);
+	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Pot"))
 		{
@@ -29,18 +46,6 @@ public class GrowingManager : MonoBehaviour
 			plantablePot = null;
 		}
 	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.E) && plantablePot != null)
-		{
-			GameManager.OpenOverlay(plantUiMenu);
-		}
-
-		if(Input.GetKeyDown(KeyCode.Escape) && GameManager.currentlyOpenOverlay == plantUiMenu)
-			GameManager.CloseOverlay(plantUiMenu);
-	}
-
 	public void StartPlanting(SOGrowingPlant growingPlantSO)
 	{
 		GameManager.CloseOverlay(plantUiMenu);

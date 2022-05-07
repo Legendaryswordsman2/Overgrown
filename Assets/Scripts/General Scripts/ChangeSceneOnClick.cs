@@ -12,16 +12,11 @@ public class ChangeSceneOnClick : MonoBehaviour
     [SerializeField] bool hasStartTransition = true;
     
 
-    bool isInRange;
+    [SerializeField] bool isInRange;
     GameManager gameManager;
     private void Start()
     {
         gameManager = GameManager.instance;
-    }
-
-    private void Awake()
-    {
-        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -44,14 +39,16 @@ public class ChangeSceneOnClick : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
 			if (changeSceneIcon != null) changeSceneIcon.SetActive(true);
-			isInRange = true;
+            GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
+            isInRange = true;
 		}
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-			isInRange = false;
+            GameManager.playerInputActions.Player.Interact.performed -= Interact_performed;
+            isInRange = false;
 			if (changeSceneIcon != null) changeSceneIcon.SetActive(false);
 		}
     }
