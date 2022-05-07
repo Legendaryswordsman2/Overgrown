@@ -57,19 +57,23 @@ public class GameManager : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
+        playerInputActions.Player.OpenPauseMenu.performed += OpenPauseMenu_performed;
+
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         inventoryInputManager = inventory.GetComponent<InventoryInputManager>();
     }
 
+    private void OpenPauseMenu_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (currentlyOpenOverlay == pauseMenu)
+            ClosePauseMenu();
+        else
+            OpenPauseMenu();
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(pauseMenuKey))
-            if (currentlyOpenOverlay == pauseMenu)
-                ClosePauseMenu();
-            else
-                OpenPauseMenu();
-
         if (Input.GetKeyDown(inventoryKey))
             if (currentlyOpenOverlay == inventory.gameObject)
                 CloseInventory();

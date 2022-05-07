@@ -44,6 +44,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Pause Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""25b6af4c-d9b7-4e03-9742-50088dbb67ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d00f0aa-db96-467f-991a-1311d255b96d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Open Pause Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d2246cf-030a-4bdf-b8f5-a836a1f3a8ec"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Open Pause Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -167,6 +198,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_OpenPauseMenu = m_Player.FindAction("Open Pause Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -228,12 +260,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_OpenPauseMenu;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @OpenPauseMenu => m_Wrapper.m_Player_OpenPauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -249,6 +283,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @OpenPauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenPauseMenu;
+                @OpenPauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenPauseMenu;
+                @OpenPauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenPauseMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -259,6 +296,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @OpenPauseMenu.started += instance.OnOpenPauseMenu;
+                @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
+                @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
             }
         }
     }
@@ -285,5 +325,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnOpenPauseMenu(InputAction.CallbackContext context);
     }
 }
