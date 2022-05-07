@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3440
     height: 1397
   m_ShowMode: 4
-  m_Title: Player Input Actions (Input Actions)
+  m_Title: Scene
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 954
+  controlID: 178
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Legendary
+  m_LastLoadedLayoutName: 
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 942
+  controlID: 172
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 943
+  controlID: 20
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 944
+  controlID: 21
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 1843
     height: 474
-  m_MinSize: {x: 601, y: 321}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 600, y: 300}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 20}
@@ -322,8 +322,8 @@ MonoBehaviour:
     y: 0
     width: 676
     height: 1347
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -382,23 +382,23 @@ MonoBehaviour:
     m_SearchString: 
   m_ActionsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7764d527
-    m_LastClickedID: 668296311
-    m_ExpandedIDs: e18f82ad7b38eabbd8643f31eba88f4c
+    m_SelectedIDs: 2f951400
+    m_LastClickedID: 1348911
+    m_ExpandedIDs: 6253e1902f951400d8643f31eba88f4c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: 1D Axis
+      m_OriginalName: 1D Axis
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 1348911
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -441,8 +441,16 @@ MonoBehaviour:
       \"type\": \"Button\",\n                    \"id\": \"f63bd157-d606-4fd9-be1b-76af94247ead\",\n                   
       \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
       \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Open Pause Menu\",\n                   
+      },\n                {\n                    \"name\": \"Open/Close Pause Menu\",\n                   
       \"type\": \"Button\",\n                    \"id\": \"25b6af4c-d9b7-4e03-9742-50088dbb67ce\",\n                   
+      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
+      },\n                {\n                    \"name\": \"Open/Close Inventory\",\n                   
+      \"type\": \"Button\",\n                    \"id\": \"72b6326f-aa90-4156-8bba-9ec482b6a269\",\n                   
+      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
+      },\n                {\n                    \"name\": \"Back\",\n                   
+      \"type\": \"Button\",\n                    \"id\": \"c3d5fda3-ad82-44ec-8980-a3edbdcc459f\",\n                   
       \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
       \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
       }\n            ],\n            \"bindings\": [\n                {\n                   
@@ -491,16 +499,37 @@ MonoBehaviour:
       \"name\": \"\",\n                    \"id\": \"1d00f0aa-db96-467f-991a-1311d255b96d\",\n                   
       \"path\": \"<Gamepad>/start\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"Gamepad\",\n                   
-      \"action\": \"Open Pause Menu\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"9d2246cf-030a-4bdf-b8f5-a836a1f3a8ec\",\n                   
+      \"action\": \"Open/Close Pause Menu\",\n                    \"isComposite\":
+      false,\n                    \"isPartOfComposite\": false\n                },\n               
+      {\n                    \"name\": \"\",\n                    \"id\": \"9d2246cf-030a-4bdf-b8f5-a836a1f3a8ec\",\n                   
       \"path\": \"<Keyboard>/escape\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"Keyboard\",\n                   
-      \"action\": \"Open Pause Menu\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                }\n            ]\n        }\n   
-      ],\n    \"controlSchemes\": [\n        {\n            \"name\": \"Keyboard\",\n           
-      \"bindingGroup\": \"Keyboard\",\n            \"devices\": [\n               
-      {\n                    \"devicePath\": \"<Keyboard>\",\n                   
+      \"action\": \"Open/Close Pause Menu\",\n                    \"isComposite\":
+      false,\n                    \"isPartOfComposite\": false\n                },\n               
+      {\n                    \"name\": \"\",\n                    \"id\": \"723aff80-e527-40e5-8d5d-d16fe8496f2a\",\n                   
+      \"path\": \"<Gamepad>/buttonNorth\",\n                    \"interactions\":
+      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
+      \"Gamepad\",\n                    \"action\": \"Open/Close Inventory\",\n                   
+      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
+      },\n                {\n                    \"name\": \"\",\n                   
+      \"id\": \"b3adcdba-1fe9-4b9e-b87f-f58923a09bfb\",\n                    \"path\":
+      \"<Keyboard>/i\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"Keyboard\",\n                   
+      \"action\": \"Open/Close Inventory\",\n                    \"isComposite\":
+      false,\n                    \"isPartOfComposite\": false\n                },\n               
+      {\n                    \"name\": \"\",\n                    \"id\": \"ff7b979c-b80e-42c2-a023-f44a9aa37218\",\n                   
+      \"path\": \"<Keyboard>/escape\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"Keyboard\",\n                   
+      \"action\": \"Back\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": false\n                },\n                {\n                   
+      \"name\": \"\",\n                    \"id\": \"a9ffa406-71a6-4bb7-acfd-08d5a4647dc4\",\n                   
+      \"path\": \"<Gamepad>/buttonEast\",\n                    \"interactions\":
+      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
+      \"Gamepad\",\n                    \"action\": \"Back\",\n                   
+      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
+      }\n            ]\n        }\n    ],\n    \"controlSchemes\": [\n        {\n           
+      \"name\": \"Keyboard\",\n            \"bindingGroup\": \"Keyboard\",\n           
+      \"devices\": [\n                {\n                    \"devicePath\": \"<Keyboard>\",\n                   
       \"isOptional\": false,\n                    \"isOR\": false\n               
       }\n            ]\n        },\n        {\n            \"name\": \"Gamepad\",\n           
       \"bindingGroup\": \"Gamepad\",\n            \"devices\": [\n               
@@ -694,9 +723,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 7230f8ff1c68f8ff76cef8ffb2e8f8ff2635f9ffa635f9ff2639f9ff3a55f9ffb855f9ff7680f9ffb4a4f9ff26a5f9ff68c3f9ff80f5f9ff3607faff101afaff2449faff2649fafff8e3faffecf8faff8895fbff969afbff08aafbff620afcffe01bfcffccf1fdff0c78feffe885fffffa85ffff728effff748effff5ca7ffffdaa7ffffc8abffffd2abfffff4bbfffff8bbffff76bcffff44d0ffff60e2ffffc2faffffc6faffff44fbffffccec010030ed0100b22c0200e62d0200fc2d02008c9306001e940600b4b606003c060700e8070700a41507008c1707004c1807006a22070046450700de4b0700de4d07006a8f07006a910700d4b807005ed40700
+      m_SelectedIDs: 44660000
+      m_LastClickedID: 26180
+      m_ExpandedIDs: 0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -967,9 +996,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -7.5638156, y: 0.25138026, z: -8.535524}
+    m_Target: {x: -11.827477, y: 1.0025828, z: -8.349031}
     speed: 2
-    m_Value: {x: -7.5638156, y: 0.25138026, z: -8.535524}
+    m_Value: {x: -11.827477, y: 1.0025828, z: -8.349031}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1260,7 +1289,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 6ea10000
     m_LastClickedID: 41326
-    m_ExpandedIDs: 00000000488900006c9000000093000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000008a940000ca970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1288,7 +1317,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006c90000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000008a940000ca970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1443,4 +1472,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -27194
+  m_LastSelectedObjectID: 26924

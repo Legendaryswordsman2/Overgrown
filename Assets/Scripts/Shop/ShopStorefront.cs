@@ -18,20 +18,20 @@ public class ShopStorefront : MonoBehaviour
 	bool isInRange;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
 		isInRange = true;
 		openShopIcon.SetActive(true);
 	}
 
-	private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
 	{
+		GameManager.playerInputActions.Player.Interact.performed -= Interact_performed;
 		isInRange = false;
 		openShopIcon.SetActive(false);
 	}
 
-	private void Update()
+	private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
 	{
-		if(isInRange && Input.GetKeyDown(KeyCode.E))
-		{
 			shop.ResetShopView(false);
 			bool successfullyOpenedShop = GameManager.OpenOverlay(shop.gameObject);
 			if (successfullyOpenedShop == false) return;
@@ -40,7 +40,6 @@ public class ShopStorefront : MonoBehaviour
 
 			GameManager.instance.playerHealthBar.SetActive(false);
 			GameManager.StopTime();
-		}
 	}
 	void SetShopItemSlots()
 	{

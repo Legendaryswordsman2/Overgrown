@@ -66,7 +66,17 @@ public class Shop : MonoBehaviour
 		initialized = true;
 	}
 
-	private void SetupSellableItemSlots()
+    private void OnEnable()
+    {
+		GameManager.playerInputActions.Player.Back.performed += Back_performed;
+	}
+
+    private void OnDisable()
+    {
+		GameManager.playerInputActions.Player.Back.performed -= Back_performed;
+	}
+
+    private void SetupSellableItemSlots()
 	{
 		for (int i = 0; i < inventory.junkItems.Count; i++)
 		{
@@ -93,9 +103,8 @@ public class Shop : MonoBehaviour
 		}
 	}
 
-	private void Update()
+	private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
 			ResetShopView(true);
 	}
 

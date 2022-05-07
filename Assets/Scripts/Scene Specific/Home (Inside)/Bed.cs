@@ -5,8 +5,6 @@ using System;
 
 public class Bed : MonoBehaviour
 {
-	[SerializeField] KeyCode sleepKey = KeyCode.E;
-
 	[SerializeField] Vector3 playerWakeUpPosition;
 
 	[SerializeField] GameObject sleepIcon;
@@ -33,27 +31,21 @@ public class Bed : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			isInRange = true;
+            GameManager.playerInputActions.Player.Interact.performed += Sleep;
 			sleepIcon.SetActive(true);
 		}
 	}
 
-	private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Player"))
 		{
-			isInRange = false;
+			GameManager.playerInputActions.Player.Interact.performed -= Sleep;
 			sleepIcon.SetActive(false);
 		}
 	}
 
-	private void Update()
-	{
-		if (isInRange && Input.GetKeyDown(sleepKey))
-			Sleep();
-	}
-
-	void Sleep()
+	void Sleep(UnityEngine.InputSystem.InputAction.CallbackContext context)
 	{
 		if (playerhasSleptBefore)
 		{
