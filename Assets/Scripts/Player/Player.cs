@@ -29,13 +29,10 @@ public class Player : MonoBehaviour
     GameManager gameManager;
     Transform playerTexture;
 
-    PlayerInputActions playerInputActions;
-
     public bool isWalking { get; private set; }
 
     private void Awake()
     {
-
         // Initialize values and references
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
@@ -43,14 +40,11 @@ public class Player : MonoBehaviour
         anim = transform.GetChild(4).GetComponent<Animator>();
         playerTexture = transform.GetChild(4);
         gameManager = GameManager.instance;
-
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
     }
 
     private void Update()
     {
-        horizontalMove = (int)playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
+        horizontalMove = (int)GameManager.playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
 
         if (canWalk && GameManager.timeActive)
         {

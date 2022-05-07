@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     #region Assigning Variables
     public static GameManager instance { get; private set; }
 
+    public static PlayerInputActions playerInputActions;
+
     [field: Header("Player Canvas References")]
     [field: SerializeField] public GameObject pauseMenu { get; private set; }
     [field: SerializeField] public Inventory inventory { get; private set; }
@@ -51,6 +53,10 @@ public class GameManager : MonoBehaviour
 	private void Awake()
     {
         instance = this;
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         inventoryInputManager = inventory.GetComponent<InventoryInputManager>();
