@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ChooseTargetToUseItemOn : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 	{
 		if (AwaitingTargetToUseItemOn)
 		{
-			if (Input.GetKeyDown(KeyCode.Return))
+			if (Keyboard.current.enterKey.wasPressedThisFrame)
 			{
 				if(unitToUseItemOn.currentHealth >= unitToUseItemOn.maxHealth)
 				{
@@ -49,21 +50,21 @@ public class ChooseTargetToUseItemOn : MonoBehaviour
 				AwaitingTargetToUseItemOn = false;
 			}
 
-			if (Input.GetKeyDown(KeyCode.W))
+			if (Keyboard.current.wKey.wasPressedThisFrame)
 			{
 				unitToUseItemOn = playerUnit;
 				playerUnit.transform.GetChild(1).gameObject.SetActive(true);
 				plantUnit.transform.GetChild(1).gameObject.SetActive(false);
 			}
 
-			if (Input.GetKeyDown(KeyCode.S))
+			if (Keyboard.current.sKey.wasPressedThisFrame)
 			{
 				unitToUseItemOn = plantUnit;
 				plantUnit.transform.GetChild(1).gameObject.SetActive(true);
 				playerUnit.transform.GetChild(1).gameObject.SetActive(false);
 			}
 
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (Keyboard.current.wKey.wasPressedThisFrame)
 			{
 				unitToUseItemOn.transform.GetChild(1).gameObject.SetActive(false);
 				unitToUseItemOn = playerUnit;

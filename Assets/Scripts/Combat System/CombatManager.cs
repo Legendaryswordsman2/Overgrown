@@ -7,40 +7,47 @@ public class CombatManager : MonoBehaviour
 {
 	public static CombatManager instance { get; private set; }
 
+	public static PlayerInputActions playerInputActions;
+
 	Inventory inventory;
 
     private void Awake()
     {
         instance = this;
 		inventory = BattleSystem.instance.inventory;
+
+        if (playerInputActions != null)
+            playerInputActions.Player.Disable();
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+
+        playerInputActions.Player.Back.performed += Back_performed;
     }
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			BattleSystem battleSystem = BattleSystem.instance;
+    private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+		BattleSystem battleSystem = BattleSystem.instance;
 
-			if (battleSystem.state == BattleState.PlayerTurn)
-			{
+		if (battleSystem.state == BattleState.PlayerTurn)
+		{
 			battleSystem.playerChoices.SetActive(true);
 			battleSystem.playerUnit.currentMode = CurrentMode.Null;
-			}
-			else if(battleSystem.state == BattleState.PlayerPlantTurn)
-			{
-				battleSystem.playerPlantChoices.SetActive(true);
-				battleSystem.playerPlantUnit.currentMode = CurrentMode.Null;
-			}
+		}
+		else if (battleSystem.state == BattleState.PlayerPlantTurn)
+		{
+			battleSystem.playerPlantChoices.SetActive(true);
+			battleSystem.playerPlantUnit.currentMode = CurrentMode.Null;
+		}
 
-			inventory.gameObject.SetActive(false);
-			inventory.itemInfoBox.gameObject.SetActive(false);
-			inventory.plantInfoBox.gameObject.SetActive(false);
+		inventory.gameObject.SetActive(false);
+		inventory.itemInfoBox.gameObject.SetActive(false);
+		inventory.plantInfoBox.gameObject.SetActive(false);
 
 
-			for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
-			{
-				battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
-			}
+		for (int i = 0; i < battleSystem.enemiesAlive.Count; i++)
+		{
+			battleSystem.enemiesAlive[i].transform.GetChild(1).gameObject.SetActive(false);
 		}
 	}
 }

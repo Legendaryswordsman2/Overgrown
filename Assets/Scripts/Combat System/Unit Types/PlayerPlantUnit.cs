@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPlantUnit : BaseUnit
 {
@@ -45,14 +46,14 @@ public class PlayerPlantUnit : BaseUnit
 
 		if (currentMode == CurrentMode.AwaitingTargetToAttack)
 		{
-			if (Input.GetKeyDown(KeyCode.Return))
+			if (Keyboard.current.enterKey.wasPressedThisFrame)
 			{
 				currentMode = CurrentMode.Null;
 
 				BasicAttack();
 			}
 
-			if (Input.GetKeyDown(KeyCode.W))
+			if (Keyboard.current.wKey.wasPressedThisFrame)
 			{
 				if (battleSystem.enemySelectionIndex <= 0) return;
 				battleSystem.enemySelectionIndex--;
@@ -64,7 +65,7 @@ public class PlayerPlantUnit : BaseUnit
 				battleSystem.enemiesAlive[battleSystem.enemySelectionIndex].transform.GetChild(1).gameObject.SetActive(true);
 			}
 
-			if (Input.GetKeyDown(KeyCode.S))
+			if (Keyboard.current.sKey.wasPressedThisFrame)
 			{
 				if (battleSystem.enemySelectionIndex >= battleSystem.enemiesAlive.Count - 1) return;
 				battleSystem.enemySelectionIndex++;

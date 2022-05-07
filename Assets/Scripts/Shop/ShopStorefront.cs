@@ -14,19 +14,15 @@ public class ShopStorefront : MonoBehaviour
 	[SerializeField] Shop shop;
 
 	[SerializeField] GameObject openShopIcon;
-
-	bool isInRange;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
         GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
-		isInRange = true;
 		openShopIcon.SetActive(true);
 	}
 
     private void OnTriggerExit2D(Collider2D collision)
 	{
 		GameManager.playerInputActions.Player.Interact.performed -= Interact_performed;
-		isInRange = false;
 		openShopIcon.SetActive(false);
 	}
 
