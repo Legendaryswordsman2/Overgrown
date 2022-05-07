@@ -24,10 +24,6 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;
 
-    [Header("Keycodes")]
-    [SerializeField] KeyCode pauseMenuKey = KeyCode.Escape;
-    [SerializeField] KeyCode inventoryKey = KeyCode.I;
-
     public static Vector3 spawnPosition;
 
     [field: Header("Allowed Actions")]
@@ -57,8 +53,8 @@ public class GameManager : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
-        playerInputActions.Player.OpenPauseMenu.performed += OpenPauseMenu_performed;
-        playerInputActions.Player.OpenInventory.performed += OpenInventory_performed;
+        playerInputActions.Player.OpenClosePauseMenu.performed += OpenPauseMenu_performed;
+        playerInputActions.Player.OpenCloseInventory.performed += OpenInventory_performed;
 
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();

@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Open Pause Menu",
+                    "name": "Open/Close Pause Menu",
                     "type": "Button",
                     "id": "25b6af4c-d9b7-4e03-9742-50088dbb67ce",
                     "expectedControlType": "Button",
@@ -33,9 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Open Inventory",
+                    "name": "Open/Close Inventory",
                     "type": "Button",
                     "id": "72b6326f-aa90-4156-8bba-9ec482b6a269",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "c3d5fda3-ad82-44ec-8980-a3edbdcc459f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -138,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Open Pause Menu",
+                    "action": "Open/Close Pause Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -149,7 +158,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Open Pause Menu",
+                    "action": "Open/Close Pause Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -160,7 +169,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Open Inventory",
+                    "action": "Open/Close Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -171,7 +180,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Open Inventory",
+                    "action": "Open/Close Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff7b979c-b80e-42c2-a023-f44a9aa37218",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9ffa406-71a6-4bb7-acfd-08d5a4647dc4",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

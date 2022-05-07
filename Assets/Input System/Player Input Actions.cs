@@ -46,7 +46,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Open Pause Menu"",
+                    ""name"": ""Open/Close Pause Menu"",
                     ""type"": ""Button"",
                     ""id"": ""25b6af4c-d9b7-4e03-9742-50088dbb67ce"",
                     ""expectedControlType"": ""Button"",
@@ -55,9 +55,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Open Inventory"",
+                    ""name"": ""Open/Close Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""72b6326f-aa90-4156-8bba-9ec482b6a269"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3d5fda3-ad82-44ec-8980-a3edbdcc459f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -160,7 +169,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Open Pause Menu"",
+                    ""action"": ""Open/Close Pause Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -171,7 +180,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Open Pause Menu"",
+                    ""action"": ""Open/Close Pause Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -182,7 +191,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Open Inventory"",
+                    ""action"": ""Open/Close Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -193,7 +202,29 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Open Inventory"",
+                    ""action"": ""Open/Close Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff7b979c-b80e-42c2-a023-f44a9aa37218"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9ffa406-71a6-4bb7-acfd-08d5a4647dc4"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -229,8 +260,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_OpenPauseMenu = m_Player.FindAction("Open Pause Menu", throwIfNotFound: true);
-        m_Player_OpenInventory = m_Player.FindAction("Open Inventory", throwIfNotFound: true);
+        m_Player_OpenClosePauseMenu = m_Player.FindAction("Open/Close Pause Menu", throwIfNotFound: true);
+        m_Player_OpenCloseInventory = m_Player.FindAction("Open/Close Inventory", throwIfNotFound: true);
+        m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -292,16 +324,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_OpenPauseMenu;
-    private readonly InputAction m_Player_OpenInventory;
+    private readonly InputAction m_Player_OpenClosePauseMenu;
+    private readonly InputAction m_Player_OpenCloseInventory;
+    private readonly InputAction m_Player_Back;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @OpenPauseMenu => m_Wrapper.m_Player_OpenPauseMenu;
-        public InputAction @OpenInventory => m_Wrapper.m_Player_OpenInventory;
+        public InputAction @OpenClosePauseMenu => m_Wrapper.m_Player_OpenClosePauseMenu;
+        public InputAction @OpenCloseInventory => m_Wrapper.m_Player_OpenCloseInventory;
+        public InputAction @Back => m_Wrapper.m_Player_Back;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -317,12 +351,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @OpenPauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenPauseMenu;
-                @OpenPauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenPauseMenu;
-                @OpenPauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenPauseMenu;
-                @OpenInventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
-                @OpenInventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
-                @OpenInventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
+                @OpenClosePauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenClosePauseMenu;
+                @OpenClosePauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenClosePauseMenu;
+                @OpenClosePauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenClosePauseMenu;
+                @OpenCloseInventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenCloseInventory;
+                @OpenCloseInventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenCloseInventory;
+                @OpenCloseInventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenCloseInventory;
+                @Back.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -333,12 +370,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @OpenPauseMenu.started += instance.OnOpenPauseMenu;
-                @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
-                @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
-                @OpenInventory.started += instance.OnOpenInventory;
-                @OpenInventory.performed += instance.OnOpenInventory;
-                @OpenInventory.canceled += instance.OnOpenInventory;
+                @OpenClosePauseMenu.started += instance.OnOpenClosePauseMenu;
+                @OpenClosePauseMenu.performed += instance.OnOpenClosePauseMenu;
+                @OpenClosePauseMenu.canceled += instance.OnOpenClosePauseMenu;
+                @OpenCloseInventory.started += instance.OnOpenCloseInventory;
+                @OpenCloseInventory.performed += instance.OnOpenCloseInventory;
+                @OpenCloseInventory.canceled += instance.OnOpenCloseInventory;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -365,7 +405,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnOpenPauseMenu(InputAction.CallbackContext context);
-        void OnOpenInventory(InputAction.CallbackContext context);
+        void OnOpenClosePauseMenu(InputAction.CallbackContext context);
+        void OnOpenCloseInventory(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }
