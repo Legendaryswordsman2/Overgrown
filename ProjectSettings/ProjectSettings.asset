@@ -153,7 +153,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.OvergrownInc.Overgrown
+    Standalone: com.Overgrown-Inc.Overgrown
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -762,7 +762,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   cloudProjectId: 267fb35a-266c-4c53-ad6d-118931f017e1
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []

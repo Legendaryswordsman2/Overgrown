@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     GameManager gameManager;
     Transform playerTexture;
 
+    PlayerInputActions playerInputActions;
+
     public bool isWalking { get; private set; }
 
     private void Awake()
@@ -41,11 +43,16 @@ public class Player : MonoBehaviour
         anim = transform.GetChild(4).GetComponent<Animator>();
         playerTexture = transform.GetChild(4);
         gameManager = GameManager.instance;
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
     }
 
     private void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed;
+        horizontalMove = playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
+
+        //horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed;
 
         if (canWalk && GameManager.timeActive)
         {
