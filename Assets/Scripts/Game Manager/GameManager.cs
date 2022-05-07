@@ -81,15 +81,6 @@ public class GameManager : MonoBehaviour
             OpenInventory();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-            if (currentlyOpenOverlay == playerLevelUpScreen)
-                CloseOverlay(playerLevelUpScreen);
-            else
-                OpenOverlay(playerLevelUpScreen);
-    }
-
     public static bool OpenOverlay(GameObject overlayToOpen, bool stopTime = true)
 	{
         if (currentlyOpenOverlay != null) return false;
