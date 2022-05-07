@@ -83,9 +83,8 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayWalkingSound()
     {
-        if (canPlayWalkingSound)
+        if (canPlayWalkingSound && walkSounds.Length > 0)
         {
-            if (walkSounds.Length == 0) yield return null;
             audioSource.clip = walkSounds[Random.Range(0, walkSounds.Length)];
             audioSource.Play();
             canPlayWalkingSound = false;
