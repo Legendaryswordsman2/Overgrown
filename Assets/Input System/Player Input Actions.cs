@@ -134,7 +134,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""e72c7da7-fd53-43fc-8d6a-a392b4950c60"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
-                    ""processors"": ""Normalize(max=1)"",
+                    ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,

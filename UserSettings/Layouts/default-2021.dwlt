@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 178
+  controlID: 22
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 172
+  controlID: 119
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 20
+  controlID: 70
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 21
+  controlID: 71
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -241,8 +241,8 @@ MonoBehaviour:
     y: 0
     width: 436
     height: 873
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 1843
     height: 474
-  m_MinSize: {x: 600, y: 300}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 601, y: 321}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 20}
@@ -382,20 +382,20 @@ MonoBehaviour:
     m_SearchString: 
   m_ActionsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2f951400
-    m_LastClickedID: 1348911
+    m_SelectedIDs: 7f70779f
+    m_LastClickedID: -1619562369
     m_ExpandedIDs: 6253e1902f951400d8643f31eba88f4c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 1D Axis
-      m_OriginalName: 1D Axis
+      m_Name: Movement
+      m_OriginalName: Movement
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1348911
+      m_UserData: -1864281246
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
       }\n            ],\n            \"bindings\": [\n                {\n                   
       \"name\": \"1D Axis\",\n                    \"id\": \"63410292-5e18-4825-b981-0d611c487d4a\",\n                   
       \"path\": \"1DAxis\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"processors\": \"Invert\",\n                    \"groups\": \"\",\n                   
       \"action\": \"Movement\",\n                    \"isComposite\": true,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
       \"name\": \"negative\",\n                    \"id\": \"12da3f7c-707d-49c4-9e4c-7685e0731f41\",\n                   
@@ -482,7 +482,7 @@ MonoBehaviour:
       },\n                {\n                    \"name\": \"positive\",\n                   
       \"id\": \"e72c7da7-fd53-43fc-8d6a-a392b4950c60\",\n                    \"path\":
       \"<Gamepad>/leftStick/right\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"Normalize(max=1)\",\n                    \"groups\": \"Gamepad\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"Gamepad\",\n                   
       \"action\": \"Movement\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": true\n                },\n                {\n                   
       \"name\": \"\",\n                    \"id\": \"b2406249-bbb1-4666-ad08-d1fbe79d94af\",\n                   
@@ -539,7 +539,7 @@ MonoBehaviour:
     m_IsDirty: 0
   m_Toolbar:
     m_IsDirty: 0
-    m_SelectedControlSchemeIndex: 1
+    m_SelectedControlSchemeIndex: 0
     m_SelectedDeviceRequirementIndex: -1
     m_ControlSchemes:
     - m_Name: Keyboard
@@ -723,9 +723,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 44660000
-      m_LastClickedID: 26180
-      m_ExpandedIDs: 0cfbffff
+      m_SelectedIDs: ee940000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 8efaffff0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -996,9 +996,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -11.827477, y: 1.0025828, z: -8.349031}
+    m_Target: {x: -43.88696, y: -0.64120144, z: -8.046251}
     speed: 2
-    m_Value: {x: -11.827477, y: 1.0025828, z: -8.349031}
+    m_Value: {x: -43.88696, y: -0.64120144, z: -8.046251}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1049,9 +1049,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.385662
+    m_Target: 7.911497
     speed: 2
-    m_Value: 8.385662
+    m_Value: 7.911497
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1273,13 +1273,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Game Manager
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Game Manager
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\LegendarySwordsman2\Desktop\All My Files\Unity\Unity
     Projects\Overgrown
@@ -1287,9 +1287,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 6ea10000
-    m_LastClickedID: 41326
-    m_ExpandedIDs: 000000008a940000ca970000
+    m_SelectedIDs: ee940000
+    m_LastClickedID: 38126
+    m_ExpandedIDs: 00000000c88d0000ee940000c6970000c8970000ca97000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1317,7 +1317,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008a940000ca970000
+    m_ExpandedIDs: 00000000ee940000c6970000c8970000ca970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1342,8 +1342,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: ee940000
+    m_LastClickedInstanceID: 38126
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000566000007c760000f6800000fc9600007e9700005ac600003c7e00000aa20000907d0000
     m_RenameOverlay:
@@ -1472,4 +1472,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 26924
+  m_LastSelectedObjectID: -5998
