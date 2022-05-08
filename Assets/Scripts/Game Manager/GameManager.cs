@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public GameObject playerHealthBar { get; private set; }
     [field: SerializeField] public GameObject player { get; private set; }
     [field: SerializeField] public GameObject playerLevelUpScreen { get; private set; }
+    [field: SerializeField] public GameObject saveMenu { get; private set; }
 
     [Header("Prefabs")]
     [SerializeField] GameObject enemyTemplate;
