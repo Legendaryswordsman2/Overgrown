@@ -14,7 +14,7 @@ public class GenericNPC : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
+        InputManager.playerInputActions.Player.Interact.performed += Interact_performed;
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

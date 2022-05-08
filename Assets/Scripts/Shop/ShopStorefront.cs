@@ -16,13 +16,13 @@ public class ShopStorefront : MonoBehaviour
 	[SerializeField] GameObject openShopIcon;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
+        InputManager.playerInputActions.Player.Interact.performed += Interact_performed;
 		openShopIcon.SetActive(true);
 	}
 
     private void OnTriggerExit2D(Collider2D collision)
 	{
-		GameManager.playerInputActions.Player.Interact.performed -= Interact_performed;
+		InputManager.playerInputActions.Player.Interact.performed -= Interact_performed;
 		openShopIcon.SetActive(false);
 	}
 

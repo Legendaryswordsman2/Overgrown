@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     #region Assigning Variables
     public static GameManager instance { get; private set; }
 
-    public static PlayerInputActions playerInputActions;
-
     [field: Header("Player Canvas References")]
     [field: SerializeField] public GameObject pauseMenu { get; private set; }
     [field: SerializeField] public Inventory inventory { get; private set; }
@@ -50,14 +48,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        if(playerInputActions != null)
-        playerInputActions.Player.Disable();
-
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-
-        playerInputActions.Player.OpenClosePauseMenu.performed += OpenPauseMenu_performed;
-        playerInputActions.Player.OpenCloseInventory.performed += OpenInventory_performed;
+        InputManager.playerInputActions.Player.OpenClosePauseMenu.performed += OpenPauseMenu_performed;
+        InputManager.playerInputActions.Player.OpenCloseInventory.performed += OpenInventory_performed;
 
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();

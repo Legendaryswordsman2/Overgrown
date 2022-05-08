@@ -21,7 +21,7 @@ public class ChangeSceneOnClick : MonoBehaviour
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        GameManager.playerInputActions.Player.Interact.performed -= Interact_performed;
+        InputManager.playerInputActions.Player.Interact.performed -= Interact_performed;
         if (isInRange && GameManager.timeActive)
         {
             if (hasStartTransition)
@@ -39,7 +39,7 @@ public class ChangeSceneOnClick : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
 			if (changeSceneIcon != null) changeSceneIcon.SetActive(true);
-            GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
+            InputManager.playerInputActions.Player.Interact.performed += Interact_performed;
             isInRange = true;
 		}
     }
@@ -47,7 +47,7 @@ public class ChangeSceneOnClick : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameManager.playerInputActions.Player.Interact.performed -= Interact_performed;
+            InputManager.playerInputActions.Player.Interact.performed -= Interact_performed;
             isInRange = false;
 			if (changeSceneIcon != null) changeSceneIcon.SetActive(false);
 		}

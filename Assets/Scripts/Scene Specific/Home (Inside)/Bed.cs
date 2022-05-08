@@ -31,7 +31,7 @@ public class Bed : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-            GameManager.playerInputActions.Player.Interact.performed += Sleep;
+            InputManager.playerInputActions.Player.Interact.performed += Sleep;
 			sleepIcon.SetActive(true);
 		}
 	}
@@ -40,7 +40,7 @@ public class Bed : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			GameManager.playerInputActions.Player.Interact.performed -= Sleep;
+			InputManager.playerInputActions.Player.Interact.performed -= Sleep;
 			sleepIcon.SetActive(false);
 		}
 	}

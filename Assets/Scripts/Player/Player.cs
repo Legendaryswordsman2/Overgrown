@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //Debug.Log(GameManager.playerInputActions.Player.Movement.ReadValue<float>());
-        horizontalMove = (int)GameManager.playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
+        horizontalMove = (int)InputManager.playerInputActions.Player.Movement.ReadValue<float>() * walkSpeed;
 
         if (canWalk && GameManager.timeActive)
         {

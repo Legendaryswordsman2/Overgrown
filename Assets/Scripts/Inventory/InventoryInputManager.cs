@@ -15,7 +15,7 @@ public class InventoryInputManager : MonoBehaviour
 		inventory = Inventory.instance;
 
 		if (BattleSystem.instance == null)
-			GameManager.playerInputActions.Player.Back.performed += Back_performed;
+			InputManager.playerInputActions.Player.Back.performed += Back_performed;
 		else
 			CombatManager.playerInputActions.Player.Back.performed += Back_performed;
 	}

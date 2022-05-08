@@ -12,8 +12,8 @@ public class GrowingManager : MonoBehaviour
 	{
 		plantUiMenu = GameManager.instance.plantUiMenu;
 
-        GameManager.playerInputActions.Player.Interact.performed += Interact_performed;
-        GameManager.playerInputActions.Player.Back.performed += Back_performed;
+        InputManager.playerInputActions.Player.Interact.performed += Interact_performed;
+		InputManager.playerInputActions.Player.Back.performed += Back_performed;
 	}
 
 

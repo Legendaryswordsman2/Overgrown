@@ -68,12 +68,12 @@ public class Shop : MonoBehaviour
 
     private void OnEnable()
     {
-		GameManager.playerInputActions.Player.Back.performed += Back_performed;
+		InputManager.playerInputActions.Player.Back.performed += Back_performed;
 	}
 
     private void OnDisable()
     {
-		GameManager.playerInputActions.Player.Back.performed -= Back_performed;
+		InputManager.playerInputActions.Player.Back.performed -= Back_performed;
 	}
 
     private void SetupSellableItemSlots()
