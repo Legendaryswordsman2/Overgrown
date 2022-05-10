@@ -60,7 +60,6 @@ public class Shop : MonoBehaviour
 	}
 	public void Initialize()
 	{
-		Debug.Log("Initializing");
 		// Setup Sellable Item Slots
 		SetupSellableItemSlots();
 		initialized = true;

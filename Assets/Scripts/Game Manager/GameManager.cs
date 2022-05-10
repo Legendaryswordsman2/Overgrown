@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         if(overlayToClose != currentlyOpenOverlay)
 		{
-            Debug.Log($"The overlay '{overlayToClose}' you're trying to close is already closed");
+            Debug.LogWarning($"The overlay '{overlayToClose}' you're trying to close is already closed or has not been opened using the game manager");
             return false;
 		}
 
