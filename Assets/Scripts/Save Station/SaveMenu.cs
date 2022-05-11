@@ -21,7 +21,7 @@ public class SaveMenu : MonoBehaviour
     }
     public void SaveAndQuit()
     {
-        savedPopup.SetActive(true);
+        savingPopup.SetActive(true);
         SaveManager.instance.MakeTempMainSave();
 
         StartCoroutine(SwitchToSavedPopup(true));
