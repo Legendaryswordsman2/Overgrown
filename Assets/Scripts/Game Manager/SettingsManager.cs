@@ -45,6 +45,7 @@ public class SettingsManager : MonoBehaviour
 
     public void VolumeUp()
 	{
+        Debug.Log("Volume Up");
         if(volumeIndex >= 10)
 		{
             Debug.Log("At max volume already");
@@ -85,6 +86,7 @@ public class SettingsManager : MonoBehaviour
             TvVolume.sprite = volumeStages[volumeIndex];
             return;
         }
+        volumeIndex--;
         PlayerPrefs.SetInt("Volume Index", volumeIndex);
         if (audioMixer.GetFloat("Volume", out float volumeValue))
         {

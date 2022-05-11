@@ -21,7 +21,10 @@ public class SaveMenu : MonoBehaviour
     }
     public void SaveAndQuit()
     {
+        savedPopup.SetActive(true);
+        SaveManager.instance.MakeTempMainSave();
 
+        StartCoroutine(SwitchToSavedPopup(true));
     }
 
     IEnumerator SwitchToSavedPopup(bool quitGame)
@@ -34,7 +37,7 @@ public class SaveMenu : MonoBehaviour
 
         if (quitGame)
         {
-            
+            StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("CrossFade Start", "CrossFade", "Title"));
         }
         else
         {

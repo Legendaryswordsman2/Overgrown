@@ -16,14 +16,17 @@ public class TitleManager : MonoBehaviour
 	[SerializeField] Startup startupScript;
 
 	int deletionIndex = 1;
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			mainMenu.SetActive(true);
-			optionsMenu.SetActive(false);
-			selectSaveMenu.SetActive(false);
-		}
+
+    private void Awake()
+    {
+        InputManager.playerInputActions.Player.Back.performed += Back_performed;
+    }
+
+    private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+		mainMenu.SetActive(true);
+		optionsMenu.SetActive(false);
+		selectSaveMenu.SetActive(false);
 	}
 	public void SetDeletionIndex(int index)
 	{

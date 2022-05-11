@@ -7,7 +7,7 @@ public class SavingText : MonoBehaviour
 {
     TMP_Text savingText;
 
-    string[] texts;
+    [SerializeField] string[] texts;
     int textIndex;
 
     private void Awake()
