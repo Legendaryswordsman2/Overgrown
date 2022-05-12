@@ -27,10 +27,7 @@ public class PlayerStats : MonoBehaviour
 
 	[Space]
 
-	[SerializeField] TMP_Text healthTextStat;
-	[SerializeField] TMP_Text meleeDamageTextStat;
-	[SerializeField] TMP_Text defenseTextStat;
-	[SerializeField] TMP_Text critChanceTextStat;
+	[SerializeField] CharacterInfoCard playerInfoCard;
 
 	SaveManager saveManager;
 	BattleSystem battleSystem;
@@ -72,19 +69,7 @@ public class PlayerStats : MonoBehaviour
 			return;
 		}
 
-		healthTextStat.text += " " + maxHealth;
-
-		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-		else
-			meleeDamageTextStat.text = "DAMAGE: " + damage;
-
-		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-		else
-			defenseTextStat.text = "DEFENSE: " + defense;
-
-		critChanceTextStat.text += " " + critChance;
+		playerInfoCard.SetInfoCard(this);
 
 		playerHealthBar.max = maxHealth;
 		playerHealthBar.current = currentHealth;
@@ -132,19 +117,7 @@ public class PlayerStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		healthTextStat.text += " " + maxHealth;
-
-		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-		else
-			meleeDamageTextStat.text = "DAMAGE: " + damage;
-
-		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-		else
-			defenseTextStat.text = "DEFENSE: " + defense;
-
-		critChanceTextStat.text += " " + critChance;
+		playerInfoCard.SetInfoCard(this);
 
 		playerHealthBar.max = maxHealth;
 		playerHealthBar.current = currentHealth;
@@ -156,7 +129,7 @@ public class PlayerStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		healthTextStat.text += " " + maxHealth;
+		playerInfoCard.SetInfoCard(this);
 
 		playerHealthBar.max = maxHealth;
 		playerHealthBar.current = currentHealth;
@@ -167,10 +140,7 @@ public class PlayerStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-		else
-			meleeDamageTextStat.text = "DAMAGE: " + damage;
+		playerInfoCard.SetInfoCard(this);
 	}
 	public void IncreaseDefenseFromChosenLevelUpStat(int amount)
 	{
@@ -178,10 +148,7 @@ public class PlayerStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-		else
-			defenseTextStat.text = "DEFENSE: " + defense;
+		playerInfoCard.SetInfoCard(this);
 	}
 	public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
 	{
@@ -189,7 +156,7 @@ public class PlayerStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		critChanceTextStat.text += " " + critChance;
+		playerInfoCard.SetInfoCard(this);
 	}
 	public void Sleep()
 	{
@@ -242,16 +209,10 @@ public class PlayerStats : MonoBehaviour
 
 	public void RefreshMeleeDamageStat()
 	{
-		if (meleeWeapon != null)
-			meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-		else
-			meleeDamageTextStat.text = "DAMAGE: " + damage;
+		playerInfoCard.SetInfoCard(this);
 	}
 	public void RefreshDefenseStat()
 	{
-		if (armor != null)
-			defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-		else
-			defenseTextStat.text = "DEFENSE: " + defense;
+		playerInfoCard.SetInfoCard(this);
 	}
 }

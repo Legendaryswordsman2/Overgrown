@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlantStats : MonoBehaviour
 {
@@ -19,14 +21,14 @@ public class PlantStats : MonoBehaviour
 	//[SerializeField] TMP_Text playerHealthText;
 	[field: SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
 
-	//[Space]
+    [Space]
 
-	//[SerializeField] TMP_Text healthTextStat;
-	//[SerializeField] TMP_Text meleeDamageTextStat;
-	//[SerializeField] TMP_Text defenseTextStat;
-	//[SerializeField] TMP_Text critChanceTextStat;
+    [SerializeField] TMP_Text healthTextStat;
+    [SerializeField] TMP_Text meleeDamageTextStat;
+    [SerializeField] TMP_Text defenseTextStat;
+    [SerializeField] TMP_Text critChanceTextStat;
 
-	SaveManager saveManager;
+    SaveManager saveManager;
 	BattleSystem battleSystem;
 
 	private void Awake()
@@ -35,84 +37,67 @@ public class PlantStats : MonoBehaviour
 
 		saveManager = SaveManager.instance;
 
-		//saveManager.OnSavingGame += SaveManager_OnSavingGame;
-		//saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
+		saveManager.OnSavingGame += SaveManager_OnSavingGame;
+		saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
 	}
 
-	//private void Start()
-	//{
-	//	if (BattleSystem.instance != null)
-	//	{
-	//		battleSystem = BattleSystem.instance;
-	//		PlayerUnit playerUnit = battleSystem.playerUnit;
+	private void Start()
+	{
+		if (BattleSystem.instance != null)
+		{
+			battleSystem = BattleSystem.instance;
+			PlayerPlantUnit plantUnit = battleSystem.playerPlantUnit;
 
-	//		playerUnit.maxHealth = maxHealth;
-	//		playerUnit.currentHealth = currentHealth;
+            plantUnit.maxHealth = maxHealth;
+            plantUnit.currentHealth = currentHealth;
 
-	//		if (meleeWeapon != null)
-	//			playerUnit.damage = damage + meleeWeapon.meleeDamageModifier;
-	//		else
-	//			playerUnit.damage = damage;
+            plantUnit.damage = damage;
 
-	//		if (armor != null)
-	//			playerUnit.defense = defense + armor.defenseModifier;
-	//		else
-	//			playerUnit.defense = defense;
+            plantUnit.defense = defense;
 
-	//		playerUnit.critChance = critChance;
+            plantUnit.critChance = critChance;
 
-	//		playerUnit.playerHUD.SetHUD(playerUnit);
+            plantUnit.playerPlantHUD.SetHUD(plantUnit);
 
-	//		return;
-	//	}
+            return;
+        }
 
-	//	healthTextStat.text += " " + maxHealth;
+		healthTextStat.text += " " + maxHealth;
 
-	//	if (meleeWeapon != null)
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-	//	else
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage;
+		
+			meleeDamageTextStat.text = "DAMAGE: " + damage;
 
-	//	if (armor != null)
-	//		defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-	//	else
-	//		defenseTextStat.text = "DEFENSE: " + defense;
+			defenseTextStat.text = "DEFENSE: " + defense;
 
-	//	critChanceTextStat.text += " " + critChance;
+		critChanceTextStat.text += " " + critChance;
+	}
 
-	//	playerHealthBar.max = maxHealth;
-	//	playerHealthBar.current = currentHealth;
+	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
+	{
+		if (SceneManager.GetActiveScene().name == "Turn Based Combat")
+		{
+			currentHealth = BattleSystem.instance.playerPlantUnit.currentHealth;
+		}
 
-	//	playerHealthText.text = currentHealth + " / " + maxHealth;
-	//}
+		var saveData = new PlantStatsSaveData(this);
+		SaveSystem.SaveFile("/Player", "/PlayerStats", saveData);
+	}
 
-	//private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
-	//{
-	//	if (SceneManager.GetActiveScene().name == "Turn Based Combat")
-	//	{
-	//		currentHealth = BattleSystem.instance.playerUnit.currentHealth;
-	//	}
+	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
+	{
+		PlantStatsSaveData statsData = SaveSystem.LoadFile<PlantStatsSaveData>("/Player/PlantStats");
+		if (statsData == null)
+		{
+			currentHealth = maxHealth;
+			return;
+		}
 
-	//	var saveData = new PlayerStatsSaveData(this);
-	//	SaveSystem.SaveFile("/Player", "/PlayerStats", saveData);
-	//}
-
-	//private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
-	//{
-	//	PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats");
-	//	if (statsData == null)
-	//	{
-	//		currentHealth = maxHealth;
-	//		return;
-	//	}
-
-
-	//	maxHealth = statsData.maxHealth;
-	//	currentHealth = statsData.currentHealth;
-	//	defense = statsData.defense;
-	//	damage = statsData.damage;
-	//	critChance = statsData.critChance;
-	//}
+		maxHealth = statsData.maxHealth;
+		currentHealth = statsData.currentHealth;
+		defense = statsData.defense;
+		damage = statsData.damage;
+		critChance = statsData.critChance;
+	}
 
 	//public void IncreaseStatsFromLevelUp(int[] statIncreases)
 	//{
@@ -185,67 +170,20 @@ public class PlantStats : MonoBehaviour
 
 	//	critChanceTextStat.text += " " + critChance;
 	//}
-	//public void Sleep()
-	//{
-	//	currentHealth = maxHealth;
-	//}
+	public void Sleep()
+	{
+		currentHealth = maxHealth;
+	}
 
-	//public bool Heal(int amount)
-	//{
-	//	if (currentHealth >= maxHealth) return false;
+	public bool Heal(int amount)
+	{
+		if (currentHealth >= maxHealth) return false;
 
-	//	if (currentHealth + amount >= maxHealth)
-	//		currentHealth = maxHealth;
-	//	else
-	//		currentHealth += amount;
+		if (currentHealth + amount >= maxHealth)
+			currentHealth = maxHealth;
+		else
+			currentHealth += amount;
 
-	//	playerHealthBar.current = currentHealth;
-	//	playerHealthText.text = currentHealth + " / " + maxHealth;
-
-	//	return true;
-	//}
-
-	//public void EquipMeleeWeapon(MeleeWeapon _meleeWeapon)
-	//{
-	//	if (meleeWeapon != null)
-	//		meleeWeapon.Unequip();
-
-	//	meleeWeapon = _meleeWeapon;
-	//}
-
-	//public void UnequipMeleeWeapon()
-	//{
-	//	meleeWeapon.Unequip();
-	//	meleeWeapon = null;
-	//}
-
-	//public void EquipArmor(Armor _armor)
-	//{
-	//	if (armor != null)
-	//		armor.Unequip();
-
-	//	armor = _armor;
-	//}
-
-	//public void UnequipArmor()
-	//{
-	//	armor.Unequip();
-	//	armor = null;
-	//}
-
-
-	//public void RefreshMeleeDamageStat()
-	//{
-	//	if (meleeWeapon != null)
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-	//	else
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage;
-	//}
-	//public void RefreshDefenseStat()
-	//{
-	//	if (armor != null)
-	//		defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-	//	else
-	//		defenseTextStat.text = "DEFENSE: " + defense;
-	//}
+		return true;
+	}
 }
