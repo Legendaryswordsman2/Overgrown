@@ -8,6 +8,9 @@ public class PlayerStatsSaveData
 	public int damage = 10;
 	public int critChance = 0;
 
+	// Money
+	public int money;
+
 	public PlayerStatsSaveData(PlayerStats playerStats)
 	{
 		maxHealth = playerStats.maxHealth;
@@ -15,5 +18,7 @@ public class PlayerStatsSaveData
 		defense = playerStats.defense;
 		damage = playerStats.damage;
 		critChance = playerStats.critChance;
+
+		money = playerStats.money;
 	}
 }

@@ -52,11 +52,11 @@ public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	public void BuyItem(Inventory inventory)
 	{
 
-		if (item.price <= GameManager.instance.player.GetComponent<PlayerLevel>().money)
+		if (item.price <= GameManager.instance.player.GetComponent<PlayerStats>().money)
 		{
 			inventory.AddItem(item);
 			inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);
-			GameManager.instance.player.GetComponent<PlayerLevel>().TakeMoney(item.price);
+			GameManager.instance.player.GetComponent<PlayerStats>().TakeMoney(item.price);
 		}
 		else
 		{
@@ -65,7 +65,7 @@ public class ShopItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	}
 	public void SellItem(Inventory inventory)
 	{
-		GameManager.instance.player.GetComponent<PlayerLevel>().GiveMoney(item.sellPrice);
+		GameManager.instance.player.GetComponent<PlayerStats>().GiveMoney(item.sellPrice);
 		inventory.textPopup.SetPopup("ITEM SOLD", 0.5f);
 		shop.itemInfoBox.gameObject.SetActive(false);
 

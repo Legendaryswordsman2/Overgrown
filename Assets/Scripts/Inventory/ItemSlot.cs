@@ -32,7 +32,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 				return;
 			}
 
-			GameManager.instance.player.GetComponent<PlayerLevel>().GiveMoney(item.sellPrice);
+			GameManager.instance.player.GetComponent<PlayerStats>().GiveMoney(item.sellPrice);
 			Inventory.instance.textPopup.SetPopup("ITEM SOLD", 0.5f);
 			Inventory.instance.itemInfoBox.gameObject.SetActive(false);
 			Inventory.instance.RemoveItem(item);

@@ -12,16 +12,11 @@ public class PlayerLevel : MonoBehaviour
     [ReadOnlyInspector] public int playerLevel = 1;
     [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
 
-    [field: Header("Money"), Range(0, 1000000)]
-    [field: ReadOnlyInspector, SerializeField] public int money { get; private set; } = 0;
-
     [Header("References")]
     [SerializeField] TMP_Text levelText;
     [SerializeField] ProgressBar levelProgressBar;
     [SerializeField] TMP_Text moneyText;
-    [SerializeField] TMP_Text shopMoneyText;
-
-    event EventHandler OnLevelUp;
+    [SerializeField] TMP_Text shopMoneyText; 
 
     private void Awake()
 	{
@@ -30,11 +25,6 @@ public class PlayerLevel : MonoBehaviour
         saveManager.OnSavingGame += SaveManager_OnSavingGame;
         saveManager.OnLoadingGame += SaveManager_OnLoadingGame;
     }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.L)) LevelUp();
-    //}
 
     public bool GiveXp(int xpAmount)
     {
@@ -54,25 +44,6 @@ public class PlayerLevel : MonoBehaviour
         }
         else
             return false;
-    }
-
-    public bool GiveMoney(int amount)
-	{
-        if (money + amount > 1000000) return false;
-
-        money += amount;
-        if(moneyText != null)
-        moneyText.text = "$" + money.ToString("#,#");
-        if(shopMoneyText != null)
-        shopMoneyText.text = "$" + money.ToString("#,#");
-
-        return true;
-    }
-    public void TakeMoney(int amount)
-	{
-        money -= amount;
-        moneyText.text = "$" + money.ToString("#,#");
-        shopMoneyText.text = "$" + money.ToString("#,#");
     }
     void LevelUp()
     {
@@ -101,10 +72,6 @@ public class PlayerLevel : MonoBehaviour
 		}
 
         PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
-
-        OnLevelUp?.Invoke(this, EventArgs.Empty);
-
-        //TestIfCanLevelUpAgain();
     }
 
     public bool TryToLevelUp()
@@ -143,24 +110,11 @@ public class PlayerLevel : MonoBehaviour
         xpIncreaseOnLevelUp = xpData.xpIncreaseOnLevelUp;
         xpIncreaseIncreaseOnLevelUp = xpData.xpIncreaseIncreaseOnLevelUp;
 
-        money = xpData.playerMoney;
-
         if(levelProgressBar != null)
 		{
             levelText.text = "LV: " + playerLevel;
             levelProgressBar.max = xpToLevelUp;
             levelProgressBar.current = xp;
-
-            if (money == 0)
-			{
-                moneyText.text = "$0";
-                shopMoneyText.text = "$0";
-			}
-			else
-			{
-                moneyText.text = "$" + money.ToString("#,#");
-                shopMoneyText.text = "$" + money.ToString("#,#");
-            }
 		}
     }
 }

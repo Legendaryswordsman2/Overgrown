@@ -15,6 +15,9 @@ public class PlayerStats : MonoBehaviour
 	[field: SerializeField] public int defense { get; private set; } = 0;
 	[field: SerializeField] public int critChance { get; private set; } = 0;
 
+	[field: Header("Money"), Range(0, 1000000)]
+	[field: ReadOnlyInspector, SerializeField] public int money { get; private set; } = 0;
+
 	[Header("Equipped Items")]
 	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
 	[ReadOnlyInspector] public Armor armor;
@@ -23,6 +26,8 @@ public class PlayerStats : MonoBehaviour
 	[Header("Stats Refernces")]
 	[SerializeField] ProgressBar playerHealthBar;
 	[SerializeField] TMP_Text playerHealthText;
+	[SerializeField] TMP_Text moneyText;
+	[SerializeField] TMP_Text shopMoneyText;
 	[field: SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
 
 	[Space]
@@ -91,18 +96,31 @@ public class PlayerStats : MonoBehaviour
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
 		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats");
-		if (statsData == null)
-		{
-			currentHealth = maxHealth;
-			return;
-		}
+		//if (statsData == null)
+		//{
+		//	currentHealth = maxHealth;
+		//	return;
+		//}
 
 
-		maxHealth = statsData.maxHealth;
-		currentHealth = statsData.currentHealth;
-		defense = statsData.defense;
-		damage = statsData.damage;
-		critChance = statsData.critChance;
+		//maxHealth = statsData.maxHealth;
+		//currentHealth = statsData.currentHealth;
+		//defense = statsData.defense;
+		//damage = statsData.damage;
+		//critChance = statsData.critChance;
+
+		//money = statsData.money;
+
+		//if (money == 0)
+		//{
+		//	moneyText.text = "$0";
+		//	shopMoneyText.text = "$0";
+		//}
+		//else
+		//{
+		//	moneyText.text = "$" + money.ToString("#,#");
+		//	shopMoneyText.text = "$" + money.ToString("#,#");
+		//}
 	}
 
 	public void IncreaseStatsFromLevelUp(int[] statIncreases)
@@ -162,6 +180,24 @@ public class PlayerStats : MonoBehaviour
 	{
 		currentHealth = maxHealth;
 	}
+	public bool GiveMoney(int amount)
+	{
+		if (money + amount > 1000000) return false;
+
+		money += amount;
+		if (moneyText != null)
+			moneyText.text = "$" + money.ToString("#,#");
+		if (shopMoneyText != null)
+			shopMoneyText.text = "$" + money.ToString("#,#");
+
+		return true;
+	}
+	public void TakeMoney(int amount)
+	{
+		money -= amount;
+		moneyText.text = "$" + money.ToString("#,#");
+		shopMoneyText.text = "$" + money.ToString("#,#");
+	}
 
 	public bool Heal(int amount)
     {
@@ -215,4 +251,6 @@ public class PlayerStats : MonoBehaviour
 	{
 		playerInfoCard.SetInfoCard(this);
 	}
+
+
 }

@@ -12811,7 +12811,6 @@ GameObject:
   - component: {fileID: 636977076726505122}
   - component: {fileID: 8118033186993684815}
   - component: {fileID: 7349307692255342958}
-  - component: {fileID: 6834233072408128014}
   - component: {fileID: 1636912120575920942}
   - component: {fileID: 2406020429753233596}
   - component: {fileID: 2406020429342347373}
@@ -12944,34 +12943,15 @@ MonoBehaviour:
   <damage>k__BackingField: 10
   <defense>k__BackingField: 0
   <critChance>k__BackingField: 0
+  <money>k__BackingField: 0
   meleeWeapon: {fileID: 0}
   armor: {fileID: 0}
   playerHealthBar: {fileID: 958210619}
   playerHealthText: {fileID: 551801987}
+  moneyText: {fileID: 7809169510884963780}
+  shopMoneyText: {fileID: 8083427174186772604}
   <playerLevelUpScreen>k__BackingField: {fileID: 2406020429540395390}
   playerInfoCard: {fileID: 2406020429540395384}
---- !u!114 &6834233072408128014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636977076726505128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3769c524f02f40343a5c575f53a650f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 100
-  <currentHealth>k__BackingField: 0
-  <damage>k__BackingField: 10
-  <defense>k__BackingField: 0
-  <critChance>k__BackingField: 0
-  <playerLevelUpScreen>k__BackingField: {fileID: 0}
-  healthTextStat: {fileID: 0}
-  meleeDamageTextStat: {fileID: 0}
-  defenseTextStat: {fileID: 0}
-  critChanceTextStat: {fileID: 0}
 --- !u!114 &1636912120575920942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12989,7 +12969,6 @@ MonoBehaviour:
   xpToLevelUp: 100
   xpIncreaseOnLevelUp: 100
   xpIncreaseIncreaseOnLevelUp: 20
-  <money>k__BackingField: 0
   levelText: {fileID: 7809169511721064719}
   levelProgressBar: {fileID: 7809169512008265565}
   moneyText: {fileID: 7809169510884963780}
@@ -19974,6 +19953,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2406020430418011177}
     m_Modifications:
+    - target: {fileID: 14104226, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.4444122
+      objectReference: {fileID: 0}
+    - target: {fileID: 14104226, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0041046143
+      objectReference: {fileID: 0}
     - target: {fileID: 15675868, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19989,6 +19976,18 @@ PrefabInstance:
     - target: {fileID: 15675868, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 45375570, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340.61707
+      objectReference: {fileID: 0}
+    - target: {fileID: 45375570, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.1885376
+      objectReference: {fileID: 0}
+    - target: {fileID: 45375570, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0037841797
       objectReference: {fileID: 0}
     - target: {fileID: 325857869, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: m_IsActive
@@ -20037,6 +20036,14 @@ PrefabInstance:
     - target: {fileID: 1241309231, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750154525, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340.8479
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750154525, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 139.9063
       objectReference: {fileID: 0}
     - target: {fileID: 1847547944, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
       propertyPath: m_AnchorMax.y

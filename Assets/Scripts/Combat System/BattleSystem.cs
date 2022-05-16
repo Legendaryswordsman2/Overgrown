@@ -152,7 +152,7 @@ public class BattleSystem : MonoBehaviour
 	public void ContinueAfterWinning()
 	{
 		bool playerLeveledUp = GetComponent<PlayerLevel>().GiveXp(xpGiven);
-		GetComponent<PlayerLevel>().GiveMoney(moneyGiven);
+		GetComponent<PlayerStats>().GiveMoney(moneyGiven);
 
 		bool plantLeveledUp = false;
 		if (playerLeveledUp == false)

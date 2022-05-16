@@ -34,27 +34,27 @@ public class TitleManager : MonoBehaviour
 	}
 	public void DeleteSaveSlot()
 	{
-		if (deletionIndex == 1 && Directory.Exists(SaveSystem.saveOneLocation + "/MainSave"))
+		if (deletionIndex == 1 && Directory.Exists(SaveSystem.saveOneLocation))
 		{
-			Directory.Delete(SaveSystem.saveOneLocation + "/MainSave", true);
+			Directory.Delete(SaveSystem.saveOneLocation, true);
 			startupScript.saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: 1";
 			var levelProgressBar = startupScript.saveSlotOne.GetChild(1).GetComponent<ProgressBar>();
 			levelProgressBar.max = 100;
 			levelProgressBar.current = 0;
 		}
 
-		if (deletionIndex == 2 && Directory.Exists(SaveSystem.saveTwoLocation + "/MainSave"))
+		if (deletionIndex == 2 && Directory.Exists(SaveSystem.saveTwoLocation))
 		{
-			Directory.Delete(SaveSystem.saveTwoLocation + "/MainSave", true);
+			Directory.Delete(SaveSystem.saveTwoLocation, true);
 			startupScript.saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: 1";
 			var levelProgressBar = startupScript.saveSlotTwo.GetChild(1).GetComponent<ProgressBar>();
 			levelProgressBar.max = 100;
 			levelProgressBar.current = 0;
 		}
 
-		if (deletionIndex == 3 && Directory.Exists(SaveSystem.saveThreeLocation + "/MainSave"))
+		if (deletionIndex == 3 && Directory.Exists(SaveSystem.saveThreeLocation))
 		{
-			Directory.Delete(SaveSystem.saveThreeLocation + "/MainSave", true);
+			Directory.Delete(SaveSystem.saveThreeLocation, true);
 			startupScript.saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: 1";
 			var levelProgressBar = startupScript.saveSlotThree.GetChild(1).GetComponent<ProgressBar>();
 			levelProgressBar.max = 100;
