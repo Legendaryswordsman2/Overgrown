@@ -62,15 +62,15 @@ public class PlantStats : MonoBehaviour
             return;
         }
 
-		healthTextStat.text += " " + maxHealth;
+        healthTextStat.text += " " + maxHealth;
 
-		
-			meleeDamageTextStat.text = "DAMAGE: " + damage;
 
-			defenseTextStat.text = "DEFENSE: " + defense;
+        meleeDamageTextStat.text = "DAMAGE: " + damage;
 
-		critChanceTextStat.text += " " + critChance;
-	}
+        defenseTextStat.text = "DEFENSE: " + defense;
+
+        critChanceTextStat.text += " " + critChance;
+    }
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
 	{
