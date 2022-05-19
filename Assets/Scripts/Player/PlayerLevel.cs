@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class PlayerLevel : MonoBehaviour
+public class PlayerLevel : MonoBehaviour // Old / Not In Use
 {
     SaveManager saveManager;
 
@@ -39,7 +39,7 @@ public class PlayerLevel : MonoBehaviour
 
         if (xp >= xpToLevelUp)
         {
-            LevelUp();
+            //LevelUp();
             return true;
         }
         else
@@ -78,7 +78,7 @@ public class PlayerLevel : MonoBehaviour
     {
         if (xp >= xpToLevelUp)
         {
-            LevelUp();
+            //LevelUp();
             return true;
         }
         else

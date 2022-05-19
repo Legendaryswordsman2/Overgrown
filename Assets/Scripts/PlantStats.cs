@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlantStats : MonoBehaviour
 {
-	public static PlantStats instance;
+	//public static PlayerStats instance;
 
 	[field: Header("Starting Stats")]
 	[field: SerializeField] public int maxHealth { get; private set; } = 100;
@@ -15,25 +15,23 @@ public class PlantStats : MonoBehaviour
 	[field: SerializeField] public int defense { get; private set; } = 0;
 	[field: SerializeField] public int critChance { get; private set; } = 0;
 
+	[field: SerializeField] public LevelSystem playerLevelSystem { get; private set; }
 
-	//[Header("Stats Refernces")]
-	//[SerializeField] ProgressBar playerHealthBar;
-	//[SerializeField] TMP_Text playerHealthText;
+	[Header("Equipped Items")]
+	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
+	[ReadOnlyInspector] public Armor armor;
 	[field: SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
 
-    [Space]
+	[Space]
 
-    [SerializeField] TMP_Text healthTextStat;
-    [SerializeField] TMP_Text meleeDamageTextStat;
-    [SerializeField] TMP_Text defenseTextStat;
-    [SerializeField] TMP_Text critChanceTextStat;
+	[SerializeField] CharacterInfoCard playerInfoCard;
 
-    SaveManager saveManager;
+	SaveManager saveManager;
 	BattleSystem battleSystem;
 
 	private void Awake()
 	{
-		instance = this;
+		playerLevelSystem = new LevelSystem(PlayerOrPlant.Player);
 
 		saveManager = SaveManager.instance;
 
@@ -46,51 +44,51 @@ public class PlantStats : MonoBehaviour
 		if (BattleSystem.instance != null)
 		{
 			battleSystem = BattleSystem.instance;
-			PlayerPlantUnit plantUnit = battleSystem.playerPlantUnit;
+			PlayerUnit playerUnit = battleSystem.playerUnit;
 
-            plantUnit.maxHealth = maxHealth;
-            plantUnit.currentHealth = currentHealth;
+			playerUnit.maxHealth = maxHealth;
+			playerUnit.currentHealth = currentHealth;
 
-            plantUnit.damage = damage;
+			if (meleeWeapon != null)
+				playerUnit.damage = damage + meleeWeapon.meleeDamageModifier;
+			else
+				playerUnit.damage = damage;
 
-            plantUnit.defense = defense;
+			if (armor != null)
+				playerUnit.defense = defense + armor.defenseModifier;
+			else
+				playerUnit.defense = defense;
 
-            plantUnit.critChance = critChance;
+			playerUnit.critChance = critChance;
 
-            plantUnit.playerPlantHUD.SetHUD(plantUnit);
+			playerUnit.playerHUD.SetHUD(playerUnit);
 
-            return;
-        }
+			return;
+		}
 
-        healthTextStat.text += " " + maxHealth;
-
-
-        meleeDamageTextStat.text = "DAMAGE: " + damage;
-
-        defenseTextStat.text = "DEFENSE: " + defense;
-
-        critChanceTextStat.text += " " + critChance;
-    }
+		playerInfoCard.SetInfoCard(this);
+	}
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
 	{
 		if (SceneManager.GetActiveScene().name == "Turn Based Combat")
 		{
-			currentHealth = BattleSystem.instance.playerPlantUnit.currentHealth;
+			currentHealth = BattleSystem.instance.playerUnit.currentHealth;
 		}
 
 		var saveData = new PlantStatsSaveData(this);
-		SaveSystem.SaveFile("/Player", "/PlayerStats", saveData);
+		SaveSystem.SaveFile("/Player/Characters", "/PlayerStats", saveData);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
-		PlantStatsSaveData statsData = SaveSystem.LoadFile<PlantStatsSaveData>("/Player/PlantStats");
+		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/Characters/PlayerStats");
 		if (statsData == null)
 		{
 			currentHealth = maxHealth;
 			return;
 		}
+
 
 		maxHealth = statsData.maxHealth;
 		currentHealth = statsData.currentHealth;
@@ -99,77 +97,53 @@ public class PlantStats : MonoBehaviour
 		critChance = statsData.critChance;
 	}
 
-	//public void IncreaseStatsFromLevelUp(int[] statIncreases)
-	//{
-	//	playerLevelUpScreen.SetPlayerLevelUpScreen(this, statIncreases);
+	public void IncreaseStatsFromLevelUp(int[] statIncreases)
+	{
+		//playerLevelUpScreen.SetPlayerLevelUpScreen(this, statIncreases);
 
-	//	maxHealth += statIncreases[0];
-	//	currentHealth += statIncreases[0];
-	//	damage += statIncreases[1];
-	//	defense += statIncreases[2];
-	//	critChance += statIncreases[3];
+		maxHealth += statIncreases[0];
+		currentHealth += statIncreases[0];
+		damage += statIncreases[1];
+		defense += statIncreases[2];
+		critChance += statIncreases[3];
 
-	//	if (BattleSystem.instance != null) return;
+		if (BattleSystem.instance != null) return;
 
-	//	healthTextStat.text += " " + maxHealth;
+		playerInfoCard.SetInfoCard(this);
+	}
+	public void IncreaseHealthFromChosenLevelUpStat(int amount)
+	{
+		maxHealth += amount;
+		currentHealth += amount;
 
-	//	if (meleeWeapon != null)
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-	//	else
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage;
+		if (BattleSystem.instance != null) return;
 
-	//	if (armor != null)
-	//		defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-	//	else
-	//		defenseTextStat.text = "DEFENSE: " + defense;
+		playerInfoCard.SetInfoCard(this);
+	}
+	public void IncreaseDamageFromChosenLevelUpStat(int amount)
+	{
+		damage += amount;
 
-	//	critChanceTextStat.text += " " + critChance;
+		if (BattleSystem.instance != null) return;
 
-	//	playerHealthBar.max = maxHealth;
-	//	playerHealthBar.current = currentHealth;
-	//}
-	//public void IncreaseHealthFromChosenLevelUpStat(int amount)
-	//{
-	//	maxHealth += amount;
-	//	currentHealth += amount;
+		playerInfoCard.SetInfoCard(this);
+	}
+	public void IncreaseDefenseFromChosenLevelUpStat(int amount)
+	{
+		defense += amount;
 
-	//	if (BattleSystem.instance != null) return;
+		if (BattleSystem.instance != null) return;
 
-	//	healthTextStat.text += " " + maxHealth;
+		playerInfoCard.SetInfoCard(this);
+	}
+	public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
+	{
+		critChance += amount;
 
-	//	playerHealthBar.max = maxHealth;
-	//	playerHealthBar.current = currentHealth;
-	//}
-	//public void IncreaseDamageFromChosenLevelUpStat(int amount)
-	//{
-	//	damage += amount;
+		if (BattleSystem.instance != null) return;
 
-	//	if (BattleSystem.instance != null) return;
-
-	//	if (meleeWeapon != null)
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage + " + " + meleeWeapon.meleeDamageModifier;
-	//	else
-	//		meleeDamageTextStat.text = "DAMAGE: " + damage;
-	//}
-	//public void IncreaseDefenseFromChosenLevelUpStat(int amount)
-	//{
-	//	defense += amount;
-
-	//	if (BattleSystem.instance != null) return;
-
-	//	if (armor != null)
-	//		defenseTextStat.text = "DEFENSE: " + defense + " + " + armor.defenseModifier;
-	//	else
-	//		defenseTextStat.text = "DEFENSE: " + defense;
-	//}
-	//public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
-	//{
-	//	critChance += amount;
-
-	//	if (BattleSystem.instance != null) return;
-
-	//	critChanceTextStat.text += " " + critChance;
-	//}
+		playerInfoCard.SetInfoCard(this);
+	}
 	public void Sleep()
 	{
 		currentHealth = maxHealth;

@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
 	[field: SerializeField] public int defense { get; private set; } = 0;
 	[field: SerializeField] public int critChance { get; private set; } = 0;
 
+	[field: SerializeField] public LevelSystem playerLevelSystem { get; private set; }
+
 	[field: Header("Money"), Range(0, 1000000)]
 	[field: ReadOnlyInspector, SerializeField] public int money { get; private set; } = 0;
 
@@ -40,6 +42,8 @@ public class PlayerStats : MonoBehaviour
 	private void Awake()
 	{
 		instance = this;
+
+		playerLevelSystem = new LevelSystem(PlayerOrPlant.Player);
 
 		saveManager = SaveManager.instance;
 
@@ -96,32 +100,32 @@ public class PlayerStats : MonoBehaviour
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
 		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/PlayerStats");
-		//if (statsData == null)
-		//{
-		//	currentHealth = maxHealth;
-		//	return;
-		//}
+        if (statsData == null)
+        {
+            currentHealth = maxHealth;
+            return;
+        }
 
 
-		//maxHealth = statsData.maxHealth;
-		//currentHealth = statsData.currentHealth;
-		//defense = statsData.defense;
-		//damage = statsData.damage;
-		//critChance = statsData.critChance;
+        maxHealth = statsData.maxHealth;
+        currentHealth = statsData.currentHealth;
+        defense = statsData.defense;
+        damage = statsData.damage;
+        critChance = statsData.critChance;
 
-		//money = statsData.money;
+        money = statsData.money;
 
-		//if (money == 0)
-		//{
-		//	moneyText.text = "$0";
-		//	shopMoneyText.text = "$0";
-		//}
-		//else
-		//{
-		//	moneyText.text = "$" + money.ToString("#,#");
-		//	shopMoneyText.text = "$" + money.ToString("#,#");
-		//}
-	}
+        if (money == 0)
+        {
+            moneyText.text = "$0";
+            shopMoneyText.text = "$0";
+        }
+        else
+        {
+            moneyText.text = "$" + money.ToString("#,#");
+            shopMoneyText.text = "$" + money.ToString("#,#");
+        }
+    }
 
 	public void IncreaseStatsFromLevelUp(int[] statIncreases)
 	{
@@ -251,6 +255,4 @@ public class PlayerStats : MonoBehaviour
 	{
 		playerInfoCard.SetInfoCard(this);
 	}
-
-
 }

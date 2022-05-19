@@ -252,7 +252,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		{
 			if (finishedLevelUp)
 			{
-				bool succesfulyLevelUp = playerStats.GetComponent<PlayerLevel>().TryToLevelUp();
+				bool succesfulyLevelUp = playerStats.playerLevelSystem.TryToLevelUp();
 
 				if (succesfulyLevelUp == false)
                 {

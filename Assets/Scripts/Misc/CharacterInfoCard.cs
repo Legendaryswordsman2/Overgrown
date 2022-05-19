@@ -13,6 +13,13 @@ public class CharacterInfoCard : MonoBehaviour
     [SerializeField] TMP_Text defenseText;
     [SerializeField] TMP_Text critChanceText;
 
+    [SerializeField] string levelTextString;
+
+    private void Awake()
+    {
+        levelTextString = levelText.text;
+    }
+
     public void SetInfoCard(PlayerStats stats)
     {
         healthText.text = stats.currentHealth + " / " + stats.maxHealth;
@@ -28,6 +35,10 @@ public class CharacterInfoCard : MonoBehaviour
             defenseText.text = stats.defense.ToString();
 
         critChanceText.text = stats.critChance.ToString();
+
+        levelText.text = levelTextString + stats.playerLevelSystem.level;
+
+        xpText.text = stats.playerLevelSystem.xp + " / " + stats.playerLevelSystem.xpToLevelUp;
     }
     public void SetInfoCard(PlantStats stats)
     {

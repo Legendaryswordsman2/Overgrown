@@ -12811,7 +12811,6 @@ GameObject:
   - component: {fileID: 636977076726505122}
   - component: {fileID: 8118033186993684815}
   - component: {fileID: 7349307692255342958}
-  - component: {fileID: 1636912120575920942}
   - component: {fileID: 2406020429753233596}
   - component: {fileID: 2406020429342347373}
   m_Layer: 6
@@ -12943,6 +12942,12 @@ MonoBehaviour:
   <damage>k__BackingField: 10
   <defense>k__BackingField: 0
   <critChance>k__BackingField: 0
+  <playerLevelSystem>k__BackingField:
+    level: 0
+    xp: 0
+    xpToLevelUp: 0
+    xpIncreaseOnLevelUp: 0
+    xpIncreaseIncreaseOnLevelUp: 0
   <money>k__BackingField: 0
   meleeWeapon: {fileID: 0}
   armor: {fileID: 0}
@@ -12952,27 +12957,6 @@ MonoBehaviour:
   shopMoneyText: {fileID: 8083427174186772604}
   <playerLevelUpScreen>k__BackingField: {fileID: 2406020429540395390}
   playerInfoCard: {fileID: 2406020429540395384}
---- !u!114 &1636912120575920942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636977076726505128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d43cb75468a3fc4fab3b029f801d86b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLevel: 1
-  xp: 0
-  xpToLevelUp: 100
-  xpIncreaseOnLevelUp: 100
-  xpIncreaseIncreaseOnLevelUp: 20
-  levelText: {fileID: 7809169511721064719}
-  levelProgressBar: {fileID: 7809169512008265565}
-  moneyText: {fileID: 7809169510884963780}
-  shopMoneyText: {fileID: 8083427174186772604}
 --- !u!58 &2406020429753233596
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16843,7 +16827,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.797834, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20249,28 +20233,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7809169511721064719 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1329404520, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
-  m_PrefabInstance: {fileID: 7809169510896550759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7809169512008265565 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2111630394, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
-  m_PrefabInstance: {fileID: 7809169510896550759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4ae0c4bfc36a4a9242f875c77bd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &7809169512400163943 stripped
