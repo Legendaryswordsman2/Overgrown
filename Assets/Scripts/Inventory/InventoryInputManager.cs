@@ -14,10 +14,7 @@ public class InventoryInputManager : MonoBehaviour
 	{
 		inventory = Inventory.instance;
 
-		if (BattleSystem.instance == null)
 			InputManager.playerInputActions.Player.Back.performed += Back_performed;
-		else
-			CombatManager.playerInputActions.Player.Back.performed += Back_performed;
 	}
 
     private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

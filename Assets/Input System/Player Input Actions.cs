@@ -109,6 +109,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
+                    ""id"": ""59f49d79-1060-481d-9398-430ad610dc93"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""66980f68-774e-4fb7-9f4e-0fe24c4899c0"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ddd58684-1d67-47a7-b711-9730c4426363"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
                     ""id"": ""83892bde-aba7-4896-b6fb-ff04171fdffe"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -229,6 +262,151 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Level Up Screen"",
+            ""id"": ""81ebaae4-38ea-459a-8e5b-6d3ce3ee9ce3"",
+            ""actions"": [
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""08f40fbb-9ad2-496b-819e-117ccc0299c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""8eeb9e59-ef32-47c5-afa7-4ee03f5fd1ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9a24d06-2dbc-4049-aa60-d5b08914053e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""05d53e7b-0b15-4b49-8207-14f0cba215d4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0473753c-1692-4a83-b1b7-a5893ad67000"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08626b98-17b0-41ca-b05c-4e206843b624"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9f04d51-6073-470d-89a0-f11e439fe330"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39d445be-b8cb-4d7b-b8be-611e615968db"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1babc6b4-d7d2-4e13-8133-30ca58ae410d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32fde9ee-f576-4d65-a93f-6293c9849a84"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d56eaa82-9949-49ab-a17c-01e79b7a1319"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f59e9d95-2134-481f-aa07-eebb5fa01926"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""862e6dd8-4746-48b6-a901-b04382089b78"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -263,6 +441,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_OpenClosePauseMenu = m_Player.FindAction("Open/Close Pause Menu", throwIfNotFound: true);
         m_Player_OpenCloseInventory = m_Player.FindAction("Open/Close Inventory", throwIfNotFound: true);
         m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
+        // Level Up Screen
+        m_LevelUpScreen = asset.FindActionMap("Level Up Screen", throwIfNotFound: true);
+        m_LevelUpScreen_Continue = m_LevelUpScreen.FindAction("Continue", throwIfNotFound: true);
+        m_LevelUpScreen_Up = m_LevelUpScreen.FindAction("Up", throwIfNotFound: true);
+        m_LevelUpScreen_Down = m_LevelUpScreen.FindAction("Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -383,6 +566,55 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Level Up Screen
+    private readonly InputActionMap m_LevelUpScreen;
+    private ILevelUpScreenActions m_LevelUpScreenActionsCallbackInterface;
+    private readonly InputAction m_LevelUpScreen_Continue;
+    private readonly InputAction m_LevelUpScreen_Up;
+    private readonly InputAction m_LevelUpScreen_Down;
+    public struct LevelUpScreenActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public LevelUpScreenActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Continue => m_Wrapper.m_LevelUpScreen_Continue;
+        public InputAction @Up => m_Wrapper.m_LevelUpScreen_Up;
+        public InputAction @Down => m_Wrapper.m_LevelUpScreen_Down;
+        public InputActionMap Get() { return m_Wrapper.m_LevelUpScreen; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LevelUpScreenActions set) { return set.Get(); }
+        public void SetCallbacks(ILevelUpScreenActions instance)
+        {
+            if (m_Wrapper.m_LevelUpScreenActionsCallbackInterface != null)
+            {
+                @Continue.started -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnContinue;
+                @Continue.performed -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnContinue;
+                @Continue.canceled -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnContinue;
+                @Up.started -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnUp;
+                @Up.performed -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnUp;
+                @Up.canceled -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnUp;
+                @Down.started -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_LevelUpScreenActionsCallbackInterface.OnDown;
+            }
+            m_Wrapper.m_LevelUpScreenActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Continue.started += instance.OnContinue;
+                @Continue.performed += instance.OnContinue;
+                @Continue.canceled += instance.OnContinue;
+                @Up.started += instance.OnUp;
+                @Up.performed += instance.OnUp;
+                @Up.canceled += instance.OnUp;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
+            }
+        }
+    }
+    public LevelUpScreenActions @LevelUpScreen => new LevelUpScreenActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -408,5 +640,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnOpenClosePauseMenu(InputAction.CallbackContext context);
         void OnOpenCloseInventory(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+    }
+    public interface ILevelUpScreenActions
+    {
+        void OnContinue(InputAction.CallbackContext context);
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
 }

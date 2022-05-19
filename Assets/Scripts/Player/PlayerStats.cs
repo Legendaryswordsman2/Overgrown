@@ -115,6 +115,8 @@ public class PlayerStats : MonoBehaviour
 
         money = statsData.money;
 
+		if (BattleSystem.instance != null) return;
+
         if (money == 0)
         {
             moneyText.text = "$0";

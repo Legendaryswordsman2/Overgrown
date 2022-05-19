@@ -7,8 +7,6 @@ public class CombatManager : MonoBehaviour
 {
 	public static CombatManager instance { get; private set; }
 
-	public static PlayerInputActions playerInputActions;
-
 	Inventory inventory;
 
     private void Awake()
@@ -16,13 +14,7 @@ public class CombatManager : MonoBehaviour
         instance = this;
 		inventory = BattleSystem.instance.inventory;
 
-        if (playerInputActions != null)
-            playerInputActions.Player.Disable();
-
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-
-        playerInputActions.Player.Back.performed += Back_performed;
+        InputManager.playerInputActions.Player.Back.performed += Back_performed;
     }
 
     private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
