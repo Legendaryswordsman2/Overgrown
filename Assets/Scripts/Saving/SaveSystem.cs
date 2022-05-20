@@ -47,6 +47,19 @@ public static class SaveSystem
             return (T)binaryFormatter.Deserialize(stream);
         }
     }
+    public static T LoadFileInMainSave<T>(string filePath)
+    {
+        filePath = currentSaveLocation + "MainSave" + filePath + ".data";
+        if (!File.Exists(filePath))
+        {
+            return default(T);
+        }
+        using (Stream stream = File.Open(filePath, FileMode.Open))
+        {
+            var binaryFormatter = new BinaryFormatter();
+            return (T)binaryFormatter.Deserialize(stream);
+        }
+    }
 
     public static void CopyFolder(string sourceFolder, string destFolder)
     {

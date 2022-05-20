@@ -67,12 +67,12 @@ public class PlantStats : MonoBehaviour
 		}
 
 		var saveData = new PlantStatsSaveData(this);
-		SaveSystem.SaveFile("/Player/Characters", "/PlayerStats", saveData);
+		SaveSystem.SaveFile("/Player/Characters", "/PlantStats", saveData);
 	}
 
 	private void SaveManager_OnLoadingGame(object sender, System.EventArgs e)
 	{
-		PlayerStatsSaveData statsData = SaveSystem.LoadFile<PlayerStatsSaveData>("/Player/Characters/PlayerStats");
+		PlantStatsSaveData statsData = SaveSystem.LoadFile<PlantStatsSaveData>("/Player/Characters/PlantStats");
 		if (statsData == null)
 		{
 			currentHealth = maxHealth;

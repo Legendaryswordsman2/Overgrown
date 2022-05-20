@@ -12,6 +12,22 @@ public class SaveMenu : MonoBehaviour
     [SerializeField] GameObject savingPopup;
     [SerializeField] GameObject savedPopup;
 
+    [Space]
+
+    [SerializeField] CharacterInfoCard playerInfoCard;
+    [SerializeField] CharacterInfoCard plantInfoCard;
+
+    private void Awake()
+    {
+        PlayerStatsSaveData playerStats = SaveSystem.LoadFileInMainSave<PlayerStatsSaveData>("/Player/Characters/PlayerStats");
+        LevelSystemSaveData playerLevel = SaveSystem.LoadFileInMainSave<LevelSystemSaveData>("/Player/Characters/PlayerLevel");
+
+        PlantStatsSaveData plantStats = SaveSystem.LoadFileInMainSave<PlantStatsSaveData>("/Player/Characters/PlantStats");
+        LevelSystemSaveData plantLevel = SaveSystem.LoadFileInMainSave<LevelSystemSaveData>("/Player/Characters/PlantLevel");
+
+
+    }
+
     public void SaveAndContinue()
     {
         savingPopup.SetActive(true);
