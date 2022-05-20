@@ -15,23 +15,19 @@ public class PlantStats : MonoBehaviour
 	[field: SerializeField] public int defense { get; private set; } = 0;
 	[field: SerializeField] public int critChance { get; private set; } = 0;
 
-	[field: SerializeField] public LevelSystem playerLevelSystem { get; private set; }
-
-	[Header("Equipped Items")]
-	[ReadOnlyInspector] public MeleeWeapon meleeWeapon;
-	[ReadOnlyInspector] public Armor armor;
+	[field: SerializeField] public LevelSystem plantLevelSystem { get; private set; }
 	[field: SerializeField] public PlayerLevelUpScreen playerLevelUpScreen { get; private set; }
 
 	[Space]
 
-	[SerializeField] CharacterInfoCard playerInfoCard;
+	[SerializeField] CharacterInfoCard plantInfoCard;
 
 	SaveManager saveManager;
 	BattleSystem battleSystem;
 
 	private void Awake()
 	{
-		playerLevelSystem = new LevelSystem(PlayerOrPlant.Player);
+		plantLevelSystem = new LevelSystem(PlayerOrPlant.Plant);
 
 		saveManager = SaveManager.instance;
 
@@ -41,32 +37,26 @@ public class PlantStats : MonoBehaviour
 
 	private void Start()
 	{
-		if (BattleSystem.instance != null)
-		{
-			battleSystem = BattleSystem.instance;
-			PlayerUnit playerUnit = battleSystem.playerUnit;
+        //if (BattleSystem.instance != null)
+        //{
+        //    battleSystem = BattleSystem.instance;
+        //    PlayerPlantUnit plantUnit = battleSystem.playerPlantUnit;
 
-			playerUnit.maxHealth = maxHealth;
-			playerUnit.currentHealth = currentHealth;
+        //    playerUnit.maxHealth = maxHealth;
+        //    playerUnit.currentHealth = currentHealth;
 
-			if (meleeWeapon != null)
-				playerUnit.damage = damage + meleeWeapon.meleeDamageModifier;
-			else
-				playerUnit.damage = damage;
+        //    playerUnit.damage = damage;
 
-			if (armor != null)
-				playerUnit.defense = defense + armor.defenseModifier;
-			else
-				playerUnit.defense = defense;
+        //    playerUnit.defense = defense;
 
-			playerUnit.critChance = critChance;
+        //    playerUnit.critChance = critChance;
 
-			playerUnit.playerHUD.SetHUD(playerUnit);
+        //    playerUnit.playerHUD.SetHUD(playerUnit);
 
-			return;
-		}
+        //    return;
+        //}
 
-		playerInfoCard.SetInfoCard(this);
+		plantInfoCard.SetInfoCard(this);
 	}
 
 	private void SaveManager_OnSavingGame(object sender, System.EventArgs e)
@@ -109,7 +99,7 @@ public class PlantStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		playerInfoCard.SetInfoCard(this);
+		plantInfoCard.SetInfoCard(this);
 	}
 	public void IncreaseHealthFromChosenLevelUpStat(int amount)
 	{
@@ -118,7 +108,7 @@ public class PlantStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		playerInfoCard.SetInfoCard(this);
+		plantInfoCard.SetInfoCard(this);
 	}
 	public void IncreaseDamageFromChosenLevelUpStat(int amount)
 	{
@@ -126,7 +116,7 @@ public class PlantStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		playerInfoCard.SetInfoCard(this);
+		plantInfoCard.SetInfoCard(this);
 	}
 	public void IncreaseDefenseFromChosenLevelUpStat(int amount)
 	{
@@ -134,7 +124,7 @@ public class PlantStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		playerInfoCard.SetInfoCard(this);
+		plantInfoCard.SetInfoCard(this);
 	}
 	public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
 	{
@@ -142,7 +132,7 @@ public class PlantStats : MonoBehaviour
 
 		if (BattleSystem.instance != null) return;
 
-		playerInfoCard.SetInfoCard(this);
+		plantInfoCard.SetInfoCard(this);
 	}
 	public void Sleep()
 	{

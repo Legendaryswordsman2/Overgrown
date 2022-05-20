@@ -10179,7 +10179,6 @@ MonoBehaviour:
   damageText: {fileID: 1235908255}
   defenseText: {fileID: 1211921985}
   critChanceText: {fileID: 1026365032}
-  levelTextString: 
 --- !u!1 &1628248546
 GameObject:
   m_ObjectHideFlags: 0
@@ -12812,6 +12811,7 @@ GameObject:
   - component: {fileID: 636977076726505122}
   - component: {fileID: 8118033186993684815}
   - component: {fileID: 7349307692255342958}
+  - component: {fileID: 8612786871031250884}
   - component: {fileID: 2406020429753233596}
   - component: {fileID: 2406020429342347373}
   m_Layer: 6
@@ -12944,11 +12944,14 @@ MonoBehaviour:
   <defense>k__BackingField: 0
   <critChance>k__BackingField: 0
   <playerLevelSystem>k__BackingField:
+    defaultNeededXpToLevelUp: 100
+    defaultNeededXpIncreaseOnLevelUp: 100
+    defaultNeededXpIncreaseIncreaseOnLevelUp: 20
     level: 0
     xp: 0
-    xpToLevelUp: 0
-    xpIncreaseOnLevelUp: 0
-    xpIncreaseIncreaseOnLevelUp: 0
+    xpToLevelUp: 100
+    neededXpIncreaseOnLevelUp: 0
+    neededXpIncreaseIncreaseOnLevelUp: 0
   <money>k__BackingField: 0
   meleeWeapon: {fileID: 0}
   armor: {fileID: 0}
@@ -12958,6 +12961,34 @@ MonoBehaviour:
   shopMoneyText: {fileID: 8083427174186772604}
   <playerLevelUpScreen>k__BackingField: {fileID: 2406020429540395390}
   playerInfoCard: {fileID: 2406020429540395384}
+--- !u!114 &8612786871031250884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636977076726505128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3769c524f02f40343a5c575f53a650f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 100
+  <currentHealth>k__BackingField: 0
+  <damage>k__BackingField: 10
+  <defense>k__BackingField: 0
+  <critChance>k__BackingField: 0
+  <plantLevelSystem>k__BackingField:
+    defaultNeededXpToLevelUp: 100
+    defaultNeededXpIncreaseOnLevelUp: 100
+    defaultNeededXpIncreaseIncreaseOnLevelUp: 20
+    level: 0
+    xp: 0
+    xpToLevelUp: 100
+    neededXpIncreaseOnLevelUp: 0
+    neededXpIncreaseIncreaseOnLevelUp: 0
+  <playerLevelUpScreen>k__BackingField: {fileID: 0}
+  plantInfoCard: {fileID: 1623339163}
 --- !u!58 &2406020429753233596
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20199,7 +20230,6 @@ MonoBehaviour:
   damageText: {fileID: 696744999}
   defenseText: {fileID: 629573223}
   critChanceText: {fileID: 1628248548}
-  levelTextString: 
 --- !u!114 &2406020429540395383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5565420678890015248, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}

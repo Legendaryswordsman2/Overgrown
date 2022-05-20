@@ -10,9 +10,17 @@ public class LevelSystem
 
     PlayerOrPlant playerOrPlant;
 
+    [Header("Default Stats")]
+
+    [SerializeField] int defaultNeededXpToLevelUp = 100;
+    [SerializeField] int defaultNeededXpIncreaseOnLevelUp = 100, defaultNeededXpIncreaseIncreaseOnLevelUp = 20;
+
+    [Space]
+
+
     [Header("Level & XP")]
     [ReadOnlyInspector] public int level = 1;
-    [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
+    [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, neededXpIncreaseOnLevelUp = 100, neededXpIncreaseIncreaseOnLevelUp = 20;
 
 
     public LevelSystem(PlayerOrPlant _playerOrPlant) // The equivalent of a start function
@@ -56,13 +64,21 @@ public class LevelSystem
                 return;
         }
 
-        if (saveData == null) return;
+        if (saveData == null) 
+        {
+            level = 1;
+            xp = 0;
+            xpToLevelUp = defaultNeededXpToLevelUp;
+            neededXpIncreaseOnLevelUp = defaultNeededXpIncreaseOnLevelUp ;
+            neededXpIncreaseIncreaseOnLevelUp = defaultNeededXpIncreaseIncreaseOnLevelUp;
+            return;
+        }
 
         level = saveData.level;
         xp = saveData.xp;
         xpToLevelUp = saveData.xpToLevelUp;
-        xpIncreaseOnLevelUp = saveData.xpIncreaseOnLevelUp;
-        xpIncreaseIncreaseOnLevelUp = saveData.xpIncreaseIncreaseOnLevelUp;
+        neededXpIncreaseOnLevelUp = saveData.neededXpIncreaseOnLevelUp;
+        neededXpIncreaseIncreaseOnLevelUp = saveData.neededXpIncreaseIncreaseOnLevelUp;
     }
 
     public bool GiveXp(int xpAmount)
@@ -94,8 +110,8 @@ public class LevelSystem
 
         if (xp < 0) xp = 0;
 
-        xpToLevelUp += xpIncreaseOnLevelUp;
-        xpIncreaseOnLevelUp += xpIncreaseIncreaseOnLevelUp;
+        xpToLevelUp += neededXpIncreaseOnLevelUp;
+        neededXpIncreaseOnLevelUp += neededXpIncreaseIncreaseOnLevelUp;
 
         //if (levelProgressBar != null)
         //{

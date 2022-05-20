@@ -21,12 +21,12 @@ MonoBehaviour:
   animatorControllers:
   - {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
   chosenAnimatorController: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
-  minXPOnDeath: 184
-  maxXPOnDeath: 344
-  XPOnDeath: 309
+  minXPOnDeath: 1
+  maxXPOnDeath: 5
+  XPOnDeath: 314
   minMoneyOnDeath: 2
   maxMoneyOnDeath: 10
-  MoneyOnDeath: 4
+  MoneyOnDeath: 10
   attackRange: 0.5
   enemiesToFight: []
   attackWalkSpeed: 5

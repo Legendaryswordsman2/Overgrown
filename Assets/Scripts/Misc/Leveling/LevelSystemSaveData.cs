@@ -6,14 +6,14 @@ using UnityEngine;
 public class LevelSystemSaveData
 {
     public int level = 1;
-    public int xp = 0, xpToLevelUp = 100, xpIncreaseOnLevelUp = 100, xpIncreaseIncreaseOnLevelUp = 20;
+    public int xp = 0, xpToLevelUp = 100, neededXpIncreaseOnLevelUp = 100, neededXpIncreaseIncreaseOnLevelUp = 20;
 
     public LevelSystemSaveData(LevelSystem levelSystem)
     {
         level = levelSystem.level;
         xp = levelSystem.xp;
         xpToLevelUp = levelSystem.xpToLevelUp;
-        xpIncreaseOnLevelUp = levelSystem.xpIncreaseOnLevelUp;
-        xpIncreaseIncreaseOnLevelUp = levelSystem.xpIncreaseIncreaseOnLevelUp;
+        neededXpIncreaseOnLevelUp = levelSystem.neededXpIncreaseOnLevelUp;
+        neededXpIncreaseIncreaseOnLevelUp = levelSystem.neededXpIncreaseIncreaseOnLevelUp;
     }
 }
