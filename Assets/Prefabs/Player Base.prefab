@@ -5275,8 +5275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5f22c5f7f7d29489f7b1d2895279b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savedPopupDuration: 3
-  savingPopupDuration: 0.5
+  savingPopupDuration: 3
+  savedPopupDuration: 0.5
   savingPopup: {fileID: 1892511685}
   savedPopup: {fileID: 576168374}
   playerInfoCard: {fileID: 2406020429540395388}

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SaveMenu : MonoBehaviour
 {
-    [SerializeField] float savedPopupDuration = 3;
-    [SerializeField] float savingPopupDuration = 0.5f;
+    [SerializeField] float savingPopupDuration = 3f;
+    [SerializeField] float savedPopupDuration = 0.5f;
 
     [Space]
     
@@ -45,11 +45,12 @@ public class SaveMenu : MonoBehaviour
 
     IEnumerator SwitchToSavedPopup(bool quitGame)
     {
-        yield return new WaitForSecondsRealtime(savedPopupDuration);
+        yield return new WaitForSecondsRealtime(savingPopupDuration);
+        SetCharacterCards();
         savingPopup.SetActive(false);
         savedPopup.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(savingPopupDuration);
+        yield return new WaitForSecondsRealtime(savedPopupDuration);
 
         if (quitGame)
         {
