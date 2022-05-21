@@ -44,6 +44,7 @@ public static class SaveSystem
         using (Stream stream = File.Open(filePath, FileMode.Open))
         {
             var binaryFormatter = new BinaryFormatter();
+            Debug.Log(filePath);
             return (T)binaryFormatter.Deserialize(stream);
         }
     }

@@ -14,18 +14,18 @@ public class SaveMenu : MonoBehaviour
 
     [Space]
 
-    [SerializeField] CharacterInfoCard playerInfoCard;
-    [SerializeField] CharacterInfoCard plantInfoCard;
-
-    private void Awake()
+    [SerializeField] SaveMenuCharacterCard playerInfoCard;
+    [SerializeField] SaveMenuCharacterCard plantInfoCard;
+    void SetCharacterCards()
     {
-        PlayerStatsSaveData playerStats = SaveSystem.LoadFileInMainSave<PlayerStatsSaveData>("/Player/Characters/PlayerStats");
+        //PlayerStatsSaveData playerStats = SaveSystem.LoadFileInMainSave<PlayerStatsSaveData>("/Player/Characters/PlayerStats");
         LevelSystemSaveData playerLevel = SaveSystem.LoadFileInMainSave<LevelSystemSaveData>("/Player/Characters/PlayerLevel");
 
-        PlantStatsSaveData plantStats = SaveSystem.LoadFileInMainSave<PlantStatsSaveData>("/Player/Characters/PlantStats");
+        //PlantStatsSaveData plantStats = SaveSystem.LoadFileInMainSave<PlantStatsSaveData>("/Player/Characters/PlantStats");
         LevelSystemSaveData plantLevel = SaveSystem.LoadFileInMainSave<LevelSystemSaveData>("/Player/Characters/PlantLevel");
 
-
+        playerInfoCard.SetCard(playerLevel);
+        plantInfoCard.SetCard(plantLevel);
     }
 
     public void SaveAndContinue()
@@ -63,6 +63,8 @@ public class SaveMenu : MonoBehaviour
     private void OnEnable()
     {
         InputManager.playerInputActions.Player.Back.performed += CloseSaveMenuFromKeybind;
+
+        SetCharacterCards();
 
     }
     private void OnDisable()

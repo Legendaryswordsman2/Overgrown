@@ -8,8 +8,8 @@ showPackageIndexes = false
 showStatusBar = false
 scopes = {
 	"last_search.8788AF05" = ""
-	"OpenInspectorPreview.8788AF05" = "0"
-	"currentGroup.8788AF05" = "scene"
+	"OpenInspectorPreview.8788AF05" = "1"
+	"currentGroup.8788AF05" = "menu"
 	"last_search.7BEC51F9" = ""
 	"OpenInspectorPreview.7BEC51F9" = "0"
 	"currentGroup.7BEC51F9" = "asset"
@@ -57,6 +57,8 @@ providers = {
 	}
 }
 recentSearches = [
+	"?"
+	"player Stats"
 	"h: "
 	"p"
 ]
