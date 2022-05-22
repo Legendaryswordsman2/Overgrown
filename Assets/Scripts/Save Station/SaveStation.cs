@@ -18,6 +18,7 @@ public class SaveStation : MonoBehaviour
     }
     void OpenSaveMenu()
     {
+        GameManager.instance.playerHealthBar.SetActive(false);
         GameManager.OpenOverlay(GameManager.instance.saveMenu);
     }
 }

@@ -82,6 +82,7 @@ public class SaveMenu : MonoBehaviour
     {
         InputManager.playerInputActions.Player.Back.performed -= CloseSaveMenuFromKeybind;
         GameManager.CloseOverlay(GameManager.instance.saveMenu);
+        GameManager.instance.playerHealthBar.SetActive(true);
 
     }
 }
