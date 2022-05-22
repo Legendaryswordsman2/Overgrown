@@ -25,8 +25,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	[Space]
 
-	[SerializeField, ReadOnlyInspector] SOPlant plantToLevelUp;
-
 	int previousHealth;
 	int previousDamage;
 	int previousDefense;
@@ -90,45 +88,45 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		//levelupParent.SetActive(true);
 		gameObject.SetActive(true);
 	}
-	public void SetPlantLevelUpScreen(SOPlant plant, int[] _statIncreases)
-	{
-		choosingStat = false;
-		finishedLevelUp = false;
+	//public void SetPlantLevelUpScreen(SOPlant plant, int[] _statIncreases)
+	//{
+	//	choosingStat = false;
+	//	finishedLevelUp = false;
 
-		plantToLevelUp = plant;
+	//	plantToLevelUp = plant;
 
-		statIncreases = _statIncreases;
+	//	statIncreases = _statIncreases;
 
-		previousHealth = plant.defaultHealth;
-        previousDamage = plant.damage;
-        previousDefense = plant.defense;
-        previousCritChance = plant.critChance;
+	//	previousHealth = plant.defaultHealth;
+ //       previousDamage = plant.damage;
+ //       previousDefense = plant.defense;
+ //       previousCritChance = plant.critChance;
 
-        healthTextStat.text = "HEALTH: " + plant.defaultHealth;
-		damageTextStat.text = "DAMAGE: " + plant.damage;
-		defenseTextStat.text = "DEFENSE: " + plant.defense;
-		critChanceTextStat.text = "CRIT CHANCE: " + plant.critChance;
+ //       healthTextStat.text = "HEALTH: " + plant.defaultHealth;
+	//	damageTextStat.text = "DAMAGE: " + plant.damage;
+	//	defenseTextStat.text = "DEFENSE: " + plant.defense;
+	//	critChanceTextStat.text = "CRIT CHANCE: " + plant.critChance;
 
-		healthTextStatIncrease.text = "+ " + statIncreases[0];
-		damageTextStatIncrease.text = "+ " + statIncreases[1];
-		defenseTextStatIncrease.text = "+ " + statIncreases[2];
-		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
+	//	healthTextStatIncrease.text = "+ " + statIncreases[0];
+	//	damageTextStatIncrease.text = "+ " + statIncreases[1];
+	//	defenseTextStatIncrease.text = "+ " + statIncreases[2];
+	//	critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-		leveledUpText.text = plant.unitName.ToUpper() + " LEVELED UP TO LEVEL " + plant.level;
+	//	leveledUpText.text = plant.unitName.ToUpper() + " LEVELED UP TO LEVEL " + plant.level;
 
-		healthTextStatIncrease.gameObject.SetActive(true);
-		damageTextStatIncrease.gameObject.SetActive(true);
-		defenseTextStatIncrease.gameObject.SetActive(true);
-		critChanceTextStatIncrease.gameObject.SetActive(true);
+	//	healthTextStatIncrease.gameObject.SetActive(true);
+	//	damageTextStatIncrease.gameObject.SetActive(true);
+	//	defenseTextStatIncrease.gameObject.SetActive(true);
+	//	critChanceTextStatIncrease.gameObject.SetActive(true);
 
-		popupText.text = "PRESS SPACE TO CONTINUE...";
-		popupText.gameObject.SetActive(true);
+	//	popupText.text = "PRESS SPACE TO CONTINUE...";
+	//	popupText.gameObject.SetActive(true);
 
-		hasIncreasedStats = false;
+	//	hasIncreasedStats = false;
 
-		GameManager.OpenOverlay(levelUpParent);
-		gameObject.SetActive(true);
-	}
+	//	GameManager.OpenOverlay(levelUpParent);
+	//	gameObject.SetActive(true);
+	//}
 	IEnumerator AddStats()
 	{
 		StartCoroutine(ApplyStatIncreaseToHealthStat());
@@ -151,10 +149,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			healthTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-			if (plantToLevelUp == null)
-				maxStat = playerStats.maxHealth;
-			else
-				maxStat = plantToLevelUp.defaultHealth;
+            maxStat = playerStats.maxHealth;
 
 			if (previousHealth >= maxStat) yield break;
 
@@ -172,10 +167,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			damageTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-			if (plantToLevelUp == null)
-				maxStat = playerStats.damage;
-			else
-				maxStat = plantToLevelUp.damage;
+            maxStat = playerStats.damage;
 
 			if (previousDamage >= maxStat) yield break;
 
@@ -194,10 +186,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			defenseTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-			if (plantToLevelUp == null)
-				maxStat = playerStats.defense;
-			else
-				maxStat = plantToLevelUp.defense;
+            maxStat = playerStats.defense;
 
 			if (previousDefense >= maxStat) yield break;
 
@@ -216,12 +205,9 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			critChanceTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-			if (plantToLevelUp == null)
-				maxStat = playerStats.critChance;
-			else
-				maxStat = plantToLevelUp.critChance;
+            maxStat = playerStats.critChance;
 
-				if (previousCritChance >= maxStat) break;
+            if (previousCritChance >= maxStat) break;
 			
 
 			yield return new WaitForSecondsRealtime(0.1f);
@@ -255,20 +241,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 				bool succesfulyLevelUp = playerStats.playerLevelSystem.TryToLevelUp();
 
 				if (succesfulyLevelUp == false)
-                {
-					if (plantToLevelUp == null)
-					{
-						bool plantLeveledUp = Inventory.instance.equippedPlantItem.plantSO.GiveXP(BattleSystem.instance.xpGiven);
-
-						if (plantLeveledUp) return;
-					}
-                    else
-                    {
-						bool plantLeveledUpAgain = Inventory.instance.equippedPlantItem.plantSO.TryToLevelUp();
-
-						if (plantLeveledUpAgain) return;
-					}
-
+                { 
 					if (BattleSystem.instance != null)
 						BattleSystem.instance.ChangeSceneAfterWinning();
 					else
@@ -360,40 +333,28 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		{
 			case (0):
 				statIncreases[0] = Random.Range(1, 5);
-				if (plantToLevelUp == null)
 					playerStats.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
-				else
-					plantToLevelUp.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
 				healthTextStatIncrease.text = "+ " + statIncreases[0];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToHealthStat());
 				break;
 			case (1):
 				statIncreases[1] = Random.Range(1, 5);
-				if (plantToLevelUp == null)
-					playerStats.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
-				else
-					plantToLevelUp.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
+				playerStats.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
 				damageTextStatIncrease.text = "+ " + statIncreases[1];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToDamageStat());
 				break;
 			case (2):
 				statIncreases[2] = Random.Range(1, 5);
-				if (plantToLevelUp == null)
-					playerStats.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
-				else
-					plantToLevelUp.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
+				playerStats.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
 				defenseTextStatIncrease.text = "+ " + statIncreases[2];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToDefenseStat());
 				break;
 			case (3):
 				statIncreases[3] = Random.Range(1, 5);
-				if (plantToLevelUp == null)
-                    playerStats.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
-                else
-                    plantToLevelUp.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
+				playerStats.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
 				critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 				yield return new WaitForSecondsRealtime(0.5f);
 				StartCoroutine(ApplyStatIncreaseToCritChanceStat());

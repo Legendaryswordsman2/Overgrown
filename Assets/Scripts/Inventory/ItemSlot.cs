@@ -71,11 +71,6 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if(item is EquipablePlantItem plantItem)
-		{
-			Inventory.instance.plantInfoBox.SetInfoBox(plantItem.plantSO);
-			return;
-		}
 		Inventory.instance.itemInfoBox.SetInfoBox(item.ItemName.ToUpper(), item.ItemDescription.ToUpper());
 	}
 

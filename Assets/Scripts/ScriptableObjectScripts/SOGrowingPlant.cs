@@ -13,9 +13,6 @@ public class SOGrowingPlant : ScriptableObject
 
     public int plantGrowTime = 20;
 
-    [Space]
-    public SOPlant plant;
-
 #if UNITY_EDITOR
     private void OnValidate()
     {

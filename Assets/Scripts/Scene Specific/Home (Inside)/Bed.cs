@@ -66,7 +66,6 @@ public class Bed : MonoBehaviour
 
 		GameManager gameManager = GameManager.instance;
 		gameManager.player.GetComponent<PlayerStats>().Sleep();
-		gameManager.inventory.ResetPlantsHealth();
 		StartCoroutine(LevelLoader.instance.LoadLevelWithTransition("CrossFade Start", "CrossFade", "Home (Inside)", playerWakeUpPosition));
 	}
 }

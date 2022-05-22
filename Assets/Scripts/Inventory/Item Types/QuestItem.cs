@@ -9,9 +9,4 @@ public class QuestItem : Item
 	{
 
 	}
-
-	public override void BuyItem(ShopItemSlot itemSlot, Inventory inventory)
-	{
-		throw new System.NotImplementedException();
-	}
 }

@@ -23,7 +23,6 @@ public class InventorySaveSystem : MonoBehaviour
 	private void SaveManager_OnSavingGame(object sender, EventArgs e)
 	{
 		// Items
-		SaveEquippablePlantItems();
 		SaveJunkItems();
 		SaveConsumableItems();
 		SaveQuestItems();
@@ -36,7 +35,6 @@ public class InventorySaveSystem : MonoBehaviour
 
 	private void SaveManager_OnLoadingGame(object sender, EventArgs e)
 	{
-		LoadEquippablePlantItems();
 		LoadJunkItems();
 		LoadConsumableItems();
 		LoadQuestItems();
@@ -77,16 +75,6 @@ public class InventorySaveSystem : MonoBehaviour
 			junkItemIDs.Add(inventory.junkItems[i].ID);
 		}
 		SaveSystem.SaveFile("/Player/Inventory", "/JunkItemData", junkItemIDs);
-	}
-	private void SaveEquippablePlantItems()
-	{
-		List<PlantItemSaveData> equippablePlantitemsSave = new List<PlantItemSaveData>();
-
-		for (int i = 0; i < inventory.equippablePlantItems.Count; i++)
-		{
-			equippablePlantitemsSave.Add(new PlantItemSaveData(inventory.equippablePlantItems[i]));
-		}
-		SaveSystem.SaveFile("/Player/Inventory", "/PlantItemData", equippablePlantitemsSave);
 	}
 	private void SaveWeaponItems()
 	{
@@ -144,20 +132,6 @@ public class InventorySaveSystem : MonoBehaviour
 		{
 			inventory.junkItems.Add(database.GetJunkItem(itemID));
 		}
-	}
-	private void LoadEquippablePlantItems()
-	{
-		List<PlantItemSaveData> equippablePlantitemsSave = SaveSystem.LoadFile<List<PlantItemSaveData>>("/Player/Inventory/PlantItemData");
-		if (equippablePlantitemsSave == null) return;
-
-		inventory.equippablePlantItems.Clear();
-
-		foreach (PlantItemSaveData plantItem in equippablePlantitemsSave)
-		{
-			inventory.equippablePlantItems.Add(database.GetEquippablePlantItem(plantItem.itemID));
-		}
-
-		inventory.equippablePlantitemsSave = equippablePlantitemsSave;
 	}
 	private void LoadWeaponItems()
 	{

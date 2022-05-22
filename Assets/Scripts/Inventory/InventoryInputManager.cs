@@ -29,15 +29,6 @@ public class InventoryInputManager : MonoBehaviour
 			GameManager.instance.CloseInventory();
 			return;
 		}
-            if (inventory.useItemScreen.gameObject.activeSelf)
-            {
-            inventory.itemInfoBox.gameObject.SetActive(false);
-            inventory.plantInfoBox.gameObject.SetActive(false);
-            inventory.GoToCategory(Inventory.instance.consumableItemsCategory);
-            inventory.ItemsCategory.SetActive(true);
-            return;
-            //inventory.useItemScreen.gameObject.SetActive(false);
-        }
 
 		inventory.ResetTabs();
 

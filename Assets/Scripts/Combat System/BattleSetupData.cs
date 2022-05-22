@@ -16,8 +16,6 @@ public static class BattleSetupData
 	// After Combat
 	public static int xpToAwardPlayer;
 
-	public static SOPlant plantSO;
-
 	public static void AssignVariables(SOEnemy[] __enemies, int _sceneIndex, Vector3 _playerPosition, EnemySaveData[] _enemySaveData, bool _playerStartsTurn, int _minEnemyLevel, int _maxEnemyLevel)
 	{
 		_enemies = __enemies;

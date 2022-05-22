@@ -7,39 +7,6 @@ public class PlayerPlantUnit : BaseUnit
 {
 	public CombatInfoHUD playerPlantHUD;
 
-	[ReadOnlyInspector] public SOPlant plantSO;
-
-	public void SetupPlant()
-	{
-		if (plantSO == null) return;
-
-		unitName = plantSO.unitName;
-		maxHealth = plantSO.defaultHealth;
-		currentHealth = plantSO.currentHealth;
-		damage = plantSO.damage;
-		defense = plantSO.defense;
-		critChance = plantSO.critChance;
-		gameObject.GetComponent<Animator>().runtimeAnimatorController = plantSO.animatorController;
-		playerPlantHUD.SetHUD(this);
-		playerPlantHUD.gameObject.SetActive(true);
-
-		BattleSystem.instance.playerHasPlant = true;
-
-		transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-
-		gameObject.SetActive(true);
-	}
-
-	public void DisablePlant()
-	{
-		plantSO = null;
-
-		playerPlantHUD.gameObject.SetActive(false);
-		battleSystem.playerHasPlant = false;
-
-		gameObject.SetActive(false);
-	}
-
 	protected override void Update()
 	{
 		base.Update();
@@ -117,12 +84,10 @@ public class PlayerPlantUnit : BaseUnit
 		if (currentHealth >= 0)
 		{
 			playerPlantHUD.SetHealth(currentHealth);
-			plantSO.currentHealth = currentHealth;
 		}
 		else
 		{
 			playerPlantHUD.SetHealth(0);
-			plantSO.currentHealth = 0;
 		}
 	}
 	public override void Heal(int amount)
@@ -130,13 +95,6 @@ public class PlayerPlantUnit : BaseUnit
 		base.Heal(amount);
 		StartCoroutine(playerPlantHUD.SetHealthFromItem(currentHealth));
 		battleSystem.playerUnit.UseItem();
-		plantSO.currentHealth = currentHealth;
-	}
-	protected override void Die()
-	{
-		base.Die();
-		battleSystem.playerHasPlant = false;
-		Inventory.instance.UnequipPlant();
 	}
 	protected override void OnAttack()
 	{
@@ -168,17 +126,5 @@ public class PlayerPlantUnit : BaseUnit
 	{
 		yield return new WaitForSeconds(0);
 		StartCoroutine(battleSystem.SwitchTurn());
-	}
-	protected override void OnValidate()
-	{
-		if (plantSO == null)
-		{
-			gameObject.SetActive(false);
-		}
-		else
-		{
-			gameObject.SetActive(true);
-			base.OnValidate();
-		}
 	}
 }

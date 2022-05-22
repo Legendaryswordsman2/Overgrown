@@ -132,15 +132,8 @@ public class PlayerUnit : BaseUnit
 	public override IEnumerator NextTurn()
 	{
 		yield return new WaitForSeconds(0);
-		if (battleSystem.playerHasPlant)
-		{
 			battleSystem.playerChoices.SetActive(false);
 			battleSystem.playerPlantUnit.ChooseAction();
-		}
-		else
-		{
-			StartCoroutine(battleSystem.SwitchTurn());
-		}
 	}
 	public void CallNextTurn()
 	{

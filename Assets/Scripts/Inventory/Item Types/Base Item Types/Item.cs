@@ -32,7 +32,6 @@ public abstract class Item : ScriptableObject
 	bool canStack;
 
 	public abstract void ItemSelected(ItemSlot itemSlot);
-	public abstract void BuyItem(ShopItemSlot itemSlot, Inventory inventory);
 
 #if UNITY_EDITOR
 	protected virtual void OnValidate()

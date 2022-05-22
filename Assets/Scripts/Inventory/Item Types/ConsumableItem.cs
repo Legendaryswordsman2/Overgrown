@@ -11,41 +11,17 @@ public class ConsumableItem : Item
 	{
 		BattleSystem battleSystem = BattleSystem.instance;
 
-		if (battleSystem == null)
-        {
-			UseableItemManager.instance.currentItemToBeUsed = this;
-			Inventory.instance.GoToCategory(Inventory.instance.useItemScreen.gameObject);
-            return;
-		}
-
 		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
 		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
 
-
-		if (!battleSystem.playerHasPlant)
-		{
-			if (battleSystem.playerUnit.currentHealth >= battleSystem.playerUnit.maxHealth)
-			{
-				Inventory.instance.textPopup.SetPopup("PLAYER ALREADY HAS FULL HEALTH");
-				return;
-			}
-
-			UseItem(battleSystem.playerUnit);
-			battleSystem.inventory.gameObject.SetActive(false);
-			Inventory.instance.RemoveItem(this);
-		}
-		else
-		{
-			if(battleSystem.playerUnit.currentHealth >= battleSystem.playerUnit.maxHealth && battleSystem.playerPlantUnit.currentHealth >= battleSystem.playerPlantUnit.maxHealth)
-			{
-				Inventory.instance.textPopup.SetPopup("PARTY ALREADY HAS FULL HEALTH");
-				return;
-			}
-			battleSystem.inventory.gameObject.SetActive(false);
-			battleSystem.GetComponent<ChooseTargetToUseItemOn>().ChooseTargetToUseItem(this);
-		}
-
-	}
+        if (battleSystem.playerUnit.currentHealth >= battleSystem.playerUnit.maxHealth && battleSystem.playerPlantUnit.currentHealth >= battleSystem.playerPlantUnit.maxHealth)
+        {
+            Inventory.instance.textPopup.SetPopup("PARTY ALREADY HAS FULL HEALTH");
+            return;
+        }
+        battleSystem.inventory.gameObject.SetActive(false);
+        battleSystem.GetComponent<ChooseTargetToUseItemOn>().ChooseTargetToUseItem(this);
+    }
 
 	public void UseItem(BaseUnit unit)
 	{
@@ -53,11 +29,5 @@ public class ConsumableItem : Item
 		{
 			effect.ExecuteEffect(unit);
 		}
-	}
-
-	public override void BuyItem(ShopItemSlot itemSlot, Inventory inventory)
-	{
-		inventory.AddItem(this);
-		inventory.textPopup.SetPopup("ITEM BOUGHT", 0.5f);
 	}
 }

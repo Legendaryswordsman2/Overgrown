@@ -16,25 +16,6 @@ public class PlantInfoBox : MonoBehaviour
 	[SerializeField] TMP_Text damageTextStat;
 	[SerializeField] TMP_Text defenseTextStat;
 	[SerializeField] TMP_Text critChanceTextStat;
-
-	public void SetInfoBox(SOPlant plantSO)
-	{
-		plantName.text = plantSO.unitName.ToUpper();
-		plantHealthBar.max = plantSO.defaultHealth;
-		plantHealthBar.current = plantSO.currentHealth;
-
-		plantXPBar.max = plantSO.xpToLevelUp;
-		plantXPBar.current = plantSO.xp;
-
-		levelTextStat.text = "Level: " + plantSO.level;
-		healthTextStat.text = "Health: " + plantSO.currentHealth + " / " + plantSO.defaultHealth;
-		damageTextStat.text = "Damage: " + plantSO.damage;
-		defenseTextStat.text = "Defense: " + plantSO.defense;
-		critChanceTextStat.text = "Crit: " + plantSO.critChance;
-
-		gameObject.SetActive(true);
-	}
-
 	public void SetInfoBoxForPlayer(PlayerStats playerStats, PlayerLevel playerLevel)
     {
 		plantName.text = "PLAYER";

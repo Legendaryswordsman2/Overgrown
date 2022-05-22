@@ -12,7 +12,6 @@ public class Inventory : MonoBehaviour
 	public List<JunkItem> junkItems;
 	public List<ConsumableItem> consumableItems;
 	public List<QuestItem> questItems;
-	public List<EquipablePlantItem> equippablePlantItems;
 
 	[Header("Gear")]
 	public List<MeleeWeapon> weaponItems;
@@ -39,8 +38,6 @@ public class Inventory : MonoBehaviour
 	[SerializeField] public GameObject questItemsCategory;
 	[SerializeField] public GameObject weaponItemsCategory;
 	[SerializeField] public GameObject armorItemsCategory;
-
-	[field: SerializeField] public UseableItemManager useItemScreen { get; private set; }
 	[field: SerializeField] public GameObject ItemsCategory { get; private set; }
 
 
@@ -61,20 +58,12 @@ public class Inventory : MonoBehaviour
 
 	[field: SerializeField] public SelectionMode selectionMode { get; private set; } = SelectionMode.Default;
 
-
-	[HideInInspector] public List<PlantItemSaveData> equippablePlantitemsSave;
 	[HideInInspector] public List<GearSaveData> meleeWeaponItemsSave;
 	[HideInInspector] public List<GearSaveData> armorItemsSave;
-
-	[Space]
-
-	[ReadOnlyInspector] public EquipablePlantItem equippedPlantItem;
 
 	private void Awake()
 	{
 		instance = this;
-
-		useItemScreen.Init();
 
 		GetComponent<CanvasGroup>().alpha = 1;
 
@@ -88,8 +77,6 @@ public class Inventory : MonoBehaviour
 			child.gameObject.SetActive(false);
 		}
 		categoryButtonsParent.SetActive(false);
-
-		useItemScreen.gameObject.SetActive(false);
 
 		categoryToOpen.SetActive(true);
 	}
@@ -171,29 +158,6 @@ public class Inventory : MonoBehaviour
 			questItemSlots.Add(itemSlot);
 		}
 	}
-
-	public void RefreshEquippablePlantItemSlots()
-	{
-		equippablePlantItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
-
-		foreach (Transform child in EquipablePlantItemSlotParent.transform)
-		{
-			Destroy(child.gameObject);
-		}
-
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			var ItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>();
-			ItemSlot.SetSlot(equippablePlantItems[i]);
-			equippablePlantItemSlots.Add(ItemSlot);
-
-			if (ItemSlot.item is EquipablePlantItem c)
-				if (c.isEquipped)
-				{
-					c.EquipPlantOnSceneLoaded(ItemSlot.GetComponent<ItemSlot>());
-				}
-		}
-	}
 	public void RefreshWeaponItemSlots()
 	{
 		weaponItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
@@ -235,42 +199,8 @@ public class Inventory : MonoBehaviour
 		}
 	}
     #endregion
-    public void UnequipPlant()
-	{
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			equippablePlantItems[i].isEquipped = false;
-		}
-		BattleSetupData.plantSO = null;
-		equippedPlantItem = null;
-		RefreshEquippablePlantItemSlots();
-	}
 	public void CreateItemCopies()
 	{
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			equippablePlantItems[i] = Instantiate(equippablePlantItems[i]);
-			equippablePlantItems[i].InitNewCopy();
-		}
-
-		if(equippablePlantitemsSave != null && equippablePlantitemsSave.Count != 0)
-		{
-			for (int i = 0; i < equippablePlantItems.Count; i++)
-			{
-				equippablePlantItems[i].plantSO.defaultHealth = equippablePlantitemsSave[i].defaultHealth;
-				equippablePlantItems[i].plantSO.level = equippablePlantitemsSave[i].level;
-				equippablePlantItems[i].plantSO.currentHealth = equippablePlantitemsSave[i].currentHealth;
-				equippablePlantItems[i].plantSO.damage = equippablePlantitemsSave[i].damage;
-				equippablePlantItems[i].plantSO.defense = equippablePlantitemsSave[i].defense;
-				equippablePlantItems[i].plantSO.critChance = equippablePlantitemsSave[i].critChance;
-				equippablePlantItems[i].isEquipped = equippablePlantitemsSave[i].isEquipped;
-
-				equippablePlantItems[i].plantSO.xp = equippablePlantitemsSave[i].xp;
-				equippablePlantItems[i].plantSO.xpToLevelUp = equippablePlantitemsSave[i].xpToLevelUp;
-				equippablePlantItems[i].plantSO.xpIncreaseOnLevelUp = equippablePlantitemsSave[i].xpIncreaseOnLevelUp;
-				equippablePlantItems[i].plantSO.xpIncreaseIncreaseOnLevelUp = equippablePlantitemsSave[i].xpIncreaseIncreaseOnLevelUp;
-			}
-		}
 		for (int i = 0; i < weaponItems.Count; i++)
 		{
 			weaponItems[i] = Instantiate(weaponItems[i]);
@@ -298,7 +228,6 @@ public class Inventory : MonoBehaviour
 		questItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
 		weaponItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
 		armorItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
-		equippablePlantItems.Sort((x, y) => string.Compare(x.ItemName, y.ItemName));
 
 		for (int i = 0; i < junkItems.Count; i++)
 		{
@@ -319,20 +248,6 @@ public class Inventory : MonoBehaviour
 			var itemSlot = Instantiate(itemSlotPrefab, questItemSlotParent.transform).GetComponent<ItemSlot>();
 			itemSlot.SetSlot(questItems[i]);
 			questItemSlots.Add(itemSlot);
-		}
-
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			var ItemSlot = Instantiate(itemSlotPrefab, EquipablePlantItemSlotParent.transform).GetComponent<ItemSlot>();
-			ItemSlot.SetSlot(equippablePlantItems[i]);
-			equippablePlantItemSlots.Add(ItemSlot);
-
-			if (ItemSlot.item is EquipablePlantItem c)
-				if (c.isEquipped)
-				{
-					c.EquipPlantOnSceneLoaded(ItemSlot);
-					equippedPlantItem = c;
-				}
 		}
 
 		for (int i = 0; i < weaponItems.Count; i++)
@@ -394,14 +309,6 @@ public class Inventory : MonoBehaviour
 		{
 			armorItemSlots.Clear();
 			Destroy(child.gameObject);
-		}
-	}
-
-	public void ResetPlantsHealth()
-	{
-		for (int i = 0; i < equippablePlantItems.Count; i++)
-		{
-			equippablePlantItems[i].plantSO.currentHealth = equippablePlantItems[i].plantSO.defaultHealth;
 		}
 	}
 

@@ -8,12 +8,9 @@ public class Database : ScriptableObject
 {
 	[SerializeField] SOEnemy[] enemies;
 
-	[SerializeField] SOPlant[] plants;
-
 	[SerializeField] SOGrowingPlant[] growingPlants;
 
 	[Header("Items")]
-	[SerializeField] EquipablePlantItem[] equippablePlantItems;
 	[SerializeField] JunkItem[] junkItems;
 	[SerializeField] ConsumableItem[] consumableItems;
 	[SerializeField] QuestItem[] questItems;
@@ -46,17 +43,6 @@ public class Database : ScriptableObject
 	public QuestItem GetQuestItem(string itemID)
 	{
 		foreach (QuestItem item in questItems)
-		{
-			if (item.ID == itemID)
-			{
-				return item;
-			}
-		}
-		return null;
-	}
-	public EquipablePlantItem GetEquippablePlantItem(string itemID)
-	{
-		foreach (EquipablePlantItem item in equippablePlantItems)
 		{
 			if (item.ID == itemID)
 			{
@@ -122,10 +108,7 @@ public class Database : ScriptableObject
 
 		growingPlants = FindAssetsByType<SOGrowingPlant>("Assets/Scriptable Objects/Growing Plants");
 
-		plants = FindAssetsByType<SOPlant>("Assets/Scriptable Objects/Plants");
-
 		// Items
-		equippablePlantItems = FindAssetsByType<EquipablePlantItem>("Assets/Scriptable Objects/Items/Plant Items");
 		junkItems = FindAssetsByType<JunkItem>("Assets/Scriptable Objects/Items/Junk Items");
 		consumableItems = FindAssetsByType<ConsumableItem>("Assets/Scriptable Objects/Items/Consumable Items");
 		questItems = FindAssetsByType<QuestItem>("Assets/Scriptable Objects/Items/Quest Items");

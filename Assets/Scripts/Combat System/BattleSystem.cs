@@ -49,9 +49,6 @@ public class BattleSystem : MonoBehaviour
 	[field: SerializeField] public float critPercentagePerCritPoint { get; private set; } = 0.2f;
 	[field: SerializeField] public float baseCritChancePercantage { get; private set; } = 20;
 
-	// Private
-	[HideInInspector] public bool playerHasPlant = true;
-
 	[HideInInspector] public int enemySelectionIndex = 0;
 
 	// Rewards Given when battle won
@@ -82,15 +79,7 @@ public class BattleSystem : MonoBehaviour
 			enemiesAlive.Add(tempActiveEnemies[i]);
 		}
 
-		if(BattleSetupData.plantSO == null)
-		{
-			playerPlantUnit.gameObject.SetActive(false);
-		}
-		else
-		{
-			playerPlantUnit.plantSO = BattleSetupData.plantSO;
-			playerPlantUnit.SetupPlant();
-		}
+		// Setup Plant
 
 		// Start First Turn
 
@@ -130,7 +119,6 @@ public class BattleSystem : MonoBehaviour
 		else if(state == BattleState.EnemyTurn)
 		{
 			playerUnit.ChooseAction();
-			if(playerHasPlant)
 			playerPlantUnit.ResetForNewRound();
 		}
 
@@ -154,11 +142,8 @@ public class BattleSystem : MonoBehaviour
 		bool playerLeveledUp = GetComponent<PlayerStats>().playerLevelSystem.GiveXp(xpGiven);
 		GetComponent<PlayerStats>().GiveMoney(moneyGiven);
 
-		bool plantLeveledUp = false;
-		if (playerLeveledUp == false)
-		plantLeveledUp = inventory.equippedPlantItem.plantSO.GiveXP(xpGiven);
 
-		if(plantLeveledUp == false && playerLeveledUp == false)
+		if(playerLeveledUp == false)
 		ChangeSceneAfterWinning();
 	}
 	public void ChangeSceneAfterWinning()
