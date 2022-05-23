@@ -16,6 +16,25 @@ public class PlayerUnit : BaseUnit
 	{
 		base.Setup();
 	}
+	public void SetStats(PlayerStats stats)
+    {
+		maxHealth = stats.maxHealth;
+		currentHealth = stats.currentHealth;
+
+		if (stats.meleeWeapon != null)
+            damage = stats.damage + stats.meleeWeapon.meleeDamageModifier;
+		else
+			damage = stats.damage;
+
+		if (stats.armor != null)
+			defense = stats.defense + stats.armor.defenseModifier;
+		else
+			defense = stats.defense;
+
+		critChance = stats.critChance;
+
+		playerHUD.SetHUD(this);
+	}
 
 	protected override void Update()
 	{

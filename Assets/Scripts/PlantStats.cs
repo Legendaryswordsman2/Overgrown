@@ -37,24 +37,15 @@ public class PlantStats : MonoBehaviour
 
 	private void Start()
 	{
-        //if (BattleSystem.instance != null)
-        //{
-        //    battleSystem = BattleSystem.instance;
-        //    PlayerPlantUnit plantUnit = battleSystem.playerPlantUnit;
+		if (BattleSystem.instance != null)
+		{
+			battleSystem = BattleSystem.instance;
+			PlayerPlantUnit plantUnit = battleSystem.playerPlantUnit;
 
-        //    playerUnit.maxHealth = maxHealth;
-        //    playerUnit.currentHealth = currentHealth;
+			plantUnit.SetStats(this);
 
-        //    playerUnit.damage = damage;
-
-        //    playerUnit.defense = defense;
-
-        //    playerUnit.critChance = critChance;
-
-        //    playerUnit.playerHUD.SetHUD(playerUnit);
-
-        //    return;
-        //}
+			return;
+		}
 
 		plantInfoCard.SetInfoCard(this);
 	}

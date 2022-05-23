@@ -58,22 +58,7 @@ public class PlayerStats : MonoBehaviour
 			battleSystem = BattleSystem.instance;
 			PlayerUnit playerUnit = battleSystem.playerUnit;
 
-			playerUnit.maxHealth = maxHealth;
-			playerUnit.currentHealth = currentHealth;
-
-			if (meleeWeapon != null)
-				playerUnit.damage = damage + meleeWeapon.meleeDamageModifier;
-			else
-				playerUnit.damage = damage;
-
-			if (armor != null)
-				playerUnit.defense = defense + armor.defenseModifier;
-			else
-				playerUnit.defense = defense;
-
-			playerUnit.critChance = critChance;
-
-			playerUnit.playerHUD.SetHUD(playerUnit);
+			playerUnit.SetStats(this);
 				
 			return;
 		}

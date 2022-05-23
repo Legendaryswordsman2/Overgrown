@@ -25644,7 +25644,7 @@ Animator:
   m_GameObject: {fileID: 815465832}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 429b9db0c9525a242802664ce7ba015b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -36878,6 +36878,7 @@ GameObject:
   - component: {fileID: 1990234817}
   - component: {fileID: 1990234819}
   - component: {fileID: 1990234820}
+  - component: {fileID: 1990234822}
   - component: {fileID: 1990234821}
   m_Layer: 0
   m_Name: Battle System
@@ -37014,6 +37015,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1debceece718450468e552e427171466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1990234822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990234814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3769c524f02f40343a5c575f53a650f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 100
+  <currentHealth>k__BackingField: 0
+  <damage>k__BackingField: 10
+  <defense>k__BackingField: 0
+  <critChance>k__BackingField: 0
+  <plantLevelSystem>k__BackingField:
+    defaultNeededXpToLevelUp: 0
+    defaultNeededXpIncreaseOnLevelUp: 0
+    defaultNeededXpIncreaseIncreaseOnLevelUp: 0
+    level: 0
+    xp: 0
+    xpToLevelUp: 0
+    neededXpIncreaseOnLevelUp: 0
+    neededXpIncreaseIncreaseOnLevelUp: 0
+  <playerLevelUpScreen>k__BackingField: {fileID: 0}
+  plantInfoCard: {fileID: 0}
 --- !u!1 &2004411741
 GameObject:
   m_ObjectHideFlags: 0

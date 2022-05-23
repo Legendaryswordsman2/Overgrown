@@ -7,6 +7,20 @@ public class PlayerPlantUnit : BaseUnit
 {
 	public CombatInfoHUD playerPlantHUD;
 
+	public void SetStats(PlantStats stats)
+	{
+        maxHealth = stats.maxHealth;
+        currentHealth = stats.currentHealth;
+
+        damage = stats.damage;
+
+        defense = stats.defense;
+
+        critChance = stats.critChance;
+
+        playerPlantHUD.SetHUD(this);
+    }
+
 	protected override void Update()
 	{
 		base.Update();

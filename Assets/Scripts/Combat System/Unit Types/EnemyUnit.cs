@@ -39,7 +39,7 @@ public class EnemyUnit : BaseUnit
 
     void ScaleLevel()
     {
-        int playerLevel = PlayerStats.instance.GetComponent<PlayerLevel>().playerLevel;
+        int playerLevel = PlayerStats.instance.playerLevelSystem.level;
 
         int enemyLevel;
 
