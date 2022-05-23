@@ -31,41 +31,49 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	int previousDefense;
 	int previousCritChance;
 
-	PlayerStats playerStats;
 	int[] statIncreases;
 
 	bool hasIncreasedStats = false;
 	bool finishedLevelUp = false;
 
-	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
+	CharacterToLevelUp characterToLevelUp;
+
+	LevelUpStats levelUpStats;
+
+	public void SetLevelUpScreen(LevelUpStats _levelUpStats, CharacterToLevelUp _characterToLevelUp)
 	{
+		characterToLevelUp = _characterToLevelUp;
+
+		levelUpStats = _levelUpStats;
+
 		finishedLevelUp = false;
 
-		playerStats = _playerStats;
+		statIncreases = levelUpStats.statIncreases;
 
-		statIncreases = _statIncreases;
+		previousHealth = levelUpStats.previousHealth;
+		previousDamage = levelUpStats.previousDamage;	  
+		previousDefense = levelUpStats.previousDefense;
+		previousCritChance = levelUpStats.previousCritChance;
 
-		previousHealth = playerStats.maxHealth;
-		previousDamage = playerStats.damage;
-		previousDefense = playerStats.defense;
-		previousCritChance = playerStats.critChance;
-
-		healthTextStat.text = "HEALTH: " + playerStats.maxHealth;
-		damageTextStat.text = "DAMAGE: " + playerStats.damage;
-		defenseTextStat.text = "DEFENSE: " + playerStats.defense;
-		critChanceTextStat.text = "CRIT CHANCE: " + playerStats.critChance;
+		healthTextStat.text = "HEALTH: " + levelUpStats.previousHealth;
+		damageTextStat.text = "DAMAGE: " + levelUpStats.previousDamage;
+		defenseTextStat.text = "DEFENSE: " + levelUpStats.previousDefense;
+		critChanceTextStat.text = "CRIT CHANCE: " + levelUpStats.previousCritChance;
 
 		healthTextStatIncrease.text = "+ " + statIncreases[0];
 		damageTextStatIncrease.text = "+ " + statIncreases[1];
 		defenseTextStatIncrease.text = "+ " + statIncreases[2];
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.playerLevelSystem.level;
+		if(characterToLevelUp == CharacterToLevelUp.Player)
+            leveledUpText.text = "YOU LEVELED UP TO LEVEL " + levelUpStats.newLevel;
+		else
+			leveledUpText.text = "YOUR PLANT LEVELED UP TO LEVEL " + levelUpStats.newLevel;
 
-		healthTextStatIncrease.gameObject.SetActive(true);
-		damageTextStatIncrease.gameObject.SetActive(true);
-		defenseTextStatIncrease.gameObject.SetActive(true);
-		critChanceTextStatIncrease.gameObject.SetActive(true);
+		//healthTextStatIncrease.gameObject.SetActive(true);
+		//damageTextStatIncrease.gameObject.SetActive(true);
+		//defenseTextStatIncrease.gameObject.SetActive(true);
+		//critChanceTextStatIncrease.gameObject.SetActive(true);
 
 		popupText.text = "PRESS SPACE TO CONTINUE...";
 		popupText.gameObject.SetActive(true);
@@ -73,48 +81,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		hasIncreasedStats = false;
 
 		GameManager.OpenOverlay(levelUpParent);
-		//levelupParent.SetActive(true);
 		gameObject.SetActive(true);
 	}
-	//public void SetPlantLevelUpScreen(SOPlant plant, int[] _statIncreases)
-	//{
-	//	choosingStat = false;
-	//	finishedLevelUp = false;
-
-	//	plantToLevelUp = plant;
-
-	//	statIncreases = _statIncreases;
-
-	//	previousHealth = plant.defaultHealth;
- //       previousDamage = plant.damage;
- //       previousDefense = plant.defense;
- //       previousCritChance = plant.critChance;
-
- //       healthTextStat.text = "HEALTH: " + plant.defaultHealth;
-	//	damageTextStat.text = "DAMAGE: " + plant.damage;
-	//	defenseTextStat.text = "DEFENSE: " + plant.defense;
-	//	critChanceTextStat.text = "CRIT CHANCE: " + plant.critChance;
-
-	//	healthTextStatIncrease.text = "+ " + statIncreases[0];
-	//	damageTextStatIncrease.text = "+ " + statIncreases[1];
-	//	defenseTextStatIncrease.text = "+ " + statIncreases[2];
-	//	critChanceTextStatIncrease.text = "+ " + statIncreases[3];
-
-	//	leveledUpText.text = plant.unitName.ToUpper() + " LEVELED UP TO LEVEL " + plant.level;
-
-	//	healthTextStatIncrease.gameObject.SetActive(true);
-	//	damageTextStatIncrease.gameObject.SetActive(true);
-	//	defenseTextStatIncrease.gameObject.SetActive(true);
-	//	critChanceTextStatIncrease.gameObject.SetActive(true);
-
-	//	popupText.text = "PRESS SPACE TO CONTINUE...";
-	//	popupText.gameObject.SetActive(true);
-
-	//	hasIncreasedStats = false;
-
-	//	GameManager.OpenOverlay(levelUpParent);
-	//	gameObject.SetActive(true);
-	//}
 	IEnumerator AddStats()
 	{
 		StartCoroutine(ApplyStatIncreaseToHealthStat());
@@ -137,7 +105,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			healthTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-            maxStat = playerStats.maxHealth;
+			maxStat = levelUpStats.newHealth;
 
 			if (previousHealth >= maxStat) yield break;
 
@@ -155,7 +123,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			damageTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-            maxStat = playerStats.damage;
+			maxStat = levelUpStats.newDamage;
 
 			if (previousDamage >= maxStat) yield break;
 
@@ -174,7 +142,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			defenseTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-            maxStat = playerStats.defense;
+			maxStat = levelUpStats.newDefense;
 
 			if (previousDefense >= maxStat) yield break;
 
@@ -193,7 +161,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			critChanceTextStatIncrease.text = "+ " + statIncreaseNumber;
 
 			int maxStat;
-            maxStat = playerStats.critChance;
+			maxStat = levelUpStats.newCritChance;
 
             if (previousCritChance >= maxStat) break;
 
@@ -203,26 +171,28 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
-		{
-			if (finishedLevelUp)
-			{
-				bool succesfulyLevelUp = playerStats.playerLevelSystem.TryToLevelUp();
 
-				if (succesfulyLevelUp == false)
-                { 
-					if (BattleSystem.instance != null)
-						BattleSystem.instance.ChangeSceneAfterWinning();
-					else
-						GameManager.CloseOverlay(levelUpParent);
-                }
-			}
-			else
-			{
-			popupText.gameObject.SetActive(false);
-			StartCoroutine(AddStats());
-			hasIncreasedStats = true;
-			}
-		}
+
+		//if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
+		//{
+		//	if (finishedLevelUp)
+		//	{
+		//		bool succesfulyLevelUp = playerStats.playerLevelSystem.TryToLevelUp();
+
+		//		if (succesfulyLevelUp == false)
+  //              { 
+		//			if (BattleSystem.instance != null)
+		//				BattleSystem.instance.ChangeSceneAfterWinning();
+		//			else
+		//				GameManager.CloseOverlay(levelUpParent);
+  //              }
+		//	}
+		//	else
+		//	{
+		//	popupText.gameObject.SetActive(false);
+		//	StartCoroutine(AddStats());
+		//	hasIncreasedStats = true;
+		//	}
+		//}
 	}
 }
