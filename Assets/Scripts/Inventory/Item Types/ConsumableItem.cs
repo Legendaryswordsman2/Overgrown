@@ -12,7 +12,6 @@ public class ConsumableItem : Item
 		BattleSystem battleSystem = BattleSystem.instance;
 
 		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
-		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
 
         if (battleSystem.playerUnit.currentHealth >= battleSystem.playerUnit.maxHealth && battleSystem.playerPlantUnit.currentHealth >= battleSystem.playerPlantUnit.maxHealth)
         {

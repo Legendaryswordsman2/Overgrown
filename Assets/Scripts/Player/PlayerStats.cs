@@ -116,7 +116,7 @@ public class PlayerStats : MonoBehaviour
 
 	public void IncreaseStatsFromLevelUp(int[] statIncreases)
 	{
-		playerLevelUpScreen.SetPlayerLevelUpScreen(this, statIncreases);
+		playerLevelUpScreen.SetLevelUpScreen(this, statIncreases);
 
 		maxHealth += statIncreases[0];
 		currentHealth += statIncreases[0];

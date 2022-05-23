@@ -77,6 +77,5 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		Inventory.instance.itemInfoBox.gameObject.SetActive(false);
-		Inventory.instance.plantInfoBox.gameObject.SetActive(false);
 	}
 }

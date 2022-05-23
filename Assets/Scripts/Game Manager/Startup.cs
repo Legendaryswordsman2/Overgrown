@@ -37,27 +37,27 @@ public class Startup : MonoBehaviour
 
         if(File.Exists(SaveSystem.saveOneLocation + "/MainSave/Player/PlayerLevel&XP.json"))
         {
-            PlayerXPData xpDataSaveOne = SaveSystem.LoadFileInSpecificSave<PlayerXPData>(1, "/Player/PlayerLevel&XP.json");
+            LevelSystemSaveData xpDataSaveOne = SaveSystem.LoadFileInSpecificSave<LevelSystemSaveData>(1, "/Player/Characters/PlayerLevel.Data");
 
-            saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveOne.playerLevel.ToString();
+            saveSlotOne.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveOne.level;
             saveSlotOne.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveOne.xpToLevelUp;
             saveSlotOne.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveOne.xp;
         }
 
         if (File.Exists(SaveSystem.saveTwoLocation + "/MainSave/Player/PlayerLevel&XP.json"))
         {
-            PlayerXPData xpDataSaveTwo = SaveSystem.LoadFileInSpecificSave<PlayerXPData>(2, "/Player/PlayerLevel&XP.json");
+            LevelSystemSaveData xpDataSaveTwo = SaveSystem.LoadFileInSpecificSave<LevelSystemSaveData>(2, "/Player/Characters/PlayerLevel.Data");
 
-            saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveTwo.playerLevel.ToString();
+            saveSlotTwo.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveTwo.level;
             saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveTwo.xpToLevelUp;
             saveSlotTwo.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveTwo.xp;
         }
 
         if (File.Exists(SaveSystem.saveThreeLocation + "/MainSave/Player/PlayerLevel&XP.json"))
         {
-            PlayerXPData xpDataSaveThree = SaveSystem.LoadFileInSpecificSave<PlayerXPData>(3, "/Player/PlayerLevel&XP.json");
+            LevelSystemSaveData xpDataSaveThree = SaveSystem.LoadFileInSpecificSave<LevelSystemSaveData>(3, "/Player/Characters/PlayerLevel.Data");
 
-            saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveThree.playerLevel.ToString();
+            saveSlotThree.GetChild(0).GetComponent<TMP_Text>().text = "LV: " + xpDataSaveThree.level;
             saveSlotThree.GetChild(1).GetComponent<ProgressBar>().max = xpDataSaveThree.xpToLevelUp;
             saveSlotThree.GetChild(1).GetComponent<ProgressBar>().current = xpDataSaveThree.xp;
         }

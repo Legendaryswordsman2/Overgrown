@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum CharacterToLevelUp { Player, Plant }
 public class PlayerLevelUpScreen : MonoBehaviour
 {
 	[SerializeField] GameObject levelUpParent;
@@ -33,24 +34,11 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	PlayerStats playerStats;
 	int[] statIncreases;
 
-	int selectionIndex = 0;
-
 	bool hasIncreasedStats = false;
-	bool choosingStat = false;
 	bool finishedLevelUp = false;
 
-	TMP_Text chosenBonusStat;
-
-	int rotationIndex = 1;
-
-	private void Awake()
+	public void SetLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
 	{
-		chosenBonusStat = healthTextStatIncrease;
-	}
-
-	public void SetPlayerLevelUpScreen(PlayerStats _playerStats, int[] _statIncreases)
-	{
-		choosingStat = false;
 		finishedLevelUp = false;
 
 		playerStats = _playerStats;
@@ -72,7 +60,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		defenseTextStatIncrease.text = "+ " + statIncreases[2];
 		critChanceTextStatIncrease.text = "+ " + statIncreases[3];
 
-		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.GetComponent<PlayerLevel>().playerLevel;
+		leveledUpText.text = "YOU LEVELED UP TO LEVEL " + playerStats.playerLevelSystem.level;
 
 		healthTextStatIncrease.gameObject.SetActive(true);
 		damageTextStatIncrease.gameObject.SetActive(true);
@@ -208,28 +196,9 @@ public class PlayerLevelUpScreen : MonoBehaviour
             maxStat = playerStats.critChance;
 
             if (previousCritChance >= maxStat) break;
-			
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
-
-		if (choosingStat || finishedLevelUp) yield break;
-
-		yield return new WaitForSecondsRealtime(1);
-
-		selectionIndex = 0;
-		healthTextStatIncrease.gameObject.SetActive(true);
-		damageTextStatIncrease.gameObject.SetActive(false);
-		defenseTextStatIncrease.gameObject.SetActive(false);
-		critChanceTextStatIncrease.gameObject.SetActive(false);
-
-		popupText.text = "CHOOSE STAT BONUS...";
-		popupText.gameObject.SetActive(true);
-
-		chosenBonusStat = healthTextStatIncrease;
-
-		choosingStat = true;
-		StartCoroutine(RotateChosenStatNumbers());
 	}
 
 	private void Update()
@@ -255,114 +224,5 @@ public class PlayerLevelUpScreen : MonoBehaviour
 			hasIncreasedStats = true;
 			}
 		}
-
-		if (choosingStat) ChooseStat();
-	}
-
-	void ChooseStat()
-	{
-		if (Input.GetKeyDown(KeyCode.Return))
-		{
-			StopAllCoroutines();
-			StartCoroutine(ConfirmChosenStat());
-		}
-
-		if (Input.GetKeyDown(KeyCode.W))
-		{
-			if (selectionIndex <= 0) return;
-			selectionIndex--;
-			HighlightStat();
-		}
-
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			if (selectionIndex >= 3) return;
-			selectionIndex++;
-			HighlightStat();
-		}
-	}
-
-	IEnumerator RotateChosenStatNumbers()
-	{
-		if (!choosingStat) yield break;
-
-		yield return new WaitForSecondsRealtime(0.05f);
-		if (rotationIndex == 4)
-		{
-			chosenBonusStat.text = "+ " + 1;
-			rotationIndex = 1;
-		}
-		else
-		{
-			rotationIndex++;
-			chosenBonusStat.text = "+ " + rotationIndex;
-		}
-
-		if (choosingStat) StartCoroutine(RotateChosenStatNumbers());
-	}
-
-	void HighlightStat()
-	{
-		chosenBonusStat.gameObject.SetActive(false);
-
-		switch (selectionIndex)
-		{
-			case (0):
-				chosenBonusStat = healthTextStatIncrease;
-				break;
-			case (1):
-				chosenBonusStat = damageTextStatIncrease;
-				break;
-			case (2):
-				chosenBonusStat = defenseTextStatIncrease;
-				break;
-			case (3):
-				chosenBonusStat = critChanceTextStatIncrease;
-				break;
-		}
-
-		chosenBonusStat.gameObject.SetActive(true);
-	}
-	IEnumerator ConfirmChosenStat()
-	{
-		choosingStat = false;
-
-		popupText.gameObject.SetActive(false);
-
-		switch (selectionIndex)
-		{
-			case (0):
-				statIncreases[0] = Random.Range(1, 5);
-					playerStats.IncreaseHealthFromChosenLevelUpStat(statIncreases[0]);
-				healthTextStatIncrease.text = "+ " + statIncreases[0];
-				yield return new WaitForSecondsRealtime(0.5f);
-				StartCoroutine(ApplyStatIncreaseToHealthStat());
-				break;
-			case (1):
-				statIncreases[1] = Random.Range(1, 5);
-				playerStats.IncreaseDamageFromChosenLevelUpStat(statIncreases[1]);
-				damageTextStatIncrease.text = "+ " + statIncreases[1];
-				yield return new WaitForSecondsRealtime(0.5f);
-				StartCoroutine(ApplyStatIncreaseToDamageStat());
-				break;
-			case (2):
-				statIncreases[2] = Random.Range(1, 5);
-				playerStats.IncreaseDefenseFromChosenLevelUpStat(statIncreases[2]);
-				defenseTextStatIncrease.text = "+ " + statIncreases[2];
-				yield return new WaitForSecondsRealtime(0.5f);
-				StartCoroutine(ApplyStatIncreaseToDefenseStat());
-				break;
-			case (3):
-				statIncreases[3] = Random.Range(1, 5);
-				playerStats.IncreaseCritChanceFromChosenLevelUpStat(statIncreases[3]);
-				critChanceTextStatIncrease.text = "+ " + statIncreases[3];
-				yield return new WaitForSecondsRealtime(0.5f);
-				StartCoroutine(ApplyStatIncreaseToCritChanceStat());
-				break;
-		}
-		finishedLevelUp = true;
-		hasIncreasedStats = false;
-		popupText.text = "PRESS SPACE TO CONTINUE...";
-		popupText.gameObject.SetActive(true);
 	}
 }
