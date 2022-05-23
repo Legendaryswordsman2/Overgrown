@@ -167,12 +167,25 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
+
+		finishedLevelingStats();
 	}
 
-	private void Update()
+	void finishedLevelingStats()
+    {
+        InputManager.playerInputActions.LevelUpScreen.Continue.performed += Continue_performed;
+    }
+
+    private void Continue_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if(characterToLevelUp == CharacterToLevelUp.Player)
+        {
+			
+        }
+    }
+
+    private void Update()
 	{
-
-
 		//if (Input.GetKeyDown(KeyCode.Space) && !hasIncreasedStats)
 		//{
 		//	if (finishedLevelUp)
