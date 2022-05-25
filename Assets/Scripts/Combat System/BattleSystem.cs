@@ -142,7 +142,6 @@ public class BattleSystem : MonoBehaviour
 		bool playerLeveledUp = GetComponent<PlayerStats>().playerLevelSystem.GiveXp(xpGiven);
 		GetComponent<PlayerStats>().GiveMoney(moneyGiven);
 
-
 		if(playerLeveledUp == false)
 		ChangeSceneAfterWinning();
 	}
