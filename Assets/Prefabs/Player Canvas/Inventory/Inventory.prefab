@@ -680,7 +680,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325857870}
-  - component: {fileID: 325857871}
   m_Layer: 5
   m_Name: Plant Info Box
   m_TagString: Untagged
@@ -713,26 +712,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1192, y: -168}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &325857871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325857869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eec0bb8a50537dd4fad5e60dc903159e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantName: {fileID: 1328235273}
-  plantHealthBar: {fileID: 1800772468}
-  plantXPBar: {fileID: 688227803}
-  levelTextStat: {fileID: 15675869}
-  healthTextStat: {fileID: 3674928460219755469}
-  damageTextStat: {fileID: 981399354}
-  defenseTextStat: {fileID: 1847547945}
-  critChanceTextStat: {fileID: 1241309232}
 --- !u!1 &344885779
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,7 +7076,6 @@ MonoBehaviour:
   meleeWeaponItemSlotParent: {fileID: 7809169510622936268}
   armorItemSlotParent: {fileID: 7809169511078876472}
   <itemInfoBox>k__BackingField: {fileID: 871479072}
-  <plantInfoBox>k__BackingField: {fileID: 325857871}
   <textPopup>k__BackingField: {fileID: 0}
   junkItemsCategory: {fileID: 7809169511340991893}
   consumableItemsCategory: {fileID: 7809169512069872718}
@@ -7123,7 +7101,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2649176847060232419}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -9140,7 +9118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7809169511458936810
 RectTransform:
   m_ObjectHideFlags: 0
