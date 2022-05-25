@@ -106,6 +106,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		int statIncreaseNumber = statIncreases[0];
 		for (int i = 0; i < statIncreases[0]; i++)
 		{
+			if (levelUpStatus == LevelUpStatus.Finished) break;
+
 			previousHealth++;
 			statIncreaseNumber--;
 			healthTextStat.text = "HEALTH: " + previousHealth;
@@ -124,6 +126,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		int statIncreaseNumber = statIncreases[1];
 		for (int i = 0; i < statIncreases[1]; i++)
 		{
+			if (levelUpStatus == LevelUpStatus.Finished) break;
+
 			previousDamage++;
 			statIncreaseNumber--;
 			damageTextStat.text = "DAMAGE: " + previousDamage;
@@ -143,6 +147,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		int statIncreaseNumber = statIncreases[2];
 		for (int i = 0; i < statIncreases[2]; i++)
 		{
+			if (levelUpStatus == LevelUpStatus.Finished) break;
+
 			previousDefense++;
 			statIncreaseNumber--;
 			defenseTextStat.text = "DEFENSE: " + previousDefense;
@@ -162,7 +168,7 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		int statIncreaseNumber = statIncreases[3];
 		for (int i = 0; i < statIncreases[3]; i++)
 		{
-			//if(levelUpStatus == LevelUpStatus.Finished)
+			if (levelUpStatus == LevelUpStatus.Finished) break;
 
 			previousCritChance++;
 			statIncreaseNumber--;
@@ -185,17 +191,35 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		if (levelUpStatus == LevelUpStatus.Beginning)
 			StartCoroutine(AddStats());
 		else if (levelUpStatus == LevelUpStatus.AddingStats)
-			Debug.Log("Temp");
+			QuickAddStats();
 		else if (levelUpStatus == LevelUpStatus.Finished)
 			FinishLevelUp();
 	}
 	void FinishLevelUp()
     {
+		if (characterToLevelUp == CharacterToLevelUp.Player)
+			if (PlayerStats.instance.playerLevelSystem.TryToLevelUp())
+				return;
+
 		if (BattleSystem.instance != null)
             BattleSystem.instance.ChangeSceneAfterWinning();
         else
             GameManager.CloseOverlay(levelUpParent);
     }
+	void QuickAddStats()
+    {
+		levelUpStatus = LevelUpStatus.Finished;
+
+		healthTextStat.text = "HEALTH: " + levelUpStats.newHealth;
+		damageTextStat.text = "DAMAGE: " + levelUpStats.newDamage;
+		defenseTextStat.text = "DEFENSE: " + levelUpStats.newDefense;
+		critChanceTextStat.text = "CRIT CHANCE: " + levelUpStats.newCritChance;
+
+		healthTextStatIncrease.text = "+ 0";
+		damageTextStatIncrease.text = "+ 0";
+		defenseTextStatIncrease.text = "+ 0";
+		critChanceTextStatIncrease.text = "+ 0";
+	}
 
 	private void OnEnable()
     {
