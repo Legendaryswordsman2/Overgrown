@@ -1,9 +1,10 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public enum CharacterToLevelUp { Player, Plant }
+enum LevelUpStatus { Beginning, AddingStats, Finished }
 public class PlayerLevelUpScreen : MonoBehaviour
 {
 	[SerializeField] GameObject levelUpParent;
@@ -36,12 +37,16 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	bool hasIncreasedStats = false;
 	bool finishedLevelUp = false;
 
+	LevelUpStatus levelUpStatus = LevelUpStatus.Beginning;
+
 	CharacterToLevelUp characterToLevelUp;
 
 	LevelUpStats levelUpStats;
 
 	public void SetLevelUpScreen(LevelUpStats _levelUpStats, CharacterToLevelUp _characterToLevelUp)
 	{
+		levelUpStatus = LevelUpStatus.Beginning;
+
 		characterToLevelUp = _characterToLevelUp;
 
 		levelUpStats = _levelUpStats;
@@ -85,6 +90,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	}
 	IEnumerator AddStats()
 	{
+		popupText.gameObject.SetActive(false);
+		levelUpStatus = LevelUpStatus.AddingStats;
 		StartCoroutine(ApplyStatIncreaseToHealthStat());
 		yield return new WaitForSecondsRealtime(0.1f);
 		StartCoroutine(ApplyStatIncreaseToDamageStat());
@@ -155,6 +162,8 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		int statIncreaseNumber = statIncreases[3];
 		for (int i = 0; i < statIncreases[3]; i++)
 		{
+			//if(levelUpStatus == LevelUpStatus.Finished)
+
 			previousCritChance++;
 			statIncreaseNumber--;
 			critChanceTextStat.text = "CRIT CHANCE: " + previousCritChance;
@@ -167,22 +176,35 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 			yield return new WaitForSecondsRealtime(0.1f);
 		}
-
-		finishedLevelingStats();
+		popupText.gameObject.SetActive(true);
+		levelUpStatus = LevelUpStatus.Finished;
 	}
-
-	void finishedLevelingStats()
-    {
-        InputManager.playerInputActions.LevelUpScreen.Continue.performed += Continue_performed;
-    }
 
     private void Continue_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if(characterToLevelUp == CharacterToLevelUp.Player)
-        {
-			
-        }
+		if (levelUpStatus == LevelUpStatus.Beginning)
+			StartCoroutine(AddStats());
+		else if (levelUpStatus == LevelUpStatus.AddingStats)
+			Debug.Log("Temp");
+		else if (levelUpStatus == LevelUpStatus.Finished)
+			FinishLevelUp();
+	}
+	void FinishLevelUp()
+    {
+		if (BattleSystem.instance != null)
+            BattleSystem.instance.ChangeSceneAfterWinning();
+        else
+            GameManager.CloseOverlay(levelUpParent);
     }
+
+	private void OnEnable()
+    {
+		InputManager.playerInputActions.LevelUpScreen.Continue.performed += Continue_performed;
+	}
+    private void OnDisable()
+    {
+		InputManager.playerInputActions.LevelUpScreen.Continue.performed -= Continue_performed;
+	}
 
     private void Update()
 	{
