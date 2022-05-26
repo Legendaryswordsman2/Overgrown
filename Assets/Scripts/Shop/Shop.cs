@@ -104,8 +104,8 @@ public class Shop : MonoBehaviour
 
 	private void Back_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
 	{
-			ResetShopView(true);
-	}
+        ResetShopView(true);
+    }
 
 	public void GoToStartOfList()
 	{
