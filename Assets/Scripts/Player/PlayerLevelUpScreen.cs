@@ -191,8 +191,20 @@ public class PlayerLevelUpScreen : MonoBehaviour
 	void FinishLevelUp()
     {
 		if (characterToLevelUp == CharacterToLevelUp.Player)
+        {
 			if (PlayerStats.instance.playerLevelSystem.TryToLevelUp())
 				return;
+            else
+            {
+				if (PlayerStats.instance.GetComponent<PlantStats>().plantLevelSystem.TryToLevelUp())
+					return;
+			}
+        }
+        else
+        {
+			if (PlayerStats.instance.GetComponent<PlantStats>().plantLevelSystem.TryToLevelUp())
+				return;
+        }
 
 		if (BattleSystem.instance != null)
             BattleSystem.instance.ChangeSceneAfterWinning();

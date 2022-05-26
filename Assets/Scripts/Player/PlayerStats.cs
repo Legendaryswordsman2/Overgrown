@@ -43,7 +43,7 @@ public class PlayerStats : MonoBehaviour
 	{
 		instance = this;
 
-		playerLevelSystem = new LevelSystem(PlayerOrPlant.Player);
+		playerLevelSystem = new LevelSystem(CharacterToLevelUp.Player);
 
 		saveManager = SaveManager.instance;
 
@@ -117,7 +117,6 @@ public class PlayerStats : MonoBehaviour
 	public void IncreaseStatsFromLevelUp(int[] statIncreases)
 	{
 		playerLevelUpScreen.SetLevelUpScreen(new LevelUpStats(maxHealth, damage, defense, critChance, statIncreases, playerLevelSystem.level), CharacterToLevelUp.Player);
-		//playerLevelUpScreen.SetLevelUpScreen(this, statIncreases);
 
 		maxHealth += statIncreases[0];
 		currentHealth += statIncreases[0];

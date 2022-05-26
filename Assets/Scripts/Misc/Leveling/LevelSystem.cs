@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerOrPlant { Player, Plant }
-
 [System.Serializable]
 public class LevelSystem
 {
 
-    PlayerOrPlant playerOrPlant;
+    CharacterToLevelUp characterToLevelUp;
 
     [Header("Default Stats")]
 
@@ -23,9 +21,9 @@ public class LevelSystem
     [ReadOnlyInspector] public int xp = 0, xpToLevelUp = 100, neededXpIncreaseOnLevelUp = 100, neededXpIncreaseIncreaseOnLevelUp = 20;
 
 
-    public LevelSystem(PlayerOrPlant _playerOrPlant) // The equivalent of a start function
+    public LevelSystem(CharacterToLevelUp _playerOrPlant) // The equivalent of a start function
     {
-        playerOrPlant = _playerOrPlant;
+        characterToLevelUp = _playerOrPlant;
 
         SaveManager saveManager = SaveManager.instance;
 
@@ -36,12 +34,12 @@ public class LevelSystem
     {
         var saveData = new LevelSystemSaveData(this);
 
-        switch (playerOrPlant)
+        switch (characterToLevelUp)
         {
-            case PlayerOrPlant.Player:
+            case CharacterToLevelUp.Player:
                 SaveSystem.SaveFile("/Player/Characters", "/PlayerLevel", saveData);
                 break;
-            case PlayerOrPlant.Plant:
+            case CharacterToLevelUp.Plant:
                 SaveSystem.SaveFile("/Player/Characters", "/PlantLevel", saveData);
                 break;
  
@@ -51,12 +49,12 @@ public class LevelSystem
     {
         LevelSystemSaveData saveData;
 
-        switch (playerOrPlant)
+        switch (characterToLevelUp)
         {
-            case PlayerOrPlant.Player:
+            case CharacterToLevelUp.Player:
                 saveData = SaveSystem.LoadFile<LevelSystemSaveData>("/Player/Characters/PlayerLevel");
                 break;
-            case PlayerOrPlant.Plant:
+            case CharacterToLevelUp.Plant:
                 saveData = SaveSystem.LoadFile<LevelSystemSaveData>("/Player/Characters/PlantLevel");
                 break;
 
@@ -100,6 +98,10 @@ public class LevelSystem
         else
             return false;
     }
+    public void GiveXpWithoutLevelUpCheck(int xpAmount)
+    {
+        xp += xpAmount;
+    }
     void LevelUp()
     {
         level++;
@@ -126,7 +128,10 @@ public class LevelSystem
             statIncreases[i] = Random.Range(1, 5);
         }
 
-        PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
+        if (characterToLevelUp == CharacterToLevelUp.Player)
+            PlayerStats.instance.IncreaseStatsFromLevelUp(statIncreases);
+        else
+            PlayerStats.instance.GetComponent<PlantStats>().IncreaseStatsFromLevelUp(statIncreases);
     }
 
     public bool TryToLevelUp()

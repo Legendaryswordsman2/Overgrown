@@ -24721,7 +24721,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1207812900}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -25319,7 +25319,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1207812900}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -29115,11 +29115,6 @@ PrefabInstance:
 --- !u!224 &1207812899 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 889596551238624258, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
-  m_PrefabInstance: {fileID: 1207812898}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1207812900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1848449684, guid: 77e173e3805c93c4b895f6d2141a9fde, type: 3}
   m_PrefabInstance: {fileID: 1207812898}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207812901 stripped
@@ -37041,7 +37036,7 @@ MonoBehaviour:
     xpToLevelUp: 0
     neededXpIncreaseOnLevelUp: 0
     neededXpIncreaseIncreaseOnLevelUp: 0
-  <playerLevelUpScreen>k__BackingField: {fileID: 0}
+  <playerLevelUpScreen>k__BackingField: {fileID: 143797134}
   plantInfoCard: {fileID: 0}
 --- !u!1 &2004411741
 GameObject:

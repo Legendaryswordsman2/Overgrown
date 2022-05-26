@@ -142,6 +142,8 @@ public class BattleSystem : MonoBehaviour
 		bool playerLeveledUp = GetComponent<PlayerStats>().playerLevelSystem.GiveXp(xpGiven);
 		GetComponent<PlayerStats>().GiveMoney(moneyGiven);
 
+		GetComponent<PlantStats>().plantLevelSystem.GiveXpWithoutLevelUpCheck(xpGiven);
+
 		if(playerLeveledUp == false)
 		ChangeSceneAfterWinning();
 	}

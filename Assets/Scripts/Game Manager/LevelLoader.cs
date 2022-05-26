@@ -25,6 +25,8 @@ public class LevelLoader : MonoBehaviour
 
 		GameManager.StopTime();
 
+		InputManager.playerInputActions.Disable();
+
 		anim.SetTrigger(transitionAnimationStartName);
 
 		yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length);
@@ -41,6 +43,8 @@ public class LevelLoader : MonoBehaviour
 		changingScenes = true;
 
 		GameManager.StopTime();
+
+		InputManager.playerInputActions.Disable();
 
 		anim.SetTrigger(transitionAnimationStartName);
 
@@ -93,6 +97,8 @@ public class LevelLoader : MonoBehaviour
 
 		PlayAnimationOnSceneChange("CrossFade", new Vector3());
 
+		InputManager.playerInputActions.Disable();
+
 		anim.SetTrigger("CrossFade Start");
 
 		yield return new WaitForSecondsRealtime(anim.GetCurrentAnimatorStateInfo(0).length);
@@ -112,6 +118,8 @@ public class LevelLoader : MonoBehaviour
 		changingScenes = true;
 
 		PlayAnimationOnSceneChange("CrossFade", new Vector3());
+
+		InputManager.playerInputActions.Disable();
 
 		anim.SetTrigger("CrossFade Start");
 

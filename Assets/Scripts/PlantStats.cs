@@ -27,7 +27,7 @@ public class PlantStats : MonoBehaviour
 
 	private void Awake()
 	{
-		plantLevelSystem = new LevelSystem(PlayerOrPlant.Plant);
+		plantLevelSystem = new LevelSystem(CharacterToLevelUp.Plant);
 
 		saveManager = SaveManager.instance;
 
@@ -80,46 +80,13 @@ public class PlantStats : MonoBehaviour
 
 	public void IncreaseStatsFromLevelUp(int[] statIncreases)
 	{
-		//playerLevelUpScreen.SetPlayerLevelUpScreen(this, statIncreases);
+		playerLevelUpScreen.SetLevelUpScreen(new LevelUpStats(maxHealth, damage, defense, critChance, statIncreases, plantLevelSystem.level), CharacterToLevelUp.Plant);
 
 		maxHealth += statIncreases[0];
 		currentHealth += statIncreases[0];
 		damage += statIncreases[1];
 		defense += statIncreases[2];
 		critChance += statIncreases[3];
-
-		if (BattleSystem.instance != null) return;
-
-		plantInfoCard.SetInfoCard(this);
-	}
-	public void IncreaseHealthFromChosenLevelUpStat(int amount)
-	{
-		maxHealth += amount;
-		currentHealth += amount;
-
-		if (BattleSystem.instance != null) return;
-
-		plantInfoCard.SetInfoCard(this);
-	}
-	public void IncreaseDamageFromChosenLevelUpStat(int amount)
-	{
-		damage += amount;
-
-		if (BattleSystem.instance != null) return;
-
-		plantInfoCard.SetInfoCard(this);
-	}
-	public void IncreaseDefenseFromChosenLevelUpStat(int amount)
-	{
-		defense += amount;
-
-		if (BattleSystem.instance != null) return;
-
-		plantInfoCard.SetInfoCard(this);
-	}
-	public void IncreaseCritChanceFromChosenLevelUpStat(int amount)
-	{
-		critChance += amount;
 
 		if (BattleSystem.instance != null) return;
 
