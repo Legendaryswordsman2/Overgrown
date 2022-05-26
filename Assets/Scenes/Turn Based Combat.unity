@@ -1647,6 +1647,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 133334640, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: timeUntilDisable
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: damage
       value: 20
@@ -3105,6 +3109,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 133334640, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: timeUntilDisable
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: unitName
       value: 
@@ -24031,7 +24039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f4510b02453904bbad0442bf193768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilDisable: 2
+  timeUntilDisable: 0.5
 --- !u!114 &603876320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24338,7 +24346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f4510b02453904bbad0442bf193768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilDisable: 2
+  timeUntilDisable: 0.5
 --- !u!114 &613104914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37523,6 +37531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 133334640, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: timeUntilDisable
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: unitName
       value: 
@@ -37998,6 +38010,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1346035436}
     m_Modifications:
+    - target: {fileID: 133334640, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
+      propertyPath: timeUntilDisable
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1687312762, guid: 7c4d319aeb2514545bdc18dd17563720, type: 3}
       propertyPath: damage
       value: 20
