@@ -23,7 +23,6 @@ public class Inventory : MonoBehaviour
 	[SerializeField] GameObject junkItemSlotParent;
 	[SerializeField] GameObject consumableItemSlotParent;
 	[SerializeField] GameObject questItemSlotParent;
-	[SerializeField] GameObject EquipablePlantItemSlotParent;
 
 	[SerializeField] GameObject meleeWeaponItemSlotParent;
 	[SerializeField] GameObject armorItemSlotParent;
@@ -41,7 +40,6 @@ public class Inventory : MonoBehaviour
 
 
 	[Header("Item Slots")]
-	[SerializeField] List<ItemSlot> equippablePlantItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> junkItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> consumableItemSlots = new List<ItemSlot>();
 	[SerializeField] List<ItemSlot> questItemSlots = new List<ItemSlot>();
@@ -50,8 +48,6 @@ public class Inventory : MonoBehaviour
 	[SerializeField] List<ItemSlot> armorItemSlots = new List<ItemSlot>();
 
 	[SerializeField] GameObject itemSlotPrefab;
-
-	public event EventHandler OnPlantItemSelected;
 
 	[field: Space]
 
@@ -292,12 +288,6 @@ public class Inventory : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-		foreach (Transform child in EquipablePlantItemSlotParent.transform)
-		{
-			equippablePlantItemSlots.Clear();
-			Destroy(child.gameObject);
-		}
-
 		foreach (Transform child in meleeWeaponItemSlotParent.transform)
 		{
 			meleeWeaponItemSlots.Clear();
@@ -310,13 +300,6 @@ public class Inventory : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 	}
-
-	#region Invoke Events
-	public void InvokeOnPlantItemSelected()
-	{
-		OnPlantItemSelected?.Invoke(this, EventArgs.Empty);
-	}
-	#endregion
 
 	public void AddItem(Item item)
 	{

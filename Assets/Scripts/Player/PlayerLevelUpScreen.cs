@@ -34,9 +34,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 	int[] statIncreases;
 
-	bool hasIncreasedStats = false;
-	bool finishedLevelUp = false;
-
 	LevelUpStatus levelUpStatus = LevelUpStatus.Beginning;
 
 	CharacterToLevelUp characterToLevelUp;
@@ -50,8 +47,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 		characterToLevelUp = _characterToLevelUp;
 
 		levelUpStats = _levelUpStats;
-
-		finishedLevelUp = false;
 
 		statIncreases = levelUpStats.statIncreases;
 
@@ -82,8 +77,6 @@ public class PlayerLevelUpScreen : MonoBehaviour
 
 		popupText.text = "PRESS SPACE TO CONTINUE...";
 		popupText.gameObject.SetActive(true);
-
-		hasIncreasedStats = false;
 
 		GameManager.OpenOverlay(levelUpParent);
 		gameObject.SetActive(true);
