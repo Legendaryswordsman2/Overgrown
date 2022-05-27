@@ -8704,7 +8704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
   <currentHealth>k__BackingField: 0
-  <damage>k__BackingField: 100
+  <damage>k__BackingField: 10
   <defense>k__BackingField: 0
   <critChance>k__BackingField: 0
   <playerLevelSystem>k__BackingField:
@@ -8739,7 +8739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
   <currentHealth>k__BackingField: 0
-  <damage>k__BackingField: 100
+  <damage>k__BackingField: 10
   <defense>k__BackingField: 0
   <critChance>k__BackingField: 0
   <plantLevelSystem>k__BackingField:
@@ -11664,7 +11664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4629661707258829736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12993,7 +12993,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.801205, y: 1}
+    m_SensorSize: {x: 2.9282117, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
